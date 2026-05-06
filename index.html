@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>CHOAMX – Eccellenza Egiziana</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --gold: #d4a017;
+      --gold-light: #f0c040;
+      --gold-dark: #a07810;
+      --dark: #0e0e0e;
+      --dark2: #1a1a1a;
+      --gray-bg: #f0ede8;
+      --text-dark: #1c1c1c;
+      --text-mid: #555;
+      --white: #ffffff;
+      --radius: 16px;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ===== SCROLL REVEAL BASE ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(48px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.from-left  { transform: translateX(-55px); }
+    .reveal.from-right { transform: translateX(55px); }
+    .reveal.scale-in   { transform: scale(0.88); }
+    .reveal.visible    { opacity: 1; transform: none; }
+
+    .stagger-1 { transition-delay: 0.10s; }
+    .stagger-2 { transition-delay: 0.20s; }
+    .stagger-3 { transition-delay: 0.30s; }
+    .stagger-4 { transition-delay: 0.40s; }
+    .stagger-5 { transition-delay: 0.50s; }
+
+    /* ===== NAVBAR ===== */
+    header {
+      position: fixed;
+      top: 0; width: 100%;
+      z-index: 1000;
+      padding: 18px 0;
+      background: linear-gradient(180deg, rgba(14,14,14,0.95) 0%, transparent 100%);
+      border-bottom: 1px solid rgba(212,160,23,0.2);
+      backdrop-filter: blur(10px);
+      transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
+    }
+    header.scrolled {
+      background: rgba(14,14,14,0.97);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.55);
+      border-bottom-color: rgba(212,160,23,0.4);
+    }
+    .nav {
+      width: 90%; margin: auto;
+      display: flex; align-items: center; justify-content: space-between;
+      position: relative;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 4px 14px rgba(212,160,23,0.35);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .logo:hover .logo-icon {
+      transform: rotate(8deg) scale(1.08);
+      box-shadow: 0 8px 22px rgba(212,160,23,0.5);
+    }
+    .logo h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--white); letter-spacing: 1.5px; line-height: 1.2;
+    }
+    .logo h2 span {
+      display: block; font-size: 10px;
+      font-family: 'DM Sans', sans-serif; font-weight: 400;
+      color: var(--gold); letter-spacing: 3px;
+    }
+    .nav-links ul {
+      display: flex; gap: 32px; list-style: none;
+    }
+    .nav-links ul li {
+      cursor: pointer; font-size: 13px; font-weight: 500;
+      letter-spacing: 0.5px; color: rgba(255,255,255,0.72);
+      position: relative; padding-bottom: 4px;
+      transition: color 0.3s;
+    }
+    .nav-links ul li::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; width: 0; height: 1.5px;
+      background: var(--gold);
+      transition: width 0.35s ease;
+    }
+    .nav-links ul li:hover { color: var(--gold); }
+    .nav-links ul li:hover::after { width: 100%; }
+    .social { display: flex; gap: 12px; }
+    .social a {
+      width: 34px; height: 34px;
+      border: 1px solid rgba(212,160,23,0.3); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.7); font-size: 13px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .social a:hover {
+      background: var(--gold); border-color: var(--gold);
+      color: var(--dark); transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(212,160,23,0.4);
+    }
+
+    /* Mobile Menu Toggle Icon */
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      color: var(--gold);
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      transition: transform 0.3s;
+    }
+    .menu-toggle:hover {
+      transform: scale(1.05);
+      color: var(--gold-light);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: url('https://images.pexels.com/photos/32119533/pexels-photo-32119533.jpeg') no-repeat center/cover;
+      position: relative; display: flex; align-items: center;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(120deg,
+        rgba(10,8,5,0.90) 0%,
+        rgba(10,8,5,0.62) 55%,
+        rgba(10,8,5,0.28) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      width: 55%; margin-left: 7%; padding-top: 80px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,160,23,0.12);
+      border: 1px solid rgba(212,160,23,0.4);
+      border-radius: 50px; padding: 6px 18px;
+      font-size: 11px; font-weight: 700;
+      color: var(--gold); letter-spacing: 2.5px;
+      text-transform: uppercase; margin-bottom: 28px;
+      animation: fadeDown 0.8s ease both;
+    }
+    @keyframes fadeDown {
+      from { opacity:0; transform:translateY(-20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 900; line-height: 1.2;
+      margin-bottom: 24px; color: var(--white);
+      animation: fadeUp 0.9s 0.2s ease both;
+    }
+    .hero h1 em { font-style: normal; color: var(--gold); }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(30px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .hero p {
+      font-size: 16px; line-height: 1.8;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 38px; max-width: 520px;
+      animation: fadeUp 0.9s 0.4s ease both;
+    }
+    .hero-buttons {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      animation: fadeUp 0.9s 0.6s ease both;
+    }
+    .btn {
+      padding: 14px 30px; border: none; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 600;
+      border-radius: 8px; letter-spacing: 0.5px;
+      transition: all 0.35s ease;
+      position: relative; overflow: hidden;
+    }
+    .btn::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(255,255,255,0.12); opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .btn:hover::after { opacity: 1; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--dark);
+      box-shadow: 0 6px 24px rgba(212,160,23,0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(212,160,23,0.55);
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: var(--white);
+    }
+    .btn-secondary:hover {
+      border-color: var(--gold); color: var(--gold);
+      transform: translateY(-3px);
+    }
+    .scroll-indicator {
+      position: absolute; bottom: 36px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,0.35);
+      font-size: 10px; letter-spacing: 2.5px;
+      animation: bounce 2s infinite; z-index: 2;
+    }
+    .scroll-indicator i { font-size: 16px; }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ===== SECTION SHARED ===== */
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+      position: relative; padding: 0 22px;
+    }
+    .section-eyebrow::before, .section-eyebrow::after {
+      content: ''; position: absolute;
+      top: 50%; width: 36px; height: 1px;
+      background: var(--gold); opacity: 0.5;
+    }
+    .section-eyebrow::before { right: 100%; }
+    .section-eyebrow::after  { left: 100%; }
+
+    .section-title-main {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 900; line-height: 1.2;
+      position: relative; display: inline-block;
+      padding-bottom: 16px;
+    }
+    .section-title-main::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 50px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 2px;
+      transition: width 0.65s ease 0.2s;
+    }
+    .section-title-main.visible::after { width: 120px; }
+    .title-on-dark { color: var(--white); }
+    .title-on-light { color: var(--text-dark); }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-weight: 700;
+      color: var(--text-dark); line-height: 1.35;
+      margin-bottom: 10px;
+      position: relative; display: inline-block;
+      padding-bottom: 10px;
+    }
+    .card-title::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0;
+      width: 24px; height: 2.5px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 2px;
+      transition: width 0.5s ease 0.15s;
+    }
+    .import-card:hover .card-title::after,
+    .import-card.visible .card-title::after { width: 70px; }
+
+    /* ===== IMPORT SECTION ===== */
+    .import-section {
+      padding: 100px 0;
+      background: var(--gray-bg);
+      position: relative; overflow: hidden;
+    }
+    .import-section::before {
+      content: ''; position: absolute;
+      top: -80px; left: 0; right: 0; height: 80px;
+      background: linear-gradient(180deg, var(--dark) 0%, var(--gray-bg) 100%);
+    }
+    .section-header {
+      text-align: center; margin-bottom: 60px; padding: 0 20px;
+    }
+    .import-cards {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 20px; width: 88%; margin: auto;
+    }
+    .import-card {
+      background: var(--white);
+      padding: 32px 26px;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+      position: relative; overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .import-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.45s ease;
+    }
+    .import-card:hover { transform: translateY(-9px); box-shadow: 0 22px 55px rgba(0,0,0,0.14); }
+    .import-card:hover::before { transform: scaleX(1); }
+    .card-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, rgba(212,160,23,0.14), rgba(212,160,23,0.04));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px; font-size: 20px; color: var(--gold);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .import-card:hover .card-icon {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--white); transform: scale(1.1) rotate(6deg);
+    }
+    .card-label-tag {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 8px; display: block;
+    }
+    .import-card p {
+      font-size: 13.5px; color: var(--text-mid); line-height: 1.7;
+      margin-top: 6px;
+    }
+
+    /* ===== CATEGORIES SECTION ===== */
+    .categories-section {
+      background: var(--dark2);
+      padding: 100px 0 110px;
+      position: relative; overflow: hidden;
+    }
+    .categories-section::before {
+      content: ''; position: absolute;
+      top: -80px; left: 0; right: 0; height: 80px;
+      background: linear-gradient(180deg, var(--gray-bg) 0%, var(--dark2) 100%);
+    }
+    .cat-orb {
+      position: absolute; width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,160,23,0.07) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      pointer-events: none;
+    }
+    .categories-grid {
+      display: flex; gap: 18px;
+      justify-content: center; flex-wrap: wrap;
+      padding: 0 40px; position: relative; z-index: 1;
+    }
+
+    .category-card {
+      position: relative;
+      width: 162px; height: 108px;
+      border-radius: 18px; overflow: hidden;
+      cursor: pointer; flex-shrink: 0;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.28);
+      opacity: 0;
+      transform: translateY(45px) scale(0.92);
+      transition:
+        opacity 0.55s ease,
+        transform 0.55s cubic-bezier(0.34,1.56,0.64,1),
+        box-shadow 0.35s ease;
+    }
+    .category-card.visible { opacity:1; transform:none; }
+    .category-card:nth-child(1) { transition-delay:0.05s; }
+    .category-card:nth-child(2) { transition-delay:0.15s; }
+    .category-card:nth-child(3) { transition-delay:0.25s; }
+    .category-card:nth-child(4) { transition-delay:0.35s; }
+    .category-card:nth-child(5) { transition-delay:0.45s; }
+
+    .category-card:hover {
+      transform: translateY(-9px) scale(1.07);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.45),
+                  0 0 0 2px rgba(212,160,23,0.55);
+    }
+    .category-card:hover .card-bg  { transform: scale(1.13); }
+    .category-card:hover .card-overlay {
+      background: linear-gradient(160deg,
+        rgba(212,160,23,0.55) 0%,
+        rgba(160,120,8,0.38) 100%
+      );
+    }
+    .category-card:hover .card-label {
+      letter-spacing: 0.07em;
+      transform: translateY(-3px);
+    }
+
+    .card-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: transform 0.5s ease;
+    }
+    .card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg,
+        rgba(20,16,8,0.52) 0%,
+        rgba(10,8,4,0.32) 100%
+      );
+      transition: background 0.35s ease;
+    }
+    .card-label {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 700;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      padding: 10px; line-height: 1.25;
+      letter-spacing: 0.02em;
+      transition: letter-spacing 0.3s ease, transform 0.3s ease;
+    }
+    .card-verdure   .card-bg { background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=85'); }
+    .card-frutta    .card-bg { background-image: url('https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&q=85'); }
+    .card-surgelati .card-bg { background-image: url('https://images.unsplash.com/photo-1534483509719-3feaee7c30da?w=400&q=85'); }
+    .card-legumi    .card-bg { background-image: url('https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?w=400&q=85'); }
+    .card-stagione  .card-bg { background-image: url('https://images.unsplash.com/photo-1506484381205-f7945653044d?w=400&q=85'); }
+
+    /* ===== TIMELINE & FAQ STYLES (preserved) ===== */
+    .timeline-section {
+      padding: 90px 20px 100px;
+      background: #f7f5f1;
+      position: relative;
+      overflow: hidden;
+    }
+    .timeline-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(212,160,23,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .timeline-header {
+      text-align: center;
+      margin-bottom: 70px;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .timeline-header.visible { opacity: 1; transform: none; }
+    .timeline-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 60px);
+      font-weight: 1000;
+      color: #1a1a1a;
+      letter-spacing: -0.3px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 18px;
+    }
+    .timeline-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 2px;
+      transition: width 0.8s ease 0.4s;
+    }
+    .timeline-header.visible h2::after { width: 100px; }
+    .timeline-container {
+      position: relative;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: #c8c0b0;
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+    .timeline-line-fill {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 0%;
+      background: linear-gradient(180deg, var(--gold), var(--gold-light));
+      border-radius: 2px;
+      transition: height 1.5s ease;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      align-items: start;
+      margin-bottom: 0;
+      position: relative;
+      z-index: 1;
+      min-height: 130px;
+    }
+    .item-left { padding: 0 36px 40px 0; text-align: right; }
+    .item-right { padding: 0 0 40px 36px; text-align: left; }
+    .item-empty { padding-bottom: 40px; }
+    .item-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 6px;
+    }
+    .item-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: #f7f5f1;
+      border: 2.5px solid #c8c0b0;
+      flex-shrink: 0;
+      transition: border-color 0.4s, background 0.4s, transform 0.4s, box-shadow 0.4s;
+      z-index: 2;
+    }
+    .timeline-item.visible .item-dot {
+      border-color: var(--gold);
+      background: var(--gold);
+      transform: scale(1.2);
+      box-shadow: 0 0 0 5px rgba(212,160,23,0.18);
+    }
+    .item-day {
+      margin-top: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #888;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .timeline-item.visible .item-day { color: var(--gold-dark); }
+    .item-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      padding-bottom: 10px;
+      display: inline-block;
+      position: relative;
+    }
+    .item-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 2px;
+      width: 0;
+      transition: width 0.55s ease 0.25s;
+    }
+    .item-right .item-title::after { left: 0; }
+    .item-left .item-title::after { right: 0; }
+    .timeline-item.visible .item-title::after { width: 80%; }
+    .item-desc {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #4a4a4a;
+      max-width: 300px;
+      margin-top: 8px;
+    }
+    .item-left .item-desc { margin-left: auto; }
+    .item-left::after {
+      content: '';
+      position: absolute;
+      top: 13px; right: 0;
+      width: 36px; height: 1px;
+      background: linear-gradient(90deg, transparent, #c8c0b0);
+    }
+    .item-right::before {
+      content: '';
+      position: absolute;
+      top: 13px; left: 0;
+      width: 36px; height: 1px;
+      background: linear-gradient(90deg, #c8c0b0, transparent);
+    }
+    .timeline-item.visible .item-left::after { background: linear-gradient(90deg, transparent, var(--gold)); }
+    .timeline-item.visible .item-right::before { background: linear-gradient(90deg, var(--gold), transparent); }
+    .timeline-item .item-left, .timeline-item .item-right { opacity: 0; transition: opacity 0.65s ease, transform 0.65s ease; }
+    .timeline-item .item-left  { transform: translateX(-40px); }
+    .timeline-item .item-right { transform: translateX(40px); }
+    .timeline-item.visible .item-left, .timeline-item.visible .item-right { opacity: 1; transform: none; }
+
+    .faq-section {
+      padding: 80px 40px 90px;
+      max-width: 1300px;
+      margin: 0 auto;
+      background: #ebebeb;
+    }
+    .faq-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 900;
+      color: #111111;
+      text-align: center;
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .faq-title.visible { opacity: 1; transform: none; }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid #d8d4cd;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .faq-item.visible { opacity: 1; transform: none; }
+    .faq-item.open { border-color: rgba(212,160,23,0.4); box-shadow: 0 8px 28px rgba(0,0,0,0.10); }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 24px;
+      gap: 16px;
+      user-select: none;
+    }
+    .faq-question span {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111;
+      line-height: 1.4;
+    }
+    .faq-arrow {
+      width: 28px; height: 28px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1.5px solid #d8d4cd;
+      color: #888;
+      transition: transform 0.4s, background 0.3s, border-color 0.3s;
+    }
+    .faq-arrow svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2.2; fill: none; }
+    .faq-item.open .faq-arrow {
+      background: #d4a017;
+      border-color: #d4a017;
+      color: #fff;
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-item.open .faq-answer { max-height: 400px; }
+    .faq-answer-inner {
+      padding: 0 24px 24px;
+      border-top: 1px solid #d8d4cd;
+    }
+    .faq-answer-inner p { font-size: 14px; line-height: 1.78; color: #4a4a4a; padding-top: 18px; }
+
+    .footer-stripe {
+      background: #0e0e0e;
+      padding: 28px 0;
+      text-align: center;
+      border-top: 1px solid rgba(212,160,23,0.2);
+      font-size: 13px;
+      color: rgba(255,255,255,0.32);
+    }
+    .footer-stripe span { color: #d4a017; }
+    .whatsapp {
+      position: fixed; bottom: 28px; right: 28px;
+      background: linear-gradient(135deg, #d4a017, #a07810);
+      width: 58px; height: 58px; border-radius: 50%;
+      display: flex; justify-content: center; align-items: center;
+      font-size: 26px; cursor: pointer;
+      box-shadow: 0 6px 22px rgba(212,160,23,0.45);
+      transition: transform 0.3s, box-shadow 0.3s;
+      z-index: 999;
+    }
+    .whatsapp i { color: #0e0e0e; }
+    .whatsapp:hover { transform: scale(1.12) rotate(8deg); box-shadow: 0 10px 32px rgba(212,160,23,0.65); }
+
+    /* ===== RESPONSIVE + MOBILE MENU ===== */
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(14,14,14,0.98);
+        backdrop-filter: blur(12px);
+        padding: 24px 0;
+        border-top: 1px solid rgba(212,160,23,0.3);
+        border-bottom: 1px solid rgba(212,160,23,0.3);
+        transform: translateY(-120%);
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        z-index: 999;
+        visibility: hidden;
+      }
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      .nav-links ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+      }
+      .nav-links ul li {
+        font-size: 16px;
+      }
+      .hero-content { width: 85%; margin-left: 5%; }
+      .import-cards { grid-template-columns: repeat(2,1fr); width: 90%; }
+      .social { margin-right: 10px; }
+    }
+    @media (max-width: 680px) {
+      .timeline-container { padding: 0 10px; }
+      .timeline-item { grid-template-columns: 28px 1fr; }
+      .timeline-line { left: 14px; }
+      .item-left, .item-right { grid-column: 2; text-align: left; padding: 0 0 32px 20px; }
+      .item-left::after, .item-right::before { display: none; }
+      .item-center { grid-column: 1; }
+      .item-empty { display: none; }
+      .hero h1 { font-size: clamp(28px, 7vw, 40px); }
+      .category-card { width: 140px; height: 90px; }
+      .faq-section { padding: 60px 20px 70px; }
+      .faq-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 580px) {
+      .import-cards { grid-template-columns: 1fr; }
+      .hero-content { width: 92%; margin-left: 4%; padding-top: 100px; }
+      .categories-grid { gap: 12px; padding: 0 20px; }
+      .category-card { width: 130px; height: 85px; }
+    }
+    @media (max-width: 480px) {
+      .logo h2 { font-size: 12px; }
+      .logo-icon { width: 36px; height: 36px; font-size: 16px; }
+      .social a { width: 28px; height: 28px; font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="navbar">
+  <div class="nav">
+    <a class="logo" href="#">
+      <div class="logo-icon">🌿</div>
+      <h2>PHARAOHS OF EGYPT<span>CHOAMX TRADE</span></h2>
+    </a>
+    <button class="menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <ul>
+        <li>Home</li>
+        <li>Products</li>
+        <li>News</li>
+        <li>Blog</li>
+        <li>Contact Us</li>
+        <li>About Us</li>
+      </ul>
+    </nav>
+    <div class="social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fas fa-leaf"></i> CHOAMX — Eccellenza Egiziana</div>
+    <h1>Il tuo ponte diretto tra <em>l'Egitto</em><br> e i mercati internazionali</h1>
+    <p>Uniamo l'eccellenza produttiva egiziana al rigore del management Italiano, garantendo standard qualitativi elevati, tracciabilità completa e affidabilità costante in ogni spedizione.</p>
+    <div class="hero-buttons"><button class="btn btn-primary">Request a Quote</button><button class="btn btn-secondary">Browse Products</button></div>
+  </div>
+  <div class="scroll-indicator"><i class="fas fa-chevron-down"></i> SCROLL</div>
+</section>
+
+<section class="import-section">
+  <div class="section-header"><div class="section-eyebrow reveal">Why Choose Us</div><h2 class="section-title-main title-on-light reveal stagger-1">Why Import with PEI Trade?</h2></div>
+  <div class="import-cards">
+    <div class="import-card reveal stagger-1"><div class="card-icon"><i class="fas fa-medal"></i></div><span class="card-label-tag">Quality</span><h3 class="card-title">Oltre la selezione, il controllo live.</h3><p>Non ci fidiamo delle promesse: applichiamo rigidi protocolli di selezione italiani. Prima della partenza, riceverai report video e foto del tuo carico.</p></div>
+    <div class="import-card reveal stagger-2"><div class="card-icon"><i class="fas fa-file-contract"></i></div><span class="card-label-tag">Compliance & Tracciabilità</span><h3 class="card-title">Sicurezza doganale e dazio zero (EUR.1)</h3><p>Con l'emissione del certificato EUR.1, permettiamo ai nostri partner europei di importare a dazio zero, ottimizzando i margini.</p></div>
+    <div class="import-card reveal stagger-3"><div class="card-icon"><i class="fas fa-handshake"></i></div><span class="card-label-tag">Fiducia</span><h3 class="card-title">Un ponte diretto Italia-Egitto senza barriere</h3><p>ChoamX è un'azienda a proprietà e gestione italiana con sede in Egitto. Contratti chiari, nessuna barriera linguistica.</p></div>
+    <div class="import-card reveal stagger-4"><div class="card-icon"><i class="fas fa-shipping-fast"></i></div><span class="card-label-tag">Logistica Integrata</span><h3 class="card-title">Flussi rapidi e ottimizzati per il mercato globale</h3><p>Colleghiamo le migliori produzioni egiziane ai mercati Europei, Medio Oriente e internazionali con massima puntualità.</p></div>
+  </div>
+</section>
+
+<section class="categories-section">
+  <div class="cat-orb"></div>
+  <div class="section-header"><div class="section-eyebrow reveal">I Nostri Prodotti</div><h2 class="section-title-main title-on-dark reveal stagger-1">Le Nostre Categorie</h2></div>
+  <div class="categories-grid">
+    <div class="category-card card-verdure"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">Verdure</div></div>
+    <div class="category-card card-surgelati"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">PRODOTTI SURGELATI</div></div>
+        <div class="category-card card-frutta"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">Frutta</div></div>
+
+    <div class="category-card card-surgelati"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">LEGUMI</div></div>
+    
+    <div class="category-card card-legumi"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">DI STAGIONE</div></div>
+        <div class="category-card card-stagione"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">PELLET E CARBONE</div></div>
+
+        <div class="category-card card-legumi"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">DI STAGIONE</div></div>
+
+  </div>
+</section>
+
+<section class="timeline-section">
+  <div class="timeline-header" id="tl-header"><h2>Cronologia dell'ordine con PEI Trade</h2></div>
+  <div class="timeline-container"><div class="timeline-line" id="tl-line"><div class="timeline-line-fill" id="tl-fill"></div></div>
+    <div class="timeline-item"><div class="item-left"><div class="item-title">Definizione delle specifiche (Giorno 0)</div><p class="item-desc">Analizziamo insieme ogni dettaglio: prodotto, calibro, imballaggio, quantità, Incoterm e destinazione. Nessuna ambiguità, zero margini di errore.</p></div><div class="item-center"><div class="item-dot"></div><div class="item-day">Giorno 0</div></div><div class="item-empty"></div></div>
+    <div class="timeline-item"><div class="item-empty"></div><div class="item-center"><div class="item-dot"></div><div class="item-day">± 24 ore</div></div><div class="item-right"><div class="item-title">Offerta dettagliata (entro 24h)</div><p class="item-desc">Ricevi un preventivo completo con tempistiche di partenza, stime di arrivo, opzioni logistiche e condizioni chiare.</p></div></div>
+    <div class="timeline-item"><div class="item-left"><div class="item-title">Conferma e pianificazione (Giorno 1–2)</div><p class="item-desc">Emettiamo la Proforma Invoice e definiamo un calendario operativo di precisione. Ogni fase è programmata per garantire fluidità e puntualità.</p></div><div class="item-center"><div class="item-dot"></div><div class="item-day">Giorno 1–2</div></div><div class="item-empty"></div></div>
+    <div class="timeline-item"><div class="item-empty"></div><div class="item-center"><div class="item-dot"></div><div class="item-day">Giorno 1–2</div></div><div class="item-right"><div class="item-title">Controllo qualità e preparazione (Giorno 3–7)</div><p class="item-desc">Supervisioniamo selezione, lavorazione e imballaggio direttamente sul campo. Prima della partenza, ricevi report video e foto del carico: verifichi qualità, calibro e conformità prima che la merce lasci l'Egitto. Possibilità di controllo tramite (SGS / BV ) su richiesta del cliente.</p></div></div>
+    <div class="timeline-item"><div class="item-left"><div class="item-title">Spedizione e monitoraggio</div><p class="item-desc">Gestiamo l’intera logistica. Seguiamo la merce lungo tutto il tragitto con aggiornamenti costanti, fornendoti tutta la documentazione necessaria per uno sdoganamento rapido e senza intoppi.</p></div><div class="item-center"><div class="item-dot"></div><div class="item-day">Giorno 3–7</div></div><div class="item-empty"></div></div>
+    <div class="timeline-item"><div class="item-empty"></div><div class="item-center"><div class="item-dot"></div><div class="item-day">In corso</div></div><div class="item-right"><div class="item-title">Supporto post-consegna</div><p class="item-desc">Restiamo al tuo fianco anche dopo l’arrivo della merce, garantendo assistenza operativa continua e la stabilità necessaria per la tua programmazione futura.</p></div></div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <h2 class="faq-title" id="faq-title">LE VOSTRE DOMANDE PIÙ RICORRENTI</h2>
+  <div class="faq-grid">
+    <div class="faq-item open" onclick="toggleFaq(this)"><div class="faq-question"><span>DI COSA SI OCCUPA CHOAMX?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div><div class="faq-answer"><div class="faq-answer-inner"><p>Siamo un partner internazionale specializzato nell’esportazione di prodotti egiziani, con gestione e controllo diretto italiano. La nostra struttura è organizzata in tre divisioni: Fresh Division: Frutta e verdura fresca. Frozen Division: Prodotti surgelati IQF. Bio Energy Division: Pellet e carbone naturale. Operiamo applicando standard gestionali italiani e un controllo diretto lungo tutta la filiera.</p></div></div></div>
+    <div class="faq-item open" onclick="toggleFaq(this)"><div class="faq-question"><span>COME VENGONO FORMULATI I PREZZI E QUANTO SONO VALIDI I PREVENTIVI?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div><div class="faq-answer"><div class="faq-answer-inner"><p>I nostri prezzi sono espressi su base FOB, CFR o CIF, secondo le tue esigenze di importazione. Vengono calcolati in modo trasparente e aggiornati in tempo reale in base alle quotazioni di mercato, al calibro richiesto, alla quantità e alle condizioni di trasporto. I preventivi hanno generalmente una validità di 48-72 ore.</p></div></div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question"><span>QUALI CONDIZIONI DI PAGAMENTO ACCETTATE?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div><div class="faq-answer"><div class="faq-answer-inner"><p>Offriamo flessibilità e sicurezza con LC a vista, DP, TT. Disponibili a valutare soluzioni personalizzate. Su richiesta ispezioni di terze parti (SGS o Bureau Veritas) e soluzioni Escrow.</p></div></div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question"><span>QUAL È IL QUANTITATIVO MINIMO D’ORDINE?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div><div class="faq-answer"><div class="faq-answer-inner"><p>Accettiamo ordini a partire da un container completo (FCL) di 20’ o 40’. È possibile combinare più referenze all’interno dello stesso container, purché rispettino le stesse esigenze di temperatura e stivaggio.</p></div></div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question"><span>QUALI SONO I TEMPI DI PREPARAZIONE E SPEDIZIONE?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div><div class="faq-answer"><div class="faq-answer-inner"><p>Tempi medi: 3–7 giorni lavorativi tra conferma e partenza. Per freschi 3–7 gg, surgelati IQF 3–5 gg, Bio Energy 2–5 gg.</p></div></div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question"><span>COME GARANTITE LA QUALITÀ?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div><div class="faq-answer"><div class="faq-answer-inner"><p>Garantiamo qualità attraverso selezione accurata, grading pre-spedizione, report video, monitoraggio container reefer, ispezioni indipendenti opzionali. Management italiano supervisiona ogni fase.</p></div></div></div>
+  </div>
+</section>
+
+<div class="footer-stripe">© 2025 CHOAMX — <span>Eccellenza Egiziana</span>. Tutti i diritti riservati.</div>
+<div class="whatsapp" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i></div>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('mobileMenuToggle');
+  const navLinks = document.getElementById('navLinks');
+  function toggleMobileMenu() {
+    navLinks.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    if (navLinks.classList.contains('active')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-times');
+    } else {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+  }
+  menuToggle.addEventListener('click', toggleMobileMenu);
+  // Close menu when a link is clicked
+  document.querySelectorAll('.nav-links ul li').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      const icon = menuToggle.querySelector('i');
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    });
+  });
+
+  function toggleFaq(item) { item.classList.toggle('open'); }
+  function openWhatsApp() { window.open("https://wa.me/201000000000", "_blank"); }
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+
+  const obsGeneral = new IntersectionObserver(e => e.forEach(i => { if(i.isIntersecting) { i.target.classList.add('visible'); obsGeneral.unobserve(i.target); } }), { threshold: 0.15 });
+  document.querySelectorAll('.reveal, .import-card, .category-card, .faq-item, .faq-title, .timeline-header, .section-title-main').forEach(el => obsGeneral.observe(el));
+
+  const itemObs = new IntersectionObserver(e => e.forEach(i => { if(i.isIntersecting) { i.target.classList.add('visible'); itemObs.unobserve(i.target); } }), { threshold: 0.25 });
+  document.querySelectorAll('.timeline-item').forEach(i => itemObs.observe(i));
+
+  const fill = document.getElementById('tl-fill');
+  const sectionTs = document.querySelector('.timeline-section');
+  function updateFill() { if(sectionTs) { let rect = sectionTs.getBoundingClientRect(); let scrolled = Math.max(0, window.innerHeight - rect.top); let pct = Math.min(100, (scrolled / (rect.height + window.innerHeight)) * 160); fill.style.height = pct + '%'; } }
+  window.addEventListener('scroll', updateFill); updateFill();
+  document.getElementById('tl-header')?.classList.add('visible');
+  document.getElementById('faq-title')?.classList.add('visible');
+  document.querySelectorAll('.faq-item').forEach(el => obsGeneral.observe(el));
+</script>
+</body>
+</html>
