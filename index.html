@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>CHOAMX – Eccellenza Egiziana</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -775,6 +776,515 @@
       .logo-icon { width: 36px; height: 36px; font-size: 16px; }
       .social a { width: 28px; height: 28px; font-size: 10px; }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .footer{
+    background: #000000b9;
+    color: #fff;
+    padding-top: 70px;
+    font-family: sans-serif;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-container{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.footer-box h3{
+    font-size: 22px;
+    margin-bottom: 25px;
+    color: #d4af37;
+    position: relative;
+}
+
+.footer-box h3::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 60px;
+    height: 2px;
+    background: #d4af37;
+}
+
+.logo{
+    font-size: 32px;
+    color: #d4af37;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.footer-box p{
+    line-height: 1.8;
+    color: #cbd5e1;
+    font-size: 15px;
+}
+
+.footer-box ul{
+    list-style: none;
+}
+
+.footer-box ul li{
+    margin: 15px 0;
+}
+
+.footer-box ul li a{
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-box ul li a:hover{
+    color: #d4af37;
+    padding-left: 5px;
+}
+
+.social-icons{
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a{
+    width: 42px;
+    height: 42px;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #d4af37;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover{
+    background: #d4af37;
+    color: #0f172a;
+    transform: translateY(-5px);
+}
+
+.footer-box i{
+    color: #d4af37;
+    margin-right: 10px;
+}
+
+.footer-bottom{
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.footer-bottom p{
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== ABOUT SECTION ===== */
+
+.about-section{
+  background: #111111;
+  padding: 110px 0;
+  overflow: hidden;
+}
+
+.about-container{
+  width: 88%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 70px;
+  align-items: center;
+}
+
+.about-image{
+  position: relative;
+}
+
+.about-image img{
+  width: 100%;
+  border-radius: 24px;
+  height: 620px;
+  object-fit: cover;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+
+.about-content{
+  color: white;
+}
+
+.about-title{
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px,4vw,52px);
+  line-height: 1.2;
+  margin-bottom: 28px;
+  font-weight: 800;
+}
+
+.about-text{
+  color: rgba(255,255,255,0.72);
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 22px;
+  max-width: 580px;
+}
+
+.about-features{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
+  margin: 40px 0;
+}
+
+.feature-box{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(212,160,23,0.15);
+  padding: 16px 18px;
+  border-radius: 14px;
+  transition: 0.35s;
+}
+
+.feature-box:hover{
+  transform: translateY(-4px);
+  border-color: rgba(212,160,23,0.45);
+  background: rgba(212,160,23,0.08);
+}
+
+.feature-box i{
+  color: var(--gold);
+  font-size: 18px;
+}
+
+.feature-box span{
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media(max-width:900px){
+
+  .about-container{
+    grid-template-columns: 1fr;
+  }
+
+  .about-image img{
+    height: 450px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .about-features{
+    grid-template-columns: 1fr;
+  }
+
+  .about-title{
+    font-size: 34px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== SHIPPING SECTION ===== */
+
+.shipping-section{
+  background: #f4f1eb;
+  padding: 110px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.shipping-container{
+  width: 88%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.shipping-card{
+  background: white;
+  border-radius: 22px;
+  padding: 38px 28px;
+  text-align: center;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.shipping-card::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg,var(--gold),var(--gold-light));
+  transform: scaleX(0);
+  transition: 0.4s;
+}
+
+.shipping-card:hover::before{
+  transform: scaleX(1);
+}
+
+.shipping-card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.15);
+}
+
+.shipping-icon{
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  margin-bottom: 24px;
+  border-radius: 18px;
+  background: rgba(212,160,23,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--gold);
+  transition: 0.35s;
+}
+
+.shipping-card:hover .shipping-icon{
+  background: linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color: white;
+  transform: rotate(8deg) scale(1.08);
+}
+
+.shipping-card h3{
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: #111;
+  margin-bottom: 16px;
+}
+
+.shipping-card p{
+  font-size: 14px;
+  line-height: 1.8;
+  color: #555;
+}
+
+@media(max-width:1000px){
+
+  .shipping-container{
+    grid-template-columns: repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:650px){
+
+  .shipping-container{
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== STATS SECTION ===== */
+
+.stats-section{
+  background: #0e0e0e;
+  padding: 110px 0;
+  text-align: center;
+  position: relative;
+}
+
+.stats-container{
+  width: 88%;
+  margin: 70px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+}
+
+.stat-box{
+  padding: 40px 20px;
+  border: 1px solid rgba(212,160,23,0.2);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
+  transition: 0.4s;
+}
+
+.stat-box:hover{
+  transform: translateY(-8px);
+  border-color: rgba(212,160,23,0.5);
+  background: rgba(212,160,23,0.06);
+}
+
+.stat-box h3{
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.stat-box p{
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+}
+
+@media(max-width:900px){
+  .stats-container{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .stats-container{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== CTA SECTION ===== */
+
+.cta-section{
+  background: linear-gradient(135deg, #111, #0e0e0e);
+  padding: 120px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-container{
+  width: 85%;
+  margin: auto;
+}
+
+.cta-content h2{
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px,4vw,48px);
+  color: white;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.cta-content p{
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  max-width: 650px;
+  margin: auto;
+  line-height: 1.8;
+  margin-bottom: 35px;
+}
+
+.cta-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
   </style>
 </head>
 <body>
@@ -783,7 +1293,7 @@
   <div class="nav">
     <a class="logo" href="#">
       <div class="logo-icon">🌿</div>
-      <h2>PHARAOHS OF EGYPT<span>CHOAMX TRADE</span></h2>
+      <h2>  <span>CHOAMX Company</span></h2>
     </a>
     <button class="menu-toggle" id="mobileMenuToggle" aria-label="Menu">
       <i class="fas fa-bars"></i>
@@ -792,10 +1302,10 @@
       <ul>
         <li>Home</li>
         <li>Products</li>
-        <li>News</li>
-        <li>Blog</li>
+        <li>How We Work</li>
+        <li>Packaging & Technical Specs</li>
         <li>Contact Us</li>
-        <li>About Us</li>
+        <li>FAQ</li>
       </ul>
     </nav>
     <div class="social">
@@ -827,6 +1337,84 @@
   </div>
 </section>
 
+
+
+
+
+
+
+
+
+
+<section class="about-section" id="about">
+  <div class="about-container">
+
+    <div class="about-image reveal from-left">
+      <img src="https://images.pexels.com/photos/3848793/pexels-photo-3848793.jpeg" alt="CHOAMX Export">
+    </div>
+
+    <div class="about-content reveal from-right">
+      <span class="section-eyebrow">About CHOAMX</span>
+
+      <h2 class="about-title">
+        Italian Management <br>
+        Egyptian Export Excellence
+      </h2>
+
+      <p class="about-text">
+        CHOAMX is an international export partner specialized in Egyptian products,
+        combining local production excellence with direct Italian supervision and quality control.
+      </p>
+
+      <p class="about-text">
+        We connect selected Egyptian supply chains with global markets,
+        providing fresh produce, IQF frozen products and Bio Energy solutions
+        with complete traceability and operational transparency.
+      </p>
+
+      <div class="about-features">
+
+        <div class="feature-box">
+          <i class="fas fa-check-circle"></i>
+          <span>Italian Supervision</span>
+        </div>
+
+        <div class="feature-box">
+          <i class="fas fa-check-circle"></i>
+          <span>Global Export Solutions</span>
+        </div>
+
+        <div class="feature-box">
+          <i class="fas fa-check-circle"></i>
+          <span>Certified Quality Control</span>
+        </div>
+
+        <div class="feature-box">
+          <i class="fas fa-check-circle"></i>
+          <span>Complete Traceability</span>
+        </div>
+
+      </div>
+
+      <button class="btn btn-primary">
+        Discover More
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
 <section class="categories-section">
   <div class="cat-orb"></div>
   <div class="section-header"><div class="section-eyebrow reveal">I Nostri Prodotti</div><h2 class="section-title-main title-on-dark reveal stagger-1">Le Nostre Categorie</h2></div>
@@ -857,6 +1445,100 @@
   </div>
 </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="shipping-section" id="shipping">
+
+  <div class="section-header">
+    <div class="section-eyebrow reveal">
+      Global Shipping
+    </div>
+
+    <h2 class="section-title-main title-on-light reveal stagger-1">
+      International Shipping Information
+    </h2>
+  </div>
+
+  <div class="shipping-container">
+
+    <div class="shipping-card reveal stagger-1">
+      <div class="shipping-icon">
+        <i class="fas fa-anchor"></i>
+      </div>
+
+      <h3>Main Egyptian Ports</h3>
+
+      <p>
+        Alexandria, Damietta, Port Said and Sokhna
+        with continuous export operations to global markets.
+      </p>
+    </div>
+
+    <div class="shipping-card reveal stagger-2">
+      <div class="shipping-icon">
+        <i class="fas fa-box"></i>
+      </div>
+
+      <h3>40ft Reefer Containers</h3>
+
+      <p>
+        Temperature-controlled refrigerated containers
+        ensuring full cold chain preservation during shipment.
+      </p>
+    </div>
+
+    <div class="shipping-card reveal stagger-3">
+      <div class="shipping-icon">
+        <i class="fas fa-globe"></i>
+      </div>
+
+      <h3>Incoterms 2020</h3>
+
+      <p>
+        FOB, CFR, CIF, DAP & DPU solutions
+        tailored to international client requirements.
+      </p>
+    </div>
+
+    <div class="shipping-card reveal stagger-4">
+      <div class="shipping-icon">
+        <i class="fas fa-shield-alt"></i>
+      </div>
+
+      <h3>Secure Logistics</h3>
+
+      <p>
+        Continuous shipment monitoring,
+        export documentation and optional cargo insurance.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section class="faq-section">
   <h2 class="faq-title" id="faq-title">LE VOSTRE DOMANDE PIÙ RICORRENTI</h2>
   <div class="faq-grid">
@@ -869,7 +1551,192 @@
   </div>
 </section>
 
-<div class="footer-stripe">© 2025 CHOAMX — <span>Eccellenza Egiziana</span>. Tutti i diritti riservati.</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="stats-section" id="stats">
+
+  <div class="section-header">
+    <div class="section-eyebrow reveal">Our Impact</div>
+
+    <h2 class="section-title-main title-on-dark reveal stagger-1">
+      Trusted Global Export Partner
+    </h2>
+  </div>
+
+  <div class="stats-container">
+
+    <div class="stat-box reveal stagger-1">
+      <h3>20+</h3>
+      <p>Countries Served</p>
+    </div>
+
+    <div class="stat-box reveal stagger-2">
+      <h3>150+</h3>
+      <p>Successful Shipments</p>
+    </div>
+
+    <div class="stat-box reveal stagger-3">
+      <h3>98%</h3>
+      <p>Client Satisfaction</p>
+    </div>
+
+    <div class="stat-box reveal stagger-4">
+      <h3>24/7</h3>
+      <p>Support & Monitoring</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="cta-section" id="cta">
+
+  <div class="cta-container">
+
+    <div class="cta-content reveal">
+
+      <h2>
+        Ready to Import Premium Egyptian Products?
+      </h2>
+
+      <p>
+        Contact CHOAMX today and get a professional export solution
+        with full quality control and international standards.
+      </p>
+
+      <div class="cta-buttons">
+        <button class="btn btn-primary">
+          Request a Quote
+        </button>
+
+        <button class="btn btn-secondary" onclick="openWhatsApp()">
+          WhatsApp Us
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Logo & About -->
+    <div class="footer-box">
+      <h2 class="logo">CHOAMX</h2>
+      <p>
+        International partner specialized in exporting Egyptian products
+        with direct Italian management and supervision.
+      </p>
+
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-box">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">How We Work</a></li>
+        <li><a href="#">Packaging</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Services -->
+    <div class="footer-box">
+      <h3>Services</h3>
+      <ul>
+        <li>Fresh Fruits & Vegetables</li>
+        <li>IQF Frozen Products</li>
+        <li>Bio Energy Solutions</li>
+        <li>International Shipping</li>
+        <li>Export Documentation</li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-box">
+      <h3>Contact Info</h3>
+
+      <p>
+        <i class="fa-solid fa-phone"></i>
+        +39 391 304 9947
+      </p>
+
+      <p>
+        <i class="fa-brands fa-whatsapp"></i>
+        WhatsApp Available
+      </p>
+
+      <p>
+        <i class="fa-solid fa-location-dot"></i>
+        Egypt / Italy
+      </p>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footer-stripe">© 2026 CHOAMX — <span>Eccellenza Egiziana</span>. Tutti i diritti riservati.</div>
 <div class="whatsapp" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i></div>
 
 <script>
@@ -899,7 +1766,7 @@
   });
 
   function toggleFaq(item) { item.classList.toggle('open'); }
-  function openWhatsApp() { window.open("https://wa.me/201000000000", "_blank"); }
+  function openWhatsApp() { window.open("https://wa.me/393913049947", "_blank"); }
 
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
