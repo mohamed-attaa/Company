@@ -5,22 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>CHOAMX – Eccellenza Egiziana</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     /* ===== CSS VARIABLES ===== */
     :root {
-      --gold: #d4a017;
-      --gold-light: #f0c040;
-      --gold-dark: #a07810;
-      --dark: #0e0e0e;
-      --dark2: #1a1a1a;
-      --gray-bg: #f0ede8;
-      --text-dark: #1c1c1c;
-      --text-mid: #555;
-      --white: #ffffff;
-      --radius: 16px;
-      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --gold: #c9963a;
+      --gold-light: #e8b85a;
+      --gold-dark: #9a6f1e;
+      --dark: #0a0908;
+      --dark2: #13110e;
+      --dark3: #1b1712;
+      --section-warm: #f5f0e8;
+      --section-cream: #ede8de;
+      --section-deep: #0f0d0a;
+      --text-dark: #1a1714;
+      --text-mid: #5a5248;
+      --white: #fdfaf5;
+      --radius: 18px;
+      --transition: 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,38 +34,39 @@
       overflow-x: hidden;
     }
 
-    /* ===== SCROLL REVEAL BASE ===== */
+    /* ===== SCROLL ANIMATIONS ===== */
     .reveal {
       opacity: 0;
-      transform: translateY(48px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(52px);
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
     }
-    .reveal.from-left  { transform: translateX(-55px); }
-    .reveal.from-right { transform: translateX(55px); }
-    .reveal.scale-in   { transform: scale(0.88); }
+    .reveal.from-left  { transform: translateX(-60px); }
+    .reveal.from-right { transform: translateX(60px); }
+    .reveal.scale-in   { transform: scale(0.85); }
+    .reveal.fade-up    { transform: translateY(40px); }
     .reveal.visible    { opacity: 1; transform: none; }
 
-    .stagger-1 { transition-delay: 0.10s; }
-    .stagger-2 { transition-delay: 0.20s; }
-    .stagger-3 { transition-delay: 0.30s; }
-    .stagger-4 { transition-delay: 0.40s; }
-    .stagger-5 { transition-delay: 0.50s; }
+    .stagger-1 { transition-delay: 0.08s; }
+    .stagger-2 { transition-delay: 0.18s; }
+    .stagger-3 { transition-delay: 0.28s; }
+    .stagger-4 { transition-delay: 0.38s; }
+    .stagger-5 { transition-delay: 0.48s; }
 
     /* ===== NAVBAR ===== */
     header {
       position: fixed;
       top: 0; width: 100%;
       z-index: 1000;
-      padding: 18px 0;
-      background: linear-gradient(180deg, rgba(14,14,14,0.95) 0%, transparent 100%);
-      border-bottom: 1px solid rgba(212,160,23,0.2);
-      backdrop-filter: blur(10px);
+      padding: 16px 0;
+      background: linear-gradient(180deg, rgba(10,9,8,0.97) 0%, transparent 100%);
+      border-bottom: 1px solid rgba(201,150,58,0.18);
+      backdrop-filter: blur(14px);
       transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
     }
     header.scrolled {
-      background: rgba(14,14,14,0.97);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.55);
-      border-bottom-color: rgba(212,160,23,0.4);
+      background: rgba(10,9,8,0.98);
+      box-shadow: 0 4px 36px rgba(0,0,0,0.65);
+      border-bottom-color: rgba(201,150,58,0.38);
     }
     .nav {
       width: 90%; margin: auto;
@@ -73,36 +76,38 @@
     .logo {
       display: flex; align-items: center; gap: 12px;
       text-decoration: none;
+      flex-shrink: 0;
     }
     .logo-icon {
-      width: 42px; height: 42px;
+      width: 44px; height: 44px;
       background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      border-radius: 10px;
+      border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
       font-size: 20px;
-      box-shadow: 0 4px 14px rgba(212,160,23,0.35);
+      box-shadow: 0 4px 16px rgba(201,150,58,0.35);
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .logo:hover .logo-icon {
       transform: rotate(8deg) scale(1.08);
-      box-shadow: 0 8px 22px rgba(212,160,23,0.5);
+      box-shadow: 0 8px 26px rgba(201,150,58,0.55);
     }
     .logo h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 16px; font-weight: 700;
+      font-size: 15px; font-weight: 700;
       color: var(--white); letter-spacing: 1.5px; line-height: 1.2;
     }
     .logo h2 span {
-      display: block; font-size: 10px;
+      display: block; font-size: 9px;
       font-family: 'DM Sans', sans-serif; font-weight: 400;
       color: var(--gold); letter-spacing: 3px;
+      text-transform: uppercase;
     }
     .nav-links ul {
-      display: flex; gap: 32px; list-style: none;
+      display: flex; gap: 28px; list-style: none;
     }
     .nav-links ul li {
-      cursor: pointer; font-size: 13px; font-weight: 500;
-      letter-spacing: 0.5px; color: rgba(255,255,255,0.72);
+      cursor: pointer; font-size: 12.5px; font-weight: 500;
+      letter-spacing: 0.4px; color: rgba(253,250,245,0.65);
       position: relative; padding-bottom: 4px;
       transition: color 0.3s;
     }
@@ -114,35 +119,31 @@
     }
     .nav-links ul li:hover { color: var(--gold); }
     .nav-links ul li:hover::after { width: 100%; }
-    .social { display: flex; gap: 12px; }
-    .social a {
+    .nav-social { display: flex; gap: 10px; flex-shrink: 0; }
+    .nav-social a {
       width: 34px; height: 34px;
-      border: 1px solid rgba(212,160,23,0.3); border-radius: 50%;
+      border: 1px solid rgba(201,150,58,0.28); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.7); font-size: 13px;
+      color: rgba(253,250,245,0.65); font-size: 12px;
       text-decoration: none;
       transition: all 0.3s;
     }
-    .social a:hover {
+    .nav-social a:hover {
       background: var(--gold); border-color: var(--gold);
       color: var(--dark); transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(212,160,23,0.4);
+      box-shadow: 0 6px 18px rgba(201,150,58,0.4);
     }
-
-    /* Mobile Menu Toggle Icon */
     .menu-toggle {
       display: none;
-      font-size: 24px;
+      font-size: 22px;
       color: var(--gold);
       cursor: pointer;
       background: transparent;
       border: none;
-      transition: transform 0.3s;
+      padding: 4px;
+      transition: transform 0.3s, color 0.3s;
     }
-    .menu-toggle:hover {
-      transform: scale(1.05);
-      color: var(--gold-light);
-    }
+    .menu-toggle:hover { transform: scale(1.08); color: var(--gold-light); }
 
     /* ===== HERO ===== */
     .hero {
@@ -152,11 +153,27 @@
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(120deg,
-        rgba(10,8,5,0.90) 0%,
-        rgba(10,8,5,0.62) 55%,
-        rgba(10,8,5,0.28) 100%
+      background: linear-gradient(125deg,
+        rgba(8,6,4,0.93) 0%,
+        rgba(8,6,4,0.60) 55%,
+        rgba(8,6,4,0.25) 100%
       );
+    }
+    .hero-particles {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-particles span {
+      position: absolute; width: 2px; height: 2px;
+      background: var(--gold); border-radius: 50%;
+      opacity: 0;
+      animation: particle-float linear infinite;
+    }
+    @keyframes particle-float {
+      0%   { opacity: 0; transform: translateY(0) scale(0); }
+      10%  { opacity: 0.7; }
+      90%  { opacity: 0.3; }
+      100% { opacity: 0; transform: translateY(-100px) scale(1.5); }
     }
     .hero-content {
       position: relative; z-index: 2;
@@ -164,66 +181,67 @@
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(212,160,23,0.12);
-      border: 1px solid rgba(212,160,23,0.4);
+      background: rgba(201,150,58,0.12);
+      border: 1px solid rgba(201,150,58,0.42);
       border-radius: 50px; padding: 6px 18px;
-      font-size: 11px; font-weight: 700;
+      font-size: 10.5px; font-weight: 700;
       color: var(--gold); letter-spacing: 2.5px;
       text-transform: uppercase; margin-bottom: 28px;
-      animation: fadeDown 0.8s ease both;
+      animation: fadeDown 0.9s ease both;
     }
     @keyframes fadeDown {
-      from { opacity:0; transform:translateY(-20px); }
+      from { opacity:0; transform:translateY(-22px); }
       to   { opacity:1; transform:translateY(0); }
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(30px, 4vw, 52px);
+      font-size: clamp(28px, 3.8vw, 52px);
       font-weight: 900; line-height: 1.2;
       margin-bottom: 24px; color: var(--white);
-      animation: fadeUp 0.9s 0.2s ease both;
+      animation: fadeUp 1s 0.2s ease both;
     }
     .hero h1 em { font-style: normal; color: var(--gold); }
     @keyframes fadeUp {
-      from { opacity:0; transform:translateY(30px); }
+      from { opacity:0; transform:translateY(32px); }
       to   { opacity:1; transform:translateY(0); }
     }
     .hero p {
-      font-size: 16px; line-height: 1.8;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 38px; max-width: 520px;
-      animation: fadeUp 0.9s 0.4s ease both;
+      font-size: 15.5px; line-height: 1.85;
+      color: rgba(253,250,245,0.70);
+      margin-bottom: 40px; max-width: 530px;
+      animation: fadeUp 1s 0.38s ease both;
     }
     .hero-buttons {
-      display: flex; gap: 16px; flex-wrap: wrap;
-      animation: fadeUp 0.9s 0.6s ease both;
+      display: flex; gap: 14px; flex-wrap: wrap;
+      animation: fadeUp 1s 0.55s ease both;
     }
     .btn {
-      padding: 14px 30px; border: none; cursor: pointer;
+      padding: 14px 28px; border: none; cursor: pointer;
       font-family: 'DM Sans', sans-serif;
-      font-size: 14px; font-weight: 600;
-      border-radius: 8px; letter-spacing: 0.5px;
-      transition: all 0.35s ease;
+      font-size: 13.5px; font-weight: 600;
+      border-radius: 9px; letter-spacing: 0.4px;
+      transition: all 0.38s ease;
       position: relative; overflow: hidden;
+      white-space: nowrap;
     }
     .btn::after {
       content: ''; position: absolute; inset: 0;
-      background: rgba(255,255,255,0.12); opacity: 0;
+      background: rgba(255,255,255,0.1); opacity: 0;
       transition: opacity 0.3s;
     }
     .btn:hover::after { opacity: 1; }
     .btn-primary {
       background: linear-gradient(135deg, var(--gold), var(--gold-dark));
       color: var(--dark);
-      box-shadow: 0 6px 24px rgba(212,160,23,0.4);
+      box-shadow: 0 6px 26px rgba(201,150,58,0.42);
     }
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 14px 36px rgba(212,160,23,0.55);
+      box-shadow: 0 14px 40px rgba(201,150,58,0.58);
     }
     .btn-secondary {
       background: transparent;
-      border: 1.5px solid rgba(255,255,255,0.35);
+      border: 1.5px solid rgba(253,250,245,0.32);
       color: var(--white);
     }
     .btn-secondary:hover {
@@ -231,192 +249,250 @@
       transform: translateY(-3px);
     }
     .scroll-indicator {
-      position: absolute; bottom: 36px; left: 50%;
+      position: absolute; bottom: 34px; left: 50%;
       transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 6px;
-      color: rgba(255,255,255,0.35);
-      font-size: 10px; letter-spacing: 2.5px;
-      animation: bounce 2s infinite; z-index: 2;
+      color: rgba(253,250,245,0.32);
+      font-size: 9.5px; letter-spacing: 2.5px;
+      animation: bounce 2.2s infinite; z-index: 2;
+      text-transform: uppercase;
     }
-    .scroll-indicator i { font-size: 16px; }
+    .scroll-indicator i { font-size: 14px; }
     @keyframes bounce {
       0%,100% { transform: translateX(-50%) translateY(0); }
-      50%      { transform: translateX(-50%) translateY(8px); }
+      50%      { transform: translateX(-50%) translateY(9px); }
     }
 
     /* ===== SECTION SHARED ===== */
     .section-eyebrow {
       display: inline-block;
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase;
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: 3.5px; text-transform: uppercase;
       color: var(--gold); margin-bottom: 14px;
-      position: relative; padding: 0 22px;
+      position: relative; padding: 0 24px;
     }
     .section-eyebrow::before, .section-eyebrow::after {
       content: ''; position: absolute;
-      top: 50%; width: 36px; height: 1px;
-      background: var(--gold); opacity: 0.5;
+      top: 50%; width: 38px; height: 1px;
+      background: var(--gold); opacity: 0.45;
     }
     .section-eyebrow::before { right: 100%; }
     .section-eyebrow::after  { left: 100%; }
 
     .section-title-main {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 3.5vw, 42px);
+      font-size: clamp(24px, 3.2vw, 42px);
       font-weight: 900; line-height: 1.2;
       position: relative; display: inline-block;
-      padding-bottom: 16px;
+      padding-bottom: 18px;
     }
     .section-title-main::after {
       content: ''; position: absolute;
       bottom: 0; left: 50%; transform: translateX(-50%);
-      width: 50px; height: 3px;
+      width: 45px; height: 3px;
       background: linear-gradient(90deg, var(--gold), var(--gold-light));
       border-radius: 2px;
-      transition: width 0.65s ease 0.2s;
+      transition: width 0.7s ease 0.25s;
     }
-    .section-title-main.visible::after { width: 120px; }
+    .section-title-main.visible::after { width: 110px; }
     .title-on-dark { color: var(--white); }
     .title-on-light { color: var(--text-dark); }
 
-    .card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 17px; font-weight: 700;
-      color: var(--text-dark); line-height: 1.35;
-      margin-bottom: 10px;
-      position: relative; display: inline-block;
-      padding-bottom: 10px;
-    }
-    .card-title::after {
-      content: ''; position: absolute;
-      bottom: 0; left: 0;
-      width: 24px; height: 2.5px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
-      border-radius: 2px;
-      transition: width 0.5s ease 0.15s;
-    }
-    .import-card:hover .card-title::after,
-    .import-card.visible .card-title::after { width: 70px; }
+    .section-header { text-align: center; margin-bottom: 60px; padding: 0 20px; }
 
     /* ===== IMPORT SECTION ===== */
     .import-section {
-      padding: 100px 0;
-      background: var(--gray-bg);
+      padding: 110px 0 100px;
+      background: linear-gradient(160deg, #f5f0e8 0%, #ede5d5 50%, #e8dfc8 100%);
       position: relative; overflow: hidden;
     }
     .import-section::before {
       content: ''; position: absolute;
       top: -80px; left: 0; right: 0; height: 80px;
-      background: linear-gradient(180deg, var(--dark) 0%, var(--gray-bg) 100%);
+      background: linear-gradient(180deg, var(--dark) 0%, #f5f0e8 100%);
     }
-    .section-header {
-      text-align: center; margin-bottom: 60px; padding: 0 20px;
+    .import-section::after {
+      content: ''; position: absolute;
+      inset: 0;
+      background-image: radial-gradient(ellipse 80% 50% at 70% 80%, rgba(201,150,58,0.07) 0%, transparent 60%);
+      pointer-events: none;
     }
     .import-cards {
       display: grid;
       grid-template-columns: repeat(4,1fr);
-      gap: 20px; width: 88%; margin: auto;
+      gap: 22px; width: 88%; margin: auto;
     }
     .import-card {
-      background: var(--white);
-      padding: 32px 26px;
+      background: #fefcf7;
+      padding: 34px 28px;
       border-radius: var(--radius);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+      box-shadow: 0 6px 28px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
       position: relative; overflow: hidden;
       transition: transform var(--transition), box-shadow var(--transition);
+      border: 1px solid rgba(201,150,58,0.1);
     }
     .import-card::before {
       content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 3px;
+      top: 0; left: 0; right: 0; height: 3.5px;
       background: linear-gradient(90deg, var(--gold), var(--gold-light));
       transform: scaleX(0); transform-origin: left;
-      transition: transform 0.45s ease;
+      transition: transform 0.48s ease;
     }
-    .import-card:hover { transform: translateY(-9px); box-shadow: 0 22px 55px rgba(0,0,0,0.14); }
+    .import-card:hover { transform: translateY(-10px); box-shadow: 0 24px 60px rgba(0,0,0,0.13); }
     .import-card:hover::before { transform: scaleX(1); }
     .card-icon {
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, rgba(212,160,23,0.14), rgba(212,160,23,0.04));
-      border-radius: 12px;
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, rgba(201,150,58,0.14), rgba(201,150,58,0.04));
+      border-radius: 13px;
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 18px; font-size: 20px; color: var(--gold);
-      transition: background 0.3s, transform 0.3s;
+      margin-bottom: 20px; font-size: 20px; color: var(--gold);
+      transition: background 0.3s, transform 0.35s;
     }
     .import-card:hover .card-icon {
       background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--white); transform: scale(1.1) rotate(6deg);
+      color: var(--white); transform: scale(1.12) rotate(7deg);
     }
     .card-label-tag {
       font-size: 10px; font-weight: 700;
       letter-spacing: 2px; text-transform: uppercase;
       color: var(--gold); margin-bottom: 8px; display: block;
     }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-weight: 700;
+      color: var(--text-dark); line-height: 1.35;
+      margin-bottom: 10px;
+      position: relative; display: inline-block;
+      padding-bottom: 12px;
+    }
+    .card-title::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0;
+      width: 22px; height: 2.5px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 2px;
+      transition: width 0.5s ease 0.15s;
+    }
+    .import-card:hover .card-title::after { width: 68px; }
     .import-card p {
-      font-size: 13.5px; color: var(--text-mid); line-height: 1.7;
+      font-size: 13.5px; color: var(--text-mid); line-height: 1.75;
       margin-top: 6px;
     }
 
+    /* ===== ABOUT SECTION ===== */
+    .about-section {
+      background: linear-gradient(160deg, #10100e 0%, #161410 50%, #1a1612 100%);
+      padding: 110px 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .about-section::before {
+      content: ''; position: absolute;
+      inset: 0;
+      background-image: radial-gradient(ellipse 60% 60% at 80% 40%, rgba(201,150,58,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .about-container {
+      width: 88%; margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 70px; align-items: center;
+    }
+    .about-image { position: relative; }
+    .about-image img {
+      width: 100%; border-radius: 24px;
+      height: 600px; object-fit: cover;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+      transition: transform 0.6s ease;
+    }
+    .about-image:hover img { transform: scale(1.015); }
+    .about-image::after {
+      content: ''; position: absolute;
+      bottom: -20px; right: -20px;
+      width: 65%; height: 65%;
+      border: 2px solid rgba(201,150,58,0.22);
+      border-radius: 24px;
+      pointer-events: none;
+      transition: border-color 0.5s;
+    }
+    .about-image:hover::after { border-color: rgba(201,150,58,0.45); }
+    .about-content { color: white; }
+    .about-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 48px);
+      line-height: 1.2; margin-bottom: 28px;
+      font-weight: 800;
+    }
+    .about-title em { font-style: normal; color: var(--gold); }
+    .about-text {
+      color: rgba(253,250,245,0.70);
+      font-size: 15px; line-height: 1.95;
+      margin-bottom: 22px; max-width: 560px;
+    }
+    .about-features {
+      display: grid; grid-template-columns: repeat(2,1fr);
+      gap: 14px; margin: 38px 0;
+    }
+    .feature-box {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(253,250,245,0.04);
+      border: 1px solid rgba(201,150,58,0.14);
+      padding: 15px 17px; border-radius: 13px;
+      transition: 0.38s;
+    }
+    .feature-box:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,150,58,0.45);
+      background: rgba(201,150,58,0.08);
+    }
+    .feature-box i { color: var(--gold); font-size: 17px; }
+    .feature-box span { font-size: 13.5px; font-weight: 500; }
+
     /* ===== CATEGORIES SECTION ===== */
     .categories-section {
-      background: var(--dark2);
-      padding: 100px 0 110px;
+      background: linear-gradient(160deg, #0c0b09 0%, #131109 50%, #1a150a 100%);
+      padding: 110px 0 120px;
       position: relative; overflow: hidden;
     }
     .categories-section::before {
       content: ''; position: absolute;
       top: -80px; left: 0; right: 0; height: 80px;
-      background: linear-gradient(180deg, var(--gray-bg) 0%, var(--dark2) 100%);
+      background: linear-gradient(180deg, #10100e 0%, #0c0b09 100%);
     }
     .cat-orb {
-      position: absolute; width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(212,160,23,0.07) 0%, transparent 70%);
+      position: absolute; width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,150,58,0.06) 0%, transparent 70%);
       top: 50%; left: 50%; transform: translate(-50%,-50%);
       pointer-events: none;
     }
     .categories-grid {
-      display: flex; gap: 18px;
-      justify-content: center; flex-wrap: wrap;
-      padding: 0 40px; position: relative; z-index: 1;
+      display: flex; gap: 18px; justify-content: center;
+      flex-wrap: wrap; padding: 0 40px; position: relative; z-index: 1;
     }
-
     .category-card {
-      position: relative;
-      width: 162px; height: 108px;
-      border-radius: 18px; overflow: hidden;
-      cursor: pointer; flex-shrink: 0;
-      box-shadow: 0 6px 22px rgba(0,0,0,0.28);
-      opacity: 0;
-      transform: translateY(45px) scale(0.92);
-      transition:
-        opacity 0.55s ease,
-        transform 0.55s cubic-bezier(0.34,1.56,0.64,1),
-        box-shadow 0.35s ease;
+      position: relative; width: 168px; height: 115px;
+      border-radius: 18px; overflow: hidden; cursor: pointer; flex-shrink: 0;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.32);
+      opacity: 0; transform: translateY(48px) scale(0.91);
+      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.38s ease;
     }
     .category-card.visible { opacity:1; transform:none; }
     .category-card:nth-child(1) { transition-delay:0.05s; }
-    .category-card:nth-child(2) { transition-delay:0.15s; }
-    .category-card:nth-child(3) { transition-delay:0.25s; }
-    .category-card:nth-child(4) { transition-delay:0.35s; }
-    .category-card:nth-child(5) { transition-delay:0.45s; }
-
+    .category-card:nth-child(2) { transition-delay:0.14s; }
+    .category-card:nth-child(3) { transition-delay:0.23s; }
+    .category-card:nth-child(4) { transition-delay:0.32s; }
+    .category-card:nth-child(5) { transition-delay:0.41s; }
+    .category-card:nth-child(6) { transition-delay:0.50s; }
+    .category-card:nth-child(7) { transition-delay:0.59s; }
     .category-card:hover {
-      transform: translateY(-9px) scale(1.07);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.45),
-                  0 0 0 2px rgba(212,160,23,0.55);
+      transform: translateY(-10px) scale(1.07);
+      box-shadow: 0 22px 50px rgba(0,0,0,0.48), 0 0 0 2px rgba(201,150,58,0.55);
     }
-    .category-card:hover .card-bg  { transform: scale(1.13); }
+    .category-card:hover .card-bg  { transform: scale(1.14); }
     .category-card:hover .card-overlay {
-      background: linear-gradient(160deg,
-        rgba(212,160,23,0.55) 0%,
-        rgba(160,120,8,0.38) 100%
-      );
+      background: linear-gradient(160deg, rgba(201,150,58,0.55) 0%, rgba(154,111,30,0.38) 100%);
     }
-    .category-card:hover .card-label {
-      letter-spacing: 0.07em;
-      transform: translateY(-3px);
-    }
-
+    .category-card:hover .card-label { transform: translateY(-3px); letter-spacing: 0.07em; }
     .card-bg {
       position: absolute; inset: 0;
       background-size: cover; background-position: center;
@@ -424,333 +500,389 @@
     }
     .card-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(160deg,
-        rgba(20,16,8,0.52) 0%,
-        rgba(10,8,4,0.32) 100%
-      );
-      transition: background 0.35s ease;
+      background: linear-gradient(160deg, rgba(18,14,8,0.54) 0%, rgba(10,8,4,0.32) 100%);
+      transition: background 0.38s ease;
     }
     .card-label {
       position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
       color: var(--white);
       font-family: 'DM Sans', sans-serif;
-      font-size: 14px; font-weight: 700;
-      text-align: center;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-      padding: 10px; line-height: 1.25;
-      letter-spacing: 0.02em;
-      transition: letter-spacing 0.3s ease, transform 0.3s ease;
+      font-size: 13.5px; font-weight: 700;
+      text-align: center; text-shadow: 0 2px 10px rgba(0,0,0,0.65);
+      padding: 10px; line-height: 1.25; letter-spacing: 0.02em;
+      transition: letter-spacing 0.3s, transform 0.3s;
     }
     .card-verdure   .card-bg { background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=85'); }
     .card-frutta    .card-bg { background-image: url('https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&q=85'); }
     .card-surgelati .card-bg { background-image: url('https://images.unsplash.com/photo-1534483509719-3feaee7c30da?w=400&q=85'); }
     .card-legumi    .card-bg { background-image: url('https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?w=400&q=85'); }
     .card-stagione  .card-bg { background-image: url('https://images.unsplash.com/photo-1506484381205-f7945653044d?w=400&q=85'); }
+    .card-energia   .card-bg { background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=85'); }
 
-    /* ===== TIMELINE & FAQ STYLES (preserved) ===== */
+    /* ===== TIMELINE ===== */
     .timeline-section {
-      padding: 90px 20px 100px;
-      background: #f7f5f1;
-      position: relative;
-      overflow: hidden;
+      padding: 100px 20px 110px;
+      background: linear-gradient(160deg, #f5f0e8 0%, #eee7d8 50%, #e6dcc8 100%);
+      position: relative; overflow: hidden;
     }
     .timeline-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(212,160,23,0.06) 0%, transparent 60%);
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,150,58,0.08) 0%, transparent 60%);
       pointer-events: none;
     }
     .timeline-header {
-      text-align: center;
-      margin-bottom: 70px;
-      position: relative;
-      z-index: 1;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      text-align: center; margin-bottom: 70px;
+      position: relative; z-index: 1;
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
     }
     .timeline-header.visible { opacity: 1; transform: none; }
     .timeline-header h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 3.5vw, 60px);
-      font-weight: 1000;
-      color: #1a1a1a;
-      letter-spacing: -0.3px;
-      position: relative;
-      display: inline-block;
-      padding-bottom: 18px;
+      font-size: clamp(24px, 3.5vw, 48px);
+      font-weight: 900; color: #1a1714;
+      position: relative; display: inline-block; padding-bottom: 18px;
     }
     .timeline-header h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 50%;
-      transform: translateX(-50%);
+      content: ''; position: absolute;
+      bottom: 0; left: 50%; transform: translateX(-50%);
       width: 0; height: 3px;
       background: linear-gradient(90deg, var(--gold), var(--gold-light));
-      border-radius: 2px;
-      transition: width 0.8s ease 0.4s;
+      border-radius: 2px; transition: width 0.8s ease 0.4s;
     }
     .timeline-header.visible h2::after { width: 100px; }
-    .timeline-container {
-      position: relative;
-      max-width: 860px;
-      margin: 0 auto;
-    }
+    .timeline-container { position: relative; max-width: 860px; margin: 0 auto; }
     .timeline-line {
-      position: absolute;
-      left: 50%;
-      top: 0; bottom: 0;
-      width: 2px;
-      background: #c8c0b0;
-      transform: translateX(-50%);
-      z-index: 0;
+      position: absolute; left: 50%; top: 0; bottom: 0;
+      width: 2px; background: #d4cab8; transform: translateX(-50%); z-index: 0;
     }
     .timeline-line-fill {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 0%;
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 0%;
       background: linear-gradient(180deg, var(--gold), var(--gold-light));
-      border-radius: 2px;
-      transition: height 1.5s ease;
+      border-radius: 2px; transition: height 1.6s ease;
     }
     .timeline-item {
-      display: grid;
-      grid-template-columns: 1fr 60px 1fr;
-      align-items: start;
-      margin-bottom: 0;
-      position: relative;
-      z-index: 1;
-      min-height: 130px;
+      display: grid; grid-template-columns: 1fr 60px 1fr;
+      align-items: start; margin-bottom: 0;
+      position: relative; z-index: 1; min-height: 130px;
     }
     .item-left { padding: 0 36px 40px 0; text-align: right; }
     .item-right { padding: 0 0 40px 36px; text-align: left; }
     .item-empty { padding-bottom: 40px; }
-    .item-center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 6px;
-    }
+    .item-center { display: flex; flex-direction: column; align-items: center; padding-top: 6px; }
     .item-dot {
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      background: #f7f5f1;
-      border: 2.5px solid #c8c0b0;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #f5f0e8; border: 2.5px solid #c4b89a;
       flex-shrink: 0;
-      transition: border-color 0.4s, background 0.4s, transform 0.4s, box-shadow 0.4s;
+      transition: border-color 0.45s, background 0.45s, transform 0.45s, box-shadow 0.45s;
       z-index: 2;
     }
     .timeline-item.visible .item-dot {
-      border-color: var(--gold);
-      background: var(--gold);
-      transform: scale(1.2);
-      box-shadow: 0 0 0 5px rgba(212,160,23,0.18);
+      border-color: var(--gold); background: var(--gold);
+      transform: scale(1.22); box-shadow: 0 0 0 6px rgba(201,150,58,0.18);
     }
     .item-day {
-      margin-top: 8px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: #888;
-      text-transform: uppercase;
-      white-space: nowrap;
+      margin-top: 8px; font-size: 10px; font-weight: 700;
+      letter-spacing: 1.5px; color: #8a7d68;
+      text-transform: uppercase; white-space: nowrap;
     }
     .timeline-item.visible .item-day { color: var(--gold-dark); }
     .item-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(16px, 2vw, 20px);
-      font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 8px;
-      padding-bottom: 10px;
-      display: inline-block;
-      position: relative;
+      font-size: clamp(14px, 1.8vw, 19px); font-weight: 700;
+      color: #1a1714; margin-bottom: 8px; padding-bottom: 10px;
+      display: inline-block; position: relative;
     }
     .item-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      height: 2px;
+      content: ''; position: absolute; bottom: 0; height: 2px;
       background: linear-gradient(90deg, var(--gold), var(--gold-light));
-      border-radius: 2px;
-      width: 0;
-      transition: width 0.55s ease 0.25s;
+      border-radius: 2px; width: 0; transition: width 0.55s ease 0.25s;
     }
     .item-right .item-title::after { left: 0; }
     .item-left .item-title::after { right: 0; }
     .timeline-item.visible .item-title::after { width: 80%; }
-    .item-desc {
-      font-size: 15px;
-      line-height: 1.75;
-      color: #4a4a4a;
-      max-width: 300px;
-      margin-top: 8px;
-    }
+    .item-desc { font-size: 14px; line-height: 1.8; color: #4e4640; max-width: 300px; margin-top: 8px; }
     .item-left .item-desc { margin-left: auto; }
     .item-left::after {
-      content: '';
-      position: absolute;
-      top: 13px; right: 0;
+      content: ''; position: absolute; top: 13px; right: 0;
       width: 36px; height: 1px;
-      background: linear-gradient(90deg, transparent, #c8c0b0);
+      background: linear-gradient(90deg, transparent, #c4b89a);
     }
     .item-right::before {
-      content: '';
-      position: absolute;
-      top: 13px; left: 0;
+      content: ''; position: absolute; top: 13px; left: 0;
       width: 36px; height: 1px;
-      background: linear-gradient(90deg, #c8c0b0, transparent);
+      background: linear-gradient(90deg, #c4b89a, transparent);
     }
     .timeline-item.visible .item-left::after { background: linear-gradient(90deg, transparent, var(--gold)); }
     .timeline-item.visible .item-right::before { background: linear-gradient(90deg, var(--gold), transparent); }
-    .timeline-item .item-left, .timeline-item .item-right { opacity: 0; transition: opacity 0.65s ease, transform 0.65s ease; }
-    .timeline-item .item-left  { transform: translateX(-40px); }
-    .timeline-item .item-right { transform: translateX(40px); }
+    .timeline-item .item-left, .timeline-item .item-right { opacity: 0; transition: opacity 0.7s ease, transform 0.7s ease; }
+    .timeline-item .item-left  { transform: translateX(-42px); }
+    .timeline-item .item-right { transform: translateX(42px); }
     .timeline-item.visible .item-left, .timeline-item.visible .item-right { opacity: 1; transform: none; }
 
+    /* ===== SHIPPING ===== */
+    .shipping-section {
+      background: linear-gradient(160deg, #f5f0e8 0%, #ede5d5 50%, #e8dfc8 100%);
+      padding: 110px 0;
+      position: relative; overflow: hidden;
+    }
+    .shipping-section::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(ellipse 70% 50% at 20% 90%, rgba(201,150,58,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .shipping-container {
+      width: 88%; margin: 60px auto 0;
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 24px;
+    }
+    .shipping-card {
+      background: #fefcf7; border-radius: 22px;
+      padding: 40px 28px; text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+      transition: 0.42s; position: relative; overflow: hidden;
+      border: 1px solid rgba(201,150,58,0.1);
+    }
+    .shipping-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0); transition: 0.42s;
+    }
+    .shipping-card:hover::before { transform: scaleX(1); }
+    .shipping-card:hover { transform: translateY(-10px); box-shadow: 0 26px 65px rgba(0,0,0,0.14); }
+    .shipping-icon {
+      width: 68px; height: 68px; margin: 0 auto 24px;
+      border-radius: 18px; background: rgba(201,150,58,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; color: var(--gold); transition: 0.38s;
+    }
+    .shipping-card:hover .shipping-icon {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: white; transform: rotate(8deg) scale(1.1);
+    }
+    .shipping-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; color: #1a1714; margin-bottom: 14px;
+    }
+    .shipping-card p { font-size: 13.5px; line-height: 1.8; color: var(--text-mid); }
+
+    /* ===== FAQ ===== */
     .faq-section {
-      padding: 80px 40px 90px;
-      max-width: 1300px;
-      margin: 0 auto;
-      background: #ebebeb;
+      padding: 90px 40px 100px;
+      max-width: 1300px; margin: 0 auto;
+      background: transparent;
+    }
+    .faq-wrapper {
+      background: linear-gradient(160deg, #ebe5d8 0%, #e0d8c8 100%);
+      padding: 80px 60px;
+      position: relative; overflow: hidden;
+    }
+    .faq-wrapper::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(ellipse 50% 60% at 90% 20%, rgba(201,150,58,0.08) 0%, transparent 60%);
+      pointer-events: none;
     }
     .faq-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 3vw, 38px);
-      font-weight: 900;
-      color: #111111;
-      text-align: center;
-      margin-bottom: 48px;
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      font-size: clamp(24px, 3vw, 38px); font-weight: 900;
+      color: #111111; text-align: center; margin-bottom: 50px;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
     .faq-title.visible { opacity: 1; transform: none; }
-    .faq-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      align-items: start;
-    }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
     .faq-item {
-      background: #ffffff;
-      border: 1px solid #d8d4cd;
-      border-radius: 6px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: box-shadow 0.3s ease, border-color 0.3s ease;
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.55s ease, transform 0.55s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      background: #fefcf7;
+      border: 1px solid #d8d0bc; border-radius: 8px;
+      overflow: hidden; cursor: pointer;
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.58s ease, transform 0.58s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
     .faq-item.visible { opacity: 1; transform: none; }
-    .faq-item.open { border-color: rgba(212,160,23,0.4); box-shadow: 0 8px 28px rgba(0,0,0,0.10); }
+    .faq-item.open { border-color: rgba(201,150,58,0.42); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
     .faq-question {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 22px 24px;
-      gap: 16px;
-      user-select: none;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 24px; gap: 14px; user-select: none;
     }
-    .faq-question span {
-      font-size: 15px;
-      font-weight: 600;
-      color: #111;
-      line-height: 1.4;
-    }
+    .faq-question span { font-size: 14.5px; font-weight: 600; color: #111; line-height: 1.4; }
     .faq-arrow {
-      width: 28px; height: 28px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      border: 1.5px solid #d8d4cd;
-      color: #888;
+      width: 28px; height: 28px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; border: 1.5px solid #d8d0bc; color: #8a7d68;
       transition: transform 0.4s, background 0.3s, border-color 0.3s;
     }
     .faq-arrow svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2.2; fill: none; }
-    .faq-item.open .faq-arrow {
-      background: #d4a017;
-      border-color: #d4a017;
-      color: #fff;
-      transform: rotate(180deg);
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    .faq-item.open .faq-arrow { background: var(--gold); border-color: var(--gold); color: #fff; transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.48s cubic-bezier(0.4,0,0.2,1); }
     .faq-item.open .faq-answer { max-height: 400px; }
-    .faq-answer-inner {
-      padding: 0 24px 24px;
-      border-top: 1px solid #d8d4cd;
-    }
-    .faq-answer-inner p { font-size: 14px; line-height: 1.78; color: #4a4a4a; padding-top: 18px; }
+    .faq-answer-inner { padding: 0 24px 24px; border-top: 1px solid #d8d0bc; }
+    .faq-answer-inner p { font-size: 14px; line-height: 1.8; color: #4e4640; padding-top: 18px; }
 
-    .footer-stripe {
-      background: #0e0e0e;
-      padding: 28px 0;
-      text-align: center;
-      border-top: 1px solid rgba(212,160,23,0.2);
-      font-size: 13px;
-      color: rgba(255,255,255,0.32);
+    /* ===== STATS ===== */
+    .stats-section {
+      background: linear-gradient(160deg, #0a0908 0%, #100e0b 50%, #141108 100%);
+      padding: 110px 0; text-align: center; position: relative;
     }
-    .footer-stripe span { color: #d4a017; }
+    .stats-section::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(201,150,58,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .stats-container {
+      width: 88%; margin: 70px auto 0;
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 20px;
+    }
+    .stat-box {
+      padding: 42px 20px;
+      border: 1px solid rgba(201,150,58,0.18);
+      border-radius: 18px; background: rgba(253,250,245,0.03);
+      transition: 0.42s; position: relative; overflow: hidden;
+    }
+    .stat-box::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(201,150,58,0.06) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .stat-box:hover::before { opacity: 1; }
+    .stat-box:hover { transform: translateY(-9px); border-color: rgba(201,150,58,0.5); background: rgba(201,150,58,0.05); }
+    .stat-box h3 { font-size: 44px; font-weight: 800; color: var(--gold); margin-bottom: 10px; }
+    .stat-box p { font-size: 13.5px; color: rgba(253,250,245,0.65); }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      background: linear-gradient(160deg, #111008 0%, #0c0b08 50%, #0a0908 100%);
+      padding: 120px 0; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,150,58,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-container { width: 85%; margin: auto; }
+    .cta-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.8vw, 48px);
+      color: white; margin-bottom: 20px; font-weight: 800;
+    }
+    .cta-content p {
+      font-size: 15px; color: rgba(253,250,245,0.68);
+      max-width: 640px; margin: 0 auto 36px; line-height: 1.85;
+    }
+    .cta-buttons { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: linear-gradient(180deg, #0a0908 0%, #070706 100%);
+      color: #fff; padding-top: 75px;
+      font-family: 'DM Sans', sans-serif;
+      border-top: 1px solid rgba(201,150,58,0.18);
+    }
+    .footer-container {
+      width: 88%; margin: auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px; padding-bottom: 55px;
+    }
+    .footer-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; margin-bottom: 26px;
+      color: var(--gold); position: relative;
+    }
+    .footer-box h3::after {
+      content: ''; position: absolute;
+      left: 0; bottom: -10px;
+      width: 50px; height: 2px; background: var(--gold);
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px; color: var(--gold);
+      margin-bottom: 20px; letter-spacing: 2px;
+      display: block;
+    }
+    .footer-box p {
+      line-height: 1.85; color: rgba(253,250,245,0.58); font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .footer-box ul { list-style: none; }
+    .footer-box ul li { margin: 14px 0; }
+    .footer-box ul li a {
+      color: rgba(253,250,245,0.58); text-decoration: none;
+      font-size: 14px; transition: 0.3s; display: inline-block;
+    }
+    .footer-box ul li a:hover { color: var(--gold); padding-left: 5px; }
+    .footer-box ul li span { color: rgba(253,250,245,0.58); font-size: 14px; }
+    .social-icons { margin-top: 26px; display: flex; gap: 13px; }
+    .social-icons a {
+      width: 40px; height: 40px;
+      background: rgba(253,250,245,0.06);
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; color: var(--gold);
+      font-size: 16px; text-decoration: none; transition: 0.3s;
+      border: 1px solid rgba(201,150,58,0.2);
+    }
+    .social-icons a:hover {
+      background: var(--gold); color: var(--dark);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 22px rgba(201,150,58,0.38);
+    }
+    .footer-box i { color: var(--gold); margin-right: 9px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(253,250,245,0.08);
+      text-align: center; padding: 22px 20px; margin-top: 10px;
+    }
+    .footer-bottom p { color: rgba(253,250,245,0.28); font-size: 13px; }
+    .footer-bottom span { color: var(--gold); }
+
+    /* ===== WHATSAPP FLOAT ===== */
     .whatsapp {
       position: fixed; bottom: 28px; right: 28px;
-      background: linear-gradient(135deg, #d4a017, #a07810);
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
       width: 58px; height: 58px; border-radius: 50%;
       display: flex; justify-content: center; align-items: center;
       font-size: 26px; cursor: pointer;
-      box-shadow: 0 6px 22px rgba(212,160,23,0.45);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 6px 24px rgba(201,150,58,0.48);
+      transition: transform 0.32s, box-shadow 0.32s;
       z-index: 999;
     }
-    .whatsapp i { color: #0e0e0e; }
-    .whatsapp:hover { transform: scale(1.12) rotate(8deg); box-shadow: 0 10px 32px rgba(212,160,23,0.65); }
+    .whatsapp i { color: var(--dark); }
+    .whatsapp:hover { transform: scale(1.13) rotate(8deg); box-shadow: 0 12px 36px rgba(201,150,58,0.68); }
 
-    /* ===== RESPONSIVE + MOBILE MENU ===== */
-    @media (max-width: 900px) {
-      .menu-toggle {
-        display: block;
-      }
-      .nav-links {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: rgba(14,14,14,0.98);
-        backdrop-filter: blur(12px);
-        padding: 24px 0;
-        border-top: 1px solid rgba(212,160,23,0.3);
-        border-bottom: 1px solid rgba(212,160,23,0.3);
-        transform: translateY(-120%);
-        opacity: 0;
-        transition: transform 0.4s ease, opacity 0.4s ease;
-        z-index: 999;
-        visibility: hidden;
-      }
-      .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-      }
-      .nav-links ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
-      }
-      .nav-links ul li {
-        font-size: 16px;
-      }
-      .hero-content { width: 85%; margin-left: 5%; }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
       .import-cards { grid-template-columns: repeat(2,1fr); width: 90%; }
-      .social { margin-right: 10px; }
+      .stats-container { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 1000px) {
+      .shipping-container { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 900px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: fixed; top: 76px; left: 0; width: 100%;
+        background: rgba(10,9,8,0.98); backdrop-filter: blur(14px);
+        padding: 26px 0;
+        border-top: 1px solid rgba(201,150,58,0.28);
+        border-bottom: 1px solid rgba(201,150,58,0.28);
+        transform: translateY(-120%); opacity: 0;
+        transition: transform 0.42s ease, opacity 0.42s ease;
+        z-index: 999; visibility: hidden;
+      }
+      .nav-links.active { transform: translateY(0); opacity: 1; visibility: visible; }
+      .nav-links ul { flex-direction: column; align-items: center; gap: 22px; }
+      .nav-links ul li { font-size: 15.5px; }
+      .hero-content { width: 85%; margin-left: 5%; }
+      .about-container { grid-template-columns: 1fr; gap: 50px; }
+      .about-image img { height: 420px; }
+      .about-image::after { display: none; }
+      .nav-social { margin-right: 10px; }
+    }
+    @media (max-width: 768px) {
+      .faq-wrapper { padding: 60px 30px; }
+      .faq-section { padding: 60px 20px 70px; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .stats-container { grid-template-columns: repeat(2,1fr); }
     }
     @media (max-width: 680px) {
       .timeline-container { padding: 0 10px; }
@@ -760,531 +892,28 @@
       .item-left::after, .item-right::before { display: none; }
       .item-center { grid-column: 1; }
       .item-empty { display: none; }
-      .hero h1 { font-size: clamp(28px, 7vw, 40px); }
-      .category-card { width: 140px; height: 90px; }
-      .faq-section { padding: 60px 20px 70px; }
-      .faq-grid { grid-template-columns: 1fr; }
+      .category-card { width: 145px; height: 95px; }
     }
-    @media (max-width: 580px) {
+    @media (max-width: 600px) {
+      .stats-container { grid-template-columns: 1fr; }
       .import-cards { grid-template-columns: 1fr; }
       .hero-content { width: 92%; margin-left: 4%; padding-top: 100px; }
-      .categories-grid { gap: 12px; padding: 0 20px; }
-      .category-card { width: 130px; height: 85px; }
+      .categories-grid { gap: 12px; padding: 0 16px; }
+      .category-card { width: 135px; height: 88px; }
+      .hero-buttons { gap: 10px; }
+      .btn { padding: 12px 22px; font-size: 13px; }
+    }
+    @media (max-width: 580px) {
+      .shipping-container { grid-template-columns: 1fr; }
+      .about-features { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
       .logo h2 { font-size: 12px; }
-      .logo-icon { width: 36px; height: 36px; font-size: 16px; }
-      .social a { width: 28px; height: 28px; font-size: 10px; }
+      .logo-icon { width: 38px; height: 38px; font-size: 16px; }
+      .nav-social { display: none; }
+      .whatsapp { width: 52px; height: 52px; font-size: 22px; bottom: 22px; right: 18px; }
+      .faq-wrapper { padding: 50px 20px; }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    .footer{
-    background: #000000b9;
-    color: #fff;
-    padding-top: 70px;
-    font-family: sans-serif;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.footer-container{
-    width: 90%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 40px;
-    padding-bottom: 50px;
-}
-
-.footer-box h3{
-    font-size: 22px;
-    margin-bottom: 25px;
-    color: #d4af37;
-    position: relative;
-}
-
-.footer-box h3::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    width: 60px;
-    height: 2px;
-    background: #d4af37;
-}
-
-.logo{
-    font-size: 32px;
-    color: #d4af37;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-}
-
-.footer-box p{
-    line-height: 1.8;
-    color: #cbd5e1;
-    font-size: 15px;
-}
-
-.footer-box ul{
-    list-style: none;
-}
-
-.footer-box ul li{
-    margin: 15px 0;
-}
-
-.footer-box ul li a{
-    color: #cbd5e1;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.footer-box ul li a:hover{
-    color: #d4af37;
-    padding-left: 5px;
-}
-
-.social-icons{
-    margin-top: 25px;
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons a{
-    width: 42px;
-    height: 42px;
-    background: rgba(255,255,255,0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    color: #d4af37;
-    font-size: 18px;
-    transition: 0.3s;
-}
-
-.social-icons a:hover{
-    background: #d4af37;
-    color: #0f172a;
-    transform: translateY(-5px);
-}
-
-.footer-box i{
-    color: #d4af37;
-    margin-right: 10px;
-}
-
-.footer-bottom{
-    border-top: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-.footer-bottom p{
-    color: #94a3b8;
-    font-size: 14px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===== ABOUT SECTION ===== */
-
-.about-section{
-  background: #111111;
-  padding: 110px 0;
-  overflow: hidden;
-}
-
-.about-container{
-  width: 88%;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 70px;
-  align-items: center;
-}
-
-.about-image{
-  position: relative;
-}
-
-.about-image img{
-  width: 100%;
-  border-radius: 24px;
-  height: 620px;
-  object-fit: cover;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
-}
-
-.about-content{
-  color: white;
-}
-
-.about-title{
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(32px,4vw,52px);
-  line-height: 1.2;
-  margin-bottom: 28px;
-  font-weight: 800;
-}
-
-.about-text{
-  color: rgba(255,255,255,0.72);
-  font-size: 15px;
-  line-height: 1.9;
-  margin-bottom: 22px;
-  max-width: 580px;
-}
-
-.about-features{
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 18px;
-  margin: 40px 0;
-}
-
-.feature-box{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(212,160,23,0.15);
-  padding: 16px 18px;
-  border-radius: 14px;
-  transition: 0.35s;
-}
-
-.feature-box:hover{
-  transform: translateY(-4px);
-  border-color: rgba(212,160,23,0.45);
-  background: rgba(212,160,23,0.08);
-}
-
-.feature-box i{
-  color: var(--gold);
-  font-size: 18px;
-}
-
-.feature-box span{
-  font-size: 14px;
-  font-weight: 500;
-}
-
-@media(max-width:900px){
-
-  .about-container{
-    grid-template-columns: 1fr;
-  }
-
-  .about-image img{
-    height: 450px;
-  }
-
-}
-
-@media(max-width:600px){
-
-  .about-features{
-    grid-template-columns: 1fr;
-  }
-
-  .about-title{
-    font-size: 34px;
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===== SHIPPING SECTION ===== */
-
-.shipping-section{
-  background: #f4f1eb;
-  padding: 110px 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.shipping-container{
-  width: 88%;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 24px;
-  margin-top: 60px;
-}
-
-.shipping-card{
-  background: white;
-  border-radius: 22px;
-  padding: 38px 28px;
-  text-align: center;
-  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
-  transition: 0.4s;
-  position: relative;
-  overflow: hidden;
-}
-
-.shipping-card::before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg,var(--gold),var(--gold-light));
-  transform: scaleX(0);
-  transition: 0.4s;
-}
-
-.shipping-card:hover::before{
-  transform: scaleX(1);
-}
-
-.shipping-card:hover{
-  transform: translateY(-10px);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.15);
-}
-
-.shipping-icon{
-  width: 70px;
-  height: 70px;
-  margin: auto;
-  margin-bottom: 24px;
-  border-radius: 18px;
-  background: rgba(212,160,23,0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  color: var(--gold);
-  transition: 0.35s;
-}
-
-.shipping-card:hover .shipping-icon{
-  background: linear-gradient(135deg,var(--gold),var(--gold-dark));
-  color: white;
-  transform: rotate(8deg) scale(1.08);
-}
-
-.shipping-card h3{
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  color: #111;
-  margin-bottom: 16px;
-}
-
-.shipping-card p{
-  font-size: 14px;
-  line-height: 1.8;
-  color: #555;
-}
-
-@media(max-width:1000px){
-
-  .shipping-container{
-    grid-template-columns: repeat(2,1fr);
-  }
-
-}
-
-@media(max-width:650px){
-
-  .shipping-container{
-    grid-template-columns: 1fr;
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===== STATS SECTION ===== */
-
-.stats-section{
-  background: #0e0e0e;
-  padding: 110px 0;
-  text-align: center;
-  position: relative;
-}
-
-.stats-container{
-  width: 88%;
-  margin: 70px auto 0;
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 20px;
-}
-
-.stat-box{
-  padding: 40px 20px;
-  border: 1px solid rgba(212,160,23,0.2);
-  border-radius: 18px;
-  background: rgba(255,255,255,0.03);
-  transition: 0.4s;
-}
-
-.stat-box:hover{
-  transform: translateY(-8px);
-  border-color: rgba(212,160,23,0.5);
-  background: rgba(212,160,23,0.06);
-}
-
-.stat-box h3{
-  font-size: 42px;
-  font-weight: 800;
-  color: var(--gold);
-  margin-bottom: 10px;
-}
-
-.stat-box p{
-  font-size: 14px;
-  color: rgba(255,255,255,0.7);
-}
-
-@media(max-width:900px){
-  .stats-container{
-    grid-template-columns: repeat(2,1fr);
-  }
-}
-
-@media(max-width:600px){
-  .stats-container{
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===== CTA SECTION ===== */
-
-.cta-section{
-  background: linear-gradient(135deg, #111, #0e0e0e);
-  padding: 120px 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.cta-container{
-  width: 85%;
-  margin: auto;
-}
-
-.cta-content h2{
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px,4vw,48px);
-  color: white;
-  margin-bottom: 20px;
-  font-weight: 800;
-}
-
-.cta-content p{
-  font-size: 15px;
-  color: rgba(255,255,255,0.7);
-  max-width: 650px;
-  margin: auto;
-  line-height: 1.8;
-  margin-bottom: 35px;
-}
-
-.cta-buttons{
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
   </style>
 </head>
 <body>
@@ -1293,7 +922,7 @@
   <div class="nav">
     <a class="logo" href="#">
       <div class="logo-icon">🌿</div>
-      <h2>  <span>CHOAMX Company</span></h2>
+      <h2>CHOAMX<span>Egyptian Excellence</span></h2>
     </a>
     <button class="menu-toggle" id="mobileMenuToggle" aria-label="Menu">
       <i class="fas fa-bars"></i>
@@ -1303,12 +932,12 @@
         <li>Home</li>
         <li>Products</li>
         <li>How We Work</li>
-        <li>Packaging & Technical Specs</li>
+        <li>Packaging & Specs</li>
         <li>Contact Us</li>
         <li>FAQ</li>
       </ul>
     </nav>
-    <div class="social">
+    <div class="nav-social">
       <a href="#"><i class="fab fa-facebook-f"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -1316,366 +945,242 @@
   </div>
 </header>
 
+<!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-overlay"></div>
+  <div class="hero-particles" id="particles"></div>
   <div class="hero-content">
     <div class="hero-badge"><i class="fas fa-leaf"></i> CHOAMX — Eccellenza Egiziana</div>
-    <h1>Il tuo ponte diretto tra <em>l'Egitto</em><br> e i mercati internazionali</h1>
+    <h1>Il tuo ponte diretto tra <em>l'Egitto</em><br>e i mercati internazionali</h1>
     <p>Uniamo l'eccellenza produttiva egiziana al rigore del management Italiano, garantendo standard qualitativi elevati, tracciabilità completa e affidabilità costante in ogni spedizione.</p>
-    <div class="hero-buttons"><button class="btn btn-primary">Request a Quote</button><button class="btn btn-secondary">Browse Products</button></div>
+    <div class="hero-buttons">
+      <button class="btn btn-primary">Request a Quote</button>
+      <button class="btn btn-secondary">Browse Products</button>
+    </div>
   </div>
   <div class="scroll-indicator"><i class="fas fa-chevron-down"></i> SCROLL</div>
 </section>
 
+<!-- ===== WHY IMPORT ===== -->
 <section class="import-section">
-  <div class="section-header"><div class="section-eyebrow reveal">Why Choose Us</div><h2 class="section-title-main title-on-light reveal stagger-1">Why Import with PEI Trade?</h2></div>
+  <div class="section-header">
+    <div class="section-eyebrow reveal">Why Choose Us</div>
+    <h2 class="section-title-main title-on-light reveal stagger-1">Why Import with CHOAMX?</h2>
+  </div>
   <div class="import-cards">
-    <div class="import-card reveal stagger-1"><div class="card-icon"><i class="fas fa-medal"></i></div><span class="card-label-tag">Quality</span><h3 class="card-title">Oltre la selezione, il controllo live.</h3><p>Non ci fidiamo delle promesse: applichiamo rigidi protocolli di selezione italiani. Prima della partenza, riceverai report video e foto del tuo carico.</p></div>
-    <div class="import-card reveal stagger-2"><div class="card-icon"><i class="fas fa-file-contract"></i></div><span class="card-label-tag">Compliance & Tracciabilità</span><h3 class="card-title">Sicurezza doganale e dazio zero (EUR.1)</h3><p>Con l'emissione del certificato EUR.1, permettiamo ai nostri partner europei di importare a dazio zero, ottimizzando i margini.</p></div>
-    <div class="import-card reveal stagger-3"><div class="card-icon"><i class="fas fa-handshake"></i></div><span class="card-label-tag">Fiducia</span><h3 class="card-title">Un ponte diretto Italia-Egitto senza barriere</h3><p>ChoamX è un'azienda a proprietà e gestione italiana con sede in Egitto. Contratti chiari, nessuna barriera linguistica.</p></div>
-    <div class="import-card reveal stagger-4"><div class="card-icon"><i class="fas fa-shipping-fast"></i></div><span class="card-label-tag">Logistica Integrata</span><h3 class="card-title">Flussi rapidi e ottimizzati per il mercato globale</h3><p>Colleghiamo le migliori produzioni egiziane ai mercati Europei, Medio Oriente e internazionali con massima puntualità.</p></div>
+    <div class="import-card reveal stagger-1">
+      <div class="card-icon"><i class="fas fa-medal"></i></div>
+      <span class="card-label-tag">Quality</span>
+      <h3 class="card-title">Oltre la selezione, il controllo live.</h3>
+      <p>Non ci fidiamo delle promesse: applichiamo rigidi protocolli di selezione italiani. Prima della partenza, riceverai report video e foto del tuo carico.</p>
+    </div>
+    <div class="import-card reveal stagger-2">
+      <div class="card-icon"><i class="fas fa-file-contract"></i></div>
+      <span class="card-label-tag">Compliance & Tracciabilità</span>
+      <h3 class="card-title">Sicurezza doganale e dazio zero (EUR.1)</h3>
+      <p>Con l'emissione del certificato EUR.1, permettiamo ai nostri partner europei di importare a dazio zero, ottimizzando i margini.</p>
+    </div>
+    <div class="import-card reveal stagger-3">
+      <div class="card-icon"><i class="fas fa-handshake"></i></div>
+      <span class="card-label-tag">Fiducia</span>
+      <h3 class="card-title">Un ponte diretto Italia-Egitto senza barriere</h3>
+      <p>ChoamX è un'azienda a proprietà e gestione italiana con sede in Egitto. Contratti chiari, nessuna barriera linguistica.</p>
+    </div>
+    <div class="import-card reveal stagger-4">
+      <div class="card-icon"><i class="fas fa-shipping-fast"></i></div>
+      <span class="card-label-tag">Logistica Integrata</span>
+      <h3 class="card-title">Flussi rapidi e ottimizzati per il mercato globale</h3>
+      <p>Colleghiamo le migliori produzioni egiziane ai mercati Europei, Medio Oriente e internazionali con massima puntualità.</p>
+    </div>
   </div>
 </section>
 
-
-
-
-
-
-
-
-
-
+<!-- ===== ABOUT ===== -->
 <section class="about-section" id="about">
   <div class="about-container">
-
     <div class="about-image reveal from-left">
-      <img src="https://images.pexels.com/photos/3848793/pexels-photo-3848793.jpeg" alt="CHOAMX Export">
+      <img src="https://images.pexels.com/photos/3848793/pexels-photo-3848793.jpeg" alt="CHOAMX Export" loading="lazy">
     </div>
-
     <div class="about-content reveal from-right">
       <span class="section-eyebrow">About CHOAMX</span>
-
-      <h2 class="about-title">
-        Italian Management <br>
-        Egyptian Export Excellence
-      </h2>
-
-      <p class="about-text">
-        CHOAMX is an international export partner specialized in Egyptian products,
-        combining local production excellence with direct Italian supervision and quality control.
-      </p>
-
-      <p class="about-text">
-        We connect selected Egyptian supply chains with global markets,
-        providing fresh produce, IQF frozen products and Bio Energy solutions
-        with complete traceability and operational transparency.
-      </p>
-
+      <h2 class="about-title">Italian Management,<br><em>Egyptian</em> Export Excellence</h2>
+      <p class="about-text">CHOAMX is an international export partner specialized in Egyptian products, combining local production excellence with direct Italian supervision and quality control.</p>
+      <p class="about-text">We connect selected Egyptian supply chains with global markets, providing fresh produce, IQF frozen products and Bio Energy solutions with complete traceability and operational transparency.</p>
       <div class="about-features">
-
-        <div class="feature-box">
-          <i class="fas fa-check-circle"></i>
-          <span>Italian Supervision</span>
-        </div>
-
-        <div class="feature-box">
-          <i class="fas fa-check-circle"></i>
-          <span>Global Export Solutions</span>
-        </div>
-
-        <div class="feature-box">
-          <i class="fas fa-check-circle"></i>
-          <span>Certified Quality Control</span>
-        </div>
-
-        <div class="feature-box">
-          <i class="fas fa-check-circle"></i>
-          <span>Complete Traceability</span>
-        </div>
-
+        <div class="feature-box"><i class="fas fa-check-circle"></i><span>Italian Supervision</span></div>
+        <div class="feature-box"><i class="fas fa-check-circle"></i><span>Global Export Solutions</span></div>
+        <div class="feature-box"><i class="fas fa-check-circle"></i><span>Certified Quality Control</span></div>
+        <div class="feature-box"><i class="fas fa-check-circle"></i><span>Complete Traceability</span></div>
       </div>
-
-      <button class="btn btn-primary">
-        Discover More
-      </button>
-
+      <button class="btn btn-primary">Discover More</button>
     </div>
-
   </div>
 </section>
 
-
-
-
-
-
-
-
-
-
-
+<!-- ===== CATEGORIES ===== -->
 <section class="categories-section">
   <div class="cat-orb"></div>
-  <div class="section-header"><div class="section-eyebrow reveal">I Nostri Prodotti</div><h2 class="section-title-main title-on-dark reveal stagger-1">Le Nostre Categorie</h2></div>
+  <div class="section-header">
+    <div class="section-eyebrow reveal">I Nostri Prodotti</div>
+    <h2 class="section-title-main title-on-dark reveal stagger-1">Le Nostre Categorie</h2>
+  </div>
   <div class="categories-grid">
     <div class="category-card card-verdure"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">Verdure</div></div>
-    <div class="category-card card-surgelati"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">PRODOTTI SURGELATI</div></div>
-        <div class="category-card card-frutta"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">Frutta</div></div>
-
-    <div class="category-card card-surgelati"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">LEGUMI</div></div>
-    
-    <div class="category-card card-legumi"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">DI STAGIONE</div></div>
-        <div class="category-card card-stagione"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">PELLET E CARBONE</div></div>
-
-        <div class="category-card card-legumi"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">DI STAGIONE</div></div>
-
+    <div class="category-card card-surgelati"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">Prodotti Surgelati</div></div>
+    <div class="category-card card-frutta"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">Frutta</div></div>
+    <div class="category-card card-legumi"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">Legumi</div></div>
+    <div class="category-card card-stagione"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">Di Stagione</div></div>
+    <div class="category-card card-energia"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">Pellet e Carbone</div></div>
   </div>
 </section>
 
+<!-- ===== TIMELINE ===== -->
 <section class="timeline-section">
-  <div class="timeline-header" id="tl-header"><h2>Cronologia dell'ordine con PEI Trade</h2></div>
-  <div class="timeline-container"><div class="timeline-line" id="tl-line"><div class="timeline-line-fill" id="tl-fill"></div></div>
-    <div class="timeline-item"><div class="item-left"><div class="item-title">Definizione delle specifiche (Giorno 0)</div><p class="item-desc">Analizziamo insieme ogni dettaglio: prodotto, calibro, imballaggio, quantità, Incoterm e destinazione. Nessuna ambiguità, zero margini di errore.</p></div><div class="item-center"><div class="item-dot"></div><div class="item-day">Giorno 0</div></div><div class="item-empty"></div></div>
-    <div class="timeline-item"><div class="item-empty"></div><div class="item-center"><div class="item-dot"></div><div class="item-day">± 24 ore</div></div><div class="item-right"><div class="item-title">Offerta dettagliata (entro 24h)</div><p class="item-desc">Ricevi un preventivo completo con tempistiche di partenza, stime di arrivo, opzioni logistiche e condizioni chiare.</p></div></div>
-    <div class="timeline-item"><div class="item-left"><div class="item-title">Conferma e pianificazione (Giorno 1–2)</div><p class="item-desc">Emettiamo la Proforma Invoice e definiamo un calendario operativo di precisione. Ogni fase è programmata per garantire fluidità e puntualità.</p></div><div class="item-center"><div class="item-dot"></div><div class="item-day">Giorno 1–2</div></div><div class="item-empty"></div></div>
-    <div class="timeline-item"><div class="item-empty"></div><div class="item-center"><div class="item-dot"></div><div class="item-day">Giorno 1–2</div></div><div class="item-right"><div class="item-title">Controllo qualità e preparazione (Giorno 3–7)</div><p class="item-desc">Supervisioniamo selezione, lavorazione e imballaggio direttamente sul campo. Prima della partenza, ricevi report video e foto del carico: verifichi qualità, calibro e conformità prima che la merce lasci l'Egitto. Possibilità di controllo tramite (SGS / BV ) su richiesta del cliente.</p></div></div>
-    <div class="timeline-item"><div class="item-left"><div class="item-title">Spedizione e monitoraggio</div><p class="item-desc">Gestiamo l’intera logistica. Seguiamo la merce lungo tutto il tragitto con aggiornamenti costanti, fornendoti tutta la documentazione necessaria per uno sdoganamento rapido e senza intoppi.</p></div><div class="item-center"><div class="item-dot"></div><div class="item-day">Giorno 3–7</div></div><div class="item-empty"></div></div>
-    <div class="timeline-item"><div class="item-empty"></div><div class="item-center"><div class="item-dot"></div><div class="item-day">In corso</div></div><div class="item-right"><div class="item-title">Supporto post-consegna</div><p class="item-desc">Restiamo al tuo fianco anche dopo l’arrivo della merce, garantendo assistenza operativa continua e la stabilità necessaria per la tua programmazione futura.</p></div></div>
+  <div class="timeline-header" id="tl-header">
+    <div class="section-eyebrow" style="color:var(--gold-dark)">Il Nostro Processo</div>
+    <h2>Cronologia dell'ordine con CHOAMX</h2>
+  </div>
+  <div class="timeline-container">
+    <div class="timeline-line" id="tl-line"><div class="timeline-line-fill" id="tl-fill"></div></div>
+    <div class="timeline-item">
+      <div class="item-left"><div class="item-title">Definizione delle specifiche</div><p class="item-desc">Analizziamo insieme ogni dettaglio: prodotto, calibro, imballaggio, quantità, Incoterm e destinazione. Nessuna ambiguità, zero margini di errore.</p></div>
+      <div class="item-center"><div class="item-dot"></div><div class="item-day">Giorno 0</div></div>
+      <div class="item-empty"></div>
+    </div>
+    <div class="timeline-item">
+      <div class="item-empty"></div>
+      <div class="item-center"><div class="item-dot"></div><div class="item-day">± 24 ore</div></div>
+      <div class="item-right"><div class="item-title">Offerta dettagliata</div><p class="item-desc">Ricevi un preventivo completo con tempistiche di partenza, stime di arrivo, opzioni logistiche e condizioni chiare.</p></div>
+    </div>
+    <div class="timeline-item">
+      <div class="item-left"><div class="item-title">Conferma e pianificazione</div><p class="item-desc">Emettiamo la Proforma Invoice e definiamo un calendario operativo di precisione. Ogni fase è programmata per garantire fluidità e puntualità.</p></div>
+      <div class="item-center"><div class="item-dot"></div><div class="item-day">Giorno 1–2</div></div>
+      <div class="item-empty"></div>
+    </div>
+    <div class="timeline-item">
+      <div class="item-empty"></div>
+      <div class="item-center"><div class="item-dot"></div><div class="item-day">Giorno 3–7</div></div>
+      <div class="item-right"><div class="item-title">Controllo qualità e preparazione</div><p class="item-desc">Supervisioniamo selezione, lavorazione e imballaggio direttamente sul campo. Prima della partenza, ricevi report video e foto del carico.</p></div>
+    </div>
+    <div class="timeline-item">
+      <div class="item-left"><div class="item-title">Spedizione e monitoraggio</div><p class="item-desc">Gestiamo l'intera logistica. Seguiamo la merce lungo tutto il tragitto con aggiornamenti costanti e tutta la documentazione necessaria.</p></div>
+      <div class="item-center"><div class="item-dot"></div><div class="item-day">In partenza</div></div>
+      <div class="item-empty"></div>
+    </div>
+    <div class="timeline-item">
+      <div class="item-empty"></div>
+      <div class="item-center"><div class="item-dot"></div><div class="item-day">In corso</div></div>
+      <div class="item-right"><div class="item-title">Supporto post-consegna</div><p class="item-desc">Restiamo al tuo fianco anche dopo l'arrivo della merce, garantendo assistenza operativa continua e stabilità per la tua programmazione futura.</p></div>
+    </div>
   </div>
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- ===== SHIPPING ===== -->
 <section class="shipping-section" id="shipping">
-
   <div class="section-header">
-    <div class="section-eyebrow reveal">
-      Global Shipping
-    </div>
-
-    <h2 class="section-title-main title-on-light reveal stagger-1">
-      International Shipping Information
-    </h2>
+    <div class="section-eyebrow reveal">Global Shipping</div>
+    <h2 class="section-title-main title-on-light reveal stagger-1">International Shipping Information</h2>
   </div>
-
   <div class="shipping-container">
-
     <div class="shipping-card reveal stagger-1">
-      <div class="shipping-icon">
-        <i class="fas fa-anchor"></i>
-      </div>
-
+      <div class="shipping-icon"><i class="fas fa-anchor"></i></div>
       <h3>Main Egyptian Ports</h3>
-
-      <p>
-        Alexandria, Damietta, Port Said and Sokhna
-        with continuous export operations to global markets.
-      </p>
+      <p>Alexandria, Damietta, Port Said and Sokhna with continuous export operations to global markets.</p>
     </div>
-
     <div class="shipping-card reveal stagger-2">
-      <div class="shipping-icon">
-        <i class="fas fa-box"></i>
-      </div>
-
+      <div class="shipping-icon"><i class="fas fa-box"></i></div>
       <h3>40ft Reefer Containers</h3>
-
-      <p>
-        Temperature-controlled refrigerated containers
-        ensuring full cold chain preservation during shipment.
-      </p>
+      <p>Temperature-controlled refrigerated containers ensuring full cold chain preservation during shipment.</p>
     </div>
-
     <div class="shipping-card reveal stagger-3">
-      <div class="shipping-icon">
-        <i class="fas fa-globe"></i>
-      </div>
-
+      <div class="shipping-icon"><i class="fas fa-globe"></i></div>
       <h3>Incoterms 2020</h3>
-
-      <p>
-        FOB, CFR, CIF, DAP & DPU solutions
-        tailored to international client requirements.
-      </p>
+      <p>FOB, CFR, CIF, DAP & DPU solutions tailored to international client requirements.</p>
     </div>
-
     <div class="shipping-card reveal stagger-4">
-      <div class="shipping-icon">
-        <i class="fas fa-shield-alt"></i>
-      </div>
-
+      <div class="shipping-icon"><i class="fas fa-shield-alt"></i></div>
       <h3>Secure Logistics</h3>
-
-      <p>
-        Continuous shipment monitoring,
-        export documentation and optional cargo insurance.
-      </p>
+      <p>Continuous shipment monitoring, export documentation and optional cargo insurance.</p>
     </div>
-
-  </div>
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section class="faq-section">
-  <h2 class="faq-title" id="faq-title">LE VOSTRE DOMANDE PIÙ RICORRENTI</h2>
-  <div class="faq-grid">
-    <div class="faq-item open" onclick="toggleFaq(this)"><div class="faq-question"><span>DI COSA SI OCCUPA CHOAMX?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div><div class="faq-answer"><div class="faq-answer-inner"><p>Siamo un partner internazionale specializzato nell’esportazione di prodotti egiziani, con gestione e controllo diretto italiano. La nostra struttura è organizzata in tre divisioni: Fresh Division: Frutta e verdura fresca. Frozen Division: Prodotti surgelati IQF. Bio Energy Division: Pellet e carbone naturale. Operiamo applicando standard gestionali italiani e un controllo diretto lungo tutta la filiera.</p></div></div></div>
-    <div class="faq-item open" onclick="toggleFaq(this)"><div class="faq-question"><span>COME VENGONO FORMULATI I PREZZI E QUANTO SONO VALIDI I PREVENTIVI?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div><div class="faq-answer"><div class="faq-answer-inner"><p>I nostri prezzi sono espressi su base FOB, CFR o CIF, secondo le tue esigenze di importazione. Vengono calcolati in modo trasparente e aggiornati in tempo reale in base alle quotazioni di mercato, al calibro richiesto, alla quantità e alle condizioni di trasporto. I preventivi hanno generalmente una validità di 48-72 ore.</p></div></div></div>
-    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question"><span>QUALI CONDIZIONI DI PAGAMENTO ACCETTATE?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div><div class="faq-answer"><div class="faq-answer-inner"><p>Offriamo flessibilità e sicurezza con LC a vista, DP, TT. Disponibili a valutare soluzioni personalizzate. Su richiesta ispezioni di terze parti (SGS o Bureau Veritas) e soluzioni Escrow.</p></div></div></div>
-    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question"><span>QUAL È IL QUANTITATIVO MINIMO D’ORDINE?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div><div class="faq-answer"><div class="faq-answer-inner"><p>Accettiamo ordini a partire da un container completo (FCL) di 20’ o 40’. È possibile combinare più referenze all’interno dello stesso container, purché rispettino le stesse esigenze di temperatura e stivaggio.</p></div></div></div>
-    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question"><span>QUALI SONO I TEMPI DI PREPARAZIONE E SPEDIZIONE?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div><div class="faq-answer"><div class="faq-answer-inner"><p>Tempi medi: 3–7 giorni lavorativi tra conferma e partenza. Per freschi 3–7 gg, surgelati IQF 3–5 gg, Bio Energy 2–5 gg.</p></div></div></div>
-    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question"><span>COME GARANTITE LA QUALITÀ?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div><div class="faq-answer"><div class="faq-answer-inner"><p>Garantiamo qualità attraverso selezione accurata, grading pre-spedizione, report video, monitoraggio container reefer, ispezioni indipendenti opzionali. Management italiano supervisiona ogni fase.</p></div></div></div>
   </div>
 </section>
 
+<!-- ===== FAQ ===== -->
+<div style="background: linear-gradient(160deg,#ebe5d8 0%,#e0d8c8 100%); padding: 1px 0;">
+<div class="faq-section">
+  <div class="faq-wrapper">
+    <h2 class="faq-title" id="faq-title">LE VOSTRE DOMANDE PIÙ RICORRENTI</h2>
+    <div class="faq-grid">
+      <div class="faq-item open" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>DI COSA SI OCCUPA CHOAMX?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div>
+        <div class="faq-answer"><div class="faq-answer-inner"><p>Siamo un partner internazionale specializzato nell'esportazione di prodotti egiziani, con gestione e controllo diretto italiano. Le nostre divisioni: Fresh Division (frutta e verdura fresca), Frozen Division (IQF), Bio Energy Division (pellet e carbone naturale).</p></div></div>
+      </div>
+      <div class="faq-item open" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>COME VENGONO FORMULATI I PREZZI?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div>
+        <div class="faq-answer"><div class="faq-answer-inner"><p>I prezzi sono espressi su base FOB, CFR o CIF, calcolati in modo trasparente in base alle quotazioni di mercato, calibro, quantità e condizioni di trasporto. I preventivi hanno validità di 48-72 ore.</p></div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>QUALI CONDIZIONI DI PAGAMENTO ACCETTATE?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div>
+        <div class="faq-answer"><div class="faq-answer-inner"><p>Offriamo flessibilità e sicurezza con LC a vista, DP, TT. Disponibili a valutare soluzioni personalizzate. Su richiesta ispezioni SGS o Bureau Veritas e soluzioni Escrow.</p></div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>QUAL È IL QUANTITATIVO MINIMO D'ORDINE?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div>
+        <div class="faq-answer"><div class="faq-answer-inner"><p>Accettiamo ordini a partire da un container completo (FCL) di 20' o 40'. È possibile combinare più referenze all'interno dello stesso container, purché rispettino le stesse esigenze di temperatura.</p></div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>QUALI SONO I TEMPI DI SPEDIZIONE?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div>
+        <div class="faq-answer"><div class="faq-answer-inner"><p>Tempi medi: 3–7 giorni lavorativi tra conferma e partenza. Freschi: 3–7 gg, surgelati IQF: 3–5 gg, Bio Energy: 2–5 gg.</p></div></div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question"><span>COME GARANTITE LA QUALITÀ?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div>
+        <div class="faq-answer"><div class="faq-answer-inner"><p>Garantiamo qualità attraverso selezione accurata, grading pre-spedizione, report video, monitoraggio container reefer e ispezioni indipendenti opzionali SGS/BV. Management italiano supervisiona ogni fase.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
+<!-- ===== STATS ===== -->
 <section class="stats-section" id="stats">
-
   <div class="section-header">
     <div class="section-eyebrow reveal">Our Impact</div>
-
-    <h2 class="section-title-main title-on-dark reveal stagger-1">
-      Trusted Global Export Partner
-    </h2>
+    <h2 class="section-title-main title-on-dark reveal stagger-1">Trusted Global Export Partner</h2>
   </div>
-
   <div class="stats-container">
-
-    <div class="stat-box reveal stagger-1">
-      <h3>20+</h3>
-      <p>Countries Served</p>
-    </div>
-
-    <div class="stat-box reveal stagger-2">
-      <h3>150+</h3>
-      <p>Successful Shipments</p>
-    </div>
-
-    <div class="stat-box reveal stagger-3">
-      <h3>98%</h3>
-      <p>Client Satisfaction</p>
-    </div>
-
-    <div class="stat-box reveal stagger-4">
-      <h3>24/7</h3>
-      <p>Support & Monitoring</p>
-    </div>
-
+    <div class="stat-box reveal stagger-1"><h3>20+</h3><p>Countries Served</p></div>
+    <div class="stat-box reveal stagger-2"><h3>150+</h3><p>Successful Shipments</p></div>
+    <div class="stat-box reveal stagger-3"><h3>98%</h3><p>Client Satisfaction</p></div>
+    <div class="stat-box reveal stagger-4"><h3>24/7</h3><p>Support & Monitoring</p></div>
   </div>
-
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- ===== CTA ===== -->
 <section class="cta-section" id="cta">
-
   <div class="cta-container">
-
     <div class="cta-content reveal">
-
-      <h2>
-        Ready to Import Premium Egyptian Products?
-      </h2>
-
-      <p>
-        Contact CHOAMX today and get a professional export solution
-        with full quality control and international standards.
-      </p>
-
+      <h2>Ready to Import Premium Egyptian Products?</h2>
+      <p>Contact CHOAMX today and get a professional export solution with full quality control and international standards.</p>
       <div class="cta-buttons">
-        <button class="btn btn-primary">
-          Request a Quote
-        </button>
-
-        <button class="btn btn-secondary" onclick="openWhatsApp()">
-          WhatsApp Us
-        </button>
+        <button class="btn btn-primary">Request a Quote</button>
+        <button class="btn btn-secondary" onclick="openWhatsApp()">WhatsApp Us</button>
       </div>
-
     </div>
-
   </div>
-
 </section>
 
-
-
-
+<!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="footer-container">
-
-    <!-- Logo & About -->
     <div class="footer-box">
-      <h2 class="logo">CHOAMX</h2>
-      <p>
-        International partner specialized in exporting Egyptian products
-        with direct Italian management and supervision.
-      </p>
-
+      <span class="footer-logo">CHOAMX</span>
+      <p>International partner specialized in exporting Egyptian products with direct Italian management and supervision.</p>
       <div class="social-icons">
         <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="#"><i class="fa-brands fa-instagram"></i></a>
         <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#" onclick="openWhatsApp()"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
     </div>
-
-    <!-- Quick Links -->
     <div class="footer-box">
       <h3>Quick Links</h3>
       <ul>
@@ -1686,104 +1191,138 @@
         <li><a href="#">Contact</a></li>
       </ul>
     </div>
-
-    <!-- Services -->
     <div class="footer-box">
       <h3>Services</h3>
       <ul>
-        <li>Fresh Fruits & Vegetables</li>
-        <li>IQF Frozen Products</li>
-        <li>Bio Energy Solutions</li>
-        <li>International Shipping</li>
-        <li>Export Documentation</li>
+        <li><span>Fresh Fruits & Vegetables</span></li>
+        <li><span>IQF Frozen Products</span></li>
+        <li><span>Bio Energy Solutions</span></li>
+        <li><span>International Shipping</span></li>
+        <li><span>Export Documentation</span></li>
       </ul>
     </div>
-
-    <!-- Contact -->
     <div class="footer-box">
       <h3>Contact Info</h3>
-
-      <p>
-        <i class="fa-solid fa-phone"></i>
-        +39 391 304 9947
-      </p>
-
-      <p>
-        <i class="fa-brands fa-whatsapp"></i>
-        WhatsApp Available
-      </p>
-
-      <p>
-        <i class="fa-solid fa-location-dot"></i>
-        Egypt / Italy
-      </p>
+      <p><i class="fa-solid fa-phone"></i>+39 391 304 9947</p>
+      <p><i class="fa-brands fa-whatsapp"></i>WhatsApp Available</p>
+      <p><i class="fa-solid fa-location-dot"></i>Egypt / Italy</p>
     </div>
-
   </div>
+  <div class="footer-bottom">
+    <p>© 2026 <span>CHOAMX</span> — Eccellenza Egiziana. Tutti i diritti riservati.</p>
+  </div>
+</footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="footer-stripe">© 2026 CHOAMX — <span>Eccellenza Egiziana</span>. Tutti i diritti riservati.</div>
 <div class="whatsapp" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i></div>
 
 <script>
-  // Mobile menu toggle
+  /* ===== MOBILE MENU ===== */
   const menuToggle = document.getElementById('mobileMenuToggle');
   const navLinks = document.getElementById('navLinks');
-  function toggleMobileMenu() {
+  menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     const icon = menuToggle.querySelector('i');
-    if (navLinks.classList.contains('active')) {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-times');
-    } else {
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
-    }
-  }
-  menuToggle.addEventListener('click', toggleMobileMenu);
-  // Close menu when a link is clicked
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+  });
   document.querySelectorAll('.nav-links ul li').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('active');
       const icon = menuToggle.querySelector('i');
-      icon.classList.remove('fa-times');
       icon.classList.add('fa-bars');
+      icon.classList.remove('fa-times');
     });
   });
 
-  function toggleFaq(item) { item.classList.toggle('open'); }
-  function openWhatsApp() { window.open("https://wa.me/393913049947", "_blank"); }
-
+  /* ===== NAVBAR SCROLL ===== */
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
 
-  const obsGeneral = new IntersectionObserver(e => e.forEach(i => { if(i.isIntersecting) { i.target.classList.add('visible'); obsGeneral.unobserve(i.target); } }), { threshold: 0.15 });
-  document.querySelectorAll('.reveal, .import-card, .category-card, .faq-item, .faq-title, .timeline-header, .section-title-main').forEach(el => obsGeneral.observe(el));
+  /* ===== SCROLL REVEAL ===== */
+  const obsGeneral = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obsGeneral.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.13 });
 
-  const itemObs = new IntersectionObserver(e => e.forEach(i => { if(i.isIntersecting) { i.target.classList.add('visible'); itemObs.unobserve(i.target); } }), { threshold: 0.25 });
+  document.querySelectorAll(
+    '.reveal, .import-card, .category-card, .faq-item, .faq-title, .timeline-header, .section-title-main, .shipping-card, .stat-box, .feature-box'
+  ).forEach(el => obsGeneral.observe(el));
+
+  /* ===== TIMELINE ITEMS ===== */
+  const itemObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); itemObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.22 });
   document.querySelectorAll('.timeline-item').forEach(i => itemObs.observe(i));
 
+  /* ===== TIMELINE FILL ===== */
   const fill = document.getElementById('tl-fill');
   const sectionTs = document.querySelector('.timeline-section');
-  function updateFill() { if(sectionTs) { let rect = sectionTs.getBoundingClientRect(); let scrolled = Math.max(0, window.innerHeight - rect.top); let pct = Math.min(100, (scrolled / (rect.height + window.innerHeight)) * 160); fill.style.height = pct + '%'; } }
-  window.addEventListener('scroll', updateFill); updateFill();
-  document.getElementById('tl-header')?.classList.add('visible');
-  document.getElementById('faq-title')?.classList.add('visible');
-  document.querySelectorAll('.faq-item').forEach(el => obsGeneral.observe(el));
+  function updateFill() {
+    if (sectionTs) {
+      const rect = sectionTs.getBoundingClientRect();
+      const scrolled = Math.max(0, window.innerHeight - rect.top);
+      const pct = Math.min(100, (scrolled / (rect.height + window.innerHeight)) * 160);
+      fill.style.height = pct + '%';
+    }
+  }
+  window.addEventListener('scroll', updateFill, { passive: true });
+  updateFill();
+
+  /* ===== FAQ TOGGLE ===== */
+  function toggleFaq(item) { item.classList.toggle('open'); }
+
+  /* ===== WHATSAPP ===== */
+  function openWhatsApp() { window.open('https://wa.me/393913049947', '_blank'); }
+
+  /* ===== HERO PARTICLES ===== */
+  const particlesContainer = document.getElementById('particles');
+  for (let i = 0; i < 18; i++) {
+    const span = document.createElement('span');
+    span.style.cssText = `
+      left: ${Math.random() * 100}%;
+      bottom: ${Math.random() * 40}%;
+      width: ${1 + Math.random() * 2}px;
+      height: ${1 + Math.random() * 2}px;
+      animation-duration: ${4 + Math.random() * 6}s;
+      animation-delay: ${Math.random() * 5}s;
+    `;
+    particlesContainer.appendChild(span);
+  }
+
+  /* ===== SMOOTH STAGGER for shipping cards ===== */
+  document.querySelectorAll('.shipping-card').forEach((card, i) => {
+    card.style.transitionDelay = (i * 0.1) + 's';
+  });
+
+  /* ===== COUNTER ANIMATION ===== */
+  const statObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const h3 = e.target.querySelector('h3');
+        if (h3 && !h3.dataset.counted) {
+          h3.dataset.counted = true;
+          const target = h3.textContent;
+          const num = parseFloat(target);
+          const suffix = target.replace(/[\d.]/g, '');
+          let start = 0;
+          const step = num / 50;
+          const timer = setInterval(() => {
+            start = Math.min(start + step, num);
+            h3.textContent = (Number.isInteger(num) ? Math.floor(start) : start.toFixed(0)) + suffix;
+            if (start >= num) clearInterval(timer);
+          }, 30);
+        }
+        statObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.stat-box').forEach(b => statObs.observe(b));
 </script>
 </body>
 </html>
