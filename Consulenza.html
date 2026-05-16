@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Consulenza · CHOAMX | Espansione in Nord Africa</title>
+  <!-- Font Awesome 6 (required for navbar & footer) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts: Eleganti -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    /* ===================== RESET & ROOT ===================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-glow: rgba(201,168,76,0.18);
+      --gold-dim: rgba(201,168,76,0.08);
+      --black: #080808;
+      --black-mid: #0F0F0F;
+      --black-soft: #161616;
+      --black-card: #121212;
+      --white: #F8F6F0;
+      --white-dim: #D8D4C8;
+      --gray: #7A7870;
+      --gray-light: #555248;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Montserrat', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ===================== CUSTOM CURSOR ===================== */
+    #cur {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s, background 0.2s;
+    }
+
+    #ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(201,168,76,0.45);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s;
+    }
+
+    /* ===================== NAVBAR STANDARD CHOAMX ===================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 20px 48px;
+      background: linear-gradient(180deg, rgba(10,9,8,0.96) 0%, transparent 100%);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,150,58,0.18);
+      transition: background 0.3s, box-shadow 0.3s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .navbar.scrolled {
+      background: rgba(10,9,8,0.98);
+      box-shadow: 0 4px 36px rgba(0,0,0,0.6);
+      border-bottom-color: rgba(201,150,58,0.4);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--gold), #9a6f1e);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 16px rgba(201,150,58,0.35);
+      transition: transform 0.3s;
+    }
+
+    .logo:hover .logo-icon {
+      transform: rotate(5deg) scale(1.05);
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 1.5px;
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 9px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: rgba(253,250,245,0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: var(--gold);
+    }
+
+    .nav-links li a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links li a.active {
+      color: var(--gold);
+    }
+
+    .nav-links li a.active::after {
+      width: 100%;
+    }
+
+    .nav-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-social a {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(201,150,58,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(253,250,245,0.7);
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .nav-social a:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--black);
+      transform: translateY(-3px);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 26px;
+      color: var(--gold);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    @media (max-width: 900px) {
+      .navbar {
+        padding: 16px 24px;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(10,9,8,0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+        padding: 40px 20px;
+        border-top: 1px solid rgba(201,150,58,0.3);
+        border-bottom: 1px solid rgba(201,150,58,0.3);
+        transform: translateY(-120%);
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        visibility: hidden;
+        z-index: 999;
+      }
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      .nav-social {
+        margin-left: auto;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .logo-text {
+        display: none;
+      }
+      .nav-social {
+        display: none;
+      }
+    }
+
+    /* ===================== NUOVA HERO SEZIONE (aggiunta all'inizio) ===================== */
+    .new-hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 120px 64px 100px;
+      overflow: hidden;
+    }
+    .new-hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      filter: brightness(0.75) contrast(1.05);
+      transform: scale(1.02);
+      transition: transform 0.7s ease;
+    }
+    .new-hero:hover .new-hero-bg {
+      transform: scale(1.05);
+    }
+    .new-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.3) 100%);
+      z-index: 1;
+    }
+    .new-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 750px;
+    }
+    .new-hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUpNew 0.8s 0.2s forwards;
+    }
+    .new-hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      vertical-align: middle;
+      margin-right: 16px;
+    }
+    .new-hero-title {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 300;
+      line-height: 0.95;
+      color: var(--white);
+      opacity: 0;
+      animation: fadeUpNew 0.8s 0.4s forwards;
+    }
+    .new-hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .new-hero-desc {
+      margin-top: 28px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #e0e0e0;
+      max-width: 580px;
+      opacity: 0;
+      animation: fadeUpNew 0.8s 0.6s forwards;
+    }
+    .new-hero-desc p + p {
+      margin-top: 12px;
+    }
+    @keyframes fadeUpNew {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===================== SEZIONE HERO ORIGINALE (seconda sezione) ===================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+      padding: 0 64px 110px;
+      gap: 80px;
+      overflow: hidden;
+      background: var(--black);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 55% 70% at 80% 30%, rgba(201,168,76,.065) 0%, transparent 65%),
+                  radial-gradient(ellipse 35% 50% at 15% 85%, rgba(201,168,76,.04) 0%, transparent 55%),
+                  var(--black);
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(201,168,76,.035) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(201,168,76,.035) 1px, transparent 1px);
+      background-size: 90px 90px;
+      mask-image: linear-gradient(160deg, transparent 0%, black 25%, black 75%, transparent 100%);
+    }
+    .hero-accent {
+      position: absolute;
+      top: 0;
+      right: 38%;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(201,168,76,.3), transparent);
+    }
+    .hero-left { position: relative; }
+    .hero-eyebrow {
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .38em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 8vw, 7.5rem);
+      font-weight: 300;
+      line-height: .92;
+      color: var(--white);
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-desc {
+      margin-top: 36px;
+      max-width: 440px;
+      font-size: .84rem;
+      color: var(--gray);
+      line-height: 1.95;
+    }
+    .hero-cta {
+      margin-top: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--gold);
+      color: var(--black);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      text-decoration: none;
+      transition: background .3s, transform .3s, box-shadow .3s;
+    }
+    .hero-cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 50px rgba(201,168,76,.28);
+    }
+    .hero-cta-arr { transition: transform .3s; }
+    .hero-cta:hover .hero-cta-arr { transform: translateX(4px); }
+    .hero-right { position: relative; }
+    .hero-card {
+      background: var(--black-card);
+      border: 1px solid rgba(201,168,76,.12);
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .hero-card-label { font-size: .58rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .hero-card-title { font-family: var(--serif); font-size: 1.7rem; font-weight: 600; color: var(--white); margin-bottom: 16px; line-height: 1.15; }
+    .hero-card-body { font-size: .83rem; color: var(--gray); line-height: 1.9; margin-bottom: 28px; }
+    .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 8px; }
+    .h-stat { border-top: 1px solid rgba(201,168,76,.15); padding-top: 16px; }
+    .h-stat-num { font-family: var(--serif); font-size: 2.2rem; font-weight: 300; color: var(--gold); line-height: 1; }
+    .h-stat-label { font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gray); margin-top: 4px; }
+    .scroll-ind {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .scroll-ind span { font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gray); writing-mode: vertical-rl; }
+    .s-line { width: 1px; height: 70px; background: linear-gradient(to bottom, var(--gold), transparent); animation: sAnim 2.2s ease-in-out infinite; }
+    @keyframes sAnim { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+
+    /* ===================== TUTTE LE ALTRE SEZIONI (invariate) ===================== */
+    .intro-band {
+      background: var(--black-mid);
+      border-top: 1px solid rgba(201,168,76,.1);
+      border-bottom: 1px solid rgba(201,168,76,.1);
+      padding: 64px 0;
+    }
+    .intro-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: center; }
+    .intro-quote {
+      font-family: var(--serif); font-style: italic;
+      font-size: clamp(1.5rem,2.5vw,2rem); font-weight: 300;
+      color: var(--white); line-height: 1.4;
+    }
+    .intro-quote em { color: var(--gold); }
+    .intro-body { font-size:.86rem; color: var(--gray); line-height:2; border-left:1px solid rgba(201,168,76,.2); padding-left:48px; }
+
+    .services-eu { background: var(--black); }
+    .services-header { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:end; margin-bottom:72px; }
+    .service-number { font-family:var(--serif); font-size:5rem; font-weight:300; color:rgba(201,168,76,.07); line-height:1; margin-bottom:-8px; }
+    .services-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; }
+    .sv-card {
+      background:var(--black-card);
+      padding:52px 48px;
+      position:relative; overflow:hidden;
+      transition:background .45s;
+    }
+    .sv-card::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+      background:linear-gradient(to right,transparent,var(--gold),transparent);
+      transform:scaleX(0); transition:transform .5s cubic-bezier(.23,1,.32,1);
+    }
+    .sv-card:hover { background:#161616; }
+    .sv-card:hover::after { transform:scaleX(1); }
+    .sv-icon {
+      width:44px; height:44px;
+      border:1px solid rgba(201,168,76,.2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem; margin-bottom:28px;
+      transition:border-color .4s,background .4s;
+    }
+    .sv-card:hover .sv-icon { border-color:var(--gold); background:rgba(201,168,76,.06); }
+    .sv-title { font-family:var(--serif); font-size:1.35rem; font-weight:600; color:var(--white); margin-bottom:14px; line-height:1.2; }
+    .sv-body  { font-size:.83rem; color:var(--gray); line-height:1.9; }
+
+    .strip {
+      background:linear-gradient(135deg,#0c0c0a 0%,#111108 50%,#0c0c0a 100%);
+      border-top:1px solid rgba(201,168,76,.12);
+      border-bottom:1px solid rgba(201,168,76,.12);
+      padding:0;
+      overflow:hidden; position:relative;
+    }
+    .strip-track { display:flex; gap:0; white-space:nowrap; animation:marquee 28s linear infinite; padding:28px 0; }
+    .strip-item {
+      display:inline-flex; align-items:center; gap:20px;
+      padding:0 48px;
+      border-right:1px solid rgba(201,168,76,.12);
+      font-size:.62rem; font-weight:700; letter-spacing:.28em; text-transform:uppercase; color:rgba(201,168,76,.6);
+    }
+    .strip-dot { width:5px; height:5px; background:var(--gold); border-radius:50%; flex-shrink:0; opacity:.6; }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    .services-eg { background:var(--black-mid); }
+    .eg-inner { display:grid; grid-template-columns:380px 1fr; gap:100px; align-items:start; }
+    .eg-sticky { position:sticky; top:130px; }
+    .eg-list { display:flex; flex-direction:column; gap:0; }
+    .eg-item {
+      display:grid; grid-template-columns:56px 1fr; gap:0 28px;
+      padding:36px 0; border-bottom:1px solid rgba(255,255,255,.05);
+      transition:background .3s;
+    }
+    .eg-item:first-child { border-top:1px solid rgba(255,255,255,.05); }
+    .eg-item-num {
+      font-family:var(--serif); font-size:2.2rem; font-weight:300;
+      color:rgba(201,168,76,.2); line-height:1; padding-top:2px;
+      transition:color .4s;
+    }
+    .eg-item:hover .eg-item-num { color:rgba(201,168,76,.6); }
+    .eg-item-icon { font-size:1.1rem; margin-bottom:10px; }
+    .eg-item-title { font-family:var(--serif); font-size:1.2rem; font-weight:600; color:var(--white); margin-bottom:10px; }
+    .eg-item-body  { font-size:.82rem; color:var(--gray); line-height:1.85; }
+
+    .producer { background:var(--black); }
+    .producer-box {
+      position:relative; overflow:hidden;
+      background:var(--black-card);
+      border:1px solid rgba(201,168,76,.15);
+      padding:90px 80px;
+      display:grid; grid-template-columns:1.2fr 1fr; gap:80px; align-items:center;
+    }
+    .producer-box::before {
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(ellipse 60% 80% at 100% 50%,rgba(201,168,76,.04) 0%,transparent 65%),
+        radial-gradient(ellipse 40% 60% at 0% 50%,rgba(201,168,76,.03) 0%,transparent 60%);
+    }
+    .producer-box::after {
+      content:''; position:absolute; top:0; left:0; right:0; height:1px;
+      background:linear-gradient(to right,transparent,var(--gold),transparent);
+    }
+    .prod-tag { font-size:.58rem; font-weight:700; letter-spacing:.32em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; }
+    .prod-title { font-family:var(--serif); font-size:clamp(2rem,3.5vw,3rem); font-weight:300; color:var(--white); line-height:1.1; margin-bottom:24px; }
+    .prod-title em { font-style:italic; color:var(--gold); }
+    .prod-body { font-size:.85rem; color:var(--gray); line-height:2; margin-bottom:36px; }
+    .prod-btn {
+      display:inline-flex; align-items:center; gap:14px;
+      background:transparent; border:1px solid var(--gold); color:var(--gold);
+      font-size:.65rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+      padding:15px 36px; text-decoration:none;
+      transition:background .35s,color .35s,transform .3s,box-shadow .3s;
+    }
+    .prod-btn:hover { background:var(--gold); color:var(--black); transform:translateY(-2px); box-shadow:0 16px 44px rgba(201,168,76,.25); }
+    .prod-right { position:relative; }
+    .prod-features { display:flex; flex-direction:column; gap:20px; }
+    .prod-feat {
+      display:flex; align-items:flex-start; gap:16px;
+      padding:20px 24px; background:rgba(255,255,255,.025);
+      border-left:2px solid rgba(201,168,76,.3);
+      transition:border-color .3s,background .3s;
+    }
+    .prod-feat:hover { border-left-color:var(--gold); background:rgba(201,168,76,.04); }
+    .prod-feat-icon { font-size:1.1rem; flex-shrink:0; margin-top:2px; opacity:.7; }
+    .prod-feat-text { font-size:.82rem; color:var(--gray); line-height:1.8; }
+    .prod-feat-text strong { color:var(--white-dim); font-weight:500; display:block; margin-bottom:4px; font-size:.83rem; }
+
+    .why { background:var(--black-mid); overflow:hidden; position:relative; }
+    .why-bg-word {
+      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      font-family:var(--serif); font-size:16vw; font-weight:700;
+      color:rgba(201,168,76,.018); white-space:nowrap;
+      pointer-events:none; user-select:none;
+    }
+    .why-header { text-align:center; margin-bottom:80px; position:relative; }
+    .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; position:relative; }
+    .why-card {
+      background:var(--black-card); padding:60px 48px;
+      position:relative; overflow:hidden;
+      transition:background .4s;
+    }
+    .why-card:hover { background:#161616; }
+    .why-num {
+      font-family:var(--serif); font-size:4rem; font-weight:300;
+      color:rgba(201,168,76,.06); line-height:1; margin-bottom:20px;
+      transition:color .4s;
+    }
+    .why-card:hover .why-num { color:rgba(201,168,76,.14); }
+    .why-card-line {
+      width:32px; height:2px; background:var(--gold); margin-bottom:24px;
+      transition:width .4s;
+    }
+    .why-card:hover .why-card-line { width:56px; }
+    .why-title { font-family:var(--serif); font-size:1.5rem; font-weight:600; color:var(--white); margin-bottom:16px; line-height:1.15; }
+    .why-body  { font-size:.83rem; color:var(--gray); line-height:1.95; }
+    .why-corner {
+      position:absolute; bottom:0; right:0;
+      width:60px; height:60px;
+      border-top:1px solid rgba(201,168,76,.12);
+      border-left:1px solid rgba(201,168,76,.12);
+      transition:width .4s,height .4s,border-color .4s;
+    }
+    .why-card:hover .why-corner { width:90px; height:90px; border-color:rgba(201,168,76,.3); }
+
+    .sectors { background:var(--black); }
+    .sectors-inner { display:grid; grid-template-columns:1fr 1fr; gap:2px; }
+    .sector-card {
+      position:relative; overflow:hidden;
+      padding:72px 60px; min-height:320px;
+      display:flex; flex-direction:column; justify-content:flex-end;
+      background:var(--black-card);
+      transition:background .5s;
+    }
+    .sector-card:hover { background:#141414; }
+    .sector-bg-num {
+      position:absolute; top:32px; right:40px;
+      font-family:var(--serif); font-size:8rem; font-weight:700;
+      color:rgba(201,168,76,.04); line-height:1;
+      transition:color .5s,transform .5s;
+    }
+    .sector-card:hover .sector-bg-num { color:rgba(201,168,76,.09); transform:scale(1.05); }
+    .sector-icon { font-size:2.2rem; margin-bottom:20px; opacity:.6; transition:opacity .4s; }
+    .sector-card:hover .sector-icon { opacity:1; }
+    .sector-badge {
+      display:inline-block; font-size:.58rem; font-weight:700; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--gold); border:1px solid rgba(201,168,76,.3); padding:5px 14px; margin-bottom:16px;
+      transition:border-color .4s,background .4s;
+    }
+    .sector-card:hover .sector-badge { border-color:var(--gold); background:rgba(201,168,76,.06); }
+    .sector-title { font-family:var(--serif); font-size:2rem; font-weight:600; color:var(--white); margin-bottom:12px; line-height:1.1; }
+    .sector-body  { font-size:.83rem; color:var(--gray); line-height:1.85; max-width:380px; }
+    .sector-arrow {
+      position:absolute; top:52px; left:52px;
+      width:40px; height:40px; border:1px solid rgba(201,168,76,.2);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold); font-size:1rem;
+      transform:rotate(-45deg) scale(0.8);
+      opacity:0; transition:opacity .4s,transform .4s;
+    }
+    .sector-card:hover .sector-arrow { opacity:1; transform:rotate(0deg) scale(1); }
+
+    .final-cta {
+      background:var(--black-mid);
+      padding:150px 0; text-align:center; position:relative; overflow:hidden;
+    }
+    .final-cta::before {
+      content:''; position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      width:700px; height:700px;
+      background:radial-gradient(circle,rgba(201,168,76,.055) 0%,transparent 70%);
+      border-radius:50%;
+    }
+    .final-cta-label { font-size:.62rem; font-weight:700; letter-spacing:.32em; text-transform:uppercase; color:var(--gold); margin-bottom:24px; }
+    .final-cta-title { font-family:var(--serif); font-size:clamp(2.8rem,5.5vw,5.5rem); font-weight:300; color:var(--white); line-height:1.05; margin-bottom:28px; position:relative; }
+    .final-cta-title em { font-style:italic; color:var(--gold); }
+    .final-cta-body { font-size:.86rem; color:var(--gray); max-width:500px; margin:0 auto 52px; line-height:2; }
+    .final-btn {
+      display:inline-flex; align-items:center; gap:14px;
+      background:var(--gold); color:var(--black);
+      font-size:.68rem; font-weight:700; letter-spacing:.24em; text-transform:uppercase;
+      padding:18px 48px; text-decoration:none;
+      transition:background .3s,transform .3s,box-shadow .3s; position:relative;
+    }
+    .final-btn:hover { background:var(--gold-light); transform:translateY(-3px); box-shadow:0 22px 60px rgba(201,168,76,.32); }
+    .final-btn-arr { transition:transform .3s; }
+    .final-btn:hover .final-btn-arr { transform:translateX(5px); }
+
+    /* ===== FOOTER & WHATSAPP ===== */
+    .footer, .footer *, .whatsapp-fixed, .whatsapp-fixed * { margin:0; padding:0; box-sizing:border-box; }
+    .footer {
+      --gold: #c9963a;
+      --gold-light: #e8b85a;
+      --gold-dark: #9a6f1e;
+      --dark-bg: #0a0908;
+      --dark-bg2: #070706;
+      --text-muted: rgba(253, 250, 245, 0.58);
+      --border-gold: rgba(201, 150, 58, 0.18);
+    }
+    .footer {
+      background: linear-gradient(180deg, #0a0908 0%, #070706 100%);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      border-top: 1px solid var(--border-gold);
+      width: 100%;
+      position: relative;
+      z-index: 10;
+    }
+    .footer-container {
+      width: 88%;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      padding: 70px 0 55px;
+    }
+    .footer-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 26px;
+      color: var(--gold);
+      position: relative;
+      letter-spacing: 0.3px;
+    }
+    .footer-box h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 50px;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+    .footer-box:hover h3::after { width: 70px; }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 18px;
+      display: inline-block;
+      letter-spacing: 2px;
+    }
+    .footer-box p { line-height: 1.75; color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
+    .footer-box ul { list-style: none; margin-top: 6px; }
+    .footer-box ul li { margin: 12px 0; }
+    .footer-box ul li a, .footer-box ul li span { color: var(--text-muted); font-size: 14px; text-decoration: none; transition: all 0.25s ease; display: inline-block; }
+    .footer-box ul li a:hover { color: var(--gold); padding-left: 5px; transform: translateX(2px); }
+    .footer-box .contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; color: var(--text-muted); font-size: 14px; }
+    .footer-box .contact-item i { width: 22px; color: var(--gold); font-size: 14px; }
+    .footer-box .contact-item a { color: var(--text-muted); text-decoration: none; transition: color 0.25s; }
+    .footer-box .contact-item a:hover { color: var(--gold); }
+    .social-icons {
+      display: flex;
+      gap: 14px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      background: rgba(253, 250, 245, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 18px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(201, 150, 58, 0.25);
+    }
+    .social-icons a:hover {
+      background: var(--gold);
+      color: #0a0908;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 22px rgba(201, 150, 58, 0.4);
+      border-color: var(--gold);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(253, 250, 245, 0.08);
+      text-align: center;
+      padding: 22px 20px;
+      font-size: 13px;
+      color: rgba(253, 250, 245, 0.28);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .footer-bottom span { color: var(--gold); font-weight: 500; }
+    .whatsapp-fixed {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: linear-gradient(135deg, var(--gold), #9a6f1e);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(201, 150, 58, 0.5);
+      transition: transform 0.32s, box-shadow 0.32s;
+      z-index: 999;
+      border: none;
+      text-decoration: none;
+    }
+    .whatsapp-fixed i { color: #0a0908; }
+    .whatsapp-fixed:hover {
+      transform: scale(1.13) rotate(8deg);
+      box-shadow: 0 12px 36px rgba(201, 150, 58, 0.7);
+    }
+    @media (max-width: 900px) {
+      .footer-container { width: 92%; gap: 32px; padding: 55px 0 40px; }
+      .whatsapp-fixed { width: 52px; height: 52px; font-size: 24px; bottom: 20px; right: 20px; }
+      .new-hero { padding: 100px 36px 70px; }
+      .hero { padding: 0 36px 80px; grid-template-columns: 1fr; gap: 56px; }
+      .intro-inner { grid-template-columns: 1fr; gap: 36px; }
+      .intro-body { border-left: none; padding-left: 0; border-top: 1px solid rgba(201,168,76,.2); padding-top: 28px; }
+      .services-header { grid-template-columns: 1fr; gap: 36px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .eg-inner { grid-template-columns: 1fr; gap: 60px; }
+      .eg-sticky { position: static; }
+      .producer-box { grid-template-columns: 1fr; gap: 48px; padding: 56px 40px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .sectors-inner { grid-template-columns: 1fr; }
+      .scroll-ind { display: none; }
+    }
+    @media (max-width: 600px) {
+      .hero-title { font-size: 3.2rem; }
+      .producer-box { padding: 44px 28px; }
+    }
+    .rv { opacity:0; transform:translateY(44px); transition:opacity .9s cubic-bezier(.23,1,.32,1),transform .9s cubic-bezier(.23,1,.32,1); }
+    .rv.in { opacity:1; transform:none; }
+    .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s} .d5{transition-delay:.5s}
+    .tag {
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--gold);
+      margin-bottom:18px;
+    }
+    .tag::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+    h2.head {
+      font-family:var(--serif); font-weight:300; line-height:1.05;
+      font-size:clamp(2.4rem,4.5vw,4.2rem); color:var(--white);
+      margin-bottom:28px;
+    }
+    h2.head em { font-style:italic; color:var(--gold); }
+    .body-text { font-size:.86rem; color:var(--gray); line-height:2; font-weight:300; }
+    .con { max-width:1300px; margin:0 auto; padding:0 64px; }
+    .sec { padding:130px 0; }
+  </style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="ring"></div>
+
+<!-- NAVBAR STANDARD CHOAMX -->
+<header class="navbar" id="mainNavbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">🌿</div>
+      <div class="logo-text">CHOAMX<span>EGYPTIAN EXCELLENCE</span></div>
+    </a>
+    <button class="menu-toggle" id="mobileToggle" aria-label="Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="prodotti.html">Prodotti</a></li>
+      <li><a href="Chi _siamo.html">Chi siamo</a></li>
+      <li><a href="consulenza.html" class="active">Consulenza</a></li>
+      <li><a href="#contact-footer">Contattaci</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</header>
+
+<!-- NUOVA HERO SEZIONE (aggiunta all'inizio) -->
+<section class="new-hero">
+  <img class="new-hero-bg" src="https://images.pexels.com/photos/11155557/pexels-photo-11155557.jpeg" alt="Consulenza internazionale" loading="eager">
+  <div class="new-hero-overlay"></div>
+  <div class="new-hero-content">
+    <div class="new-hero-eyebrow">CHOAMX CONSULTING</div>
+    <h1 class="new-hero-title">Il tuo <em>ponte strategico</em><br>tra Europa ed Egitto</h1>
+    <div class="new-hero-desc">
+      <p>Consulenza operativa e sviluppo business per aziende europee che vogliono entrare nel mercato egiziano e per eccellenze locali che puntano all'export in Europa.</p>
+      <p>Più di una semplice consulenza: una presenza fisica al Cairo e un team che parla la vostra lingua.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SEZIONE HERO ORIGINALE (seconda sezione, mantenuta identica) -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-accent"></div>
+
+  <div class="hero-left">
+    <p class="hero-eyebrow">Consulenza Strategica</p>
+    <h1 class="hero-title">
+      Il vostro<br>
+      ufficio in<br>
+      <em>Nord Africa</em>
+    </h1>
+    <p class="hero-desc">
+      CHOAMX non è solo un esportatore: è un partner strategico che mette a disposizione la propria infrastruttura al Cairo per trasformare le barriere burocratiche in opportunità di business.
+    </p>
+    <a href="#contatto" class="hero-cta">Consulenza Gratuita <span class="hero-cta-arr">→</span></a>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="hero-card-label">◆ Perché l'Egitto Oggi</div>
+      <div class="hero-card-title">Una Frontiera ad Alto Potenziale</div>
+      <div class="hero-card-body">L'Egitto rappresenta oggi una delle frontiere più promettenti per l'investimento e l'approvvigionamento internazionale, con vantaggi competitivi unici in termini di costi e posizione geografica.</div>
+      <div class="hero-stats">
+        <div class="h-stat"><div class="h-stat-num">0%</div><div class="h-stat-label">Dazio con EUR.1</div></div>
+        <div class="h-stat"><div class="h-stat-num">2</div><div class="h-stat-label">Paesi, Una Voce</div></div>
+        <div class="h-stat"><div class="h-stat-num">Cairo</div><div class="h-stat-label">Presenza Fisica</div></div>
+        <div class="h-stat"><div class="h-stat-num">360°</div><div class="h-stat-label">Supporto Completo</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-ind">
+    <span>Scopri</span>
+    <div class="s-line"></div>
+  </div>
+</section>
+
+<!-- TUTTE LE ALTRE SEZIONI (INTATTE) -->
+<div class="intro-band">
+  <div class="con">
+    <div class="intro-inner">
+      <div class="intro-quote rv">"Trasformiamo le<br>barriere in <em>opportunità</em>"</div>
+      <div class="intro-body rv d2">La nostra infrastruttura operativa al Cairo e la nostra esperienza in entrambi i sistemi legali e culturali ci permettono di essere il ponte più efficace tra Europa e Nord Africa. Non teorie da ufficio — soluzioni concrete maturate ogni giorno sul campo.</div>
+    </div>
+  </div>
+</div>
+
+<section class="services-eu sec">
+  <div class="con">
+    <div class="services-header">
+      <div class="rv"><div class="service-number">01</div><p class="tag">Per Aziende Italiane ed Europee</p><h2 class="head">Entrare in Egitto<br>con <em>Sicurezza</em></h2></div>
+      <div class="services-header-right rv d2"><p class="body-text">Investire o delocalizzare in Egitto offre vantaggi competitivi enormi. Noi vi guidiamo passo dopo passo per evitare gli errori più comuni e massimizzare il ritorno sul vostro investimento.</p></div>
+    </div>
+    <div class="services-grid">
+      <div class="sv-card rv"><div class="sv-icon">📊</div><div class="sv-title">Strategia & Market Intelligence</div><div class="sv-body">Analisi della domanda, studi di fattibilità tecnico-economica e scouting di partner locali o siti industriali certificati. Dati reali dal mercato, non stime a distanza.</div></div>
+      <div class="sv-card rv d1"><div class="sv-icon">⚖️</div><div class="sv-title">Costituzione & Supporto Legale</div><div class="sv-body">Coordinamento con i migliori studi legali e tributari del Cairo per l'apertura di società (LLC, Branch), licenze operative e registrazione nelle Zone Economiche Speciali (free zone).</div></div>
+      <div class="sv-card rv d2"><div class="sv-icon">📋</div><div class="sv-title">Conformità Burocratica</div><div class="sv-body">Gestione delle pratiche presso i Ministeri competenti, ottenimento di visti business, permessi di lavoro e licenze d'importazione/esportazione. Zero burocrazia per voi.</div></div>
+      <div class="sv-card rv d3"><div class="sv-icon">🛡️</div><div class="sv-title">Tutela Contrattuale</div><div class="sv-body">Assistenza nella stesura di contratti internazionali che proteggano i vostri interessi secondo le normative locali e globali, prevenendo dispute e malintesi culturali.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="strip-track">
+  <span class="strip-item"><span class="strip-dot"></span>GlobalGAP</span>
+  <span class="strip-item"><span class="strip-dot"></span>BRC Certified</span>
+  <span class="strip-item"><span class="strip-dot"></span>IFS Standard</span>
+  <span class="strip-item"><span class="strip-dot"></span>ISO Compliance</span>
+  <span class="strip-item"><span class="strip-dot"></span>EUR.1 Certificate</span>
+  <span class="strip-item"><span class="strip-dot"></span>Dazio Zero</span>
+  <span class="strip-item"><span class="strip-dot"></span>Free Zone Egypt</span>
+  <span class="strip-item"><span class="strip-dot"></span>LLC & Branch Setup</span>
+  <span class="strip-item"><span class="strip-dot"></span>GDO Italia</span>
+  <span class="strip-item"><span class="strip-dot"></span>ENplus A1</span>
+  <span class="strip-item"><span class="strip-dot"></span>IQF Technology</span>
+  <span class="strip-item"><span class="strip-dot"></span>Cairo Operations</span>
+  <span class="strip-item"><span class="strip-dot"></span>GlobalGAP</span>
+  <span class="strip-item"><span class="strip-dot"></span>BRC Certified</span>
+  <span class="strip-item"><span class="strip-dot"></span>IFS Standard</span>
+  <span class="strip-item"><span class="strip-dot"></span>ISO Compliance</span>
+  <span class="strip-item"><span class="strip-dot"></span>EUR.1 Certificate</span>
+  <span class="strip-item"><span class="strip-dot"></span>Dazio Zero</span>
+  <span class="strip-item"><span class="strip-dot"></span>Free Zone Egypt</span>
+  <span class="strip-item"><span class="strip-dot"></span>LLC & Branch Setup</span>
+  <span class="strip-item"><span class="strip-dot"></span>GDO Italia</span>
+  <span class="strip-item"><span class="strip-dot"></span>ENplus A1</span>
+  <span class="strip-item"><span class="strip-dot"></span>IQF Technology</span>
+  <span class="strip-item"><span class="strip-dot"></span>Cairo Operations</span>
+</div></div>
+
+<section class="services-eg sec">
+  <div class="con"><div class="eg-inner">
+    <div class="eg-sticky rv"><div class="service-number">02</div><p class="tag">Per Aziende Egiziane</p><h2 class="head">Conquistare<br>il mercato<br><em>Europeo</em></h2><p class="body-text" style="margin-top:20px;">L'Italia è un mercato d'élite che richiede standard altissimi. Aiutiamo le eccellenze egiziane a parlare la lingua dei buyer europei.</p></div>
+    <div class="eg-list">
+      <div class="eg-item rv"><div class="eg-item-num">01</div><div><div class="eg-item-icon">🏅</div><div class="eg-item-title">Compliance & Certificazioni UE</div><div class="eg-item-body">Consulenza per l'adeguamento ai rigorosi standard qualitativi, igienico-sanitari e di etichettatura richiesti dall'Unione Europea — GlobalGAP, BRC, IFS, ISO. Il percorso certificativo reso semplice.</div></div></div>
+      <div class="eg-item rv d1"><div class="eg-item-num">02</div><div><div class="eg-item-icon">🇮🇹</div><div class="eg-item-title">Business Development in Italia</div><div class="eg-item-body">Ricerca di partner commerciali, inserimento nelle liste fornitori della GDO (Grande Distribuzione Organizzata) e rappresentanza presso le fiere di settore italiane ed europee.</div></div></div>
+      <div class="eg-item rv d2"><div class="eg-item-num">03</div><div><div class="eg-item-icon">🚢</div><div class="eg-item-title">Logistica & Fiscalità</div><div class="eg-item-body">Supporto per la nomina di rappresentanti fiscali in Italia e ottimizzazione delle procedure doganali per un ingresso fluido e vantaggioso delle merci nel mercato europeo.</div></div></div>
+    </div>
+  </div></div>
+</section>
+
+<section class="producer sec">
+  <div class="con"><div class="producer-box rv">
+    <div><div class="prod-tag">◆ Sei un Produttore Egiziano?</div><h2 class="prod-title">Unisciti alla nostra<br><em>rete di eccellenza</em></h2><p class="prod-body">Siamo sempre aperti a valutare nuove sinergie con produttori egiziani d'eccellenza. Se desideri far conoscere i tuoi prodotti in Italia attraverso un canale sicuro, professionale e con gestione italiana, CHOAMX è il partner ideale. Crediamo nella crescita comune e costruiamo collaborazioni basate su trasparenza e standard qualitativi condivisi.</p><a href="#" class="prod-btn">Candidati Ora <span>→</span></a></div>
+    <div class="prod-right rv d2"><div class="prod-features"><div class="prod-feat"><div class="prod-feat-icon">✅</div><div class="prod-feat-text"><strong>Canale Sicuro & Professionale</strong>Gestione italiana completa del tuo prodotto, dalla trattativa alla consegna in Europa.</div></div><div class="prod-feat"><div class="prod-feat-icon">🌍</div><div class="prod-feat-text"><strong>Accesso ai Mercati Europei</strong>Inserimento diretto nei circuiti GDO e rete distributiva italiana e UE.</div></div><div class="prod-feat"><div class="prod-feat-icon">🤝</div><div class="prod-feat-text"><strong>Crescita Comune</strong>Partnership costruite su trasparenza, rispetto degli standard e obiettivi condivisi.</div></div></div></div>
+  </div></div>
+</section>
+
+<section class="why sec" style="position:relative;"><div class="why-bg-word">CHOAMX</div><div class="con"><div class="why-header rv"><p class="tag" style="justify-content:center;">Il Nostro Vantaggio</p><h2 class="head">Perché la consulenza<br>CHOAMX fa la <em>differenza?</em></h2></div><div class="why-grid"><div class="why-card rv"><div class="why-num">01</div><div class="why-card-line"></div><div class="why-title">Presenza Fisica, non solo teorica</div><div class="why-body">A differenza delle grandi società di consulenza, noi siamo operatori attivi sul campo. Viviamo quotidianamente le dinamiche del Cairo e dei porti egiziani. Risolviamo i problemi fisicamente, riducendo drasticamente i tempi di attesa.</div><div class="why-corner"></div></div><div class="why-card rv d2"><div class="why-num">02</div><div class="why-card-line"></div><div class="why-title">Bilinguismo Culturale e Operativo</div><div class="why-body">Sappiamo come negoziare in Egitto — dove il rapporto umano è fondamentale — e sappiamo come rendicontare in Europa — dove la precisione documentale è imprescindibile. Questo annulla i malintesi e protegge i vostri investimenti.</div><div class="why-corner"></div></div><div class="why-card rv d4"><div class="why-num">03</div><div class="why-card-line"></div><div class="why-title">Network di Professionisti Certificati</div><div class="why-body">Agiamo come unico interlocutore, coordinando per vostro conto una rete selezionata di avvocati, commercialisti e spedizionieri doganali iscritti agli albi in entrambi i Paesi.</div><div class="why-corner"></div></div></div></div></section>
+
+<section class="sectors sec"><div class="con"><div style="text-align:center;margin-bottom:72px;" class="rv"><p class="tag" style="justify-content:center;">Settori di Specializzazione</p><h2 class="head">I nostri <em>domini di eccellenza</em></h2></div><div class="sectors-inner"><div class="sector-card rv"><div class="sector-bg-num">01</div><div class="sector-arrow">↗</div><div class="sector-icon">🌿</div><div class="sector-badge">Settore 01</div><div class="sector-title">Agroalimentare<br>Fresh & Frozen</div><div class="sector-body">Prodotti ortofrutticoli freschi e surgelati con tecnologia IQF. Selezione, certificazione e logistica del freddo per il mercato retail e food service europeo.</div></div><div class="sector-card rv d2"><div class="sector-bg-num">02</div><div class="sector-arrow">↗</div><div class="sector-icon">⚡</div><div class="sector-badge">Settore 02</div><div class="sector-title">Energia &<br>Bio-Energy</div><div class="sector-body">Biomasse, rinnovabili, Pellet ENplus A1 e Carbone 100% naturale. Soluzioni energetiche sostenibili certificate per l'industria e il residenziale europeo.</div></div></div></div></section>
+
+<section class="final-cta" id="contatto"><div class="con"><div class="rv"><p class="final-cta-label">◆ Pianificate la vostra espansione</p><h2 class="final-cta-title">Ogni progetto richiede<br>una strategia <em>su misura</em></h2><p class="final-cta-body">Contattate il nostro team di consulenza per un colloquio preliminare riservato. Nessun impegno, solo una conversazione concreta su come possiamo accelerare il vostro business.</p><a href="#contact-footer" class="final-btn">Prenota il Colloquio <span class="final-btn-arr">→</span></a></div></div></section>
+
+<footer class="footer" id="contact-footer">
+  <div class="footer-container">
+    <div class="footer-box"><span class="footer-logo">CHOAMX</span><p>Partner internazionale specializzato nell’esportazione di prodotti egiziani, con gestione e controllo diretto italiano. Uniamo le migliori filiere locali ai mercati globali garantendo tracciabilità, standard UE e supervisione costante sul campo.</p><div class="social-icons"><a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a><a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a><a href="#" aria-label="WhatsApp" onclick="openWhatsAppFooter()"><i class="fab fa-whatsapp"></i></a></div></div>
+    <div class="footer-box"><h3>LINK RAPIDI</h3><ul><li><a href="prodotti.html">PRODOTTI</a></li><li><a href="chi-siamo.html">CHI SIAMO</a></li><li><a href="consulenza.html">CONSULENZA</a></li><li><a href="#contact-footer">CONTATTACI</a></li><li><a href="index.html#faq">FAQ</a></li></ul><br><h3>LE NOSTRE DIVISIONI</h3><ul><li><span><i class="fas fa-seedling" style="color: #c9963a;"></i> FRESH DIVISION</span></li><li><span><i class="fas fa-snowflake" style="color: #c9963a;"></i> FROZEN DIVISION</span></li><li><span><i class="fas fa-fire" style="color: #c9963a;"></i> BIO ENERGY DIVISION</span></li></ul></div>
+    <div class="footer-box"><h3>STANDARD OPERATIVI</h3><ul><li><span>✓ Supervisione italiana diretta</span></li><li><span>✓ Controllo qualità sul campo</span></li><li><span>✓ Report video/foto pre-spedizione</span></li><li><span>✓ Filiera selezionata e monitorata</span></li><li><span>✓ Documentazione export conforme UE</span></li><li><span>✓ Tracciabilità totale</span></li><li><span>✓ Ispezioni indipendenti (SGS / BV)</span></li><li><span>✓ Spedizioni con monitoraggio continuo</span></li></ul></div>
+    <div class="footer-box"><h3>INFO LEGALI & CONFORMITÀ</h3><ul><li><a href="#">Informativa sulla privacy</a></li><li><a href="#">Informativa sui cookie</a></li><li><a href="#">Termini e condizioni</a></li><li><a href="#">Politica qualità e reclami</a></li><li><a href="#">Conformità e trasparenza</a></li></ul><br><h3>CONTATTI</h3><div class="contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+393913049947">CEO e Export manager: +39 391 304 9947</a></div><div class="contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+393392084078">Export area manager: +39 339 208 4078</a></div><div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@choamx.com">info@choamx.com</a></div><div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Sede amministrativa: Il Cairo, Egypt - Zona 5a, New Cairo</span></div><div class="contact-item" style="margin-top: 10px;"><i class="fas fa-building"></i><span>CHOAMX – Registered in Egypt | Tax ID: 123-456-789 | Commercial Registry: 98765</span></div></div>
+  </div>
+  <div class="footer-bottom"><p>© <span id="currentYearFooter"></span> <span>CHOAMX</span> — Eccellenza Egiziana. Tutti i diritti riservati.</p></div>
+</footer>
+<div class="whatsapp-fixed" onclick="openWhatsAppFooter()" role="button" aria-label="Contattaci su WhatsApp"><i class="fab fa-whatsapp"></i></div>
+
+<script>
+  (function() {
+    window.openWhatsAppFooter = function() { window.open('https://wa.me/393913049947', '_blank'); };
+    const yearSpan = document.getElementById('currentYearFooter');
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+    const whatsappSocialLink = document.querySelector('.social-icons a[aria-label="WhatsApp"]');
+    if (whatsappSocialLink && !whatsappSocialLink.hasAttribute('data-wa-bound')) {
+      whatsappSocialLink.setAttribute('data-wa-bound', 'true');
+      whatsappSocialLink.addEventListener('click', function(e) { e.preventDefault(); window.openWhatsAppFooter(); });
+    }
+    const footerLinks = document.querySelectorAll('.footer a[href^="#"]');
+    footerLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const hash = this.getAttribute('href');
+        if (hash === '#') return;
+        const targetElement = document.querySelector(hash);
+        if (targetElement) { e.preventDefault(); targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+  })();
+
+  // NAVBAR SCROLL
+  const navbar = document.getElementById('mainNavbar');
+  window.addEventListener('scroll', () => { if (window.scrollY > 50) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled'); });
+
+  // MOBILE TOGGLE
+  const toggleBtn = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (toggleBtn && navLinks) {
+    toggleBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = toggleBtn.querySelector('i');
+      if (icon.classList.contains('fa-bars')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); }
+      else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        const icon = toggleBtn.querySelector('i');
+        if (icon && icon.classList.contains('fa-times')) { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+      });
+    });
+  }
+
+  // CURSOR
+  const cur = document.getElementById('cur');
+  const ring = document.getElementById('ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  (function loop() {
+    cur.style.left = `${mx}px`; cur.style.top = `${my}px`;
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = `${rx}px`; ring.style.top = `${ry}px`;
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a, button, .sv-card, .why-card, .sector-card, .prod-feat, .eg-item').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cur.style.transform = 'translate(-50%,-50%) scale(2.4)';
+      ring.style.borderColor = 'rgba(201,168,76,.9)';
+      ring.style.transform = 'translate(-50%,-50%) scale(1.3)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cur.style.transform = 'translate(-50%,-50%) scale(1)';
+      ring.style.borderColor = 'rgba(201,168,76,.45)';
+      ring.style.transform = 'translate(-50%,-50%) scale(1)';
+    });
+  });
+
+  // SCROLL REVEAL
+  const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }); }, { threshold: 0.1 });
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
