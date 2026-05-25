@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Agrumi - CHOAMX | Eccellenza Egiziana</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ===== VARIABILI ===== */
+    :root {
+      --gold: #c9963a;
+      --gold-light: #e8b85a;
+      --gold-dark: #9a6f1e;
+      --dark: #0a0908;
+      --dark2: #13110e;
+      --dark3: #1b1712;
+      --white: #fdfaf5;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(--white); overflow-x: hidden; }
+
+    /* ===== NAVBAR (identica all'originale) ===== */
+    header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 16px 0; background: linear-gradient(180deg, rgba(10,9,8,0.97) 0%, transparent 100%); border-bottom: 1px solid rgba(201,150,58,0.18); backdrop-filter: blur(14px); transition: background 0.4s, box-shadow 0.4s; }
+    header.scrolled { background: rgba(10,9,8,0.98); box-shadow: 0 4px 36px rgba(0,0,0,0.65); border-bottom-color: rgba(201,150,58,0.38); }
+    .nav { width: 90%; margin: auto; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 4px 16px rgba(201,150,58,0.35); transition: 0.3s; }
+    .logo:hover .logo-icon { transform: rotate(8deg) scale(1.08); }
+    .logo h2 { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--white); letter-spacing: 1.5px; }
+    .logo h2 span { display: block; font-size: 9px; font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; }
+    .nav-links ul { display: flex; gap: 50px; list-style: none; }
+    .nav-links ul li a { font-size: 12.5px; font-weight: 500; color: rgba(253,250,245,0.65); text-decoration: none; position: relative; padding-bottom: 4px; transition: color 0.3s; }
+    .nav-links ul li a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--gold); transition: width 0.35s; }
+    .nav-links ul li a:hover { color: var(--gold); }
+    .nav-links ul li a:hover::after { width: 100%; }
+    .nav-social { display: flex; gap: 10px; }
+    .nav-social a { width: 34px; height: 34px; border: 1px solid rgba(201,150,58,0.28); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(253,250,245,0.65); font-size: 12px; transition: 0.3s; }
+    .nav-social a:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); transform: translateY(-3px); }
+    .menu-toggle { display: none; font-size: 22px; color: var(--gold); background: transparent; border: none; cursor: pointer; }
+
+    /* ===== HERO ===== */
+    .hero-category {
+      min-height: 45vh;
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.55)), url('https://images.pexels.com/photos/12072470/pexels-photo-12072470.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover;
+      background-position: center 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-top: 76px;
+    }
+    .hero-category .hero-content { max-width: 800px; padding: 40px 20px; }
+    .hero-category h1 { font-family: 'Playfair Display', serif; font-size: clamp(42px, 6vw, 72px); font-weight: 900; margin-bottom: 20px; color: var(--white); }
+    .hero-category h1 span { color: var(--gold); }
+    .hero-category p { font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.85); }
+
+    /* ===== CARDS PICCOLE ===== */
+    .products-category { padding: 80px 0; background: linear-gradient(160deg, #0c0b09 0%, #131109 50%, #1a150a 100%); }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--gold); background: rgba(201,150,58,0.15); padding: 5px 18px; border-radius: 40px; margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 900; color: var(--white); }
+    .products-grid {
+      width: 100%;
+      max-width: 1300px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 28px;
+    }
+    .product-card {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(4px);
+      border-radius: 50px;
+      overflow: hidden;
+      border: 1px solid rgba(201,150,58,0.25);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 30px rgba(0,0,0,0.4); border-color: rgba(201,150,58,0.5); }
+    .product-img { height: 250px; overflow: hidden; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .product-card:hover .product-img img { transform: scale(1.05); }
+    .product-info { padding: 18px; }
+    .product-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+    .product-desc { font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.7); margin-bottom: 12px; }
+    .product-season { font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 16px; display: flex; align-items: center; gap: 6px; }
+    .btn-calibri {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    .btn-calibri:hover { background: var(--gold); color: var(--dark); }
+    .btn-wa {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      border: none;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+    }
+    .btn-wa:hover { transform: scale(1.02); box-shadow: 0 4px 10px rgba(37,211,102,0.3); }
+
+    /* ===== MODALE ===== */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
+    .modal.active { display: flex; }
+    .modal-content { background: linear-gradient(145deg, #1a1612, #0f0d0a); max-width: 850px; width: 100%; max-height: 80vh; border-radius: 28px; border: 1px solid rgba(201,150,58,0.4); overflow-y: auto; position: relative; animation: fadeInUp 0.4s; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .modal-header { padding: 18px 24px; border-bottom: 1px solid rgba(201,150,58,0.3); display: flex; justify-content: space-between; align-items: center; background: #1a1612; position: sticky; top: 0; z-index: 10; border-radius: 28px 28px 0 0; }
+    .modal-header h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); }
+    .modal-close { background: none; border: none; font-size: 28px; color: var(--gold); cursor: pointer; transition: 0.2s; }
+    .modal-close:hover { transform: scale(1.1); color: var(--white); }
+    .modal-body { padding: 24px; }
+    .table-wrapper { overflow-x: auto; margin: 10px 0; }
+    .calibri-table { width: 100%; border-collapse: collapse; font-size: 13px; background: rgba(0,0,0,0.4); border-radius: 16px; }
+    .calibri-table th, .calibri-table td { border: 1px solid rgba(255,255,255,0.15); padding: 10px 8px; text-align: center; color: #ddd; }
+    .calibri-table th { background: rgba(201,150,58,0.2); color: var(--gold); }
+
+    /* ===== FOOTER COMPLETO (come nell'originale) ===== */
+    .footer { background: linear-gradient(180deg, #0a0908 0%, #070706 100%); padding-top: 75px; border-top: 1px solid rgba(201,150,58,0.18); }
+    .footer-container { width: 88%; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 40px; padding-bottom: 55px; }
+    .footer-box h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--gold); margin-bottom: 26px; position: relative; }
+    .footer-box h3::after { content: ''; position: absolute; left: 0; bottom: -10px; width: 50px; height: 2px; background: var(--gold); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--gold); display: block; margin-bottom: 20px; }
+    .footer-box p { line-height: 1.85; color: rgba(253,250,245,0.58); font-size: 14px; margin-bottom: 10px; }
+    .footer-box ul { list-style: none; }
+    .footer-box ul li { margin: 14px 0; }
+    .footer-box ul li a { color: rgba(253,250,245,0.58); text-decoration: none; font-size: 14px; transition: 0.3s; display: inline-block; }
+    .footer-box ul li a:hover { color: var(--gold); padding-left: 5px; }
+    .footer-box ul li span { color: rgba(253,250,245,0.58); font-size: 14px; }
+    .social-icons { margin-top: 26px; display: flex; gap: 13px; }
+    .social-icons a { width: 40px; height: 40px; background: rgba(253,250,245,0.06); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 16px; transition: 0.3s; border: 1px solid rgba(201,150,58,0.2); }
+    .social-icons a:hover { background: var(--gold); color: var(--dark); transform: translateY(-5px); }
+    .footer-box i { color: var(--gold); margin-right: 9px; }
+    .footer-bottom { border-top: 1px solid rgba(253,250,245,0.08); text-align: center; padding: 22px 20px; margin-top: 10px; }
+    .footer-bottom p { color: rgba(253,250,245,0.28); font-size: 13px; }
+    .footer-bottom span { color: var(--gold); }
+
+    /* ===== WHATSAPP FLOATING ===== */
+    .whatsapp { position: fixed; bottom: 28px; right: 28px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; cursor: pointer; box-shadow: 0 6px 24px rgba(201,150,58,0.48); transition: 0.3s; z-index: 999; }
+    .whatsapp i { color: var(--dark); }
+    .whatsapp:hover { transform: scale(1.1); }
+
+    @media (max-width: 900px) {
+      .menu-toggle { display: block; }
+      .nav-links { position: fixed; top: 76px; left: 0; width: 100%; background: rgba(10,9,8,0.98); backdrop-filter: blur(14px); padding: 26px 0; transform: translateY(-120%); opacity: 0; transition: 0.42s; visibility: hidden; z-index: 999; }
+      .nav-links.active { transform: translateY(0); opacity: 1; visibility: visible; }
+      .nav-links ul { flex-direction: column; align-items: center; gap: 22px; }
+      .hero-category { margin-top: 70px; }
+      .products-grid { gap: 20px; }
+    }
+    @media (max-width: 600px) {
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header id="navbar">
+  <div class="nav">
+    <a class="logo" href="#"><div class="logo-icon">🌿</div><h2>CHOAMX<span>Egyptian Excellence</span></h2></a>
+    <button class="menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
+    <nav class="nav-links" id="navLinks">
+      <ul><li><a href="index.html">Home</a></li><li><a href="prodotti.html">Prodotti</a></li><li><a href="Chi_siamo.html">Chi siamo</a></li><li><a href="Consulenza.html">Consulenza</a></li><li><a href="#contact-footer">Contattaci</a></li><li><a href="#faq">FAQ</a></li></ul>
+    </nav>
+    <div class="nav-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div>
+  </div>
+</header>
+
+<section class="hero-category">
+  <div class="hero-content">
+    <h1>Agrumi <span>d'Egitto</span></h1>
+    <p>Scopri la nostra selezione premium di arance, limoni, mandarini e pompelmi. Clicca su "Tabella Calibri" per vedere le specifiche tecniche.</p>
+  </div>
+</section>
+
+<section class="products-category">
+  <div class="section-header">
+    <div class="section-eyebrow">I Nostri Prodotti</div>
+    <h2 class="section-title">Eccellenza Agrumicola</h2>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- FOOTER COMPLETO (come nella home originale) -->
+<footer class="footer" id="contact-footer">
+  <div class="footer-container">
+    <div class="footer-box">
+      <span class="footer-logo">CHOAMX</span>
+      <p>Partner internazionale specializzato nell’esportazione di prodotti egiziani, con gestione e controllo diretto italiano. Uniamo le migliori filiere locali ai mercati globali garantendo tracciabilità, standard UE e supervisione costante sul campo.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" onclick="openWhatsApp()"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-box">
+      <h3>LINK RAPIDI</h3>
+      <ul>
+        <li><a href="prodotti.html">PRODOTTI</a></li>
+        <li><a href="chi-siamo.html">CHI SIAMO</a></li>
+        <li><a href="consulenza.html">CONSULENZA</a></li>
+        <li><a href="#contact-footer">CONTATTACI</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul><br>
+      <h3>LE NOSTRE DIVISIONI</h3>
+      <ul>
+        <li><span>FRESH DIVISION</span></li>
+        <li><span>FROZEN DIVISION</span></li>
+        <li><span>BIO ENERGY DIVISION</span></li>
+      </ul>
+    </div>
+    <div class="footer-box">
+      <h3>STANDARD OPERATIVI</h3>
+      <ul>
+        <li><span>• Supervisione italiana diretta lungo tutta la filiera</span></li>
+        <li><span>• Controllo qualità sul campo con verifica reale del carico</span></li>
+        <li><span>• Report video e fotografici prima della spedizione</span></li>
+        <li><span>• Filiera selezionata e monitorata</span></li>
+        <li><span>• Documentazione export completa e conforme agli standard UE</span></li>
+        <li><span>• Tracciabilità totale e gestione operativa in ogni fase</span></li>
+        <li><span>• Ispezioni indipendenti disponibili (SGS / Bureau Veritas)</span></li>
+        <li><span>• Spedizioni internazionali con monitoraggio continuo fino a destinazione</span></li>
+      </ul>
+    </div>
+    <div class="footer-box">
+      <h3>CHOAMX INFORMAZIONI LEGALI E CONFORMITÀ</h3>
+      <p>Informativa sulla privacy</p>
+      <p>Informativa sui cookie</p>
+      <p>Termini e condizioni</p>
+      <p>Politica su qualità e reclami</p>
+      <p>Conformità e trasparenza</p><br>
+      <h3>CONTATTI</h3>
+      <p><i class="fa-solid fa-phone"></i> CEO e responsabile Export +39 3913049947</p>
+      <p><i class="fa-solid fa-phone"></i> CEO Export area manager +39 3392084078</p>
+      <p><i class="fa-solid fa-envelope"></i> Email: info@choamx.com</p>
+      <p><i class="fa-solid fa-location-dot"></i> Sede amministrativa: Il Cairo, Egitto</p>
+      <p>CHOAMX – Registered in Egypt | Tax ID: 123-456-789 | Commercial Registry: 98765</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 <span>CHOAMX</span> — Eccellenza Egiziana. Tutti i diritti riservati.</p>
+  </div>
+</footer>
+
+<div class="whatsapp" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i></div>
+
+<!-- MODALE PER TABELLA CALIBRI -->
+<div id="calibriModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modalProductName"></h3>
+      <button class="modal-close" id="closeModalBtn">&times;</button>
+    </div>
+    <div class="modal-body" id="modalTableContainer"></div>
+  </div>
+</div>
+
+<script>
+  // DATI PRODOTTI (stessi di prima)
+  const productsData = [
+    { name: "Arance Baladi \"Oro del Nilo\"", desc: "Varietà locale egiziana, straordinaria succosità e profumo intenso. Perfetta per consumo fresco e spremute.", season: "Dicembre – Marzo", calibri: [["Count","Calibro UE","mm","Peso"],["36","0","96-101","~416g"],["42","1","92-96","~357g"],["48","2","85-92","~312g"],["56","3","81-85","~267g"],["64","4","78-81","~234g"],["72","5","74-78","~208g"],["80","6","74","~187g"],["88","7","67-71","~170g"],["100","8","65-67","~150g"],["113","9","62-65","~132g"]], img: "https://images.pexels.com/photos/3926893/pexels-photo-3926893.jpeg" },
+    { name: "Limone Adalia", desc: "Limone robusto, alta resa in succo (>33%). Pilastro della stagione invernale egiziana.", season: "Dicembre – Maggio", calibri: [["Count","Calibro UE","mm","Peso"],["75","2","63-75","~100g"],["88/100","3","53-67","~80g"],["110","4","48-62","~68g"],["125","5","45-60","~60g"],["144","5","42-58","~52g"],["180","6","40-55","~41g"]], img: "https://images.pexels.com/photos/35926707/pexels-photo-35926707.jpeg" },
+    { name: "Limone Eureka", desc: "Varietà seedless, buccia sottile, succo purissimo. Per retail e ristorazione premium.", season: "Settembre – Dicembre", calibri: [["Count","Calibro UE","mm","Peso"],["75","2","63-75","~100g"],["88/100","3","53-67","~80g"],["110","4","48-62","~68g"],["125","5","45-60","~60g"],["144","5","42-58","~52g"],["180","6","40-55","~41g"]], img: "https://images.pexels.com/photos/33647547/pexels-photo-33647547.jpeg" },
+    { name: "Limone Limoneira", desc: "Frutto simmetrico, buccia liscissima, eccezionale uniformità di calibro. Ideale per GDO.", season: "Novembre – Marzo", calibri: [["Count","Calibro UE","mm","Peso"],["75","2","63-75","~100g"],["88/100","3","53-67","~80g"],["110","4","48-62","~68g"],["125","5","45-60","~60g"],["144","5","42-58","~52g"],["180","6","40-55","~41g"]], img: "https://media.istockphoto.com/id/1280535264/photo/siracusa-lemon-cultivar-femminello-igp.jpg?b=1&s=612x612&w=0&k=20&c=_xy9yUMrglv9w-8Dn7_432D2xOonp_0SzARKlm_ERRM=" },
+    { name: "Mandarino Fremont", desc: "Precoce, colore rosso-arancio, aromatico. Molto resistente al trasporto.", season: "Novembre – Gennaio", calibri: [["Size","Count","mm","Peso"],["0","100","50-52","~75g"],["1","88","52-54","~85g"],["2","80","54-57","~94g"],["3","72","57-60","~104g"],["4","60","60-64","~125g"],["5","48","64-68","~156g"],["6","42","72-86","~178g"]], img: "https://images.pexels.com/photos/35206213/pexels-photo-35206213.jpeg" },
+    { name: "Mandarino Murcott (Honey)", desc: "Dolcezza superiore, alto Brix, shelf-life eccezionale. Varietà tardiva.", season: "Gennaio – Giugno", calibri: [["Size","Count","mm","Peso"],["0","100","50-52","~75g"],["1","88","52-54","~85g"],["2","80","54-57","~94g"],["3","72","57-60","~104g"],["4","60","60-64","~125g"],["5","48","64-68","~156g"],["6","42","72-86","~178g"]], img: "https://images.pexels.com/photos/34843261/pexels-photo-34843261.jpeg" },
+    { name: "Pompelmo Star Ruby", desc: "Polpa rosso rubino, sapore equilibrato, altissima resistenza al trasporto marittimo.", season: "Dicembre – Maggio", calibri: [["Count","Calibro UE","mm","Peso"],["28","1","109-139","~535g"],["32","2","100-119","~468g"],["36","3","93-110","~416g"],["40","4","88-102","~375g"],["45","4-5","84-97","~333g"],["48","5","81-93","~312g"],["56","6","77-89","~267g"]], img: "https://images.pexels.com/photos/5645142/pexels-photo-5645142.jpeg" },
+    { name: "Arance Navel", desc: "Apice della produzione agrumicola. Dolce, senza semi, buccia profumata. Grado Brix 12-14%.", season: "Dicembre – Marzo", calibri: [["Count","Calibro UE","mm","Peso"],["36","0","96-101","~416g"],["42","1","92-96","~357g"],["48","2","85-92","~312g"],["56","3","81-85","~267g"],["64","4","78-81","~234g"],["72","5","74-78","~208g"],["80","6","74","~187g"],["88","7","67-71","~170g"],["100","8","65-67","~150g"],["113","9","62-65","~132g"]], img: "https://images.pexels.com/photos/32209599/pexels-photo-32209599.jpeg" },
+    { name: "Arance Valencia", desc: "Regina del succo, eccellente tenuta post-raccolta. Molto versatile, resistente al trasporto.", season: "Gennaio – Giugno", calibri: [["Count","Calibro UE","mm","Peso"],["36","0","96-101","~416g"],["42","1","92-96","~357g"],["48","2","85-92","~312g"],["56","3","81-85","~267g"],["64","4","78-81","~234g"],["72","5","74-78","~208g"],["80","6","74","~187g"],["88","7","67-71","~170g"],["100","8","65-67","~150g"],["113","9","62-65","~132g"]], img: "https://images.pexels.com/photos/14693032/pexels-photo-14693032.jpeg" }
+  ];
+
+  // Helper: costruisce tabella HTML dai dati calibri
+  function buildTableHTML(calibri) {
+    if (!calibri || calibri.length === 0) return '<p>Tabella non disponibile</p>';
+    let html = '<div class="table-wrapper"><table class="calibri-table"><thead><tr>';
+    calibri[0].forEach(h => html += `<th>${h}</th>`);
+    html += '</tr></thead><tbody>';
+    for (let i = 1; i < calibri.length; i++) {
+      html += '<tr>';
+      calibri[i].forEach(cell => html += `<td>${cell}</td>`);
+      html += '</tr>';
+    }
+    html += '</tbody>\\</div>';
+    return html;
+  }
+
+  // عرض الكروت
+  function renderCards() {
+    const grid = document.getElementById('productsGrid');
+    grid.innerHTML = '';
+    productsData.forEach((p, idx) => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <div class="product-img"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+        <div class="product-info">
+          <h3 class="product-title">${p.name}</h3>
+          <p class="product-desc">${p.desc}</p>
+          <div class="product-season"><i class="fas fa-calendar-alt"></i> ${p.season}</div>
+          <button class="btn-calibri" data-calibri='${JSON.stringify(p.calibri)}' data-name="${p.name.replace(/['"]/g, '&quot;')}"><i class="fas fa-chart-simple"></i> Tabella Calibri</button>
+          <button class="btn-wa" data-name="${p.name.replace(/['"]/g, '&quot;')}"><i class="fab fa-whatsapp"></i> Richiedi preventivo</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    // Eventi per i bottoni "Tabella Calibri" -> apre modale
+    document.querySelectorAll('.btn-calibri').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-name');
+        const calibriRaw = btn.getAttribute('data-calibri');
+        let calibri;
+        try { calibri = JSON.parse(calibriRaw); } catch(e) { calibri = []; }
+        document.getElementById('modalProductName').innerText = name;
+        document.getElementById('modalTableContainer').innerHTML = buildTableHTML(calibri);
+        document.getElementById('calibriModal').classList.add('active');
+      });
+    });
+
+    // Eventi per bottoni WhatsApp
+    document.querySelectorAll('.btn-wa').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-name');
+        openWhatsAppWithProduct(name);
+      });
+    });
+  }
+
+  function openWhatsAppWithProduct(productName) {
+    const msg = encodeURIComponent(`Buongiorno, sono interessato a ricevere un preventivo per: ${productName} (categoria Agrumi). Potete fornirmi maggiori dettagli?`);
+    window.open(`https://wa.me/393913049947?text=${msg}`, '_blank');
+  }
+  function openWhatsApp() { window.open('https://wa.me/393913049947', '_blank'); }
+
+  // Chiusura modale
+  const modal = document.getElementById('calibriModal');
+  const closeBtn = document.getElementById('closeModalBtn');
+  closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+  window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+
+  // Mobile menu
+  const menuToggle = document.getElementById('mobileMenuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+  });
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('navbar');
+    if (window.scrollY > 60) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+
+  renderCards();
+</script>
+</body>
+</html>
