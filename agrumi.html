@@ -121,19 +121,83 @@
     .btn-wa:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(201,150,58,0.4); background: var(--gold-light); }
 
     /* ===== MODALE ===== */
-    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); backdrop-filter: blur(8px); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
     .modal.active { display: flex; }
-    .modal-content { background: linear-gradient(145deg, #1a1612, #0f0d0a); max-width: 850px; width: 100%; max-height: 80vh; border-radius: 28px; border: 1px solid rgba(201,150,58,0.4); overflow-y: auto; position: relative; animation: fadeInUp 0.4s; }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .modal-header { padding: 18px 24px; border-bottom: 1px solid rgba(201,150,58,0.3); display: flex; justify-content: space-between; align-items: center; background: #1a1612; position: sticky; top: 0; z-index: 10; border-radius: 28px 28px 0 0; }
-    .modal-header h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); }
-    .modal-close { background: none; border: none; font-size: 28px; color: var(--gold); cursor: pointer; transition: 0.2s; }
-    .modal-close:hover { transform: scale(1.1); color: var(--white); }
-    .modal-body { padding: 24px; }
-    .table-wrapper { overflow-x: auto; margin: 10px 0; }
-    .calibri-table { width: 100%; border-collapse: collapse; font-size: 13px; background: rgba(0,0,0,0.4); border-radius: 16px; }
-    .calibri-table th, .calibri-table td { border: 1px solid rgba(255,255,255,0.15); padding: 10px 8px; text-align: center; color: #ddd; }
-    .calibri-table th { background: rgba(201,150,58,0.2); color: var(--gold); }
+    .modal-content { background: #0a0908; max-width: 95vw; max-height: 95vh; width: auto; height: auto; border-radius: 0px; border: none; overflow: hidden; position: relative; animation: fadeInUp 0.3s; box-shadow: 0 0 0 2px rgba(201,150,58,0.3); }
+    @keyframes fadeInUp { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+    .modal-header { display: none; } /* Nascondiamo l'intestazione per la modal full-immagine */
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: rgba(0,0,0,0.6);
+      border: none;
+      font-size: 32px;
+      color: white;
+      cursor: pointer;
+      z-index: 2100;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      backdrop-filter: blur(4px);
+    }
+    .modal-close:hover { background: var(--gold); color: black; transform: scale(1.05); }
+    .modal-body { 
+      padding: 0; 
+      margin: 0; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      background: black;
+      min-height: 60vh;
+    }
+    /* Per la tabella (altri prodotti) manteniamo padding e stile normale */
+    .modal-body.table-mode {
+      padding: 24px;
+      display: block;
+      background: linear-gradient(145deg, #1a1612, #0f0d0a);
+    }
+    .modal-body.table-mode .table-wrapper {
+      overflow-x: auto;
+      width: 100%;
+    }
+    .modal-body.table-mode .calibri-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      background: rgba(0,0,0,0.4);
+      border-radius: 16px;
+    }
+    .modal-body.table-mode .calibri-table th, 
+    .modal-body.table-mode .calibri-table td {
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 10px 8px;
+      text-align: center;
+      color: #ddd;
+    }
+    .modal-body.table-mode .calibri-table th {
+      background: rgba(201,150,58,0.2);
+      color: var(--gold);
+    }
+    /* Full image style */
+    .full-image-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .full-image-container img {
+      width: 100%;
+      height: auto;
+      max-height: 95vh;
+      object-fit: contain;
+      display: block;
+    }
 
     /* ===== FOOTER ===== */
     .footer { background: linear-gradient(180deg, #0a0908 0%, #070706 100%); padding-top: 75px; border-top: 1px solid rgba(201,150,58,0.18); }
@@ -160,7 +224,7 @@
     .whatsapp i { color: var(--dark); }
     .whatsapp:hover { transform: scale(1.1); }
 
-    /* ===== MEDIA QUERIES PER RESPONSIVE ===== */
+    /* ===== MEDIA QUERIES ===== */
     @media (max-width: 1100px) {
       .products-grid { gap: 25px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
       .product-img { height: 220px; }
@@ -180,8 +244,7 @@
       .product-img { height: 240px; }
       .product-info { padding: 20px; }
       .hero-category .hero-content p { font-size: 16px; }
-      .modal-content { max-width: 95%; }
-      .modal-header h3 { font-size: 18px; }
+      .modal-content { max-width: 98vw; max-height: 98vh; }
     }
     @media (max-width: 480px) {
       .logo h2 { font-size: 12px; }
@@ -285,7 +348,7 @@
 
 <div id="calibriModal" class="modal">
   <div class="modal-content">
-    <div class="modal-header"><h3 id="modalProductName"></h3><button class="modal-close" id="closeModalBtn">&times;</button></div>
+    <button class="modal-close" id="closeModalBtn">&times;</button>
     <div class="modal-body" id="modalTableContainer"></div>
   </div>
 </div>
@@ -307,9 +370,9 @@
     if (!calibri || calibri.length === 0) return '<p>Tabella non disponibile</p>';
     let html = '<div class="table-wrapper"><table class="calibri-table"><thead><tr>';
     calibri[0].forEach(h => html += `<th>${h}</th>`);
-    html += '<tr></thead><tbody>';
+    html += '</tr></thead><tbody>';
     for (let i = 1; i < calibri.length; i++) {
-      html += '</tr>';
+      html += '<tr>';
       calibri[i].forEach(cell => html += `<td>${cell}</td>`);
       html += '</tr>';
     }
@@ -320,7 +383,7 @@
   function renderCards() {
     const grid = document.getElementById('productsGrid');
     grid.innerHTML = '';
-    productsData.forEach(p => {
+    productsData.forEach((p, idx) => {
       const card = document.createElement('div');
       card.className = 'product-card';
       card.innerHTML = `
@@ -329,23 +392,50 @@
           <h3 class="product-title">${p.name}</h3>
           <div class="product-desc">${p.desc}</div>
           <div class="product-season"><i class="fas fa-calendar-alt"></i> ${p.season}</div>
-          <button class="btn-calibri" data-calibri='${JSON.stringify(p.calibri)}' data-name="${p.name.replace(/['"]/g, '&quot;')}"><i class="fas fa-chart-simple"></i> Tabella Calibri</button>
+          <button class="btn-calibri" data-product-index="${idx}" data-name="${p.name.replace(/['"]/g, '&quot;')}" data-calibri='${JSON.stringify(p.calibri)}'><i class="fas fa-chart-simple"></i> Tabella Calibri</button>
           <button class="btn-wa" data-name="${p.name.replace(/['"]/g, '&quot;')}"><i class="fab fa-whatsapp"></i> Richiedi preventivo</button>
         </div>
       `;
       grid.appendChild(card);
     });
+
     document.querySelectorAll('.btn-calibri').forEach(btn => {
       btn.addEventListener('click', () => {
-        const name = btn.getAttribute('data-name');
-        const calibriRaw = btn.getAttribute('data-calibri');
-        let calibri = [];
-        try { calibri = JSON.parse(calibriRaw); } catch(e) {}
-        document.getElementById('modalProductName').innerText = name;
-        document.getElementById('modalTableContainer').innerHTML = buildTableHTML(calibri);
+        const productName = btn.getAttribute('data-name');
+        const productIndex = parseInt(btn.getAttribute('data-product-index'), 10);
+        const modalBody = document.getElementById('modalTableContainer');
+        
+        // Per il primo prodotto (Arance Baladi) mostriamo l'immagine a tutto schermo nel modale
+        if (productIndex === 0) {
+          // Rimuoviamo eventuali classi precedenti e impostiamo stile full image
+          modalBody.classList.remove('table-mode');
+          modalBody.style.padding = '0';
+          modalBody.style.display = 'flex';
+          modalBody.style.alignItems = 'center';
+          modalBody.style.justifyContent = 'center';
+          modalBody.style.backgroundColor = 'black';
+          const localImagePath = 'imges/photo_2026-05-26_20-35-50.jpg';
+          modalBody.innerHTML = `
+            <div class="full-image-container">
+              <img src="${localImagePath}" alt="${productName}" style="width:100%; height:auto; max-height:95vh; object-fit:contain; display:block;" onerror="this.onerror=null; this.src='https://placehold.co/1200x800?text=Immagine+non+trovata';">
+            </div>
+          `;
+        } else {
+          // Per gli altri prodotti mostriamo la tabella con lo stile classico
+          modalBody.classList.add('table-mode');
+          modalBody.style.padding = '24px';
+          modalBody.style.display = 'block';
+          modalBody.style.backgroundColor = '';
+          const calibriRaw = btn.getAttribute('data-calibri');
+          let calibri = [];
+          try { calibri = JSON.parse(calibriRaw); } catch(e) {}
+          modalBody.innerHTML = buildTableHTML(calibri);
+        }
+        
         document.getElementById('calibriModal').classList.add('active');
       });
     });
+
     document.querySelectorAll('.btn-wa').forEach(btn => {
       btn.addEventListener('click', () => {
         const name = btn.getAttribute('data-name');
