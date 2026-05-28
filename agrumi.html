@@ -267,7 +267,7 @@
 <div class="whatsapp" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i></div>
 
 <script>
-  // DATI PRODOTTI (mantenuti invariati ma senza più bisogno dei calibri)
+  // DATI PRODOTTI (mantenuti invariati)
   const productsData = [
     { name: "Arance Baladi \"Oro del Nilo\"", desc: "Varietà locale egiziana, straordinaria succosità e profumo intenso. Perfetta per consumo fresco e spremute.", season: "Dicembre – Marzo", img: "https://images.pexels.com/photos/3926893/pexels-photo-3926893.jpeg" },
     { name: "Limone Adalia", desc: "Limone robusto, alta resa in succo (>33%). Pilastro della stagione invernale egiziana.", season: "Dicembre – Maggio", img: "https://images.pexels.com/photos/35926707/pexels-photo-35926707.jpeg" },
@@ -290,14 +290,14 @@
       const card = document.createElement('div');
       card.className = 'product-card';
       
-      // Creazione struttura: immagine, titolo, descrizione, stagione, e unico link "Leggi di più"
+      // Link modificato: ora punta a "arance aaladi.html" (esattamente come richiesto)
       card.innerHTML = `
         <div class="product-img"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
         <div class="product-info">
           <h3 class="product-title">${p.name}</h3>
           <div class="product-desc">${p.desc}</div>
           <div class="product-season"><i class="fas fa-calendar-alt"></i> ${p.season}</div>
-          <a href="Arance Baladi.html" class="btn-leggi">
+          <a href="arance aaladi.html" class="btn-leggi">
             <i class="fas fa-arrow-right"></i> Leggi di più
           </a>
         </div>
