@@ -269,13 +269,12 @@
 <script>
   // DATI PRODOTTI (mantenuti invariati)
   const productsData = [
-    { name: "Arance Baladi \"Oro del Nilo\"", desc: "Varietà locale egiziana, straordinaria succosità e profumo intenso. Perfetta per consumo fresco e spremute.", season: "Dicembre – Marzo", img: "https://images.pexels.com/photos/3926893/pexels-photo-3926893.jpeg" },
-        { name: "Arance Navel", desc: "Apice della produzione agrumicola. Dolce, senza semi, buccia profumata. Grado Brix 12-14%.", season: "Dicembre – Marzo", img: "https://images.pexels.com/photos/32209599/pexels-photo-32209599.jpeg" },
-        { name: "Arance Valencia", desc: "Regina del succo, eccellente tenuta post-raccolta. Molto versatile, resistente al trasporto.", season: "Gennaio – Giugno", img: "https://images.pexels.com/photos/14693032/pexels-photo-14693032.jpeg" },
-            { name: "Limone Adalia", desc: "Limone robusto, alta resa in succo (>33%). Pilastro della stagione invernale egiziana.", season: "Dicembre – Maggio", img: "https://images.pexels.com/photos/35926707/pexels-photo-35926707.jpeg" },
-
-    { name: "Limone Eureka", desc: "Varietà seedless, buccia sottile, succo purissimo. Per retail e ristorazione premium.", season: "Settembre – Dicembre", img: "https://images.pexels.com/photos/33647547/pexels-photo-33647547.jpeg" },
-    { name: "Limone Limoneira", desc: "Frutto simmetrico, buccia liscissima, eccezionale uniformità di calibro. Ideale per GDO.", season: "Novembre – Marzo", img: "https://media.istockphoto.com/id/1280535264/photo/siracusa-lemon-cultivar-femminello-igp.jpg?b=1&s=612x612&w=0&k=20&c=_xy9yUMrglv9w-8Dn7_432D2xOonp_0SzARKlm_ERRM=" },
+    { name: "Arance Baladi \"Oro del Nilo\"", desc: "Varietà locale egiziana, straordinaria succosità e profumo intenso. Perfetta per consumo fresco e spremute.", season: "Dicembre – Marzo", img: "https://images.pexels.com/photos/3926893/pexels-photo-3926893.jpeg",link: "arance aaladi.html"} ,
+    { name: "Arance Navel", desc: "Apice della produzione agrumicola. Dolce, senza semi, buccia profumata. Grado Brix 12-14%.", season: "Dicembre – Marzo", img: "https://images.pexels.com/photos/32209599/pexels-photo-32209599.jpeg", link: "arance navel.html" },
+    { name: "Arance Valencia", desc: "Regina del succo, eccellente tenuta post-raccolta. Molto versatile, resistente al trasporto.", season: "Gennaio – Giugno", img: "https://images.pexels.com/photos/14693032/pexels-photo-14693032.jpeg", link: "arance valencia.html" },
+{ name: "Limone Adalia", desc: "Limone robusto, alta resa in succo (>33%). Pilastro della stagione invernale egiziana.", season: "Dicembre – Maggio", img: "https://images.pexels.com/photos/35926707/pexels-photo-35926707.jpeg", link: "limone adalia.html" },
+    { name: "Limone Eureka", desc: "Varietà seedless, buccia sottile, succo purissimo. Per retail e ristorazione premium.", season: "Settembre – Dicembre", img: "https://images.pexels.com/photos/33647547/pexels-photo-33647547.jpeg",link: "limone eureka.html" },
+    { name: "Limone Limoneira", desc: "Frutto simmetrico, buccia liscissima, eccezionale uniformità di calibro. Ideale per GDO.", season: "Novembre – Marzo", img: "https://media.istockphoto.com/id/1280535264/photo/siracusa-lemon-cultivar-femminello-igp.jpg?b=1&s=612x612&w=0&k=20&c=_xy9yUMrglv9w-8Dn7_432D2xOonp_0SzARKlm_ERRM=" ,link: "limone limoneira.html"},
     { name: "Mandarino Fremont", desc: "Precoce, colore rosso-arancio, aromatico. Molto resistente al trasporto.", season: "Novembre – Gennaio", img: "https://images.pexels.com/photos/35206213/pexels-photo-35206213.jpeg" },
     { name: "Mandarino Murcott (Honey)", desc: "Dolcezza superiore, alto Brix, shelf-life eccezionale. Varietà tardiva.", season: "Gennaio – Giugno", img: "https://images.pexels.com/photos/34843261/pexels-photo-34843261.jpeg" },
     { name: "Pompelmo Star Ruby", desc: "Polpa rosso rubino, sapore equilibrato, altissima resistenza al trasporto marittimo.", season: "Dicembre – Maggio", img: "https://images.pexels.com/photos/5645142/pexels-photo-5645142.jpeg" },
@@ -299,7 +298,7 @@
           <h3 class="product-title">${p.name}</h3>
           <div class="product-desc">${p.desc}</div>
           <div class="product-season"><i class="fas fa-calendar-alt"></i> ${p.season}</div>
-          <a href="arance aaladi.html" class="btn-leggi">
+          <a href="${p.link}" class="btn-leggi">
             <i class="fas fa-arrow-right"></i> Leggi di più
           </a>
         </div>
