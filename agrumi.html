@@ -87,116 +87,36 @@
     .product-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 800; color: var(--gold); margin-bottom: 12px; line-height: 1.3; }
     .product-desc { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.75); margin-bottom: 15px; }
     .product-season { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
-    .btn-calibri {
+    
+    /* NUOVO STILE PULSANTE LEGGI DI PIÙ */
+    .btn-leggi {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       background: transparent;
       border: 1px solid var(--gold);
       color: var(--gold);
-      padding: 7px 16px;
+      padding: 9px 20px;
       border-radius: 40px;
       font-size: 13px;
       font-weight: 600;
-      cursor: pointer;
+      text-decoration: none;
       transition: 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-right: 12px;
-      margin-bottom: 10px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
     }
-    .btn-calibri:hover { background: var(--gold); color: var(--dark); }
-    .btn-wa {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      border: none;
-      padding: 7px 16px;
-      border-radius: 40px;
-      font-weight: 600;
+    .btn-leggi i {
+      font-size: 12px;
+      transition: transform 0.2s;
+    }
+    .btn-leggi:hover {
+      background: var(--gold);
       color: var(--dark);
-      cursor: pointer;
-      transition: 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(201,150,58,0.3);
     }
-    .btn-wa:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(201,150,58,0.4); background: var(--gold-light); }
-
-    /* ===== MODALE ===== */
-    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); backdrop-filter: blur(8px); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
-    .modal.active { display: flex; }
-    .modal-content { background: #0a0908; max-width: 95vw; max-height: 95vh; width: auto; height: auto; border-radius: 0px; border: none; overflow: hidden; position: relative; animation: fadeInUp 0.3s; box-shadow: 0 0 0 2px rgba(201,150,58,0.3); }
-    @keyframes fadeInUp { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
-    .modal-header { display: none; } /* Nascondiamo l'intestazione per la modal full-immagine */
-    .modal-close {
-      position: absolute;
-      top: 16px;
-      right: 20px;
-      background: rgba(0,0,0,0.6);
-      border: none;
-      font-size: 32px;
-      color: white;
-      cursor: pointer;
-      z-index: 2100;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.2s;
-      backdrop-filter: blur(4px);
-    }
-    .modal-close:hover { background: var(--gold); color: black; transform: scale(1.05); }
-    .modal-body { 
-      padding: 0; 
-      margin: 0; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      background: black;
-      min-height: 60vh;
-    }
-    /* Per la tabella (altri prodotti) manteniamo padding e stile normale */
-    .modal-body.table-mode {
-      padding: 24px;
-      display: block;
-      background: linear-gradient(145deg, #1a1612, #0f0d0a);
-    }
-    .modal-body.table-mode .table-wrapper {
-      overflow-x: auto;
-      width: 100%;
-    }
-    .modal-body.table-mode .calibri-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      background: rgba(0,0,0,0.4);
-      border-radius: 16px;
-    }
-    .modal-body.table-mode .calibri-table th, 
-    .modal-body.table-mode .calibri-table td {
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 10px 8px;
-      text-align: center;
-      color: #ddd;
-    }
-    .modal-body.table-mode .calibri-table th {
-      background: rgba(201,150,58,0.2);
-      color: var(--gold);
-    }
-    /* Full image style */
-    .full-image-container {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .full-image-container img {
-      width: 100%;
-      height: auto;
-      max-height: 95vh;
-      object-fit: contain;
-      display: block;
+    .btn-leggi:hover i {
+      transform: translateX(4px);
     }
 
     /* ===== FOOTER ===== */
@@ -244,14 +164,14 @@
       .product-img { height: 240px; }
       .product-info { padding: 20px; }
       .hero-category .hero-content p { font-size: 16px; }
-      .modal-content { max-width: 98vw; max-height: 98vh; }
+      .btn-leggi { padding: 7px 16px; font-size: 12px; }
     }
     @media (max-width: 480px) {
       .logo h2 { font-size: 12px; }
       .logo-icon { width: 38px; height: 38px; font-size: 16px; }
       .nav-social { display: none; }
-      .btn-calibri, .btn-wa { padding: 5px 12px; font-size: 11px; }
       .product-title { font-size: 18px; }
+      .btn-leggi { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -271,7 +191,7 @@
 <section class="hero-category">
   <div class="hero-content">
     <h1>Agrumi <span>d'Egitto</span></h1>
-    <p>Scopri la nostra selezione premium di arance, limoni, mandarini e pompelmi. Clicca su "Tabella Calibri" per vedere le specifiche tecniche.</p>
+    <p>Scopri la nostra selezione premium di arance, limoni, mandarini e pompelmi. Ogni prodotto è descritto nei dettagli: clicca su "Leggi di più" per maggiori informazioni.</p>
   </div>
 </section>
 
@@ -346,128 +266,75 @@
 
 <div class="whatsapp" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i></div>
 
-<div id="calibriModal" class="modal">
-  <div class="modal-content">
-    <button class="modal-close" id="closeModalBtn">&times;</button>
-    <div class="modal-body" id="modalTableContainer"></div>
-  </div>
-</div>
-
 <script>
+  // DATI PRODOTTI (mantenuti invariati ma senza più bisogno dei calibri)
   const productsData = [
-    { name: "Arance Baladi \"Oro del Nilo\"", desc: "Varietà locale egiziana, straordinaria succosità e profumo intenso. Perfetta per consumo fresco e spremute.", season: "Dicembre – Marzo", calibri: [["Count","Calibro UE","mm","Peso"],["36","0","96-101","~416g"],["42","1","92-96","~357g"],["48","2","85-92","~312g"],["56","3","81-85","~267g"],["64","4","78-81","~234g"],["72","5","74-78","~208g"],["80","6","74","~187g"],["88","7","67-71","~170g"],["100","8","65-67","~150g"],["113","9","62-65","~132g"]], img: "https://images.pexels.com/photos/3926893/pexels-photo-3926893.jpeg" },
-    { name: "Limone Adalia", desc: "Limone robusto, alta resa in succo (>33%). Pilastro della stagione invernale egiziana.", season: "Dicembre – Maggio", calibri: [["Count","Calibro UE","mm","Peso"],["75","2","63-75","~100g"],["88/100","3","53-67","~80g"],["110","4","48-62","~68g"],["125","5","45-60","~60g"],["144","5","42-58","~52g"],["180","6","40-55","~41g"]], img: "https://images.pexels.com/photos/35926707/pexels-photo-35926707.jpeg" },
-    { name: "Limone Eureka", desc: "Varietà seedless, buccia sottile, succo purissimo. Per retail e ristorazione premium.", season: "Settembre – Dicembre", calibri: [["Count","Calibro UE","mm","Peso"],["75","2","63-75","~100g"],["88/100","3","53-67","~80g"],["110","4","48-62","~68g"],["125","5","45-60","~60g"],["144","5","42-58","~52g"],["180","6","40-55","~41g"]], img: "https://images.pexels.com/photos/33647547/pexels-photo-33647547.jpeg" },
-    { name: "Limone Limoneira", desc: "Frutto simmetrico, buccia liscissima, eccezionale uniformità di calibro. Ideale per GDO.", season: "Novembre – Marzo", calibri: [["Count","Calibro UE","mm","Peso"],["75","2","63-75","~100g"],["88/100","3","53-67","~80g"],["110","4","48-62","~68g"],["125","5","45-60","~60g"],["144","5","42-58","~52g"],["180","6","40-55","~41g"]], img: "https://media.istockphoto.com/id/1280535264/photo/siracusa-lemon-cultivar-femminello-igp.jpg?b=1&s=612x612&w=0&k=20&c=_xy9yUMrglv9w-8Dn7_432D2xOonp_0SzARKlm_ERRM=" },
-    { name: "Mandarino Fremont", desc: "Precoce, colore rosso-arancio, aromatico. Molto resistente al trasporto.", season: "Novembre – Gennaio", calibri: [["Size","Count","mm","Peso"],["0","100","50-52","~75g"],["1","88","52-54","~85g"],["2","80","54-57","~94g"],["3","72","57-60","~104g"],["4","60","60-64","~125g"],["5","48","64-68","~156g"],["6","42","72-86","~178g"]], img: "https://images.pexels.com/photos/35206213/pexels-photo-35206213.jpeg" },
-    { name: "Mandarino Murcott (Honey)", desc: "Dolcezza superiore, alto Brix, shelf-life eccezionale. Varietà tardiva.", season: "Gennaio – Giugno", calibri: [["Size","Count","mm","Peso"],["0","100","50-52","~75g"],["1","88","52-54","~85g"],["2","80","54-57","~94g"],["3","72","57-60","~104g"],["4","60","60-64","~125g"],["5","48","64-68","~156g"],["6","42","72-86","~178g"]], img: "https://images.pexels.com/photos/34843261/pexels-photo-34843261.jpeg" },
-    { name: "Pompelmo Star Ruby", desc: "Polpa rosso rubino, sapore equilibrato, altissima resistenza al trasporto marittimo.", season: "Dicembre – Maggio", calibri: [["Count","Calibro UE","mm","Peso"],["28","1","109-139","~535g"],["32","2","100-119","~468g"],["36","3","93-110","~416g"],["40","4","88-102","~375g"],["45","4-5","84-97","~333g"],["48","5","81-93","~312g"],["56","6","77-89","~267g"]], img: "https://images.pexels.com/photos/5645142/pexels-photo-5645142.jpeg" },
-    { name: "Arance Navel", desc: "Apice della produzione agrumicola. Dolce, senza semi, buccia profumata. Grado Brix 12-14%.", season: "Dicembre – Marzo", calibri: [["Count","Calibro UE","mm","Peso"],["36","0","96-101","~416g"],["42","1","92-96","~357g"],["48","2","85-92","~312g"],["56","3","81-85","~267g"],["64","4","78-81","~234g"],["72","5","74-78","~208g"],["80","6","74","~187g"],["88","7","67-71","~170g"],["100","8","65-67","~150g"],["113","9","62-65","~132g"]], img: "https://images.pexels.com/photos/32209599/pexels-photo-32209599.jpeg" },
-    { name: "Arance Valencia", desc: "Regina del succo, eccellente tenuta post-raccolta. Molto versatile, resistente al trasporto.", season: "Gennaio – Giugno", calibri: [["Count","Calibro UE","mm","Peso"],["36","0","96-101","~416g"],["42","1","92-96","~357g"],["48","2","85-92","~312g"],["56","3","81-85","~267g"],["64","4","78-81","~234g"],["72","5","74-78","~208g"],["80","6","74","~187g"],["88","7","67-71","~170g"],["100","8","65-67","~150g"],["113","9","62-65","~132g"]], img: "https://images.pexels.com/photos/14693032/pexels-photo-14693032.jpeg" }
+    { name: "Arance Baladi \"Oro del Nilo\"", desc: "Varietà locale egiziana, straordinaria succosità e profumo intenso. Perfetta per consumo fresco e spremute.", season: "Dicembre – Marzo", img: "https://images.pexels.com/photos/3926893/pexels-photo-3926893.jpeg" },
+    { name: "Limone Adalia", desc: "Limone robusto, alta resa in succo (>33%). Pilastro della stagione invernale egiziana.", season: "Dicembre – Maggio", img: "https://images.pexels.com/photos/35926707/pexels-photo-35926707.jpeg" },
+    { name: "Limone Eureka", desc: "Varietà seedless, buccia sottile, succo purissimo. Per retail e ristorazione premium.", season: "Settembre – Dicembre", img: "https://images.pexels.com/photos/33647547/pexels-photo-33647547.jpeg" },
+    { name: "Limone Limoneira", desc: "Frutto simmetrico, buccia liscissima, eccezionale uniformità di calibro. Ideale per GDO.", season: "Novembre – Marzo", img: "https://media.istockphoto.com/id/1280535264/photo/siracusa-lemon-cultivar-femminello-igp.jpg?b=1&s=612x612&w=0&k=20&c=_xy9yUMrglv9w-8Dn7_432D2xOonp_0SzARKlm_ERRM=" },
+    { name: "Mandarino Fremont", desc: "Precoce, colore rosso-arancio, aromatico. Molto resistente al trasporto.", season: "Novembre – Gennaio", img: "https://images.pexels.com/photos/35206213/pexels-photo-35206213.jpeg" },
+    { name: "Mandarino Murcott (Honey)", desc: "Dolcezza superiore, alto Brix, shelf-life eccezionale. Varietà tardiva.", season: "Gennaio – Giugno", img: "https://images.pexels.com/photos/34843261/pexels-photo-34843261.jpeg" },
+    { name: "Pompelmo Star Ruby", desc: "Polpa rosso rubino, sapore equilibrato, altissima resistenza al trasporto marittimo.", season: "Dicembre – Maggio", img: "https://images.pexels.com/photos/5645142/pexels-photo-5645142.jpeg" },
+    { name: "Arance Navel", desc: "Apice della produzione agrumicola. Dolce, senza semi, buccia profumata. Grado Brix 12-14%.", season: "Dicembre – Marzo", img: "https://images.pexels.com/photos/32209599/pexels-photo-32209599.jpeg" },
+    { name: "Arance Valencia", desc: "Regina del succo, eccellente tenuta post-raccolta. Molto versatile, resistente al trasporto.", season: "Gennaio – Giugno", img: "https://images.pexels.com/photos/14693032/pexels-photo-14693032.jpeg" }
   ];
 
-  function buildTableHTML(calibri) {
-    if (!calibri || calibri.length === 0) return '<p>Tabella non disponibile</p>';
-    let html = '<div class="table-wrapper"><table class="calibri-table"><thead><tr>';
-    calibri[0].forEach(h => html += `<th>${h}</th>`);
-    html += '</tr></thead><tbody>';
-    for (let i = 1; i < calibri.length; i++) {
-      html += '<tr>';
-      calibri[i].forEach(cell => html += `<td>${cell}</td>`);
-      html += '</tr>';
-    }
-    html += '</tbody>\\</div>';
-    return html;
-  }
-
+  // Funzione per generare le card con il singolo bottone "Leggi di più"
   function renderCards() {
     const grid = document.getElementById('productsGrid');
+    if (!grid) return;
     grid.innerHTML = '';
+    
     productsData.forEach((p, idx) => {
       const card = document.createElement('div');
       card.className = 'product-card';
+      
+      // Creazione struttura: immagine, titolo, descrizione, stagione, e unico link "Leggi di più"
       card.innerHTML = `
         <div class="product-img"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
         <div class="product-info">
           <h3 class="product-title">${p.name}</h3>
           <div class="product-desc">${p.desc}</div>
           <div class="product-season"><i class="fas fa-calendar-alt"></i> ${p.season}</div>
-          <button class="btn-calibri" data-product-index="${idx}" data-name="${p.name.replace(/['"]/g, '&quot;')}" data-calibri='${JSON.stringify(p.calibri)}'><i class="fas fa-chart-simple"></i> Tabella Calibri</button>
-          <button class="btn-wa" data-name="${p.name.replace(/['"]/g, '&quot;')}"><i class="fab fa-whatsapp"></i> Richiedi preventivo</button>
+          <a href="Arance Baladi.html" class="btn-leggi">
+            <i class="fas fa-arrow-right"></i> Leggi di più
+          </a>
         </div>
       `;
       grid.appendChild(card);
     });
-
-    document.querySelectorAll('.btn-calibri').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const productName = btn.getAttribute('data-name');
-        const productIndex = parseInt(btn.getAttribute('data-product-index'), 10);
-        const modalBody = document.getElementById('modalTableContainer');
-        
-        // Per il primo prodotto (Arance Baladi) mostriamo l'immagine a tutto schermo nel modale
-        if (productIndex === 0) {
-          // Rimuoviamo eventuali classi precedenti e impostiamo stile full image
-          modalBody.classList.remove('table-mode');
-          modalBody.style.padding = '0';
-          modalBody.style.display = 'flex';
-          modalBody.style.alignItems = 'center';
-          modalBody.style.justifyContent = 'center';
-          modalBody.style.backgroundColor = 'black';
-          const localImagePath = 'imges/photo_2026-05-26_20-35-50.jpg';
-          modalBody.innerHTML = `
-            <div class="full-image-container">
-              <img src="${localImagePath}" alt="${productName}" style="width:100%; height:auto; max-height:95vh; object-fit:contain; display:block;" onerror="this.onerror=null; this.src='https://placehold.co/1200x800?text=Immagine+non+trovata';">
-            </div>
-          `;
-        } else {
-          // Per gli altri prodotti mostriamo la tabella con lo stile classico
-          modalBody.classList.add('table-mode');
-          modalBody.style.padding = '24px';
-          modalBody.style.display = 'block';
-          modalBody.style.backgroundColor = '';
-          const calibriRaw = btn.getAttribute('data-calibri');
-          let calibri = [];
-          try { calibri = JSON.parse(calibriRaw); } catch(e) {}
-          modalBody.innerHTML = buildTableHTML(calibri);
-        }
-        
-        document.getElementById('calibriModal').classList.add('active');
-      });
-    });
-
-    document.querySelectorAll('.btn-wa').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const name = btn.getAttribute('data-name');
-        openWhatsAppWithProduct(name);
-      });
-    });
   }
 
-  function openWhatsAppWithProduct(productName) {
-    const msg = encodeURIComponent(`Buongiorno, sono interessato a ricevere un preventivo per: ${productName} (categoria Agrumi). Potete fornirmi maggiori dettagli?`);
-    window.open(`https://wa.me/393913049947?text=${msg}`, '_blank');
+  // Funzione per WhatsApp (floating)
+  function openWhatsApp() {
+    window.open('https://wa.me/393913049947', '_blank');
   }
-  function openWhatsApp() { window.open('https://wa.me/393913049947', '_blank'); }
 
-  const modal = document.getElementById('calibriModal');
-  const closeBtn = document.getElementById('closeModalBtn');
-  closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-  window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
-
+  // ===== GESTIONE MENU MOBILE =====
   const menuToggle = document.getElementById('mobileMenuToggle');
   const navLinks = document.getElementById('navLinks');
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    const icon = menuToggle.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-times');
-  });
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = menuToggle.querySelector('i');
+      if (icon) {
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+      }
+    });
+  }
+  
+  // ===== SCROLL PER HEADER =====
   window.addEventListener('scroll', () => {
     const header = document.getElementById('navbar');
-    if (window.scrollY > 60) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
+    if (header) {
+      if (window.scrollY > 60) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    }
   });
+  
+  // Avvio rendering delle card
   renderCards();
 </script>
 </body>
