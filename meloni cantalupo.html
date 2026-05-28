@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Pompelmo Star Ruby — CHOAMX | Eccellenza Egiziana</title>
+    <title>Meloni Cantalupo — CHOAMX | Eccellenza Egiziana</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap"
@@ -48,7 +48,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ─── SCROLLBAR ─── */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -62,9 +61,7 @@
             border-radius: 4px;
         }
 
-        /* ─────────────────────────────────────────
-       NAV (IDENTICA)
-    ───────────────────────────────────────── */
+        /* NAV (IDENTICA) */
         header {
             position: fixed;
             top: 0;
@@ -318,9 +315,7 @@
             color: var(--ink);
         }
 
-        /* ─────────────────────────────────────────
-       HERO
-    ───────────────────────────────────────── */
+        /* HERO */
         .hero {
             position: relative;
             min-height: 100svh;
@@ -334,7 +329,7 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: url('https://images.pexels.com/photos/5645142/pexels-photo-5645142.jpeg?auto=compress&cs=tinysrgb&w=1600') center 38%/cover no-repeat;
+            background: url('https://images.pexels.com/photos/17903817/pexels-photo-17903817.jpeg') center 38%/cover no-repeat;
             transform: scale(1.06);
             transition: transform 12s linear;
             will-change: transform;
@@ -519,9 +514,7 @@
             animation: bounce 2.2s ease-in-out infinite;
         }
 
-        /* ─────────────────────────────────────────
-       PRODUCT DETAIL
-    ───────────────────────────────────────── */
+        /* PRODUCT DETAIL */
         .section-detail {
             background: linear-gradient(160deg, var(--ink) 0%, var(--ink2) 45%, var(--ink3) 100%);
             padding: 100px 0 80px;
@@ -558,7 +551,6 @@
             align-items: center;
         }
 
-        /* Image column - senza anelli e ombre */
         .detail-visual {
             position: relative;
             display: flex;
@@ -725,119 +717,10 @@
             background: linear-gradient(90deg, transparent, rgba(201, 150, 58, .2), transparent);
         }
 
-        /* ─────────────────────────────────────────
-       CALIBRI TABLE SECTION (CARTONE 15 KG)
-    ───────────────────────────────────────── */
-        .section-calibri {
+        /* PACKAGING & CERTIFICATIONS */
+        .section-packaging {
             background: linear-gradient(180deg, var(--ink3) 0%, var(--ink2) 100%);
             padding: 80px 0 100px;
-        }
-
-        .calibri-header {
-            text-align: center;
-            margin-bottom: 56px;
-        }
-
-        .calibri-header h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(30px, 4vw, 44px);
-            font-weight: 700;
-            color: var(--cream);
-            margin-bottom: 12px;
-        }
-
-        .calibri-header h2 em {
-            font-style: italic;
-            color: var(--gold);
-        }
-
-        .calibri-header p {
-            font-size: 15px;
-            color: var(--cream-dim);
-            max-width: 560px;
-            margin: 0 auto;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, .025);
-            border: 1px solid rgba(201, 150, 58, .15);
-            border-radius: 28px;
-            overflow: hidden;
-            backdrop-filter: blur(6px);
-        }
-
-        .card-header {
-            padding: 20px 28px;
-            background: rgba(201, 150, 58, .08);
-            border-bottom: 1px solid rgba(201, 150, 58, .12);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .card-header .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--gold);
-            opacity: .7;
-        }
-
-        .card-header span {
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--gold);
-            font-weight: 500;
-        }
-
-        .calibri-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-        }
-
-        .calibri-table thead tr {
-            background: rgba(201, 150, 58, .1);
-        }
-
-        .calibri-table th {
-            padding: 14px 8px;
-            font-size: 11px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-weight: 600;
-            color: var(--gold);
-            border-bottom: 1px solid rgba(201, 150, 58, .2);
-            text-align: center;
-            white-space: normal;
-            word-break: keep-all;
-        }
-
-        .calibri-table td {
-            padding: 12px 8px;
-            font-size: 13px;
-            color: rgba(253, 250, 245, .8);
-            border-bottom: 1px solid rgba(255, 255, 255, .04);
-            text-align: center;
-            transition: background .2s;
-            white-space: normal;
-        }
-
-        .calibri-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .calibri-table tbody tr:hover td {
-            background: rgba(201, 150, 58, .06);
-            color: var(--cream);
-        }
-
-        .calibri-table td:first-child {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--gold-lt);
         }
 
         .pack-grid {
@@ -920,9 +803,7 @@
             background: var(--gold-glow);
         }
 
-        /* ─────────────────────────────────────────
-       FOOTER (IDENTICO)
-    ───────────────────────────────────────── */
+        /* FOOTER */
         .footer {
             background: linear-gradient(180deg, #0a0908 0%, #060504 100%);
             padding-top: 80px;
@@ -1106,7 +987,6 @@
                 opacity: 0;
                 transform: translateY(28px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1114,201 +994,47 @@
         }
 
         @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(5px);
-            }
-        }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
         }
 
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: .8;
-            }
-
-            100% {
-                transform: scale(1.7);
-                opacity: 0;
-            }
+            0% { transform: scale(1); opacity: .8; }
+            100% { transform: scale(1.7); opacity: 0; }
         }
 
-        /* ─────────────────────────────────────────
-       RESPONSIVE
-    ───────────────────────────────────────── */
+        /* RESPONSIVE */
         @media(max-width:1024px) {
-
-            .nav-links,
-            .nav-actions {
-                display: none;
-            }
-
-            .burger {
-                display: flex;
-            }
-
-            .mobile-drawer {
-                display: block;
-            }
-
-            .detail-grid {
-                grid-template-columns: 1fr;
-                gap: 48px;
-            }
-
-            .detail-visual {
-                order: -1;
-            }
-
-            .feat-list {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-col:nth-child(1) {
-                grid-column: 1/-1;
-            }
+            .nav-links, .nav-actions { display: none; }
+            .burger { display: flex; }
+            .mobile-drawer { display: block; }
+            .detail-grid { grid-template-columns: 1fr; gap: 48px; }
+            .detail-visual { order: -1; }
+            .feat-list { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-col:nth-child(1) { grid-column: 1/-1; }
         }
 
         @media(max-width:640px) {
-            :root {
-                --nav-h: 64px;
-            }
-
-            .hero-title {
-                letter-spacing: -0.5px;
-            }
-
-            .hero-ctas {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn-primary,
-            .btn-outline {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
-            .detail-grid {
-                gap: 36px;
-            }
-
-            .feat-list {
-                grid-template-columns: 1fr;
-            }
-
-            .stat-row {
-                gap: 12px;
-            }
-
-            .stat-card {
-                padding: 14px 10px;
-            }
-
-            .stat-val {
-                font-size: 22px;
-            }
-
-            .pack-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-col:nth-child(1) {
-                grid-column: 1;
-            }
-
-            .calibri-table {
-                font-size: 10px;
-            }
-
-            .calibri-table th {
-                padding: 6px 3px;
-                font-size: 8px;
-                letter-spacing: 0.3px;
-            }
-
-            .calibri-table td {
-                padding: 6px 3px;
-                font-size: 9px;
-            }
-
-            .calibri-table td:first-child {
-                font-size: 10px;
-            }
-
-            .card-header {
-                padding: 14px 16px;
-            }
-
-            .card-header span {
-                font-size: 10px;
-            }
-
-            .fab-wa {
-                bottom: 20px;
-                right: 20px;
-                width: 48px;
-                height: 48px;
-                font-size: 20px;
-            }
-        }
-
-        @media(max-width:480px) {
-            .calibri-table th {
-                padding: 4px 2px;
-                font-size: 7px;
-            }
-
-            .calibri-table td {
-                padding: 4px 2px;
-                font-size: 8px;
-            }
-
-            .calibri-table td:first-child {
-                font-size: 9px;
-            }
-        }
-
-        @media(max-width:380px) {
-            .hero-content {
-                padding-top: calc(var(--nav-h) + 12px);
-            }
-
-            .section-detail {
-                padding: 70px 0 60px;
-            }
+            :root { --nav-h: 64px; }
+            .hero-title { letter-spacing: -0.5px; }
+            .hero-ctas { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-outline { width: 100%; max-width: 300px; justify-content: center; }
+            .detail-grid { gap: 36px; }
+            .feat-list { grid-template-columns: 1fr; }
+            .stat-row { gap: 12px; }
+            .stat-card { padding: 14px 10px; }
+            .stat-val { font-size: 22px; }
+            .pack-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-col:nth-child(1) { grid-column: 1; }
+            .fab-wa { bottom: 20px; right: 20px; width: 48px; height: 48px; font-size: 20px; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- ═══════════════════════════════════
-     NAVBAR
-════════════════════════════════════ -->
     <header id="hdr">
         <div class="nav">
             <a class="logo" href="index.html">
@@ -1340,7 +1066,6 @@
         </div>
     </header>
 
-    <!-- Mobile drawer -->
     <nav class="mobile-drawer" id="drawer">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -1358,9 +1083,7 @@
         </div>
     </nav>
 
-    <!-- ═══════════════════════════════════
-     HERO
-════════════════════════════════════ -->
+    <!-- HERO -->
     <section class="hero" id="top">
         <div class="hero-bg" id="heroBg"></div>
         <div class="hero-overlay"></div>
@@ -1368,13 +1091,13 @@
         <div class="hero-line"></div>
 
         <div class="hero-content">
-            <div class="hero-eyebrow">Eccellenza Agrumicola</div>
+            <div class="hero-eyebrow">Eccellenza Frutticola</div>
             <h1 class="hero-title">
-                Pompelmo
-                <em>Star Ruby</em>
+                Meloni
+                <em>Cantalupo</em>
             </h1>
             <p class="hero-sub">
-                "Rubino d'Egitto" — pigmentazione rosso rubino, sapore equilibrato, frutto robusto per l'esportazione premium.
+                "Polpa arancione intensa, profumo aromatico e dolcezza naturale" — coltivati nel delta del Nilo, qualità costante e elevata resa.
             </p>
             <div class="hero-ctas">
                 <a href="#product" class="btn-primary">
@@ -1392,76 +1115,87 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════
-     PRODUCT DETAIL
-════════════════════════════════════ -->
+    <!-- PRODUCT DETAIL -->
     <section class="section-detail" id="product">
         <div class="container">
             <div class="section-label">Scheda Prodotto</div>
 
             <div class="detail-grid">
 
-                <!-- Visual (solo immagine, senza anelli né ombre) -->
                 <div class="detail-visual">
-                    <img class="orange-img" src="https://images.pexels.com/photos/209549/pexels-photo-209549.jpeg"
-                        alt="Pompelmo Star Ruby — Rubino d'Egitto" loading="lazy">
+                    <img class="orange-img" src="https://images.pexels.com/photos/30893356/pexels-photo-30893356.jpeg"
+                        alt="Melone Cantalupo Egiziano" loading="lazy">
                     <div class="stat-row">
                         <div class="stat-card">
-                            <div class="stat-val">6</div>
+                            <div class="stat-val">4</div>
                             <div class="stat-lbl">Mesi di stagione</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-val">7</div>
-                            <div class="stat-lbl">Calibri disponibili</div>
+                            <div class="stat-val">Cat. I</div>
+                            <div class="stat-lbl">Qualità premium</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-val">UE</div>
-                            <div class="stat-lbl">Conformità totale</div>
+                            <div class="stat-lbl">Conformità MRL</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Info -->
                 <div class="detail-info">
                     <h1 class="detail-title">
-                        Pompelmo Star Ruby<br>
-                        <em>"Rubino d'Egitto"</em>
+                        Meloni Cantalupo<br>
+                        <em>"Dolcezza del Delta"</em>
                     </h1>
                     <div class="badge-season">
                         <i class="fas fa-calendar-alt"></i>
-                        Stagione: Dicembre · Gennaio · Febbraio · Marzo · Aprile · Maggio
+                        Stagione: Marzo · Aprile · Maggio · Giugno
                     </div>
                     <p class="detail-desc">
-                        Il pompelmo Star Ruby prodotto in Egitto è apprezzato per la sua pigmentazione interna rosso rubino e il sapore equilibrato. Frutto robusto, perfetto per le lunghe tratte di esportazione e per la grande distribuzione premium.
+                        I meloni cantalupo provenienti dall’Egitto si distinguono per la loro polpa arancione intensa, il profumo aromatico e il gusto naturalmente dolce e succoso. Coltivati nei terreni fertili del delta del Nilo, beneficiano di condizioni climatiche ideali che garantiscono una qualità costante e un’elevata resa.<br><br>
+                        Grazie all’aspetto uniforme e alla consistenza compatta rappresentano una scelta ideale per importatori, distributori e retailer nei mercati europei. Il prodotto viene selezionato con attenzione per soddisfare i più elevati standard internazionali in termini di sicurezza alimentare e qualità visiva.
                     </p>
 
                     <ul class="feat-list">
                         <li>
-                            <div class="feat-icon"><i class="fas fa-apple-alt"></i></div>
-                            <div class="feat-text">
-                                <strong>Polpa</strong>
-                                <span>Rossa vibrante, mantiene colore e compattezza</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon"><i class="fas fa-tint"></i></div>
-                            <div class="feat-text">
-                                <strong>Buccia & Succo</strong>
-                                <span>Sottile, alta percentuale di succo e facilità di spremitura</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon"><i class="fas fa-ship"></i></div>
-                            <div class="feat-text">
-                                <strong>Longevità</strong>
-                                <span>Altissima resistenza al trasporto marittimo refrigerato</span>
-                            </div>
-                        </li>
-                        <li>
                             <div class="feat-icon"><i class="fas fa-calendar-alt"></i></div>
                             <div class="feat-text">
                                 <strong>Stagionalità</strong>
-                                <span>Dicembre – Maggio, disponibilità estesa</span>
+                                <span>Marzo – Giugno, prodotto fresco di primavera</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feat-icon"><i class="fas fa-star"></i></div>
+                            <div class="feat-text">
+                                <strong>Qualità</strong>
+                                <span>Categoria I, selezione per colore e grado Brix</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feat-icon"><i class="fas fa-shield-halved"></i></div>
+                            <div class="feat-text">
+                                <strong>Conformità MRL</strong>
+                                <span>Rispetto limiti UE e GCC, massima sicurezza</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feat-icon"><i class="fas fa-hand-sparkles"></i></div>
+                            <div class="feat-text">
+                                <strong>Trattamenti post-raccolta</strong>
+                                <span>Pulizia, selezione, classificazione e confezionamento in ambiente protetto</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feat-icon"><i class="fas fa-map-marked-alt"></i></div>
+                            <div class="feat-text">
+                                <strong>Tracciabilità totale</strong>
+                                <span>Dalla fattoria al container</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feat-icon"><i class="fas fa-file-certificate"></i></div>
+                            <div class="feat-text">
+                                <strong>Certificazioni</strong>
+                                <span>Certificato fitosanitario ufficiale</span>
                             </div>
                         </li>
                     </ul>
@@ -1469,9 +1203,6 @@
                     <div class="cta-group">
                         <a href="#" onclick="openWhatsAppProduct();return false;" class="btn-primary">
                             <i class="fab fa-whatsapp"></i> Richiedi campione / preventivo
-                        </a>
-                        <a href="#calibri" class="btn-outline">
-                            <i class="fas fa-table"></i> Tabella calibri
                         </a>
                     </div>
                 </div>
@@ -1481,122 +1212,43 @@
 
     <div class="divider"></div>
 
-    <!-- ═══════════════════════════════════
-     CALIBRI + PACKAGING (CARTONE 15 KG)
-════════════════════════════════════ -->
-    <section class="section-calibri" id="calibri">
+    <!-- PACKAGING & CERTIFICATIONS -->
+    <section class="section-packaging">
         <div class="container">
 
-            <div class="calibri-header">
-                <h2>Tabella <em>Calibri</em></h2>
-                <p>Cartone da 15 kg netti — Egypt Export Standard · Compatibile con i calibri UE</p>
-            </div>
-
-            <div class="glass-card">
-                <div class="card-header">
-                    <div class="dot"></div>
-                    <span>Calibri & Specifiche Tecniche – Pompelmo Star Ruby</span>
+            <div class="section-label" style="margin-bottom:28px;">Soluzioni di Confezionamento</div>
+            <div class="pack-grid">
+                <div class="pack-item">
+                    <div class="pi-icon"><i class="fas fa-box-open"></i></div>
+                    <h4>Cartoni da 4 kg / 5 kg / 8 kg</h4>
+                    <p>Imballaggio primario resistente, progettato per proteggere i meloni durante il trasporto e valorizzare l'aspetto al punto vendita.</p>
                 </div>
-                <div style="padding: 0 8px;">
-                    <table class="calibri-table">
-                        <thead>
-                            <tr>
-                                <th>Conteggio (Count)</th>
-                                <th>Calibro UE</th>
-                                <th>Misura (mm)</th>
-                                <th>Peso medio frutto</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>28</td
-                                <td>1</td
-                                <td>109 – 139</td
-                                <td>~ 535 g</td
-                            </tr>
-                            <tr>
-                                <td>32</td
-                                <td>2</td
-                                <td>100 – 119</td
-                                <td>~ 468 g</td
-                            </tr>
-                            <tr>
-                                <td>36</td
-                                <td>3</td
-                                <td>93 – 110</td
-                                <td>~ 416 g</td
-                            </tr>
-                            <tr>
-                                <td>40</td
-                                <td>4</td
-                                <td>88 – 102</td
-                                <td>~ 375 g</td
-                            </tr>
-                            <tr>
-                                <td>45</td
-                                <td>4-5</td
-                                <td>84 – 97</td
-                                <td>~ 333 g</td
-                            </tr>
-                            <tr>
-                                <td>48</td
-                                <td>5</td
-                                <td>81 – 93</td
-                                <td>~ 312 g</td
-                            </tr>
-                            <tr>
-                                <td>56</td
-                                <td>6</td
-                                <td>77 – 89</td
-                                <td>~ 267 g</td
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="pack-item">
+                    <div class="pi-icon"><i class="fas fa-snowflake"></i></div>
+                    <h4>Preraffreddamento e catena del freddo</h4>
+                    <p>Ad aria forzata con mantenimento della temperatura controllata durante tutta la logistica, per preservare freschezza e dolcezza.</p>
                 </div>
             </div>
 
-            <!-- Packaging per pompelmo -->
-            <div style="margin-top:48px;">
-                <div class="section-label" style="margin-bottom:28px;">Soluzioni di Confezionamento</div>
-                <div class="pack-grid">
-                    <div class="pack-item">
-                        <div class="pi-icon"><i class="fas fa-box"></i></div>
-                        <h4>Cartone Telescopico</h4>
-                        <p>Formato da 15 kg. È la scelta standard assoluta per il pompelmo, poiché offre la protezione strutturale necessaria per frutti così pesanti.</p>
-                    </div>
-                    <div class="pack-item">
-                        <div class="pi-icon"><i class="fas fa-box-open"></i></div>
-                        <h4>Cartone Open Top</h4>
-                        <p>Formato da 15 kg. Molto utilizzato per i mercati europei che richiedono un'ispezione visiva immediata della qualità della pelle.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Certs -->
             <div class="certs-row">
                 <div class="cert-badge"><i class="fas fa-file-certificate"></i> Certificazioni Fitosanitarie</div>
-                <div class="cert-badge"><i class="fas fa-microscope"></i> Analisi di Laboratorio</div>
-                <div class="cert-badge"><i class="fas fa-shield-halved"></i> Conformità UE</div>
-                <div class="cert-badge"><i class="fas fa-video"></i> Report video pre-spedizione</div>
-                <div class="cert-badge"><i class="fas fa-magnifying-glass"></i> SGS / Bureau Veritas</div>
+                <div class="cert-badge"><i class="fas fa-chart-line"></i> Selezione per grado Brix</div>
+                <div class="cert-badge"><i class="fas fa-shield-halved"></i> Conformità MRL UE/GCC</div>
+                <div class="cert-badge"><i class="fas fa-map-marked-alt"></i> Tracciabilità completa</div>
+                <div class="cert-badge"><i class="fas fa-temperature-low"></i> Catena del freddo</div>
             </div>
 
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════
-     FOOTER
-════════════════════════════════════ -->
+    <!-- FOOTER -->
     <footer class="footer" id="contact-footer">
         <div class="container">
             <div class="footer-grid">
 
-                <!-- Brand -->
                 <div class="footer-col">
                     <span class="footer-brand">CHOAMX</span>
-                    <p>Partner internazionale specializzato nell'esportazione di prodotti egiziani, con gestione e
-                        controllo diretto italiano. Uniamo le migliori filiere locali ai mercati globali garantendo
-                        tracciabilità, standard UE e supervisione costante sul campo.</p>
+                    <p>Partner internazionale specializzato nell'esportazione di prodotti egiziani, con gestione e controllo diretto italiano. Uniamo le migliori filiere locali ai mercati globali garantendo tracciabilità, standard UE e supervisione costante sul campo.</p>
                     <div class="footer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1605,20 +1257,14 @@
                     </div>
                 </div>
 
-                <!-- Links -->
                 <div class="footer-col">
                     <h3>Link Rapidi</h3>
                     <ul>
-                        <li><a href="prodotti.html"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> Prodotti</a></li>
-                        <li><a href="Chi_siamo.html"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> Chi siamo</a></li>
-                        <li><a href="Consulenza.html"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> Consulenza</a></li>
-                        <li><a href="#contact-footer"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> Contattaci</a></li>
-                        <li><a href="#faq"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> FAQ</a></li>
+                        <li><a href="prodotti.html"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> Prodotti</a></li>
+                        <li><a href="Chi_siamo.html"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> Chi siamo</a></li>
+                        <li><a href="Consulenza.html"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> Consulenza</a></li>
+                        <li><a href="#contact-footer"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> Contattaci</a></li>
+                        <li><a href="#faq"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> FAQ</a></li>
                     </ul>
                     <br>
                     <h3>Le Nostre Divisioni</h3>
@@ -1629,7 +1275,6 @@
                     </ul>
                 </div>
 
-                <!-- Standards -->
                 <div class="footer-col">
                     <h3>Standard Operativi</h3>
                     <ul>
@@ -1644,7 +1289,6 @@
                     </ul>
                 </div>
 
-                <!-- Contact -->
                 <div class="footer-col">
                     <h3>Contatti</h3>
                     <div class="contact-item">
@@ -1681,30 +1325,26 @@
         </div>
     </footer>
 
-    <!-- WhatsApp FAB -->
     <a class="fab-wa" href="#" onclick="openWhatsApp();return false;" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        /* ─── WhatsApp ─── */
         function openWhatsApp() {
             window.open('https://wa.me/393913049947', '_blank');
         }
         function openWhatsAppProduct() {
             const msg = encodeURIComponent(
-                'Buongiorno, sono interessato a ricevere informazioni/preventivo per il Pompelmo Star Ruby. Potete fornirmi dettagli su disponibilità, calibri e confezionamento?'
+                'Buongiorno, sono interessato a ricevere informazioni/preventivo per i Meloni Cantalupo. Potete fornirmi dettagli su disponibilità, calibri e confezionamento?'
             );
             window.open('https://wa.me/393913049947?text=' + msg, '_blank');
         }
 
-        /* ─── Navbar scroll ─── */
         const hdr = document.getElementById('hdr');
         window.addEventListener('scroll', () => {
             hdr.classList.toggle('scrolled', window.scrollY > 50);
         }, { passive: true });
 
-        /* ─── Mobile menu ─── */
         const burger = document.getElementById('burger');
         const drawer = document.getElementById('drawer');
         let drawerOpen = false;
@@ -1716,7 +1356,6 @@
             document.body.style.overflow = drawerOpen ? 'hidden' : '';
         });
 
-        // Close on link click
         drawer.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => {
                 drawerOpen = false;
@@ -1726,7 +1365,6 @@
             });
         });
 
-        /* ─── Hero parallax (subtle) ─── */
         const heroBg = document.getElementById('heroBg');
         window.addEventListener('scroll', () => {
             const y = window.scrollY;
@@ -1735,14 +1373,12 @@
             }
         }, { passive: true });
 
-        /* ─── Hero bg loaded ─── */
         window.addEventListener('load', () => {
             heroBg.classList.add('loaded');
         });
 
-        /* ─── Scroll reveal ─── */
         const revealEls = document.querySelectorAll(
-            '.detail-grid, .glass-card, .pack-item, .stat-card, .cert-badge, .section-label'
+            '.detail-grid, .pack-item, .stat-card, .cert-badge, .section-label'
         );
         const io = new IntersectionObserver((entries) => {
             entries.forEach(e => {

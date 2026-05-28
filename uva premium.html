@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Pompelmo Star Ruby — CHOAMX | Eccellenza Egiziana</title>
+    <title>Uva Premium — CHOAMX | Eccellenza Egiziana</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* ─── DESIGN TOKENS (stesso tema) ─── */
+        /* ─── DESIGN TOKENS (invariati) ─── */
         :root {
             --gold: #c9963a;
             --gold-lt: #e8b85a;
@@ -48,7 +48,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ─── SCROLLBAR ─── */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -63,7 +62,7 @@
         }
 
         /* ─────────────────────────────────────────
-       NAV (IDENTICA)
+       NAV (identica)
     ───────────────────────────────────────── */
         header {
             position: fixed;
@@ -119,10 +118,6 @@
 
         .logo:hover .logo-mark {
             transform: rotate(8deg) scale(1.06);
-        }
-
-        .logo-text {
-            line-height: 1.15;
         }
 
         .logo-text strong {
@@ -319,7 +314,7 @@
         }
 
         /* ─────────────────────────────────────────
-       HERO
+       HERO (con immagine uva)
     ───────────────────────────────────────── */
         .hero {
             position: relative;
@@ -334,7 +329,7 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: url('https://images.pexels.com/photos/5645142/pexels-photo-5645142.jpeg?auto=compress&cs=tinysrgb&w=1600') center 38%/cover no-repeat;
+            background: url('https://images.pexels.com/photos/5852237/pexels-photo-5852237.jpeg') center 35%/cover no-repeat;
             transform: scale(1.06);
             transition: transform 12s linear;
             will-change: transform;
@@ -425,7 +420,7 @@
             font-weight: 300;
             line-height: 1.7;
             color: rgba(253, 250, 245, .75);
-            max-width: 580px;
+            max-width: 620px;
             margin: 0 auto 44px;
             animation: fadeUp .9s .5s both;
         }
@@ -558,7 +553,6 @@
             align-items: center;
         }
 
-        /* Image column - senza anelli e ombre */
         .detail-visual {
             position: relative;
             display: flex;
@@ -566,13 +560,43 @@
             align-items: center;
         }
 
+        .visual-ring {
+            position: absolute;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(201, 150, 58, .12) 0%, transparent 70%);
+            filter: blur(30px);
+            pointer-events: none;
+        }
+
+        .visual-ring2 {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 150, 58, .14);
+            animation: spin 22s linear infinite;
+        }
+
+        .visual-ring3 {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            border: 1px dashed rgba(201, 150, 58, .08);
+            animation: spin 35s linear reverse infinite;
+        }
+
         .orange-img {
             position: relative;
             z-index: 2;
             width: min(340px, 85vw);
             height: auto;
+            filter: drop-shadow(0 20px 50px rgba(201, 150, 58, .22)) drop-shadow(0 8px 20px rgba(0, 0, 0, .5));
             transition: transform .5s cubic-bezier(.34, 1.56, .64, 1);
             will-change: transform;
+            border-radius: 28px;
         }
 
         .detail-visual:hover .orange-img {
@@ -726,7 +750,7 @@
         }
 
         /* ─────────────────────────────────────────
-       CALIBRI TABLE SECTION (CARTONE 15 KG)
+       SEZIONE VARIETÀ (tabella uva)
     ───────────────────────────────────────── */
         .section-calibri {
             background: linear-gradient(180deg, var(--ink3) 0%, var(--ink2) 100%);
@@ -804,24 +828,22 @@
         .calibri-table th {
             padding: 14px 8px;
             font-size: 11px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             font-weight: 600;
             color: var(--gold);
             border-bottom: 1px solid rgba(201, 150, 58, .2);
             text-align: center;
             white-space: normal;
-            word-break: keep-all;
         }
 
         .calibri-table td {
-            padding: 12px 8px;
-            font-size: 13px;
+            padding: 13px 8px;
+            font-size: 14px;
             color: rgba(253, 250, 245, .8);
             border-bottom: 1px solid rgba(255, 255, 255, .04);
             text-align: center;
             transition: background .2s;
-            white-space: normal;
         }
 
         .calibri-table tr:last-child td {
@@ -831,13 +853,6 @@
         .calibri-table tbody tr:hover td {
             background: rgba(201, 150, 58, .06);
             color: var(--cream);
-        }
-
-        .calibri-table td:first-child {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--gold-lt);
         }
 
         .pack-grid {
@@ -920,9 +935,7 @@
             background: var(--gold-glow);
         }
 
-        /* ─────────────────────────────────────────
-       FOOTER (IDENTICO)
-    ───────────────────────────────────────── */
+        /* Footer identico */
         .footer {
             background: linear-gradient(180deg, #0a0908 0%, #060504 100%);
             padding-top: 80px;
@@ -1010,7 +1023,8 @@
             margin-bottom: 10px;
         }
 
-        .footer-col ul li a {
+        .footer-col ul li a,
+        .footer-col ul li span {
             font-size: 13px;
             color: rgba(253, 250, 245, .5);
             text-decoration: none;
@@ -1023,12 +1037,6 @@
         .footer-col ul li a:hover {
             color: var(--gold);
             padding-left: 4px;
-        }
-
-        .footer-col ul li span {
-            font-size: 13px;
-            color: rgba(253, 250, 245, .5);
-            line-height: 1.5;
         }
 
         .footer-col .contact-item {
@@ -1102,658 +1110,128 @@
         }
 
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(28px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(28px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+        @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+        @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+        @keyframes pulse { 0%{transform:scale(1);opacity:.8} 100%{transform:scale(1.7);opacity:0} }
 
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(5px);
-            }
-        }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: .8;
-            }
-
-            100% {
-                transform: scale(1.7);
-                opacity: 0;
-            }
-        }
-
-        /* ─────────────────────────────────────────
-       RESPONSIVE
-    ───────────────────────────────────────── */
         @media(max-width:1024px) {
-
-            .nav-links,
-            .nav-actions {
-                display: none;
-            }
-
-            .burger {
-                display: flex;
-            }
-
-            .mobile-drawer {
-                display: block;
-            }
-
-            .detail-grid {
-                grid-template-columns: 1fr;
-                gap: 48px;
-            }
-
-            .detail-visual {
-                order: -1;
-            }
-
-            .feat-list {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-col:nth-child(1) {
-                grid-column: 1/-1;
-            }
+            .nav-links,.nav-actions{display:none}
+            .burger{display:flex}
+            .mobile-drawer{display:block}
+            .detail-grid{grid-template-columns:1fr;gap:48px}
+            .feat-list{grid-template-columns:1fr 1fr}
+            .footer-grid{grid-template-columns:1fr 1fr}
         }
-
         @media(max-width:640px) {
-            :root {
-                --nav-h: 64px;
-            }
-
-            .hero-title {
-                letter-spacing: -0.5px;
-            }
-
-            .hero-ctas {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn-primary,
-            .btn-outline {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
-            .detail-grid {
-                gap: 36px;
-            }
-
-            .feat-list {
-                grid-template-columns: 1fr;
-            }
-
-            .stat-row {
-                gap: 12px;
-            }
-
-            .stat-card {
-                padding: 14px 10px;
-            }
-
-            .stat-val {
-                font-size: 22px;
-            }
-
-            .pack-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-col:nth-child(1) {
-                grid-column: 1;
-            }
-
-            .calibri-table {
-                font-size: 10px;
-            }
-
-            .calibri-table th {
-                padding: 6px 3px;
-                font-size: 8px;
-                letter-spacing: 0.3px;
-            }
-
-            .calibri-table td {
-                padding: 6px 3px;
-                font-size: 9px;
-            }
-
-            .calibri-table td:first-child {
-                font-size: 10px;
-            }
-
-            .card-header {
-                padding: 14px 16px;
-            }
-
-            .card-header span {
-                font-size: 10px;
-            }
-
-            .fab-wa {
-                bottom: 20px;
-                right: 20px;
-                width: 48px;
-                height: 48px;
-                font-size: 20px;
-            }
-        }
-
-        @media(max-width:480px) {
-            .calibri-table th {
-                padding: 4px 2px;
-                font-size: 7px;
-            }
-
-            .calibri-table td {
-                padding: 4px 2px;
-                font-size: 8px;
-            }
-
-            .calibri-table td:first-child {
-                font-size: 9px;
-            }
-        }
-
-        @media(max-width:380px) {
-            .hero-content {
-                padding-top: calc(var(--nav-h) + 12px);
-            }
-
-            .section-detail {
-                padding: 70px 0 60px;
-            }
+            :root{--nav-h:64px}
+            .hero-ctas{flex-direction:column;align-items:center}
+            .btn-primary,.btn-outline{width:100%;max-width:300px;justify-content:center}
+            .feat-list{grid-template-columns:1fr}
+            .pack-grid{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr}
+            .calibri-table th{font-size:9px;padding:8px 3px}
+            .calibri-table td{font-size:10px;padding:8px 3px}
         }
     </style>
 </head>
-
 <body>
 
-    <!-- ═══════════════════════════════════
-     NAVBAR
-════════════════════════════════════ -->
-    <header id="hdr">
-        <div class="nav">
-            <a class="logo" href="index.html">
-                <div class="logo-mark">🌿</div>
-                <div class="logo-text">
-                    <strong>CHOAMX</strong>
-                    <small>Egyptian Excellence</small>
-                </div>
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="prodotti.html">Prodotti</a></li>
-                <li><a href="Chi_siamo.html">Chi siamo</a></li>
-                <li><a href="Consulenza.html">Consulenza</a></li>
-                <li><a href="#contact-footer">Contattaci</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
-
-            <div class="nav-actions">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-
-            <button class="burger" id="burger" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </header>
-
-    <!-- Mobile drawer -->
-    <nav class="mobile-drawer" id="drawer">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="prodotti.html">Prodotti</a></li>
-            <li><a href="Chi_siamo.html">Chi siamo</a></li>
-            <li><a href="Consulenza.html">Consulenza</a></li>
-            <li><a href="#contact-footer">Contattaci</a></li>
-            <li><a href="#faq">FAQ</a></li>
+<header id="hdr">
+    <div class="nav">
+        <a class="logo" href="index.html">
+            <div class="logo-mark">🍇</div>
+            <div class="logo-text"><strong>CHOAMX</strong><small>Egyptian Excellence</small></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li><li><a href="prodotti.html">Prodotti</a></li>
+            <li><a href="Chi_siamo.html">Chi siamo</a></li><li><a href="Consulenza.html">Consulenza</a></li>
+            <li><a href="#contact-footer">Contattaci</a></li><li><a href="#faq">FAQ</a></li>
         </ul>
-        <div class="mobile-social">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" onclick="openWhatsApp();return false;"><i class="fab fa-whatsapp"></i></a>
-        </div>
-    </nav>
+        <div class="nav-actions"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div>
+        <button class="burger" id="burger"><span></span><span></span><span></span></button>
+    </div>
+</header>
+<nav class="mobile-drawer" id="drawer">
+    <ul><li><a href="index.html">Home</a></li><li><a href="prodotti.html">Prodotti</a></li><li><a href="Chi_siamo.html">Chi siamo</a></li><li><a href="Consulenza.html">Consulenza</a></li><li><a href="#contact-footer">Contattaci</a></li><li><a href="#faq">FAQ</a></li></ul>
+    <div class="mobile-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#" onclick="openWhatsApp();return false;"><i class="fab fa-whatsapp"></i></a></div>
+</nav>
 
-    <!-- ═══════════════════════════════════
-     HERO
-════════════════════════════════════ -->
-    <section class="hero" id="top">
-        <div class="hero-bg" id="heroBg"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-grain"></div>
-        <div class="hero-line"></div>
+<section class="hero" id="top">
+    <div class="hero-bg" id="heroBg"></div><div class="hero-overlay"></div><div class="hero-grain"></div><div class="hero-line"></div>
+    <div class="hero-content">
+        <div class="hero-eyebrow">Eccellenza Viticola</div>
+        <h1 class="hero-title">Uva <em>Premium</em></h1>
+        <p class="hero-sub">Coltivata nei fertili terreni del delta del Nilo, l'uva egiziana si distingue per la croccantezza e il grado zuccherino ottimale. Raccolta con precisione e tecniche agronomiche avanzate.</p>
+        <div class="hero-ctas"><a href="#product" class="btn-primary"><i class="fas fa-arrow-down"></i> Scopri il prodotto</a><a href="#" onclick="openWhatsAppProduct();return false;" class="btn-outline"><i class="fab fa-whatsapp"></i> Richiedi un preventivo</a></div>
+    </div>
+    <div class="scroll-hint" onclick="document.getElementById('product').scrollIntoView({behavior:'smooth'})"><span>Scorri</span><div class="scroll-arrow"><i class="fas fa-chevron-down"></i></div></div>
+</section>
 
-        <div class="hero-content">
-            <div class="hero-eyebrow">Eccellenza Agrumicola</div>
-            <h1 class="hero-title">
-                Pompelmo
-                <em>Star Ruby</em>
-            </h1>
-            <p class="hero-sub">
-                "Rubino d'Egitto" — pigmentazione rosso rubino, sapore equilibrato, frutto robusto per l'esportazione premium.
-            </p>
-            <div class="hero-ctas">
-                <a href="#product" class="btn-primary">
-                    <i class="fas fa-arrow-down"></i> Scopri il prodotto
-                </a>
-                <a href="#" onclick="openWhatsAppProduct();return false;" class="btn-outline">
-                    <i class="fab fa-whatsapp"></i> Richiedi un preventivo
-                </a>
+<section class="section-detail" id="product">
+    <div class="container">
+        <div class="section-label">Scheda Prodotto</div>
+        <div class="detail-grid">
+            <div class="detail-visual">
+                <div class="visual-ring"></div><div class="visual-ring2"></div><div class="visual-ring3"></div>
+                <img class="orange-img" src="https://images.pexels.com/photos/4163420/pexels-photo-4163420.jpeg" alt="Uva egiziana premium" loading="lazy">
+                <div class="stat-row"><div class="stat-card"><div class="stat-val">4</div><div class="stat-lbl">Mesi di stagione</div></div><div class="stat-card"><div class="stat-val">5</div><div class="stat-lbl">Varietà</div></div><div class="stat-card"><div class="stat-val">UE</div><div class="stat-lbl">MRL conformi</div></div></div>
+            </div>
+            <div class="detail-info">
+                <h1 class="detail-title">Uva Premium<br><em>"Croccantezza e dolcezza del Nilo"</em></h1>
+                <div class="badge-season"><i class="fas fa-calendar-alt"></i> Stagione: Maggio · Giugno · Luglio · Agosto</div>
+                <p class="detail-desc">Coltivata nei terreni fertili del delta del Nilo, l'uva egiziana si distingue per la croccantezza e il grado zuccherino ottimale. Raccolta con precisione e gestita con tecniche agronomiche avanzate, arriva sui mercati internazionali preservando tutta la sua freschezza originale. Varietà bianca (verde), rossa e nera, con o senza semi. Trattamenti post-raccolta con soli prodotti approvati per uso alimentare, rispetto dei limiti MRL UE e GCC, tracciabilità completa dalla fattoria al container.</p>
+                <ul class="feat-list">
+                    <li><div class="feat-icon"><i class="fas fa-crunch"></i></div><div class="feat-text"><strong>Croccantezza ottimale</strong><span>Acini sodi, polpa compatta e resistente</span></div></li>
+                    <li><div class="feat-icon"><i class="fas fa-chart-line"></i></div><div class="feat-text"><strong>Grado zuccherino elevato</strong><span>Brix da 14% a 16% a seconda della varietà</span></div></li>
+                    <li><div class="feat-icon"><i class="fas fa-leaf"></i></div><div class="feat-text"><strong>Varietà seedless</strong><span>Bianca, rossa e nera senza semi</span></div></li>
+                    <li><div class="feat-icon"><i class="fas fa-truck-fast"></i></div><div class="feat-text"><strong>Catena del freddo integrale</strong><span>Preraffreddamento ad aria forzata, container Reefer</span></div></li>
+                </ul>
+                <div class="cta-group"><a href="#" onclick="openWhatsAppProduct();return false;" class="btn-primary"><i class="fab fa-whatsapp"></i> Richiedi campione / preventivo</a><a href="#calibri" class="btn-outline"><i class="fas fa-table"></i> Tabella varietà</a></div>
             </div>
         </div>
+    </div>
+</section>
+<div class="divider"></div>
 
-        <div class="scroll-hint" onclick="document.getElementById('product').scrollIntoView({behavior:'smooth'})">
-            <span>Scorri</span>
-            <div class="scroll-arrow"><i class="fas fa-chevron-down"></i></div>
+<section class="section-calibri" id="calibri">
+    <div class="container">
+        <div class="calibri-header"><h2>Varietà <em>e Specifiche</em></h2><p>Uva bianca, rossa, nera – con o senza semi – calibrata per l'esportazione di alta qualità</p></div>
+        <div class="glass-card">
+            <div class="card-header"><div class="dot"></div><span>Tabella varietale – Uva Premium d'Egitto</span></div>
+            <div style="padding:0 8px;"><table class="calibri-table"><thead><tr><th>Varietà</th><th>Disponibilità (settimane)</th><th>Calibro (diametro)</th><th>Grado Brix (zuccheri)</th></tr></thead><tbody>
+                <tr><td>Sugraone Bianca (Seedless)</td><td>21 - 27</td><td>≥ 17 mm</td><td>Minimo 15%</td></tr>
+                <tr><td>Flame Rossa (Seedless)</td><td>23 - 28</td><td>≥ 17 mm</td><td>Minimo 16%</td></tr>
+                <tr><td>Crimson Rossa (Seedless)</td><td>27 - 36</td><td>≥ 17 mm</td><td>Minimo 16%</td></tr>
+                <tr><td>Autumn Royal Nera (Seedless)</td><td>29 - 33</td><td>≥ 17 mm</td><td>Minimo 16%</td></tr>
+                <tr><td>Red Globe (Con semi)</td><td>28 - 33</td><td>22 - 30 mm</td><td>Minimo 14%</td></tr>
+            </tbody></table></div>
         </div>
-    </section>
+        <div style="margin-top:48px;"><div class="section-label" style="margin-bottom:28px;">Soluzioni di Imballo & Logistica</div>
+        <div class="pack-grid"><div class="pack-item"><div class="pi-icon"><i class="fas fa-box"></i></div><h4>Imballo primario</h4><p>Vaschette o sfusa in cartoni da 2 kg, 4 kg o 5 kg netti. Ideali per la distribuzione retail e la GDO.</p></div><div class="pack-item"><div class="pi-icon"><i class="fas fa-snowflake"></i></div><h4>Preraffreddamento & Reefer</h4><p>Preraffreddamento ad aria forzata con mantenimento della catena del freddo dalla raccolta alla consegna. Container a temperatura altamente controllata.</p></div></div></div>
+        <div class="certs-row"><div class="cert-badge"><i class="fas fa-file-certificate"></i> Certificato fitosanitario ufficiale</div><div class="cert-badge"><i class="fas fa-microscope"></i> Analisi MRL UE/GCC</div><div class="cert-badge"><i class="fas fa-shield-halved"></i> Conformità completa standard export</div><div class="cert-badge"><i class="fas fa-video"></i> Report pre-spedizione</div><div class="cert-badge"><i class="fas fa-magnifying-glass"></i> Ispezioni SGS / Bureau Veritas</div></div>
+    </div>
+</section>
 
-    <!-- ═══════════════════════════════════
-     PRODUCT DETAIL
-════════════════════════════════════ -->
-    <section class="section-detail" id="product">
-        <div class="container">
-            <div class="section-label">Scheda Prodotto</div>
+<footer class="footer" id="contact-footer"><div class="container"><div class="footer-grid"><div class="footer-col"><span class="footer-brand">CHOAMX</span><p>Partner internazionale specializzato nell'esportazione di prodotti egiziani, con gestione e controllo diretto italiano. Uniamo le migliori filiere locali ai mercati globali garantendo tracciabilità, standard UE e supervisione costante sul campo.</p><div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#" onclick="openWhatsApp();return false;"><i class="fab fa-whatsapp"></i></a></div></div><div class="footer-col"><h3>Link Rapidi</h3><ul><li><a href="prodotti.html"><i class="fas fa-chevron-right"></i> Prodotti</a></li><li><a href="Chi_siamo.html"><i class="fas fa-chevron-right"></i> Chi siamo</a></li><li><a href="Consulenza.html"><i class="fas fa-chevron-right"></i> Consulenza</a></li><li><a href="#contact-footer"><i class="fas fa-chevron-right"></i> Contattaci</a></li></ul><br><h3>Divisioni</h3><ul><li><span>• Fresh Division</span></li><li><span>• Frozen Division</span></li><li><span>• Bio Energy Division</span></li></ul></div><div class="footer-col"><h3>Standard Operativi</h3><ul><li><span>• Supervisione italiana diretta</span></li><li><span>• Controllo qualità sul campo</span></li><li><span>• Report video e fotografici</span></li><li><span>• Filiera selezionata e monitorata</span></li><li><span>• Documentazione export conforme UE</span></li><li><span>• Tracciabilità totale</span></li><li><span>• Ispezioni SGS / Bureau Veritas</span></li></ul></div><div class="footer-col"><h3>Contatti</h3><div class="contact-item"><i class="fas fa-phone"></i><span>CEO Export: +39 391 304 9947</span></div><div class="contact-item"><i class="fas fa-phone"></i><span>Area Manager: +39 339 208 4078</span></div><div class="contact-item"><i class="fas fa-envelope"></i><span>info@choamx.com</span></div><div class="contact-item"><i class="fas fa-location-dot"></i><span>Sede: Il Cairo, Egitto</span></div><br><h3>Legale</h3><ul><li><span>Informativa privacy</span></li><li><span>Termini e condizioni</span></li><li><span>Politica qualità</span></li><li><span>Tax ID: 123-456-789 | CR: 98765</span></li></ul></div></div><div class="footer-bottom"><p>© 2026 <span>CHOAMX</span> — Eccellenza Egiziana. Tutti i diritti riservati.</p></div></div></footer>
 
-            <div class="detail-grid">
+<a class="fab-wa" href="#" onclick="openWhatsApp();return false;"><i class="fab fa-whatsapp"></i></a>
 
-                <!-- Visual (solo immagine, senza anelli né ombre) -->
-                <div class="detail-visual">
-                    <img class="orange-img" src="https://images.pexels.com/photos/209549/pexels-photo-209549.jpeg"
-                        alt="Pompelmo Star Ruby — Rubino d'Egitto" loading="lazy">
-                    <div class="stat-row">
-                        <div class="stat-card">
-                            <div class="stat-val">6</div>
-                            <div class="stat-lbl">Mesi di stagione</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-val">7</div>
-                            <div class="stat-lbl">Calibri disponibili</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-val">UE</div>
-                            <div class="stat-lbl">Conformità totale</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Info -->
-                <div class="detail-info">
-                    <h1 class="detail-title">
-                        Pompelmo Star Ruby<br>
-                        <em>"Rubino d'Egitto"</em>
-                    </h1>
-                    <div class="badge-season">
-                        <i class="fas fa-calendar-alt"></i>
-                        Stagione: Dicembre · Gennaio · Febbraio · Marzo · Aprile · Maggio
-                    </div>
-                    <p class="detail-desc">
-                        Il pompelmo Star Ruby prodotto in Egitto è apprezzato per la sua pigmentazione interna rosso rubino e il sapore equilibrato. Frutto robusto, perfetto per le lunghe tratte di esportazione e per la grande distribuzione premium.
-                    </p>
-
-                    <ul class="feat-list">
-                        <li>
-                            <div class="feat-icon"><i class="fas fa-apple-alt"></i></div>
-                            <div class="feat-text">
-                                <strong>Polpa</strong>
-                                <span>Rossa vibrante, mantiene colore e compattezza</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon"><i class="fas fa-tint"></i></div>
-                            <div class="feat-text">
-                                <strong>Buccia & Succo</strong>
-                                <span>Sottile, alta percentuale di succo e facilità di spremitura</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon"><i class="fas fa-ship"></i></div>
-                            <div class="feat-text">
-                                <strong>Longevità</strong>
-                                <span>Altissima resistenza al trasporto marittimo refrigerato</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon"><i class="fas fa-calendar-alt"></i></div>
-                            <div class="feat-text">
-                                <strong>Stagionalità</strong>
-                                <span>Dicembre – Maggio, disponibilità estesa</span>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <div class="cta-group">
-                        <a href="#" onclick="openWhatsAppProduct();return false;" class="btn-primary">
-                            <i class="fab fa-whatsapp"></i> Richiedi campione / preventivo
-                        </a>
-                        <a href="#calibri" class="btn-outline">
-                            <i class="fas fa-table"></i> Tabella calibri
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- ═══════════════════════════════════
-     CALIBRI + PACKAGING (CARTONE 15 KG)
-════════════════════════════════════ -->
-    <section class="section-calibri" id="calibri">
-        <div class="container">
-
-            <div class="calibri-header">
-                <h2>Tabella <em>Calibri</em></h2>
-                <p>Cartone da 15 kg netti — Egypt Export Standard · Compatibile con i calibri UE</p>
-            </div>
-
-            <div class="glass-card">
-                <div class="card-header">
-                    <div class="dot"></div>
-                    <span>Calibri & Specifiche Tecniche – Pompelmo Star Ruby</span>
-                </div>
-                <div style="padding: 0 8px;">
-                    <table class="calibri-table">
-                        <thead>
-                            <tr>
-                                <th>Conteggio (Count)</th>
-                                <th>Calibro UE</th>
-                                <th>Misura (mm)</th>
-                                <th>Peso medio frutto</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>28</td
-                                <td>1</td
-                                <td>109 – 139</td
-                                <td>~ 535 g</td
-                            </tr>
-                            <tr>
-                                <td>32</td
-                                <td>2</td
-                                <td>100 – 119</td
-                                <td>~ 468 g</td
-                            </tr>
-                            <tr>
-                                <td>36</td
-                                <td>3</td
-                                <td>93 – 110</td
-                                <td>~ 416 g</td
-                            </tr>
-                            <tr>
-                                <td>40</td
-                                <td>4</td
-                                <td>88 – 102</td
-                                <td>~ 375 g</td
-                            </tr>
-                            <tr>
-                                <td>45</td
-                                <td>4-5</td
-                                <td>84 – 97</td
-                                <td>~ 333 g</td
-                            </tr>
-                            <tr>
-                                <td>48</td
-                                <td>5</td
-                                <td>81 – 93</td
-                                <td>~ 312 g</td
-                            </tr>
-                            <tr>
-                                <td>56</td
-                                <td>6</td
-                                <td>77 – 89</td
-                                <td>~ 267 g</td
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Packaging per pompelmo -->
-            <div style="margin-top:48px;">
-                <div class="section-label" style="margin-bottom:28px;">Soluzioni di Confezionamento</div>
-                <div class="pack-grid">
-                    <div class="pack-item">
-                        <div class="pi-icon"><i class="fas fa-box"></i></div>
-                        <h4>Cartone Telescopico</h4>
-                        <p>Formato da 15 kg. È la scelta standard assoluta per il pompelmo, poiché offre la protezione strutturale necessaria per frutti così pesanti.</p>
-                    </div>
-                    <div class="pack-item">
-                        <div class="pi-icon"><i class="fas fa-box-open"></i></div>
-                        <h4>Cartone Open Top</h4>
-                        <p>Formato da 15 kg. Molto utilizzato per i mercati europei che richiedono un'ispezione visiva immediata della qualità della pelle.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Certs -->
-            <div class="certs-row">
-                <div class="cert-badge"><i class="fas fa-file-certificate"></i> Certificazioni Fitosanitarie</div>
-                <div class="cert-badge"><i class="fas fa-microscope"></i> Analisi di Laboratorio</div>
-                <div class="cert-badge"><i class="fas fa-shield-halved"></i> Conformità UE</div>
-                <div class="cert-badge"><i class="fas fa-video"></i> Report video pre-spedizione</div>
-                <div class="cert-badge"><i class="fas fa-magnifying-glass"></i> SGS / Bureau Veritas</div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════
-     FOOTER
-════════════════════════════════════ -->
-    <footer class="footer" id="contact-footer">
-        <div class="container">
-            <div class="footer-grid">
-
-                <!-- Brand -->
-                <div class="footer-col">
-                    <span class="footer-brand">CHOAMX</span>
-                    <p>Partner internazionale specializzato nell'esportazione di prodotti egiziani, con gestione e
-                        controllo diretto italiano. Uniamo le migliori filiere locali ai mercati globali garantendo
-                        tracciabilità, standard UE e supervisione costante sul campo.</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" onclick="openWhatsApp();return false;"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-
-                <!-- Links -->
-                <div class="footer-col">
-                    <h3>Link Rapidi</h3>
-                    <ul>
-                        <li><a href="prodotti.html"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> Prodotti</a></li>
-                        <li><a href="Chi_siamo.html"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> Chi siamo</a></li>
-                        <li><a href="Consulenza.html"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> Consulenza</a></li>
-                        <li><a href="#contact-footer"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> Contattaci</a></li>
-                        <li><a href="#faq"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> FAQ</a></li>
-                    </ul>
-                    <br>
-                    <h3>Le Nostre Divisioni</h3>
-                    <ul>
-                        <li><span>• Fresh Division</span></li>
-                        <li><span>• Frozen Division</span></li>
-                        <li><span>• Bio Energy Division</span></li>
-                    </ul>
-                </div>
-
-                <!-- Standards -->
-                <div class="footer-col">
-                    <h3>Standard Operativi</h3>
-                    <ul>
-                        <li><span>• Supervisione italiana diretta lungo tutta la filiera</span></li>
-                        <li><span>• Controllo qualità sul campo con verifica reale del carico</span></li>
-                        <li><span>• Report video e fotografici prima della spedizione</span></li>
-                        <li><span>• Filiera selezionata e monitorata</span></li>
-                        <li><span>• Documentazione export conforme agli standard UE</span></li>
-                        <li><span>• Tracciabilità totale in ogni fase</span></li>
-                        <li><span>• Ispezioni indipendenti SGS / Bureau Veritas</span></li>
-                        <li><span>• Monitoraggio continuo fino a destinazione</span></li>
-                    </ul>
-                </div>
-
-                <!-- Contact -->
-                <div class="footer-col">
-                    <h3>Contatti</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>CEO Export: +39 391 304 9947</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>Area Manager: +39 339 208 4078</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>info@choamx.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-location-dot"></i>
-                        <span>Sede: Il Cairo, Egitto</span>
-                    </div>
-                    <br>
-                    <h3>Legale</h3>
-                    <ul>
-                        <li><span>Informativa sulla privacy</span></li>
-                        <li><span>Termini e condizioni</span></li>
-                        <li><span>Politica qualità e reclami</span></li>
-                        <li><span>Tax ID: 123-456-789 | CR: 98765</span></li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="footer-bottom">
-                <p>© 2026 <span>CHOAMX</span> — Eccellenza Egiziana. Tutti i diritti riservati.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- WhatsApp FAB -->
-    <a class="fab-wa" href="#" onclick="openWhatsApp();return false;" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <script>
-        /* ─── WhatsApp ─── */
-        function openWhatsApp() {
-            window.open('https://wa.me/393913049947', '_blank');
-        }
-        function openWhatsAppProduct() {
-            const msg = encodeURIComponent(
-                'Buongiorno, sono interessato a ricevere informazioni/preventivo per il Pompelmo Star Ruby. Potete fornirmi dettagli su disponibilità, calibri e confezionamento?'
-            );
-            window.open('https://wa.me/393913049947?text=' + msg, '_blank');
-        }
-
-        /* ─── Navbar scroll ─── */
-        const hdr = document.getElementById('hdr');
-        window.addEventListener('scroll', () => {
-            hdr.classList.toggle('scrolled', window.scrollY > 50);
-        }, { passive: true });
-
-        /* ─── Mobile menu ─── */
-        const burger = document.getElementById('burger');
-        const drawer = document.getElementById('drawer');
-        let drawerOpen = false;
-
-        burger.addEventListener('click', () => {
-            drawerOpen = !drawerOpen;
-            burger.classList.toggle('open', drawerOpen);
-            drawer.classList.toggle('open', drawerOpen);
-            document.body.style.overflow = drawerOpen ? 'hidden' : '';
-        });
-
-        // Close on link click
-        drawer.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                drawerOpen = false;
-                burger.classList.remove('open');
-                drawer.classList.remove('open');
-                document.body.style.overflow = '';
-            });
-        });
-
-        /* ─── Hero parallax (subtle) ─── */
-        const heroBg = document.getElementById('heroBg');
-        window.addEventListener('scroll', () => {
-            const y = window.scrollY;
-            if (y < window.innerHeight) {
-                heroBg.style.transform = `scale(1) translateY(${y * 0.28}px)`;
-            }
-        }, { passive: true });
-
-        /* ─── Hero bg loaded ─── */
-        window.addEventListener('load', () => {
-            heroBg.classList.add('loaded');
-        });
-
-        /* ─── Scroll reveal ─── */
-        const revealEls = document.querySelectorAll(
-            '.detail-grid, .glass-card, .pack-item, .stat-card, .cert-badge, .section-label'
-        );
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.style.animation = 'fadeUp .7s both';
-                    io.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-        revealEls.forEach(el => { el.style.opacity = '0'; io.observe(el); });
-    </script>
+<script>
+    function openWhatsApp() { window.open('https://wa.me/393913049947', '_blank'); }
+    function openWhatsAppProduct() { const msg = encodeURIComponent('Buongiorno, sono interessato a ricevere informazioni/preventivo per l\'Uva Premium. Potete fornirmi dettagli su varietà, disponibilità e confezionamento?'); window.open('https://wa.me/393913049947?text=' + msg, '_blank'); }
+    const hdr = document.getElementById('hdr');
+    window.addEventListener('scroll', () => { hdr.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
+    const burger = document.getElementById('burger'); const drawer = document.getElementById('drawer'); let drawerOpen = false;
+    burger.addEventListener('click', () => { drawerOpen = !drawerOpen; burger.classList.toggle('open', drawerOpen); drawer.classList.toggle('open', drawerOpen); document.body.style.overflow = drawerOpen ? 'hidden' : ''; });
+    drawer.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => { drawerOpen = false; burger.classList.remove('open'); drawer.classList.remove('open'); document.body.style.overflow = ''; }); });
+    const heroBg = document.getElementById('heroBg'); window.addEventListener('scroll', () => { const y = window.scrollY; if (y < window.innerHeight) heroBg.style.transform = `scale(1) translateY(${y * 0.28}px)`; }, { passive: true });
+    window.addEventListener('load', () => { heroBg.classList.add('loaded'); });
+    const revealEls = document.querySelectorAll('.detail-grid, .glass-card, .pack-item, .stat-card, .cert-badge, .section-label');
+    const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.style.animation = 'fadeUp .7s both'; io.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => { el.style.opacity = '0'; io.observe(el); });
+</script>
 </body>
-
 </html>
