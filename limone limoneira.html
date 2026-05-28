@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Arance Baladi — CHOAMX | Eccellenza Egiziana</title>
+    <title>Limone Limoneira — CHOAMX | Eccellenza Egiziana</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap"
@@ -340,7 +340,7 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: url('https://images.pexels.com/photos/3926893/pexels-photo-3926893.jpeg?auto=compress&cs=tinysrgb&w=1600') center 38%/cover no-repeat;
+            background: url('https://images.pexels.com/photos/8135487/pexels-photo-8135487.jpeg') center 38%/cover no-repeat;
             transform: scale(1.06);
             transition: transform 12s linear;
             will-change: transform;
@@ -575,40 +575,11 @@
             align-items: center;
         }
 
-        .visual-ring {
-            position: absolute;
-            width: 340px;
-            height: 340px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(201, 150, 58, .12) 0%, transparent 70%);
-            filter: blur(30px);
-            pointer-events: none;
-        }
-
-        .visual-ring2 {
-            position: absolute;
-            width: 260px;
-            height: 260px;
-            border-radius: 50%;
-            border: 1px solid rgba(201, 150, 58, .14);
-            animation: spin 22s linear infinite;
-        }
-
-        .visual-ring3 {
-            position: absolute;
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            border: 1px dashed rgba(201, 150, 58, .08);
-            animation: spin 35s linear reverse infinite;
-        }
-
         .orange-img {
             position: relative;
             z-index: 2;
             width: min(340px, 85vw);
             height: auto;
-            filter: drop-shadow(0 20px 50px rgba(201, 150, 58, .22)) drop-shadow(0 8px 20px rgba(0, 0, 0, .5));
             transition: transform .5s cubic-bezier(.34, 1.56, .64, 1);
             will-change: transform;
         }
@@ -769,7 +740,7 @@
         }
 
         /* ─────────────────────────────────────────
-       CALIBRI TABLE SECTION (MODIFICATO PER NON AVERE SCROLL ORIZZONTALE)
+       CALIBRI TABLE SECTION
     ───────────────────────────────────────── */
         .section-calibri {
             background: linear-gradient(180deg, var(--ink3) 0%, var(--ink2) 100%);
@@ -801,7 +772,7 @@
             margin: 0 auto;
         }
 
-        /* Glass card - senza overflow scroll */
+        /* Glass card */
         .glass-card {
             background: rgba(255, 255, 255, .025);
             border: 1px solid rgba(201, 150, 58, .15);
@@ -835,7 +806,7 @@
             font-weight: 500;
         }
 
-        /* Tabella adattiva: niente overflow, larghezza 100%, testo wrap */
+        /* Tabella adattiva 5 colonne */
         .calibri-table {
             width: 100%;
             border-collapse: collapse;
@@ -847,9 +818,9 @@
         }
 
         .calibri-table th {
-            padding: 14px 8px;
-            font-size: 11px;
-            letter-spacing: 1.5px;
+            padding: 14px 6px;
+            font-size: 10px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             font-weight: 600;
             color: var(--gold);
@@ -860,8 +831,8 @@
         }
 
         .calibri-table td {
-            padding: 13px 8px;
-            font-size: 14px;
+            padding: 12px 6px;
+            font-size: 13px;
             color: rgba(253, 250, 245, .8);
             border-bottom: 1px solid rgba(255, 255, 255, .04);
             text-align: center;
@@ -880,7 +851,7 @@
 
         .calibri-table td:first-child {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: var(--gold-lt);
         }
@@ -1202,9 +1173,8 @@
         }
 
         /* ─────────────────────────────────────────
-       RESPONSIVE (TABELLA COMPLETAMENTE ADATTIVA)
+       RESPONSIVE
     ───────────────────────────────────────── */
-        /* Tablet */
         @media(max-width:1024px) {
 
             .nav-links,
@@ -1295,24 +1265,23 @@
                 grid-column: 1;
             }
 
-            /* TABELLA COMPLETAMENTE ADATTIVA PER TELEFONO - NESSUNO SCROLL ORIZZONTALE */
             .calibri-table {
-                font-size: 11px;
-            }
-
-            .calibri-table th {
-                padding: 8px 3px;
-                font-size: 9px;
-                letter-spacing: 0.5px;
-            }
-
-            .calibri-table td {
-                padding: 8px 3px;
                 font-size: 10px;
             }
 
+            .calibri-table th {
+                padding: 6px 2px;
+                font-size: 8px;
+                letter-spacing: 0.3px;
+            }
+
+            .calibri-table td {
+                padding: 6px 2px;
+                font-size: 9px;
+            }
+
             .calibri-table td:first-child {
-                font-size: 12px;
+                font-size: 10px;
             }
 
             .card-header {
@@ -1334,17 +1303,17 @@
 
         @media(max-width:480px) {
             .calibri-table th {
-                padding: 6px 2px;
-                font-size: 8px;
+                padding: 4px 1px;
+                font-size: 7px;
             }
 
             .calibri-table td {
-                padding: 6px 2px;
-                font-size: 9px;
+                padding: 4px 1px;
+                font-size: 8px;
             }
 
             .calibri-table td:first-child {
-                font-size: 11px;
+                font-size: 9px;
             }
         }
 
@@ -1378,7 +1347,7 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="prodotti.html">Prodotti</a></li>
-                <li><a href="Chi_siamo.html">Chi siamo</a></li>
+                <li><a href="Chi _siamo.html">Chi siamo</a></li>
                 <li><a href="Consulenza.html">Consulenza</a></li>
                 <li><a href="#contact-footer">Contattaci</a></li>
                 <li><a href="#faq">FAQ</a></li>
@@ -1424,14 +1393,13 @@
         <div class="hero-line"></div>
 
         <div class="hero-content">
-            <div class="hero-eyebrow">Eccellenza Egiziana</div>
+            <div class="hero-eyebrow">Eccellenza Agrumicola</div>
             <h1 class="hero-title">
-                Arance
-                <em>Baladi</em>
+                Limone
+                <em>Limoneira</em>
             </h1>
             <p class="hero-sub">
-                "Oro del Nilo" — L'autentica eccellenza agrumicola, coltivata con passione lungo le rive del Nilo.
-                Tradizione, purezza e piena conformità agli standard europei.
+                La perfetta combinazione tra resa produttiva ed estetica — frutti omogenei, buccia giallo chiaro liscia e sottile, con aroma fresco e vivace.
             </p>
             <div class="hero-ctas">
                 <a href="#product" class="btn-primary">
@@ -1460,18 +1428,15 @@
 
                 <!-- Visual -->
                 <div class="detail-visual">
-                    <div class="visual-ring"></div>
-                    <div class="visual-ring2"></div>
-                    <div class="visual-ring3"></div>
-                    <img class="orange-img" src="https://pngimg.com/uploads/orange/orange_PNG804.png"
-                        alt="Arancia Baladi — Oro del Nilo" loading="lazy">
+                    <img class="orange-img" src="https://images.pexels.com/photos/34543890/pexels-photo-34543890.jpeg"
+                        alt="Limone Limoneira — Premium Export" loading="lazy">
                     <div class="stat-row">
                         <div class="stat-card">
-                            <div class="stat-val">4</div>
+                            <div class="stat-val">5</div>
                             <div class="stat-lbl">Mesi di stagione</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-val">10</div>
+                            <div class="stat-val">6</div>
                             <div class="stat-lbl">Calibri disponibili</div>
                         </div>
                         <div class="stat-card">
@@ -1484,47 +1449,44 @@
                 <!-- Info -->
                 <div class="detail-info">
                     <h1 class="detail-title">
-                        Arance Baladi<br>
-                        <em>"Oro del Nilo"</em>
+                        Limone Limoneira<br>
+                        <em>"Uniformità & Resa"</em>
                     </h1>
                     <div class="badge-season">
                         <i class="fas fa-calendar-alt"></i>
-                        Stagione: Dicembre · Gennaio · Febbraio · Marzo
+                        Stagione: Novembre · Dicembre · Gennaio · Febbraio · Marzo
                     </div>
                     <p class="detail-desc">
-                        Le Arance Baladi rappresentano la tradizione agrumicola locale più autentica dell'Egitto.
-                        Conosciute per la loro straordinaria succosità e il profumo intenso, sono la scelta ideale per
-                        chi cerca un prodotto genuino e conforme ai più elevati standard internazionali. Perfette sia
-                        per il consumo fresco che per spremute d'eccellenza.
+                        Il limone Limoneira rappresenta la perfetta combinazione tra resa produttiva ed estetica. Varietà estremamente vigorosa che produce frutti molto omogenei, ideali per la Grande Distribuzione Organizzata (GDO) e i mercati internazionali.
                     </p>
 
                     <ul class="feat-list">
                         <li>
-                            <div class="feat-icon"><i class="fas fa-seedling"></i></div>
+                            <div class="feat-icon"><i class="fas fa-star"></i></div>
                             <div class="feat-text">
-                                <strong>Coltivazione</strong>
-                                <span>Rigorosamente senza pesticidi</span>
+                                <strong>Forma & Buccia</strong>
+                                <span>Simmetrica ed elegante, giallo chiaro molto liscia e sottile</span>
                             </div>
                         </li>
                         <li>
-                            <div class="feat-icon"><i class="fas fa-check-circle"></i></div>
+                            <div class="feat-icon"><i class="fas fa-equals"></i></div>
                             <div class="feat-text">
-                                <strong>Normative UE</strong>
-                                <span>Pienamente conforme</span>
+                                <strong>Uniformità</strong>
+                                <span>Eccezionale uniformità dei calibri, ideale per la GDO</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feat-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="feat-text">
+                                <strong>Export Quality</strong>
+                                <span>Selezione elettronica del colore e del calibro</span>
                             </div>
                         </li>
                         <li>
                             <div class="feat-icon"><i class="fas fa-flask"></i></div>
                             <div class="feat-text">
-                                <strong>Profilo Organolettico</strong>
-                                <span>Elevata resa in succo</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon"><i class="fas fa-shipping-fast"></i></div>
-                            <div class="feat-text">
-                                <strong>Export Internazionale</strong>
-                                <span>Documentazione completa</span>
+                                <strong>Qualità Organolettica</strong>
+                                <span>Aroma fresco e vivace con ottima percentuale di acido citrico</span>
                             </div>
                         </li>
                     </ul>
@@ -1545,7 +1507,7 @@
     <div class="divider"></div>
 
     <!-- ═══════════════════════════════════
-     CALIBRI + PACKAGING (TABELLA ADATTIVA)
+     CALIBRI + PACKAGING
 ════════════════════════════════════ -->
     <section class="section-calibri" id="calibri">
         <div class="container">
@@ -1555,83 +1517,29 @@
                 <p>Cartone da 15 kg netti — Egypt Export Standard · Compatibile con i calibri UE</p>
             </div>
 
-            <!-- Table (senza scroll, completamente visibile) -->
             <div class="glass-card">
                 <div class="card-header">
                     <div class="dot"></div>
-                    <span>Calibri & Specifiche Tecniche</span>
+                    <span>Calibri & Specifiche Tecniche – Limone Limoneira</span>
                 </div>
                 <div style="padding: 0 8px;">
                     <table class="calibri-table">
                         <thead>
                             <tr>
-                                <th>Count</th>
+                                <th>Calibro (Egitto)</th>
+                                <th>Conteggio (Count)</th>
                                 <th>Calibro UE</th>
                                 <th>Misura (mm)</th>
                                 <th>Peso medio frutto</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>36</td>
-                                <td>0</td>
-                                <td>96 – 101</td>
-                                <td>~416 g</td>
-                            </tr>
-                            <tr>
-                                <td>42</td>
-                                <td>1</td>
-                                <td>92 – 96</td>
-                                <td>~357 g</td>
-                            </tr>
-                            <tr>
-                                <td>48</td>
-                                <td>2</td>
-                                <td>85 – 92</td>
-                                <td>~312 g</td>
-                            </tr>
-                            <tr>
-                                <td>56</td>
-                                <td>3</td>
-                                <td>81 – 85</td>
-                                <td>~267 g</td>
-                            </tr>
-                            <tr>
-                                <td>64</td>
-                                <td>4</td>
-                                <td>78 – 81</td>
-                                <td>~234 g</td>
-                            </tr>
-                            <tr>
-                                <td>72</td>
-                                <td>5</td>
-                                <td>74 – 78</td>
-                                <td>~208 g</td>
-                            </tr>
-                            <tr>
-                                <td>80</td>
-                                <td>6</td>
-                                <td>71 – 74</td>
-                                <td>~187 g</td>
-                            </tr>
-                            <tr>
-                                <td>88</td>
-                                <td>7</td>
-                                <td>67 – 71</td>
-                                <td>~170 g</td>
-                            </tr>
-                            <tr>
-                                <td>100</td>
-                                <td>8</td>
-                                <td>65 – 67</td>
-                                <td>~150 g</td>
-                            </tr>
-                            <tr>
-                                <td>113</td>
-                                <td>9</td>
-                                <td>62 – 65</td>
-                                <td>~132 g</td>
-                            </tr>
+                            <tr><td>0</td><td>75</td><td>2</td><td>63 – 75</td><td>~ 100 g</td></tr>
+                            <tr><td>1</td><td>88 / 100</td><td>3</td><td>53 – 67</td><td>~ 80 g</td></tr>
+                            <tr><td>2</td><td>110</td><td>4</td><td>48 – 62</td><td>~ 68 g</td></tr>
+                            <tr><td>3</td><td>125</td><td>5</td><td>45 – 60</td><td>~ 60 g</td></tr>
+                            <tr><td>4</td><td>144</td><td>5</td><td>42 – 58</td><td>~ 52 g</td></tr>
+                            <tr><td>5</td><td>180</td><td>6</td><td>40 – 55</td><td>~ 41 g</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -1643,15 +1551,13 @@
                 <div class="pack-grid">
                     <div class="pack-item">
                         <div class="pi-icon"><i class="fas fa-box-open"></i></div>
-                        <h4>Cartoni Premium</h4>
-                        <p>Formati da 8 kg e 15 kg. Progettati per la massima protezione durante i trasporti marittimi e
-                            terrestri internazionali. Resistenti all'umidità e impilabili.</p>
+                        <h4>Cartone Open Top / Telescopico</h4>
+                        <p>Formati da 8 kg / 10 kg / 15 kg. Il formato standard per valorizzare l'estetica del frutto e garantirne la freschezza.</p>
                     </div>
                     <div class="pack-item">
                         <div class="pi-icon"><i class="fas fa-layer-group"></i></div>
-                        <h4>Cesti in Plastica</h4>
-                        <p>Soluzione robusta e funzionale per la movimentazione rapida e la distribuzione all'ingrosso.
-                            Riutilizzabili e conformi agli standard europei di igiene.</p>
+                        <h4>Cestini in Plastica</h4>
+                        <p>Formati da 10 kg e 15 kg. Per una distribuzione agile nei mercati all'ingrosso. Robusti e riutilizzabili.</p>
                     </div>
                 </div>
             </div>
@@ -1695,7 +1601,7 @@
                     <ul>
                         <li><a href="prodotti.html"><i class="fas fa-chevron-right"
                                     style="font-size:10px;color:var(--gold);"></i> Prodotti</a></li>
-                        <li><a href="Chi_siamo.html"><i class="fas fa-chevron-right"
+                        <li><a href="Chi _siamo.html"><i class="fas fa-chevron-right"
                                     style="font-size:10px;color:var(--gold);"></i> Chi siamo</a></li>
                         <li><a href="Consulenza.html"><i class="fas fa-chevron-right"
                                     style="font-size:10px;color:var(--gold);"></i> Consulenza</a></li>
@@ -1777,7 +1683,7 @@
         }
         function openWhatsAppProduct() {
             const msg = encodeURIComponent(
-                'Buongiorno, sono interessato a ricevere informazioni/preventivo per le Arance Baladi "Oro del Nilo". Potete fornirmi dettagli su disponibilità, calibri e confezionamento?'
+                'Buongiorno, sono interessato a ricevere informazioni/preventivo per il Limone Limoneira. Potete fornirmi dettagli su disponibilità, calibri e confezionamento?'
             );
             window.open('https://wa.me/393913049947?text=' + msg, '_blank');
         }
