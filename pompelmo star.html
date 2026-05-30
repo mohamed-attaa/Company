@@ -11,7 +11,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* ─── DESIGN TOKENS (stesso tema) ─── */
+        /* ─── DESIGN TOKENS ─── */
         :root {
             --gold: #c9963a;
             --gold-lt: #e8b85a;
@@ -63,7 +63,7 @@
         }
 
         /* ─────────────────────────────────────────
-       NAV (IDENTICA)
+       NAV
     ───────────────────────────────────────── */
         header {
             position: fixed;
@@ -334,7 +334,7 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: url('https://images.pexels.com/photos/5645142/pexels-photo-5645142.jpeg?auto=compress&cs=tinysrgb&w=1600') center 38%/cover no-repeat;
+            background: url('https://images.pexels.com/photos/209549/pexels-photo-209549.jpeg?auto=compress&cs=tinysrgb&w=1600') center 38%/cover no-repeat;
             transform: scale(1.06);
             transition: transform 12s linear;
             will-change: transform;
@@ -558,7 +558,6 @@
             align-items: center;
         }
 
-        /* Image column - senza anelli e ombre */
         .detail-visual {
             position: relative;
             display: flex;
@@ -566,11 +565,40 @@
             align-items: center;
         }
 
+        .visual-ring {
+            position: absolute;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(201, 150, 58, .12) 0%, transparent 70%);
+            filter: blur(30px);
+            pointer-events: none;
+        }
+
+        .visual-ring2 {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 150, 58, .14);
+            animation: spin 22s linear infinite;
+        }
+
+        .visual-ring3 {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            border: 1px dashed rgba(201, 150, 58, .08);
+            animation: spin 35s linear reverse infinite;
+        }
+
         .orange-img {
             position: relative;
             z-index: 2;
             width: min(340px, 85vw);
             height: auto;
+            filter: drop-shadow(0 20px 50px rgba(201, 150, 58, .22)) drop-shadow(0 8px 20px rgba(0, 0, 0, .5));
             transition: transform .5s cubic-bezier(.34, 1.56, .64, 1);
             will-change: transform;
         }
@@ -726,7 +754,7 @@
         }
 
         /* ─────────────────────────────────────────
-       CALIBRI TABLE SECTION (CARTONE 15 KG)
+       CALIBRI TABLE SECTION
     ───────────────────────────────────────── */
         .section-calibri {
             background: linear-gradient(180deg, var(--ink3) 0%, var(--ink2) 100%);
@@ -804,7 +832,7 @@
         .calibri-table th {
             padding: 14px 8px;
             font-size: 11px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             font-weight: 600;
             color: var(--gold);
@@ -815,8 +843,8 @@
         }
 
         .calibri-table td {
-            padding: 12px 8px;
-            font-size: 13px;
+            padding: 13px 8px;
+            font-size: 14px;
             color: rgba(253, 250, 245, .8);
             border-bottom: 1px solid rgba(255, 255, 255, .04);
             text-align: center;
@@ -835,7 +863,7 @@
 
         .calibri-table td:first-child {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--gold-lt);
         }
@@ -921,7 +949,7 @@
         }
 
         /* ─────────────────────────────────────────
-       FOOTER (IDENTICO)
+       FOOTER
     ───────────────────────────────────────── */
         .footer {
             background: linear-gradient(180deg, #0a0908 0%, #060504 100%);
@@ -1106,7 +1134,6 @@
                 opacity: 0;
                 transform: translateY(28px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1114,201 +1141,69 @@
         }
 
         @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(5px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
         }
 
         @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: .8;
-            }
-
-            100% {
-                transform: scale(1.7);
-                opacity: 0;
-            }
+            0% { transform: scale(1); opacity: .8; }
+            100% { transform: scale(1.7); opacity: 0; }
         }
 
-        /* ─────────────────────────────────────────
-       RESPONSIVE
-    ───────────────────────────────────────── */
+        /* RESPONSIVE */
         @media(max-width:1024px) {
-
-            .nav-links,
-            .nav-actions {
-                display: none;
-            }
-
-            .burger {
-                display: flex;
-            }
-
-            .mobile-drawer {
-                display: block;
-            }
-
-            .detail-grid {
-                grid-template-columns: 1fr;
-                gap: 48px;
-            }
-
-            .detail-visual {
-                order: -1;
-            }
-
-            .feat-list {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-col:nth-child(1) {
-                grid-column: 1/-1;
-            }
+            .nav-links, .nav-actions { display: none; }
+            .burger { display: flex; }
+            .mobile-drawer { display: block; }
+            .detail-grid { grid-template-columns: 1fr; gap: 48px; }
+            .detail-visual { order: -1; }
+            .feat-list { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-col:nth-child(1) { grid-column: 1/-1; }
         }
 
         @media(max-width:640px) {
-            :root {
-                --nav-h: 64px;
-            }
-
-            .hero-title {
-                letter-spacing: -0.5px;
-            }
-
-            .hero-ctas {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn-primary,
-            .btn-outline {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
-            .detail-grid {
-                gap: 36px;
-            }
-
-            .feat-list {
-                grid-template-columns: 1fr;
-            }
-
-            .stat-row {
-                gap: 12px;
-            }
-
-            .stat-card {
-                padding: 14px 10px;
-            }
-
-            .stat-val {
-                font-size: 22px;
-            }
-
-            .pack-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-col:nth-child(1) {
-                grid-column: 1;
-            }
-
-            .calibri-table {
-                font-size: 10px;
-            }
-
-            .calibri-table th {
-                padding: 6px 3px;
-                font-size: 8px;
-                letter-spacing: 0.3px;
-            }
-
-            .calibri-table td {
-                padding: 6px 3px;
-                font-size: 9px;
-            }
-
-            .calibri-table td:first-child {
-                font-size: 10px;
-            }
-
-            .card-header {
-                padding: 14px 16px;
-            }
-
-            .card-header span {
-                font-size: 10px;
-            }
-
-            .fab-wa {
-                bottom: 20px;
-                right: 20px;
-                width: 48px;
-                height: 48px;
-                font-size: 20px;
-            }
+            :root { --nav-h: 64px; }
+            .hero-title { letter-spacing: -0.5px; }
+            .hero-ctas { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-outline { width: 100%; max-width: 300px; justify-content: center; }
+            .detail-grid { gap: 36px; }
+            .feat-list { grid-template-columns: 1fr; }
+            .stat-row { gap: 12px; }
+            .stat-card { padding: 14px 10px; }
+            .stat-val { font-size: 22px; }
+            .pack-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-col:nth-child(1) { grid-column: 1; }
+            .calibri-table { font-size: 11px; }
+            .calibri-table th { padding: 8px 3px; font-size: 9px; letter-spacing: 0.5px; }
+            .calibri-table td { padding: 8px 3px; font-size: 10px; }
+            .calibri-table td:first-child { font-size: 12px; }
+            .card-header { padding: 14px 16px; }
+            .card-header span { font-size: 10px; }
+            .fab-wa { bottom: 20px; right: 20px; width: 48px; height: 48px; font-size: 20px; }
         }
 
         @media(max-width:480px) {
-            .calibri-table th {
-                padding: 4px 2px;
-                font-size: 7px;
-            }
-
-            .calibri-table td {
-                padding: 4px 2px;
-                font-size: 8px;
-            }
-
-            .calibri-table td:first-child {
-                font-size: 9px;
-            }
+            .calibri-table th { padding: 6px 2px; font-size: 8px; }
+            .calibri-table td { padding: 6px 2px; font-size: 9px; }
+            .calibri-table td:first-child { font-size: 11px; }
         }
 
         @media(max-width:380px) {
-            .hero-content {
-                padding-top: calc(var(--nav-h) + 12px);
-            }
-
-            .section-detail {
-                padding: 70px 0 60px;
-            }
+            .hero-content { padding-top: calc(var(--nav-h) + 12px); }
+            .section-detail { padding: 70px 0 60px; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- ═══════════════════════════════════
-     NAVBAR
-════════════════════════════════════ -->
     <header id="hdr">
         <div class="nav">
             <a class="logo" href="index.html">
@@ -1340,7 +1235,6 @@
         </div>
     </header>
 
-    <!-- Mobile drawer -->
     <nav class="mobile-drawer" id="drawer">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -1358,9 +1252,7 @@
         </div>
     </nav>
 
-    <!-- ═══════════════════════════════════
-     HERO
-════════════════════════════════════ -->
+    <!-- HERO -->
     <section class="hero" id="top">
         <div class="hero-bg" id="heroBg"></div>
         <div class="hero-overlay"></div>
@@ -1392,18 +1284,19 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════
-     PRODUCT DETAIL
-════════════════════════════════════ -->
+    <!-- PRODUCT DETAIL -->
     <section class="section-detail" id="product">
         <div class="container">
             <div class="section-label">Scheda Prodotto</div>
 
             <div class="detail-grid">
 
-                <!-- Visual (solo immagine, senza anelli né ombre) -->
+                <!-- Visual -->
                 <div class="detail-visual">
-                    <img class="orange-img" src="https://images.pexels.com/photos/209549/pexels-photo-209549.jpeg"
+                    <div class="visual-ring"></div>
+                    <div class="visual-ring2"></div>
+                    <div class="visual-ring3"></div>
+                    <img class="orange-img" src="https://images.pexels.com/photos/29692635/pexels-photo-29692635.jpeg"
                         alt="Pompelmo Star Ruby — Rubino d'Egitto" loading="lazy">
                     <div class="stat-row">
                         <div class="stat-card">
@@ -1481,9 +1374,7 @@
 
     <div class="divider"></div>
 
-    <!-- ═══════════════════════════════════
-     CALIBRI + PACKAGING (CARTONE 15 KG)
-════════════════════════════════════ -->
+    <!-- CALIBRI + PACKAGING -->
     <section class="section-calibri" id="calibri">
         <div class="container">
 
@@ -1508,54 +1399,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>28</td
-                                <td>1</td
-                                <td>109 – 139</td
-                                <td>~ 535 g</td
-                            </tr>
-                            <tr>
-                                <td>32</td
-                                <td>2</td
-                                <td>100 – 119</td
-                                <td>~ 468 g</td
-                            </tr>
-                            <tr>
-                                <td>36</td
-                                <td>3</td
-                                <td>93 – 110</td
-                                <td>~ 416 g</td
-                            </tr>
-                            <tr>
-                                <td>40</td
-                                <td>4</td
-                                <td>88 – 102</td
-                                <td>~ 375 g</td
-                            </tr>
-                            <tr>
-                                <td>45</td
-                                <td>4-5</td
-                                <td>84 – 97</td
-                                <td>~ 333 g</td
-                            </tr>
-                            <tr>
-                                <td>48</td
-                                <td>5</td
-                                <td>81 – 93</td
-                                <td>~ 312 g</td
-                            </tr>
-                            <tr>
-                                <td>56</td
-                                <td>6</td
-                                <td>77 – 89</td
-                                <td>~ 267 g</td
-                            </tr>
+                            <tr><td>28</td><td>1</td><td>109 – 139</td><td>~ 535 g</td></tr>
+                            <tr><td>32</td><td>2</td><td>100 – 119</td><td>~ 468 g</td></tr>
+                            <tr><td>36</td><td>3</td><td>93 – 110</td><td>~ 416 g</td></tr>
+                            <tr><td>40</td><td>4</td><td>88 – 102</td><td>~ 375 g</td></tr>
+                            <tr><td>45</td><td>4-5</td><td>84 – 97</td><td>~ 333 g</td></tr>
+                            <tr><td>48</td><td>5</td><td>81 – 93</td><td>~ 312 g</td></tr>
+                            <tr><td>56</td><td>6</td><td>77 – 89</td><td>~ 267 g</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <!-- Packaging per pompelmo -->
+            <!-- Packaging -->
             <div style="margin-top:48px;">
                 <div class="section-label" style="margin-bottom:28px;">Soluzioni di Confezionamento</div>
                 <div class="pack-grid">
@@ -1584,19 +1440,14 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════
-     FOOTER
-════════════════════════════════════ -->
+    <!-- FOOTER -->
     <footer class="footer" id="contact-footer">
         <div class="container">
             <div class="footer-grid">
 
-                <!-- Brand -->
                 <div class="footer-col">
                     <span class="footer-brand">CHOAMX</span>
-                    <p>Partner internazionale specializzato nell'esportazione di prodotti egiziani, con gestione e
-                        controllo diretto italiano. Uniamo le migliori filiere locali ai mercati globali garantendo
-                        tracciabilità, standard UE e supervisione costante sul campo.</p>
+                    <p>Partner internazionale specializzato nell'esportazione di prodotti egiziani, con gestione e controllo diretto italiano. Uniamo le migliori filiere locali ai mercati globali garantendo tracciabilità, standard UE e supervisione costante sul campo.</p>
                     <div class="footer-social">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1605,20 +1456,14 @@
                     </div>
                 </div>
 
-                <!-- Links -->
                 <div class="footer-col">
                     <h3>Link Rapidi</h3>
                     <ul>
-                        <li><a href="prodotti.html"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> Prodotti</a></li>
-                        <li><a href="Chi_siamo.html"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> Chi siamo</a></li>
-                        <li><a href="Consulenza.html"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> Consulenza</a></li>
-                        <li><a href="#contact-footer"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> Contattaci</a></li>
-                        <li><a href="#faq"><i class="fas fa-chevron-right"
-                                    style="font-size:10px;color:var(--gold);"></i> FAQ</a></li>
+                        <li><a href="prodotti.html"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> Prodotti</a></li>
+                        <li><a href="Chi_siamo.html"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> Chi siamo</a></li>
+                        <li><a href="Consulenza.html"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> Consulenza</a></li>
+                        <li><a href="#contact-footer"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> Contattaci</a></li>
+                        <li><a href="#faq"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> FAQ</a></li>
                     </ul>
                     <br>
                     <h3>Le Nostre Divisioni</h3>
@@ -1629,7 +1474,6 @@
                     </ul>
                 </div>
 
-                <!-- Standards -->
                 <div class="footer-col">
                     <h3>Standard Operativi</h3>
                     <ul>
@@ -1644,7 +1488,6 @@
                     </ul>
                 </div>
 
-                <!-- Contact -->
                 <div class="footer-col">
                     <h3>Contatti</h3>
                     <div class="contact-item">
@@ -1681,13 +1524,11 @@
         </div>
     </footer>
 
-    <!-- WhatsApp FAB -->
     <a class="fab-wa" href="#" onclick="openWhatsApp();return false;" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        /* ─── WhatsApp ─── */
         function openWhatsApp() {
             window.open('https://wa.me/393913049947', '_blank');
         }
@@ -1698,13 +1539,11 @@
             window.open('https://wa.me/393913049947?text=' + msg, '_blank');
         }
 
-        /* ─── Navbar scroll ─── */
         const hdr = document.getElementById('hdr');
         window.addEventListener('scroll', () => {
             hdr.classList.toggle('scrolled', window.scrollY > 50);
         }, { passive: true });
 
-        /* ─── Mobile menu ─── */
         const burger = document.getElementById('burger');
         const drawer = document.getElementById('drawer');
         let drawerOpen = false;
@@ -1716,7 +1555,6 @@
             document.body.style.overflow = drawerOpen ? 'hidden' : '';
         });
 
-        // Close on link click
         drawer.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => {
                 drawerOpen = false;
@@ -1726,7 +1564,6 @@
             });
         });
 
-        /* ─── Hero parallax (subtle) ─── */
         const heroBg = document.getElementById('heroBg');
         window.addEventListener('scroll', () => {
             const y = window.scrollY;
@@ -1735,12 +1572,10 @@
             }
         }, { passive: true });
 
-        /* ─── Hero bg loaded ─── */
         window.addEventListener('load', () => {
             heroBg.classList.add('loaded');
         });
 
-        /* ─── Scroll reveal ─── */
         const revealEls = document.querySelectorAll(
             '.detail-grid, .glass-card, .pack-item, .stat-card, .cert-badge, .section-label'
         );
