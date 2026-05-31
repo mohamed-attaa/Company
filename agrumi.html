@@ -182,7 +182,7 @@
     <a class="logo" href="#"><div class="logo-icon">🌿</div><h2>CHOAMX<span>Egyptian Excellence</span></h2></a>
     <button class="menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
     <nav class="nav-links" id="navLinks">
-      <ul><li><a href="index.html">Home</a></li><li><a href="prodotti.html">Prodotti</a></li><li><a href="Chi _siamo.html">Chi siamo</a></li><li><a href="Consulenza.html">Consulenza</a></li><li><a href="#contact-footer">Contattaci</a></li><li><a href="#faq">FAQ</a></li></ul>
+      <ul><li><a href="index.html">Home</a></li><li><a href="prodotti.html">Prodotti</a></li><li><a href="Chi_siamo.html">Chi siamo</a></li><li><a href="Consulenza.html">Consulenza</a></li><li><a href="#contact-footer">Contattaci</a></li><li><a href="#faq">FAQ</a></li></ul>
     </nav>
     <div class="nav-social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div>
   </div>
@@ -267,18 +267,18 @@
 <div class="whatsapp" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i></div>
 
 <script>
-  // DATI PRODOTTI (mantenuti invariati)
+  // DATI PRODOTTI - AGRUMI (con le due card dei limoni aggiornate)
   const productsData = [
-    { name: "Arance Baladi \"Oro del Nilo\"", desc: "Varietà locale egiziana, straordinaria succosità e profumo intenso. Perfetta per consumo fresco e spremute.", season: "Dicembre – Marzo", img: "https://images.pexels.com/photos/3926893/pexels-photo-3926893.jpeg",link: "arance aaladi.html"} ,
+    { name: "Arance Baladi \"Oro del Nilo\"", desc: "Varietà locale egiziana, straordinaria succosità e profumo intenso. Perfetta per consumo fresco e spremute.", season: "Dicembre – Marzo", img: "https://images.pexels.com/photos/3926893/pexels-photo-3926893.jpeg", link: "arance aaladi.html" },
     { name: "Arance Navel", desc: "Apice della produzione agrumicola. Dolce, senza semi, buccia profumata. Grado Brix 12-14%.", season: "Dicembre – Marzo", img: "https://images.pexels.com/photos/32209599/pexels-photo-32209599.jpeg", link: "arance navel.html" },
     { name: "Arance Valencia", desc: "Regina del succo, eccellente tenuta post-raccolta. Molto versatile, resistente al trasporto.", season: "Gennaio – Giugno", img: "https://images.pexels.com/photos/14693032/pexels-photo-14693032.jpeg", link: "arance valencia.html" },
-{ name: "Limone Adalia", desc: "Limone robusto, alta resa in succo (>33%). Pilastro della stagione invernale egiziana.", season: "Dicembre – Maggio", img: "https://images.pexels.com/photos/35926707/pexels-photo-35926707.jpeg", link: "limone adalia.html" },
-    { name: "Limone Eureka", desc: "Varietà seedless, buccia sottile, succo purissimo. Per retail e ristorazione premium.", season: "Settembre – Dicembre", img: "https://images.pexels.com/photos/33647547/pexels-photo-33647547.jpeg",link: "limone eureka.html" },
-    { name: "Limone Limoneira", desc: "Frutto simmetrico, buccia liscissima, eccezionale uniformità di calibro. Ideale per GDO.", season: "Novembre – Marzo", img: "https://media.istockphoto.com/id/1280535264/photo/siracusa-lemon-cultivar-femminello-igp.jpg?b=1&s=612x612&w=0&k=20&c=_xy9yUMrglv9w-8Dn7_432D2xOonp_0SzARKlm_ERRM=" ,link: "limone limoneira.html"},
-    { name: "Mandarino Fremont", desc: "Precoce, colore rosso-arancio, aromatico. Molto resistente al trasporto.", season: "Novembre – Gennaio", img: "https://images.pexels.com/photos/35206213/pexels-photo-35206213.jpeg" ,link: "mandarino fremont.html"},
-    { name: "Mandarino Murcott (Honey)", desc: "Dolcezza superiore, alto Brix, shelf-life eccezionale. Varietà tardiva.", season: "Gennaio – Giugno", img: "https://images.pexels.com/photos/34843261/pexels-photo-34843261.jpeg" ,link: "mandarino murcott.html"},
-    { name: "Pompelmo Star Ruby", desc: "Polpa rosso rubino, sapore equilibrato, altissima resistenza al trasporto marittimo.", season: "Dicembre – Maggio", img: "https://images.pexels.com/photos/5645142/pexels-photo-5645142.jpeg" ,link: "pompelmo star.html"},
-
+    // Limone Verna (Shairi) – varietà tardiva strategica
+    { name: "Limone Verna (Shairi)", desc: "Varietà tardiva per eccellenza. Buccia spessa e resistente, ottima tenuta post-raccolta. Copre strategicamente il gap estivo.", season: "Febbraio – Luglio", img: "https://images.pexels.com/photos/35926707/pexels-photo-35926707.jpeg", link: "limone adalia.html" },
+    // Limone Eureka / Adalia – pilastro dell'esportazione
+    { name: "Limone Eureka / Adalia", desc: "Pilastro dell'export egiziano. Estetica impeccabile, quasi seedless, eccellente resa in succo. Continuità per quasi tutto l'anno.", season: "Settembre – Maggio", img: "https://images.pexels.com/photos/33647547/pexels-photo-33647547.jpeg", link: "limone eureka.html" },
+    { name: "Mandarino Fremont", desc: "Precoce, colore rosso-arancio, aromatico. Molto resistente al trasporto.", season: "Novembre – Gennaio", img: "https://images.pexels.com/photos/35206213/pexels-photo-35206213.jpeg", link: "mandarino fremont.html" },
+    { name: "Mandarino Murcott (Honey)", desc: "Dolcezza superiore, alto Brix, shelf-life eccezionale. Varietà tardiva.", season: "Gennaio – Giugno", img: "https://images.pexels.com/photos/34843261/pexels-photo-34843261.jpeg", link: "mandarino murcott.html" },
+    { name: "Pompelmo Star Ruby", desc: "Polpa rosso rubino, sapore equilibrato, altissima resistenza al trasporto marittimo.", season: "Dicembre – Maggio", img: "https://images.pexels.com/photos/5645142/pexels-photo-5645142.jpeg", link: "pompelmo star.html" }
   ];
 
   // Funzione per generare le card con il singolo bottone "Leggi di più"
@@ -291,7 +291,6 @@
       const card = document.createElement('div');
       card.className = 'product-card';
       
-      // Link modificato: ora punta a "arance aaladi.html" (esattamente come richiesto)
       card.innerHTML = `
         <div class="product-img"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
         <div class="product-info">
