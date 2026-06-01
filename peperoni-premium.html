@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Peperoni Premium — CHOAMX | Eccellenza Egiziana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ─── DESIGN TOKENS (stesso tema) ─── */
+        :root {
+            --gold: #c9963a;
+            --gold-lt: #e8b85a;
+            --gold-dk: #9a6f1e;
+            --gold-glow: rgba(201, 150, 58, .22);
+            --ink: #080706;
+            --ink2: #111009;
+            --ink3: #19160f;
+            --cream: #fdfaf5;
+            --cream-dim: rgba(253, 250, 245, .62);
+            --cream-faint: rgba(253, 250, 245, .12);
+            --nav-h: 72px;
+            --r-card: 20px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--ink);
+            color: var(--cream);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0c0b09;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-dk);
+            border-radius: 4px;
+        }
+
+        /* NAV (IDENTICA) */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-h);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            background: rgba(8, 7, 6, .0);
+            backdrop-filter: blur(0px);
+            border-bottom: 1px solid transparent;
+            transition: background .45s, backdrop-filter .45s, border-color .45s, box-shadow .45s;
+        }
+
+        header.scrolled {
+            background: rgba(8, 7, 6, .96);
+            backdrop-filter: blur(20px);
+            border-color: rgba(201, 150, 58, .18);
+            box-shadow: 0 2px 40px rgba(0, 0, 0, .6);
+        }
+
+        .nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dk));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 4px 18px var(--gold-glow);
+            transition: transform .3s;
+        }
+
+        .logo:hover .logo-mark {
+            transform: rotate(8deg) scale(1.06);
+        }
+
+        .logo-text {
+            line-height: 1.15;
+        }
+
+        .logo-text strong {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--cream);
+        }
+
+        .logo-text small {
+            display: block;
+            font-size: 9px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 38px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            color: var(--cream-dim);
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 4px;
+            transition: color .3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--gold);
+            transition: width .35s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-actions a {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 150, 58, .25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream-dim);
+            font-size: 13px;
+            transition: .3s;
+            text-decoration: none;
+        }
+
+        .nav-actions a:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--ink);
+            transform: translateY(-2px);
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 34px;
+            height: 34px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .burger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+            transition: transform .35s, opacity .25s;
+            transform-origin: center;
+        }
+
+        .burger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .burger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .mobile-drawer {
+            display: none;
+            position: fixed;
+            top: var(--nav-h);
+            left: 0;
+            width: 100%;
+            background: rgba(8, 7, 6, .98);
+            backdrop-filter: blur(20px);
+            padding: 28px 8%;
+            border-bottom: 1px solid rgba(201, 150, 58, .18);
+            transform: translateY(-8px);
+            opacity: 0;
+            transition: transform .38s, opacity .3s;
+            z-index: 998;
+        }
+
+        .mobile-drawer.open {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-drawer ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .mobile-drawer ul li a {
+            display: block;
+            padding: 14px 0;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            color: var(--cream-dim);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            transition: color .25s, padding-left .25s;
+        }
+
+        .mobile-drawer ul li:last-child a {
+            border-bottom: none;
+        }
+
+        .mobile-drawer ul li a:hover {
+            color: var(--gold);
+            padding-left: 8px;
+        }
+
+        .mobile-social {
+            margin-top: 24px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .mobile-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 150, 58, .25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 13px;
+            text-decoration: none;
+            transition: .25s;
+        }
+
+        .mobile-social a:hover {
+            background: var(--gold);
+            color: var(--ink);
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--ink);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.pexels.com/photos/17402719/pexels-photo-17402719.jpeg') center 38%/cover no-repeat;
+            transform: scale(1.06);
+            transition: transform 12s linear;
+            will-change: transform;
+        }
+
+        .hero-bg.loaded {
+            transform: scale(1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(8, 7, 6, .88) 0%, rgba(8, 7, 6, .55) 55%, rgba(8, 7, 6, .78) 100%);
+        }
+
+        .hero-grain {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
+            opacity: .35;
+            pointer-events: none;
+        }
+
+        .hero-line {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 0%, rgba(201, 150, 58, .3) 40%, rgba(201, 150, 58, .1) 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 88%;
+            max-width: 900px;
+            text-align: center;
+            padding: var(--nav-h) 20px 60px;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 28px;
+            animation: fadeUp .8s .2s both;
+        }
+
+        .hero-eyebrow::before,
+        .hero-eyebrow::after {
+            content: '';
+            width: 32px;
+            height: 1px;
+            background: var(--gold);
+            opacity: .6;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(56px, 9vw, 110px);
+            font-weight: 700;
+            line-height: .95;
+            letter-spacing: -1px;
+            color: var(--cream);
+            margin-bottom: 30px;
+            animation: fadeUp .9s .35s both;
+        }
+
+        .hero-title em {
+            display: block;
+            font-style: italic;
+            background: linear-gradient(120deg, var(--gold-lt), var(--gold));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub {
+            font-size: clamp(15px, 2vw, 18px);
+            font-weight: 300;
+            line-height: 1.7;
+            color: rgba(253, 250, 245, .75);
+            max-width: 580px;
+            margin: 0 auto 44px;
+            animation: fadeUp .9s .5s both;
+        }
+
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+            animation: fadeUp .9s .65s both;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border-radius: 60px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dk));
+            color: var(--ink);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .5px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform .25s, box-shadow .25s, background .25s;
+            box-shadow: 0 6px 28px var(--gold-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px rgba(201, 150, 58, .4);
+            background: linear-gradient(135deg, var(--gold-lt), var(--gold));
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border-radius: 60px;
+            background: transparent;
+            border: 1px solid rgba(201, 150, 58, .45);
+            color: var(--cream-dim);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: .5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: var(--gold-glow);
+            transform: translateY(-2px);
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: fadeUp .9s .9s both;
+            cursor: pointer;
+        }
+
+        .scroll-hint span {
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(201, 150, 58, .6);
+        }
+
+        .scroll-arrow {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 150, 58, .35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 10px;
+            animation: bounce 2.2s ease-in-out infinite;
+        }
+
+        /* PRODUCT DETAIL */
+        .section-detail {
+            background: linear-gradient(160deg, var(--ink) 0%, var(--ink2) 45%, var(--ink3) 100%);
+            padding: 100px 0 80px;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 60px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .detail-visual {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-img {
+            position: relative;
+            z-index: 2;
+            width: min(340px, 85vw);
+            height: auto;
+            transition: transform .5s cubic-bezier(.34, 1.56, .64, 1);
+            will-change: transform;
+        }
+
+        .detail-visual:hover .product-img {
+            transform: scale(1.04) translateY(-6px);
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 24px;
+            margin-top: 40px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .stat-card {
+            flex: 1;
+            max-width: 130px;
+            padding: 18px 14px;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(201, 150, 58, .15);
+            border-radius: var(--r-card);
+            text-align: center;
+            transition: .3s;
+        }
+
+        .stat-card:hover {
+            border-color: var(--gold);
+            background: var(--gold-glow);
+        }
+
+        .stat-val {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-lbl {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--cream-dim);
+        }
+
+        .detail-info {
+            display: block;
+        }
+
+        .detail-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(32px, 4vw, 46px);
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--cream);
+            margin-bottom: 8px;
+        }
+
+        .detail-title em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .badge-season {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201, 150, 58, .12);
+            border: 1px solid rgba(201, 150, 58, .25);
+            padding: 6px 16px;
+            border-radius: 60px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--gold-lt);
+            letter-spacing: .5px;
+            margin: 18px 0 24px;
+        }
+
+        .detail-desc {
+            font-size: 15px;
+            line-height: 1.75;
+            color: rgba(253, 250, 245, .78);
+            margin-bottom: 30px;
+        }
+
+        .feat-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+
+        .feat-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 14px;
+            padding: 14px;
+            transition: .3s;
+        }
+
+        .feat-list li:hover {
+            border-color: rgba(201, 150, 58, .3);
+            background: var(--gold-glow);
+        }
+
+        .feat-icon {
+            width: 34px;
+            height: 34px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background: rgba(201, 150, 58, .15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .feat-text strong {
+            display: block;
+            font-size: 11px;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2px;
+        }
+
+        .feat-text span {
+            font-size: 13px;
+            color: var(--cream-dim);
+            line-height: 1.4;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .divider {
+            width: 88%;
+            max-width: 1280px;
+            margin: 0 auto;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 150, 58, .2), transparent);
+        }
+
+        /* SPECIFICHE E CONFEZIONAMENTO */
+        .section-specs {
+            background: linear-gradient(180deg, var(--ink3) 0%, var(--ink2) 100%);
+            padding: 80px 0 100px;
+        }
+
+        .specs-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .specs-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(30px, 4vw, 44px);
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 12px;
+        }
+
+        .specs-header h2 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .specs-header p {
+            font-size: 15px;
+            color: var(--cream-dim);
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, .025);
+            border: 1px solid rgba(201, 150, 58, .15);
+            border-radius: 28px;
+            overflow: hidden;
+            backdrop-filter: blur(6px);
+        }
+
+        .card-header {
+            padding: 20px 28px;
+            background: rgba(201, 150, 58, .08);
+            border-bottom: 1px solid rgba(201, 150, 58, .12);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-header .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gold);
+            opacity: .7;
+        }
+
+        .card-header span {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .specs-table tr {
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        .specs-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .specs-table th {
+            text-align: left;
+            padding: 18px 24px;
+            width: 35%;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+            background: rgba(201, 150, 58, .05);
+        }
+
+        .specs-table td {
+            padding: 18px 24px;
+            color: var(--cream-dim);
+            font-weight: 400;
+        }
+
+        .pack-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 28px;
+        }
+
+        .pack-item {
+            padding: 24px;
+            background: rgba(255, 255, 255, .025);
+            border: 1px solid rgba(201, 150, 58, .14);
+            border-radius: var(--r-card);
+            transition: .3s;
+        }
+
+        .pack-item:hover {
+            border-color: var(--gold);
+            background: rgba(201, 150, 58, .06);
+        }
+
+        .pack-item .pi-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(201, 150, 58, .15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+
+        .pack-item h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 8px;
+        }
+
+        .pack-item p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--cream-dim);
+        }
+
+        .certs-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 48px;
+            justify-content: center;
+        }
+
+        .cert-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 10px 20px;
+            border-radius: 60px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .1);
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--cream-dim);
+            transition: .3s;
+        }
+
+        .cert-badge i {
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .cert-badge:hover {
+            border-color: var(--gold);
+            color: var(--cream);
+            background: var(--gold-glow);
+        }
+
+        /* FOOTER (IDENTICO) */
+        .footer {
+            background: linear-gradient(180deg, #0a0908 0%, #060504 100%);
+            padding-top: 80px;
+            border-top: 1px solid rgba(201, 150, 58, .15);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1.4fr 1.2fr;
+            gap: 48px;
+            padding-bottom: 60px;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .footer-col p {
+            font-size: 13px;
+            line-height: 1.85;
+            color: rgba(253, 250, 245, .5);
+            margin-bottom: 10px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 150, 58, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 14px;
+            transition: .3s;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+            color: var(--ink);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--cream);
+            margin-bottom: 22px;
+            position: relative;
+            padding-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 32px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 13px;
+            color: rgba(253, 250, 245, .5);
+            text-decoration: none;
+            transition: .25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+            padding-left: 4px;
+        }
+
+        .footer-col ul li span {
+            font-size: 13px;
+            color: rgba(253, 250, 245, .5);
+            line-height: 1.5;
+        }
+
+        .footer-col .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .footer-col .contact-item i {
+            color: var(--gold);
+            font-size: 13px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .footer-col .contact-item span {
+            font-size: 13px;
+            color: rgba(253, 250, 245, .55);
+            line-height: 1.5;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .06);
+            padding: 22px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: rgba(253, 250, 245, .28);
+        }
+
+        .footer-bottom span {
+            color: var(--gold);
+        }
+
+        .fab-wa {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dk));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--ink);
+            box-shadow: 0 6px 24px rgba(201, 150, 58, .45);
+            cursor: pointer;
+            transition: .3s;
+            z-index: 900;
+            text-decoration: none;
+        }
+
+        .fab-wa:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 32px rgba(201, 150, 58, .6);
+        }
+
+        .fab-wa::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid rgba(201, 150, 58, .5);
+            animation: pulse 2.2s ease-out infinite;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: .8; }
+            100% { transform: scale(1.7); opacity: 0; }
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:1024px) {
+            .nav-links, .nav-actions { display: none; }
+            .burger { display: flex; }
+            .mobile-drawer { display: block; }
+            .detail-grid { grid-template-columns: 1fr; gap: 48px; }
+            .detail-visual { order: -1; }
+            .feat-list { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-col:nth-child(1) { grid-column: 1/-1; }
+        }
+
+        @media(max-width:640px) {
+            :root { --nav-h: 64px; }
+            .hero-title { letter-spacing: -0.5px; }
+            .hero-ctas { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-outline { width: 100%; max-width: 300px; justify-content: center; }
+            .detail-grid { gap: 36px; }
+            .feat-list { grid-template-columns: 1fr; }
+            .stat-row { gap: 12px; }
+            .stat-card { padding: 14px 10px; }
+            .stat-val { font-size: 22px; }
+            .pack-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-col:nth-child(1) { grid-column: 1; }
+            .specs-table th, .specs-table td { padding: 12px 16px; font-size: 13px; }
+            .fab-wa { bottom: 20px; right: 20px; width: 48px; height: 48px; font-size: 20px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header id="hdr">
+        <div class="nav">
+            <a class="logo" href="index.html">
+                <div class="logo-mark">🌿</div>
+                <div class="logo-text">
+                    <strong>CHOAMX</strong>
+                    <small>Egyptian Excellence</small>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="prodotti.html">Prodotti</a></li>
+                <li><a href="Chi_siamo.html">Chi siamo</a></li>
+                <li><a href="Consulenza.html">Consulenza</a></li>
+                <li><a href="#contact-footer">Contattaci</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <button class="burger" id="burger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile drawer -->
+    <nav class="mobile-drawer" id="drawer">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="prodotti.html">Prodotti</a></li>
+            <li><a href="Chi_siamo.html">Chi siamo</a></li>
+            <li><a href="Consulenza.html">Consulenza</a></li>
+            <li><a href="#contact-footer">Contattaci</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <div class="mobile-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" onclick="openWhatsApp();return false;"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grain"></div>
+        <div class="hero-line"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">Eccellenza Ortofrutticola</div>
+            <h1 class="hero-title">
+                Peperoni<br>
+                <em>Premium</em>
+            </h1>
+            <p class="hero-sub">
+                "L’apice della produzione egiziana" — varietà Gialla e Rossa, coltivate nel Delta del Nilo, conformi alle più severe normative UE. Croccantezza persistente e resistenza al trasporto.
+            </p>
+            <div class="hero-ctas">
+                <a href="#product" class="btn-primary">
+                    <i class="fas fa-arrow-down"></i> Scopri il prodotto
+                </a>
+                <a href="#" onclick="openWhatsAppProduct();return false;" class="btn-outline">
+                    <i class="fab fa-whatsapp"></i> Richiedi un preventivo
+                </a>
+            </div>
+        </div>
+        <div class="scroll-hint" onclick="document.getElementById('product').scrollIntoView({behavior:'smooth'})">
+            <span>Scorri</span>
+            <div class="scroll-arrow"><i class="fas fa-chevron-down"></i></div>
+        </div>
+    </section>
+
+    <!-- PRODUCT DETAIL -->
+    <section class="section-detail" id="product">
+        <div class="container">
+            <div class="section-label">Scheda Prodotto</div>
+            <div class="detail-grid">
+                <div class="detail-visual">
+                    <img class="product-img" src="https://images.pexels.com/photos/10790638/pexels-photo-10790638.jpeg" alt="Peperoni Premium" loading="lazy">
+                    <div class="stat-row">
+                        <div class="stat-card"><div class="stat-val">8</div><div class="stat-lbl">Mesi di stagione</div></div>
+                        <div class="stat-card"><div class="stat-val">2</div><div class="stat-lbl">Varietà principali</div></div>
+                        <div class="stat-card"><div class="stat-val">UE</div><div class="stat-lbl">Conformità totale</div></div>
+                    </div>
+                </div>
+                <div class="detail-info">
+                    <h1 class="detail-title">Peperoni Premium<br><em>"L’apice della produzione egiziana"</em></h1>
+                    <div class="badge-season"><i class="fas fa-calendar-alt"></i> Stagione: novembre · dicembre · gennaio · febbraio · marzo · aprile · maggio · giugno</div>
+                    <p class="detail-desc">
+                        I peperoni rappresentano l’apice della produzione ortofrutticola egiziana, coltivati nei distretti agricoli più fertili del Delta del Nilo seguendo i più rigorosi standard agricoli internazionali. Ogni lotto è sottoposto a severi controlli di qualità, garantendo un prodotto conforme alle normative UE, certificato e analizzato in laboratorio per tutelare la sicurezza, uniformità e caratteristiche organolettiche ineguagliabili che lo rendono perfetto per il mercato europeo di alta gamma.
+                    </p>
+                    <ul class="feat-list">
+                        <li><div class="feat-icon"><i class="fas fa-leaf"></i></div><div class="feat-text"><strong>Varietà Gialla</strong><span>Colorazione giallo limone uniforme, pareti cellulari spesse, croccantezza persistente</span></div></li>
+                        <li><div class="feat-icon"><i class="fas fa-apple-alt"></i></div><div class="feat-text"><strong>Varietà Rossa</strong><span>Finitura lucida della buccia, straordinaria resistenza agli stress da trasporto, turgore inalterato</span></div></li>
+                        <li><div class="feat-icon"><i class="fas fa-tachometer-alt"></i></div><div class="feat-text"><strong>Standard UE</strong><span>Conforme ai limiti MRL europei, certificato fitosanitario</span></div></li>
+                        <li><div class="feat-icon"><i class="fas fa-microscope"></i></div><div class="feat-text"><strong>Analisi di laboratorio</strong><span>Ogni partita è sottoposta a controlli chimici e microbiologici indipendenti</span></div></li>
+                    </ul>
+                    <div class="cta-group">
+                        <a href="#" onclick="openWhatsAppProduct();return false;" class="btn-primary"><i class="fab fa-whatsapp"></i> Richiedi campione / preventivo</a>
+                        <a href="#specs" class="btn-outline"><i class="fas fa-table"></i> Specifiche e formati</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SPECIFICHE E CONFEZIONAMENTO -->
+    <section class="section-specs" id="specs">
+        <div class="container">
+            <div class="specs-header">
+                <h2>Specifiche <em>e Confezionamento</em></h2>
+                <p>Documentazione completa, certificazioni e packaging studiato per l'esportazione</p>
+            </div>
+            <div class="glass-card">
+                <div class="card-header"><div class="dot"></div><span>Dettagli tecnici e logistica</span></div>
+                <div style="padding: 0 8px;">
+                    <table class="specs-table">
+                        <tbody>
+                            <tr><th>Varietà Gialla</th><td>Punto di riferimento per il mercato europeo. Colore giallo limone uniforme, pareti spesse, croccantezza persistente.</td></tr>
+                            <tr><th>Varietà Rossa</th><td>Eccellenza nel segmento rosso. Buccia lucida, straordinaria resistenza al trasporto, turgore inalterato.</td></tr>
+                            <tr><th>Stagionalità</th><td>Novembre – Giugno (8 mesi di disponibilità continua)</td></tr>
+                            <tr><th>Confezionamento primario</th><td>Cartone telescopico da 5 kg – formato standard per valorizzare l’estetica e garantire freschezza.</td></tr>
+                            <tr><th>Certificazioni di accompagnamento</th><td>Certificato fitosanitario, analisi di laboratorio, conformità MRL UE, report fotografico pre-spedizione.</td></tr>
+                            <tr><th>Logistica</th><td>Carico su pallet ottimizzati per trasporto marittimo refrigerato, documentazione doganale completa.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div style="margin-top:48px;">
+                <div class="section-label" style="margin-bottom:28px;">Soluzioni di Confezionamento</div>
+                <div class="pack-grid">
+                    <div class="pack-item"><div class="pi-icon"><i class="fas fa-box-open"></i></div><h4>Cartone Telescopico 5 kg</h4><p>Il formato standard per valorizzare l’estetica del peperone e garantirne la freschezza. Struttura robusta a due pezzi, ideale per esposizione diretta al punto vendita.</p></div>
+                    <div class="pack-item"><div class="pi-icon"><i class="fas fa-palette"></i></div><h4>Soluzioni personalizzabili</h4><p>Possibilità di imballo su misura (private label, formati diversi, grafiche dedicate) su richiesta del cliente.</p></div>
+                </div>
+            </div>
+
+            <div class="certs-row">
+                <div class="cert-badge"><i class="fas fa-file-certificate"></i> Certificazioni Fitosanitarie</div>
+                <div class="cert-badge"><i class="fas fa-microscope"></i> Analisi di Laboratorio</div>
+                <div class="cert-badge"><i class="fas fa-shield-halved"></i> Conformità MRL UE</div>
+                <div class="cert-badge"><i class="fas fa-video"></i> Report video pre-spedizione</div>
+                <div class="cert-badge"><i class="fas fa-temperature-low"></i> Catena del freddo</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <span class="footer-brand">CHOAMX</span>
+                    <p>Partner internazionale specializzato nell'esportazione di prodotti egiziani, con gestione e controllo diretto italiano. Uniamo le migliori filiere locali ai mercati globali garantendo tracciabilità, standard UE e supervisione costante sul campo.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" onclick="openWhatsApp();return false;"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Link Rapidi</h3>
+                    <ul>
+                        <li><a href="prodotti.html"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> Prodotti</a></li>
+                        <li><a href="Chi_siamo.html"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> Chi siamo</a></li>
+                        <li><a href="Consulenza.html"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> Consulenza</a></li>
+                        <li><a href="#contact-footer"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> Contattaci</a></li>
+                        <li><a href="#faq"><i class="fas fa-chevron-right" style="font-size:10px;color:var(--gold);"></i> FAQ</a></li>
+                    </ul>
+                    <br>
+                    <h3>Le Nostre Divisioni</h3>
+                    <ul><li><span>• Fresh Division</span></li><li><span>• Frozen Division</span></li><li><span>• Bio Energy Division</span></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Standard Operativi</h3>
+                    <ul>
+                        <li><span>• Supervisione italiana diretta lungo tutta la filiera</span></li>
+                        <li><span>• Controllo qualità sul campo con verifica reale del carico</span></li>
+                        <li><span>• Report video e fotografici prima della spedizione</span></li>
+                        <li><span>• Filiera selezionata e monitorata</span></li>
+                        <li><span>• Documentazione export conforme agli standard UE</span></li>
+                        <li><span>• Tracciabilità totale in ogni fase</span></li>
+                        <li><span>• Ispezioni indipendenti SGS / Bureau Veritas</span></li>
+                        <li><span>• Monitoraggio continuo fino a destinazione</span></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contatti</h3>
+                    <div class="contact-item"><i class="fas fa-phone"></i><span>CEO Export: +39 391 304 9947</span></div>
+                    <div class="contact-item"><i class="fas fa-phone"></i><span>Area Manager: +39 339 208 4078</span></div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i><span>info@choamx.com</span></div>
+                    <div class="contact-item"><i class="fas fa-location-dot"></i><span>Sede: Il Cairo, Egitto</span></div>
+                    <br>
+                    <h3>Legale</h3>
+                    <ul><li><span>Informativa sulla privacy</span></li><li><span>Termini e condizioni</span></li><li><span>Politica qualità e reclami</span></li><li><span>Tax ID: 123-456-789 | CR: 98765</span></li></ul>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>© 2026 <span>CHOAMX</span> — Eccellenza Egiziana. Tutti i diritti riservati.</p></div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp FAB -->
+    <a class="fab-wa" href="#" onclick="openWhatsApp();return false;" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        function openWhatsApp() { window.open('https://wa.me/393913049947', '_blank'); }
+        function openWhatsAppProduct() {
+            const msg = encodeURIComponent('Buongiorno, sono interessato a ricevere informazioni/preventivo per i Peperoni Premium. Potete fornirmi dettagli su disponibilità, varietà e confezionamento?');
+            window.open('https://wa.me/393913049947?text=' + msg, '_blank');
+        }
+        const hdr = document.getElementById('hdr');
+        window.addEventListener('scroll', () => { hdr.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
+        const burger = document.getElementById('burger');
+        const drawer = document.getElementById('drawer');
+        let drawerOpen = false;
+        burger.addEventListener('click', () => {
+            drawerOpen = !drawerOpen;
+            burger.classList.toggle('open', drawerOpen);
+            drawer.classList.toggle('open', drawerOpen);
+            document.body.style.overflow = drawerOpen ? 'hidden' : '';
+        });
+        drawer.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                drawerOpen = false;
+                burger.classList.remove('open');
+                drawer.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+        const heroBg = document.getElementById('heroBg');
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            if (y < window.innerHeight) heroBg.style.transform = `scale(1) translateY(${y * 0.28}px)`;
+        }, { passive: true });
+        window.addEventListener('load', () => { heroBg.classList.add('loaded'); });
+        const revealEls = document.querySelectorAll('.detail-grid, .glass-card, .pack-item, .stat-card, .cert-badge, .section-label');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.style.animation = 'fadeUp .7s both'; io.unobserve(e.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(el => { el.style.opacity = '0'; io.observe(el); });
+    </script>
+</body>
+
+</html>
