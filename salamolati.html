@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>Fresh Division – CHOAMX | Eccellenza Ortofrutticola Egiziana</title>
+  <title>Fresh Division – CHOAMX | Carciofi & Olive d'Egitto</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;700;800;900&display=swap" rel="stylesheet">
   <style>
-    /* ===== VARIABILI ===== */
+    /* ===== VARIABILI (invariate) ===== */
     :root {
       --gold: #c9963a;
       --gold-light: #e8b85a;
@@ -20,7 +20,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(--white); overflow-x: hidden; }
 
-    /* ===== NAVBAR ===== */
+    /* ===== NAVBAR (identica) ===== */
     header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 16px 0; background: linear-gradient(180deg, rgba(10,9,8,0.97) 0%, transparent 100%); border-bottom: 1px solid rgba(201,150,58,0.18); backdrop-filter: blur(14px); transition: background 0.4s, box-shadow 0.4s; }
     header.scrolled { background: rgba(10,9,8,0.98); box-shadow: 0 4px 36px rgba(0,0,0,0.65); border-bottom-color: rgba(201,150,58,0.38); }
     .nav { width: 90%; margin: auto; display: flex; align-items: center; justify-content: space-between; }
@@ -42,9 +42,9 @@
     /* ===== HERO ===== */
     .hero-category {
       min-height: 65vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2)), url('https://images.pexels.com/photos/33083467/pexels-photo-33083467.jpeg');
+      background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2)), url('https://images.pexels.com/photos/4109909/pexels-photo-4109909.jpeg');
       background-size: cover;
-      background-position: center 50%;
+      background-position: center 40%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -56,7 +56,7 @@
     .hero-category h1 span { color: var(--gold); }
     .hero-category p { font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.9); }
 
-    /* ===== SEZIONE PRODOTTI - GRID RESPONSIVE ===== */
+    /* ===== SEZIONE PRODOTTI ===== */
     .products-category { padding: 80px 0; background: linear-gradient(160deg, #0c0b09 0%, #131109 50%, #1a150a 100%); }
     .section-header { text-align: center; margin-bottom: 60px; }
     .section-eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--gold); background: rgba(201,150,58,0.15); padding: 5px 18px; border-radius: 40px; margin-bottom: 12px; }
@@ -107,7 +107,7 @@
     .btn-leggi:hover { background: var(--gold); color: var(--dark); transform: translateY(-2px); box-shadow: 0 6px 14px rgba(201,150,58,0.3); }
     .btn-leggi:hover i { transform: translateX(4px); }
 
-    /* ===== FOOTER ===== */
+    /* ===== FOOTER (identico) ===== */
     .footer { background: linear-gradient(180deg, #0a0908 0%, #070706 100%); padding-top: 75px; border-top: 1px solid rgba(201,150,58,0.18); }
     .footer-container { width: 88%; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 40px; padding-bottom: 55px; }
     .footer-box h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--gold); margin-bottom: 26px; position: relative; }
@@ -132,7 +132,7 @@
     .whatsapp i { color: var(--dark); }
     .whatsapp:hover { transform: scale(1.1); }
 
-    /* ===== MEDIA QUERIES ===== */
+    /* ===== MEDIA QUERIES (invariate) ===== */
     @media (max-width: 1100px) {
       .products-grid { gap: 25px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
       .product-img { height: 220px; }
@@ -178,15 +178,15 @@
 
 <section class="hero-category">
   <div class="hero-content">
-    <h1>Fresh <span>Division</span></h1>
-    <p>Eccellenza ortofrutticola egiziana: peperoni, aglio, cipolle, pomodori, melanzane, zucchine, patate dolci, zucche premium e molto altro. Qualità certificata per i mercati più esigenti.</p>
+    <h1>Carciofi & <span>Olive</span></h1>
+    <p>Eccellenza della trasformazione agroalimentare egiziana: quarti, cuori, fondi e marinati di carciofo, olive verdi, nere e Kalamata in tutte le varianti. Qualità certificata per i mercati più esigenti.</p>
   </div>
 </section>
 
 <section class="products-category">
   <div class="section-header">
     <div class="section-eyebrow">Prodotti Premium</div>
-    <h2 class="section-title">Le nostre eccellenze fresche</h2>
+    <h2 class="section-title">Le nostre eccellenze in salamoia</h2>
   </div>
   <div class="products-grid" id="productsGrid"></div>
 </section>
@@ -255,26 +255,25 @@
 <div class="whatsapp" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i></div>
 
 <script>
-  // DATI PRODOTTI – Fresh Division (13 originali + 3 nuove zucche = 16 prodotti)
+  // NUOVI DATI PRODOTTI – carciofi + olive (17 schede complete)
   const productsData = [
-    { name: "Peperoni Premium", desc: "Varietà gialla e rossa. Croccanti, buccia lucida, resistenti al trasporto. Controlli UE, confezioni 5 kg.", season: "Novembre – Giugno", img: "https://images.pexels.com/photos/37649822/pexels-photo-37649822.jpeg", link: "peperoni-premium.html" },
-    { name: "Lattuga Iceberg", desc: "Cespi compatti, foglie croccanti e sapore dolce. Confezioni da 6-7 kg (10 teste) o 11-12 kg per industria.", season: "Tutto l'anno", img: "https://images.pexels.com/photos/7511804/pexels-photo-7511804.jpeg", link: "lattuga-iceberg.html" },
-    { name: "Aglio Egiziano", desc: "Varietà Bianco e Rosa. Bulbi compatti, aroma intenso, calibri 4,5–8 cm. Confezioni 5 kg e mesh bag 10/20/25 kg.", season: "Aprile – Ottobre", img: "https://images.pexels.com/photos/32608237/pexels-photo-32608237.jpeg", link: "aglio-egiziano.html" },
-    { name: "Cipolle Dorate e Rosse", desc: "Cipolle dorate e rosse, bulbi sodi, ottima tenuta. Calibri 40-100 mm. Mesh bag 10,20,25 kg.", season: "Febbraio – Ottobre", img: "https://images.pexels.com/photos/6316540/pexels-photo-6316540.jpeg", link: "cipolle-dorate-rosse.html" },
-    { name: "Pomodori di Prima Qualità", desc: "Frutti rossi brillanti, sapore intenso, consistenza soda. Classi I/II, cartoni 5/10 kg, catena del freddo.", season: "Quasi tutto l'anno", img: "https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg", link: "pomodori-egiziani.html" },
-    { name: "Melanzane", desc: "Buccia liscia viola scuro, forma uniforme, polpa compatta. Cartoni 5/10 kg, tracciabilità completa.", season: "Ottobre – Giugno", img: "https://images.pexels.com/photos/34476505/pexels-photo-34476505.jpeg", link: "melanzane-fresh.html" },
-    { name: "Zucchine", desc: "Verde brillante, forma uniforme, consistenza soda. Disponibili tutto l'anno, cartoni 5/10 kg, pre-refrigerazione.", season: "Ottobre – Maggio", img: "https://images.pexels.com/photos/14305101/pexels-photo-14305101.jpeg", link: "zucchine-fresh.html" },
-    { name: "Fagiolini Verdi", desc: "Croccanti, colore brillante, lunghezza 9-14 cm. Gradi fine/extrafine, conformità MRL UE.", season: "Ottobre – Maggio", img: "https://images.pexels.com/photos/33256553/pexels-photo-33256553.jpeg", link: "fagiolini-verdi.html" },
-    { name: "Cetrioli", desc: "Forma perfetta, pelle liscia, croccanti. Coltivati in serra, cartoni 5/10 kg, catena del freddo.", season: "Ottobre – Maggio", img: "https://images.pexels.com/photos/7288783/pexels-photo-7288783.jpeg", link: "cetrioli-egiziani.html" },
-    { name: "Spinaci", desc: "Foglie verdi brillanti, ricchi di vitamine. Raccolti a mano, confezioni da 5/10 kg, certificati fitosanitari.", season: "Novembre – Marzo", img: "https://images.pexels.com/photos/8852027/pexels-photo-8852027.jpeg", link: "spinaci-fresh.html" },
-    { name: "Patate", desc: "Calibri 45-80 mm, polpa soda. Sacchi o cartoni 10/25 kg, raccolto precoce e da conservazione.", season: "Gennaio – Giugno + conservazione", img: "https://images.pexels.com/photos/31601806/pexels-photo-31601806.jpeg", link: "patate-fresh.html" },
-    { name: "Patate Dolci Egiziane", desc: "Sapore dolce intenso, alto valore nutrizionale. Taglie S/M/L, sacchi 10/15/25 kg.", season: "Agosto – Marzo", img: "https://images.pexels.com/photos/36096886/pexels-photo-36096886.jpeg", link: "patate-dolci.html" },
-    { name: "Carote", desc: "Croccanti, colore arancio intenso, ricche di beta-carotene. Sacchi Gott 10/25 kg o cartoni premium 10 kg.", season: "Dicembre – Aprile", img: "https://images.pexels.com/photos/9741176/pexels-photo-9741176.jpeg", link: "carote-fresh.html" },
-
-    // ===== NUOVE TRE CARD AGGIUNTE =====
-    { name: "Zucca Delica", desc: "Formato monoporzione compatto, polpa dolce con note di castagna. Ideale per retail premium e boutique ortofrutticole. Pezzatura 1-2 kg, cartoni da 8-10 kg.", season: "Agosto – Dicembre", img: "https://images.pexels.com/photos/35658581/pexels-photo-35658581.jpeg", link: "zucca-delica.html" },
-    { name: "Zucca Butternut", desc: "Varietà versatile per GDO e largo consumo. Forma a pera, polpa vellutata e dolce, buccia sottile. Confezioni in cartone ventilato 8-12 kg.", season: "Settembre – Febbraio", img: "https://images.pexels.com/photos/5692709/pexels-photo-5692709.jpeg", link: "zucca-butternut.html" },
-    { name: "Zucche Moscate Grandi", desc: "Napoli e Provenza – ideali per taglio e industria. Grande resa culinaria, polpa arancione intensa. Confezionamento in bins da 300-500 kg o cartoni su richiesta.", season: "Agosto – Gennaio", img: "https://images.pexels.com/photos/20725653/pexels-photo-20725653.jpeg", link: "zucche-moscate-grandi.html" }
+    { name: "Quarti di Carciofo", desc: "Quarti uniformi in salamoia, selezionati e rifilati. Ideali per industria alimentare, ristorazione e private label. Dimensioni: 2×3 cm / 2,5×3,5 cm / 2,5×4 cm.", season: "Tutto l'anno", img: "https://images.pexels.com/photos/6215519/pexels-photo-6215519.jpeg", link: "carciofo-quarti.html" },
+    { name: "Cuori di Carciofo", desc: "Cuori interi puliti, consistenza soda e croccante. Calibri: 20–25 / 25–30 / 30–35 / 35–40 pezzi/kg. Conservati in salamoia acida.", season: "Tutto l'anno", img: "https://images.pexels.com/photos/6215417/pexels-photo-6215417.jpeg", link: "carciofo-cuori.html" },
+    { name: "Fondi di Carciofo", desc: "Parte inferiore del carciofo, priva di foglie. Forma cilindrica, consistenza soda. Diametri 3–5 cm e 5–7 cm.", season: "Tutto l'anno", img: "https://images.pexels.com/photos/31915209/pexels-photo-31915209.jpeg", link: "carciofo-fondi.html" },
+    { name: "Carciofi Marinati", desc: "Taglio personalizzabile (quarti, cuori, fondi, fette). Marinatura a base di olio e/o aceto con erbe e spezie secondo specifica cliente. Prodotto premium.", season: "https://images.pexels.com/photos/31735679/pexels-photo-31735679.jpeg", link: "carciofi-marinati.html" },
+    { name: "Olive Verdi Intere", desc: "Raccolta manuale, deamarizzazione naturale in salamoia. Sapore autentico, polpa soda. Confezioni: lattine, barattoli, secchi, fusti.", season: "Tutto l'anno", img: "https://images.pexels.com/photos/14437061/pexels-photo-14437061.jpeg", link: "olive-verdi-intere.html" },
+    { name: "Olive Verdi Denocciolate", desc: "Denocciolate meccanicamente, uniformi e compatte. Arricchite con erbe aromatiche. Ideali per antipasti, insalate, pizze.", season: "Tutto l'anno", img: "https://images.pexels.com/photos/17503894/pexels-photo-17503894.png", link: "olive-verdi-denocciolate.html" },
+    { name: "Olive Verdi a Rondelle", desc: "Affettate con precisione, spessore uniforme. Perfette per condire pizze, insalate, piatti mediterranei. Pronte all'uso.", season: "Tutto l'anno", img: "https://images.pexels.com/photos/24916758/pexels-photo-24916758.jpeg", link: "olive-verdi-rondelle.html" },
+    { name: "Olive Nere Intere", desc: "Maturazione controllata, colore nero intenso, polpa morbida. Processo di ossidazione naturale. Confezioni versatili per retail e Ho.Re.Ca.", season: "Tutto l'anno", img: "https://images.pexels.com/photos/36526004/pexels-photo-36526004.jpeg", link: "olive-nere-intere.html" },
+    { name: "Olive Nere Denocciolate", desc: "Nocciolo rimosso con macchinari di precisione, polpa soda e saporita. Pronte per ogni preparazione culinaria.", season: "Tutto l'anno", img: "https://images.pexels.com/photos/36526004/pexels-photo-36526004.jpeg", link: "olive-nere-denocciolate.html" },
+    { name: "Olive Nere a Rondelle", desc: "Rondelle uniformi, ideali per pizze, insalate e piatti caldi. Consistenza soda, gusto intenso.", season: "Tutto l'anno", img: "https://images.pexels.com/photos/30585967/pexels-photo-30585967.jpeg", link: "olive-nere-rondelle.html" },
+    { name: "Olive Nere Naturali Intere", desc: "Mature sull'albero, colore nero‑violaceo naturale. Raccolta a piena maturazione (novembre‑dicembre). Polpa generosa e sapore profondo.", season: "Novembre – Dicembre", img: "https://images.pexels.com/photos/28704676/pexels-photo-28704676.jpeg", link: "olive-nere-naturali-intere.html" },
+    { name: "Olive Nere Naturali Denocciolate", desc: "Stessa qualità delle naturali intere, private del nocciolo. Conservate in salamoia o olio d'oliva. Praticità e gusto autentico.", season: "Novembre – Dicembre", img: "https://images.pexels.com/photos/25745497/pexels-photo-25745497.jpeg", link: "olive-nere-naturali-denocciolate.html" },
+    { name: "Olive Nere Naturali a Rondelle", desc: "Affettate da olive mature naturali. Spessore regolare, ideali per insalate e piatti freddi. Certificazioni Kosher, Halal, Vegan.", season: "Novembre – Dicembre", img: "https://images.pexels.com/photos/17714357/pexels-photo-17714357.jpeg", link: "olive-nere-naturali-rondelle.html" },
+    { name: "Olive Kalamata Intere", desc: "Varietà Kalamata di origine egiziana. Frutti viola intenso, forma allungata, sapore fruttato e deciso. Pastorizzate, senza OGM.", season: "Settembre – Novembre", img: "https://images.pexels.com/photos/14520464/pexels-photo-14520464.jpeg", link: "olive-kalamata-intere.html" },
+    { name: "Olive Kalamata Denocciolate", desc: "Denocciolate con cura, calibri da 140/160 a 280/300. Polpa carnosa, ideali per uso professionale e retail.", season: "Settembre – Novembre", img: "https://images.pexels.com/photos/34874684/pexels-photo-34874684.jpeg", link: "olive-kalamata-denocciolate.html" },
+    { name: "Olive Kalamata a Rondelle", desc: "Fette uniformi, dal viola al nero lucente. Sapore ricco, consistenza soda. Perfette per insalate gourmet e antipasti.", season: "Settembre – Novembre", img: "https://images.pexels.com/photos/16732695/pexels-photo-16732695.jpeg", link: "olive-kalamata-rondelle.html" },
+    { name: "Olive Kalamata a Metà", desc: "Metà di olive Kalamata, fermentazione naturale. Colore marrone scuro/viola intenso. Gusto autentico e carnoso. Calibri 141/160 – 241/260.", season: "Settembre – Novembre", img: "https://images.pexels.com/photos/5250396/pexels-photo-5250396.jpeg", link: "olive-kalamata-meta.html" }
   ];
 
   function renderCards() {
