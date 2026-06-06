@@ -225,38 +225,24 @@
             <div class="contact-grid">
 
                 <!-- ══════════════════════════════════════════
-                     FORM — يرسل على info@choamx.com
-                     عبر Web3Forms (مجاني 100% - بدون backend)
+                     FORM Web3Forms (per info@choamx.com) 
                      ══════════════════════════════════════════ -->
                 <div class="contact-form">
                     <h3>Scrivici</h3>
                     <p>Compila il modulo, ti risponderemo al più presto.</p>
 
-                    <!-- 
-                    ╔══════════════════════════════════════════════════╗
-                    ║  إعداد Web3Forms (خطوة واحدة فقط):               ║
-                    ║  1. اذهب إلى: https://web3forms.com              ║
-                    ║  2. أدخل الإيميل: info@choamx.com               ║
-                    ║  3. ستحصل على Access Key                         ║
-                    ║  4. استبدل YOUR_ACCESS_KEY_HERE بالـ Key         ║
-                    ╚══════════════════════════════════════════════════╝
-                    -->
-
                     <div class="setup-banner" id="setupBanner">
-                        <strong>⚙️ خطوة واحدة لتفعيل الإرسال:</strong><br>
-                        1. اذهب إلى <strong>web3forms.com</strong> وأدخل <code>info@choamx.com</code><br>
-                        2. افتح بريدك وأكّد الإيميل واحصل على الـ <strong>Access Key</strong><br>
-                        3. في الكود، استبدل <code>YOUR_ACCESS_KEY_HERE</code> بالـ Key الخاص بك
+                        <strong>⚙️ Configurazione Web3Forms (una sola volta):</strong><br>
+                        1. Vai su <strong>web3forms.com</strong> e inserisci <code>info@choamx.com</code><br>
+                        2. Conferma l’email e ottieni la tua <strong>Access Key</strong><br>
+                        3. Sostituisci <code>YOUR_ACCESS_KEY_HERE</code> con la tua chiave
                     </div>
 
                     <form id="contactForm" novalidate>
-                        <!-- Web3Forms: الإيميل المستلم يُحدَّد هنا -->
                         <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
                         <input type="hidden" name="subject" value="🌿 CHOAMX — Nuovo messaggio dal sito web">
                         <input type="hidden" name="from_name" value="CHOAMX Website">
-                        <!-- ريدايركت بعد الإرسال: اتركه فاضي أو ضع رابط صفحة شكراً -->
                         <input type="hidden" name="redirect" value="false">
-                        <!-- Anti-spam honeypot -->
                         <input type="checkbox" name="botcheck" style="display:none;">
 
                         <div class="input-group">
@@ -290,11 +276,13 @@
                 </div>
 
                 <div class="contact-info">
+                    <!-- SEDE LEGALE – modificato con indirizzo e numeri aggiornati -->
                     <div class="info-card">
-                        <h4><i class="fas fa-building"></i> Sede Operativa</h4>
-                        <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Il Cairo, Egitto</span></div>
-                        <div class="info-item"><i class="fas fa-phone"></i><span>CEO Export: +39 391 304 9947</span></div>
-                        <div class="info-item"><i class="fas fa-phone"></i><span>Area Manager: +39 339 208 4078</span></div>
+                        <h4><i class="fas fa-building"></i> Sede Legale</h4>
+                        <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>24 Sayed Zakaria - Sheraton - Alnozha - Cairo - Egitto</span></div>
+                        <div class="info-item"><i class="fas fa-phone"></i><span>CEO Export Unione Europea: +39 391 304 9947</span></div>
+                        <div class="info-item"><i class="fas fa-phone"></i><span>CEO Area Menager Unione Europea: +39 339 208 4078</span></div>
+                        <div class="info-item"><i class="fas fa-phone"></i><span>Responsabile preventivi mercati medio oriente: 111111111111</span></div>
                         <div class="info-item"><i class="fas fa-envelope"></i><span>info@choamx.com</span></div>
                     </div>
                     <div class="info-card">
@@ -370,10 +358,11 @@
                 </div>
                 <div class="footer-col">
                     <h3>Contatti & Legale</h3>
-                    <div class="contact-item"><i class="fas fa-phone"></i><span>CEO Export: +39 391 304 9947</span></div>
-                    <div class="contact-item"><i class="fas fa-phone"></i><span>Area Manager: +39 339 208 4078</span></div>
+                    <div class="contact-item"><i class="fas fa-phone"></i><span>CEO Export Unione Europea: +39 391 304 9947</span></div>
+                    <div class="contact-item"><i class="fas fa-phone"></i><span>CEO Area Menager Unione Europea: +39 339 208 4078</span></div>
+                    <div class="contact-item"><i class="fas fa-phone"></i><span>Responsabile preventivi mercati medio oriente: 111111111111</span></div>
                     <div class="contact-item"><i class="fas fa-envelope"></i><span>info@choamx.com</span></div>
-                    <div class="contact-item"><i class="fas fa-location-dot"></i><span>Sede: Il Cairo, Egitto</span></div>
+                    <div class="contact-item"><i class="fas fa-location-dot"></i><span>Sede Legale: 24 Sayed Zakaria - Sheraton - Alnozha - Cairo - Egitto</span></div>
                     <br>
                     <h3>Legale</h3>
                     <ul>
@@ -391,21 +380,10 @@
     <a class="fab-wa" href="#" onclick="openWhatsApp();return false;" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        // ══════════════════════════════════════════════════════════════════
-        //  Web3Forms — إرسال الفورم مباشرة على info@choamx.com
-        //  مجاني 100% | بدون backend | بدون تسجيل خادم
-        //
-        //  الخطوة الوحيدة المطلوبة:
-        //  1. اذهب على https://web3forms.com
-        //  2. ضع info@choamx.com واضغط "Create Access Key"
-        //  3. افتح بريدك وأكّد الإيميل
-        //  4. استبدل "YOUR_ACCESS_KEY_HERE" في الـ hidden input بالـ key
-        // ══════════════════════════════════════════════════════════════════
-
+        // Web3Forms config
         const ACCESS_KEY = document.querySelector('input[name="access_key"]').value;
         const isConfigured = ACCESS_KEY !== 'YOUR_ACCESS_KEY_HERE';
 
-        // Show setup banner if not yet configured
         if (!isConfigured) {
             document.getElementById('setupBanner').style.display = 'block';
         }
@@ -428,7 +406,6 @@
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Validation
             const name    = document.getElementById('fullname').value.trim();
             const email   = document.getElementById('email').value.trim();
             const country = document.getElementById('country').value;
@@ -444,19 +421,16 @@
                 return;
             }
 
-            // Disable button & show loading
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Invio in corso...';
             showStatus('📤 Invio in corso...', 'loading');
 
             try {
                 const formData = new FormData(this);
-
                 const response = await fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
                     body: formData
                 });
-
                 const data = await response.json();
 
                 if (data.success) {
@@ -465,7 +439,6 @@
                 } else {
                     throw new Error(data.message || 'Errore sconosciuto');
                 }
-
             } catch (error) {
                 console.error('Web3Forms error:', error);
                 showStatus('❌ Errore durante l\'invio. Riprova più tardi o contattaci via WhatsApp.', 'error');
