@@ -7,7 +7,7 @@
   <title>CHOAMX – Eccellenza Egiziana</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    /* ===== CSS VARIABLES - SOLO NERO, BIANCO E ORO ===== */
+    /* ===== CSS VARIABLES - SOLO NERO, ORO PER TESTI, BIANCO PER BOTTONI ===== */
     :root {
       --gold: #d4af37;
       --gold-light: #e6c85c;
@@ -18,9 +18,10 @@
       --section-warm: #000000;
       --section-cream: #0a0a0a;
       --section-deep: #050505;
-      --text-dark: #f5f5f0;
-      --text-mid: rgba(245, 245, 240, 0.7);
-      --white: #f5f5f0;
+      --text-dark: #d4af37;
+      --text-mid: #d4af37;
+      --white: #d4af37;
+      --btn-white: #ffffff;
       --radius: 18px;
       --transition: 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
@@ -38,7 +39,7 @@
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--dark);
-      color: var(--text-mid);
+      color: var(--gold);
       overflow-x: hidden;
     }
 
@@ -169,7 +170,7 @@
       font-size: 12.5px;
       font-weight: 500;
       letter-spacing: 0.4px;
-      color: rgba(245, 245, 240, 0.65);
+      color: var(--gold);
       position: relative;
       padding-bottom: 4px;
       transition: color 0.3s;
@@ -189,7 +190,7 @@
     }
 
     .nav-links ul li a:hover {
-      color: var(--gold);
+      color: var(--gold-light);
     }
 
     .nav-links ul li a:hover::after {
@@ -210,7 +211,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(245, 245, 240, 0.65);
+      color: var(--gold);
       font-size: 12px;
       text-decoration: none;
       transition: all 0.3s;
@@ -341,13 +342,13 @@
       font-weight: 900;
       line-height: 1.2;
       margin-bottom: 24px;
-      color: var(--white);
+      color: var(--gold);
       animation: fadeUp 1s 0.2s ease both;
     }
 
     .hero h1 em {
       font-style: normal;
-      color: var(--gold);
+      color: var(--gold-light);
     }
 
     @keyframes fadeUp {
@@ -364,7 +365,7 @@
     .hero p {
       font-size: 15.5px;
       line-height: 1.85;
-      color: rgba(245, 245, 240, 0.70);
+      color: var(--gold);
       margin-bottom: 40px;
       max-width: 530px;
       animation: fadeUp 1s 0.38s ease both;
@@ -406,25 +407,29 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--dark);
-      box-shadow: 0 6px 26px rgba(212, 175, 55, 0.42);
+      background: transparent;
+      border: 1.5px solid var(--btn-white);
+      color: var(--btn-white);
+      box-shadow: none;
     }
 
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 14px 40px rgba(212, 175, 55, 0.58);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--btn-white);
+      color: var(--btn-white);
     }
 
     .btn-secondary {
       background: transparent;
-      border: 1.5px solid rgba(245, 245, 240, 0.32);
-      color: var(--white);
+      border: 1.5px solid var(--btn-white);
+      color: var(--btn-white);
     }
 
     .btn-secondary:hover {
-      border-color: var(--gold);
-      color: var(--gold);
+      border-color: var(--btn-white);
+      color: var(--btn-white);
+      background: rgba(255, 255, 255, 0.1);
       transform: translateY(-3px);
     }
 
@@ -437,7 +442,7 @@
       flex-direction: column;
       align-items: center;
       gap: 6px;
-      color: rgba(245, 245, 240, 0.32);
+      color: var(--gold);
       font-size: 9.5px;
       letter-spacing: 2.5px;
       animation: bounce 2.2s infinite;
@@ -659,7 +664,7 @@
 
     .import-card p {
       font-size: 13.5px;
-      color: rgba(245, 245, 240, 0.7);
+      color: var(--gold);
       line-height: 1.75;
       margin-top: 6px;
     }
@@ -724,7 +729,7 @@
     }
 
     .about-content {
-      color: var(--white);
+      color: var(--gold);
     }
 
     .about-title {
@@ -738,11 +743,11 @@
 
     .about-title em {
       font-style: normal;
-      color: var(--gold);
+      color: var(--gold-light);
     }
 
     .about-text {
-      color: rgba(245, 245, 240, 0.7);
+      color: var(--gold);
       font-size: 15px;
       line-height: 1.95;
       margin-bottom: 22px;
@@ -781,7 +786,7 @@
     .feature-box span {
       font-size: 13.5px;
       font-weight: 500;
-      color: rgba(245, 245, 240, 0.8);
+      color: var(--gold);
     }
 
     /* ===== CATEGORIES SECTION ===== */
@@ -890,7 +895,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--white);
+      color: var(--gold);
       font-family: 'DM Sans', sans-serif;
       font-size: 13.5px;
       font-weight: 700;
@@ -1074,7 +1079,7 @@
     .item-desc {
       font-size: 14px;
       line-height: 1.8;
-      color: rgba(245, 245, 240, 0.6);
+      color: var(--gold);
       max-width: 300px;
       margin-top: 8px;
     }
@@ -1229,7 +1234,7 @@
     .shipping-card p {
       font-size: 13.5px;
       line-height: 1.8;
-      color: rgba(245, 245, 240, 0.6);
+      color: var(--gold);
     }
 
     /* ===== FAQ SECTION ===== */
@@ -1364,7 +1369,7 @@
     .faq-answer-inner p {
       font-size: 14px;
       line-height: 1.8;
-      color: rgba(245, 245, 240, 0.6);
+      color: var(--gold);
       padding-top: 18px;
     }
 
@@ -1430,7 +1435,7 @@
 
     .stat-box p {
       font-size: 13.5px;
-      color: rgba(245, 245, 240, 0.65);
+      color: var(--gold);
     }
 
     /* ===== CTA SECTION ===== */
@@ -1465,7 +1470,7 @@
 
     .cta-content p {
       font-size: 15px;
-      color: rgba(245, 245, 240, 0.68);
+      color: var(--gold);
       max-width: 640px;
       margin: 0 auto 36px;
       line-height: 1.85;
@@ -1525,7 +1530,7 @@
 
     .footer-box p {
       line-height: 1.85;
-      color: rgba(245, 245, 240, 0.58);
+      color: var(--gold);
       font-size: 14px;
       margin-bottom: 10px;
     }
@@ -1539,7 +1544,7 @@
     }
 
     .footer-box ul li a {
-      color: rgba(245, 245, 240, 0.58);
+      color: var(--gold);
       text-decoration: none;
       font-size: 14px;
       transition: 0.3s;
@@ -1547,12 +1552,12 @@
     }
 
     .footer-box ul li a:hover {
-      color: var(--gold);
+      color: var(--gold-light);
       padding-left: 5px;
     }
 
     .footer-box ul li span {
-      color: rgba(245, 245, 240, 0.58);
+      color: var(--gold);
       font-size: 14px;
     }
 
@@ -1597,12 +1602,12 @@
     }
 
     .footer-bottom p {
-      color: rgba(245, 245, 240, 0.28);
+      color: var(--gold);
       font-size: 13px;
     }
 
     .footer-bottom span {
-      color: var(--gold);
+      color: var(--gold-light);
     }
 
     .whatsapp {
