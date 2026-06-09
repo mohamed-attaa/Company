@@ -1125,6 +1125,55 @@
             .calibri-table th{font-size:9px;padding:8px 3px}
             .calibri-table td{font-size:10px;padding:8px 3px}
         }
+        /* ---- اللوجو الجديد ---- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo-img {
+    width: 100px;
+    height: 64px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.logo-text {
+    line-height: 1.15;
+}
+
+.logo-text strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--cream);
+}
+
+.logo-text small {
+    display: block;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+@media (max-width: 480px) {
+    .logo-img {
+        width: 70px;
+        height: 45px;
+    }
+    .logo-text strong {
+        font-size: 14px;
+    }
+    .logo-text small {
+        font-size: 8px;
+    }
+}
     </style>
 </head>
 <body>
@@ -1132,9 +1181,12 @@
 <header id="hdr">
     <div class="nav">
         <a class="logo" href="index.html">
-            <div class="logo-mark">🍌</div>
-            <div class="logo-text"><strong>CHOAMX</strong><small>Egyptian Excellence</small></div>
-        </a>
+    <img src="imges/logo.jpg" alt="CHOAMX" class="logo-img">
+    <div class="logo-text">
+        <strong>CHOAMX</strong>
+        <small>Egyptian Excellence</small>
+    </div>
+</a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li><li><a href="prodotti.html">Prodotti</a></li>
             <li><a href="Chi_siamo.html">Chi siamo</a></li><li><a href="Consulenza.html">Consulenza</a></li>

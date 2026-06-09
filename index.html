@@ -7,20 +7,20 @@
   <title>CHOAMX – Eccellenza Egiziana</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    /* ===== CSS VARIABLES ===== */
+    /* ===== CSS VARIABLES - SOLO NERO, BIANCO E ORO ===== */
     :root {
-      --gold: #c9963a;
-      --gold-light: #e8b85a;
-      --gold-dark: #9a6f1e;
-      --dark: #0a0908;
-      --dark2: #13110e;
-      --dark3: #1b1712;
-      --section-warm: #f5f0e8;
-      --section-cream: #ede8de;
-      --section-deep: #0f0d0a;
-      --text-dark: #1a1714;
-      --text-mid: #5a5248;
-      --white: #fdfaf5;
+      --gold: #d4af37;
+      --gold-light: #e6c85c;
+      --gold-dark: #b8960c;
+      --dark: #000000;
+      --dark2: #0a0a0a;
+      --dark3: #111111;
+      --section-warm: #000000;
+      --section-cream: #0a0a0a;
+      --section-deep: #050505;
+      --text-dark: #ffffff;
+      --text-mid: rgba(255, 255, 255, 0.62);
+      --white: #ffffff;
       --radius: 18px;
       --transition: 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
@@ -90,23 +90,23 @@
       transition-delay: 0.48s;
     }
 
-    /* ===== NAVBAR (con link attivi) ===== */
+    /* ===== NAVBAR ===== */
     header {
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
       padding: 16px 0;
-      background: linear-gradient(180deg, rgba(10, 9, 8, 0.97) 0%, transparent 100%);
-      border-bottom: 1px solid rgba(201, 150, 58, 0.18);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.97) 0%, transparent 100%);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.18);
       backdrop-filter: blur(14px);
       transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
     }
 
     header.scrolled {
-      background: rgba(10, 9, 8, 0.98);
+      background: rgba(0, 0, 0, 0.98);
       box-shadow: 0 4px 36px rgba(0, 0, 0, 0.65);
-      border-bottom-color: rgba(201, 150, 58, 0.38);
+      border-bottom-color: rgba(212, 175, 55, 0.38);
     }
 
     .nav {
@@ -121,46 +121,38 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
       text-decoration: none;
       flex-shrink: 0;
     }
 
-    .logo-icon {
-      width: 44px;
-      height: 44px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      box-shadow: 0 4px 16px rgba(201, 150, 58, 0.35);
-      transition: transform 0.3s, box-shadow 0.3s;
+    .logo-img {
+      width: 100px;
+      height: 64px;
+      object-fit: contain;
+      flex-shrink: 0;
     }
 
-    .logo:hover .logo-icon {
-      transform: rotate(8deg) scale(1.08);
-      box-shadow: 0 8px 26px rgba(201, 150, 58, 0.55);
+    .logo-text {
+      line-height: 1.15;
     }
 
-    .logo h2 {
+    .logo-text strong {
+      display: block;
       font-family: 'Playfair Display', serif;
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 700;
+      letter-spacing: 2px;
       color: var(--white);
-      letter-spacing: 1.5px;
-      line-height: 1.2;
     }
 
-    .logo h2 span {
+    .logo-text small {
       display: block;
       font-size: 9px;
-      font-family: 'DM Sans', sans-serif;
       font-weight: 400;
-      color: var(--gold);
       letter-spacing: 3px;
       text-transform: uppercase;
+      color: var(--gold);
     }
 
     .nav-links ul {
@@ -177,7 +169,7 @@
       font-size: 12.5px;
       font-weight: 500;
       letter-spacing: 0.4px;
-      color: rgba(253, 250, 245, 0.65);
+      color: rgba(255, 255, 255, 0.65);
       position: relative;
       padding-bottom: 4px;
       transition: color 0.3s;
@@ -213,12 +205,12 @@
     .nav-social a {
       width: 34px;
       height: 34px;
-      border: 1px solid rgba(201, 150, 58, 0.28);
+      border: 1px solid rgba(212, 175, 55, 0.28);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(253, 250, 245, 0.65);
+      color: rgba(255, 255, 255, 0.65);
       font-size: 12px;
       text-decoration: none;
       transition: all 0.3s;
@@ -229,7 +221,7 @@
       border-color: var(--gold);
       color: var(--dark);
       transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(201, 150, 58, 0.4);
+      box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4);
     }
 
     .menu-toggle {
@@ -248,13 +240,13 @@
       color: var(--gold-light);
     }
 
-    /* ===== ANCHOR OFFSET per fissare header ===== */
+    /* ===== ANCHOR OFFSET ===== */
     #faq,
     #contact-footer {
       scroll-margin-top: 110px;
     }
 
-    /* ===== HERO, SECTIONS ===== */
+    /* ===== HERO ===== */
     .hero {
       min-height: 100vh;
       background: url('https://images.pexels.com/photos/32119533/pexels-photo-32119533.jpeg') no-repeat center/cover;
@@ -267,9 +259,9 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(125deg,
-          rgba(8, 6, 4, 0.93) 0%,
-          rgba(8, 6, 4, 0.60) 55%,
-          rgba(8, 6, 4, 0.25) 100%);
+          rgba(0, 0, 0, 0.93) 0%,
+          rgba(0, 0, 0, 0.60) 55%,
+          rgba(0, 0, 0, 0.25) 100%);
     }
 
     .hero-particles {
@@ -295,15 +287,12 @@
         opacity: 0;
         transform: translateY(0) scale(0);
       }
-
       10% {
         opacity: 0.7;
       }
-
       90% {
         opacity: 0.3;
       }
-
       100% {
         opacity: 0;
         transform: translateY(-100px) scale(1.5);
@@ -322,8 +311,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(201, 150, 58, 0.12);
-      border: 1px solid rgba(201, 150, 58, 0.42);
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.42);
       border-radius: 50px;
       padding: 6px 18px;
       font-size: 10.5px;
@@ -340,7 +329,6 @@
         opacity: 0;
         transform: translateY(-22px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
@@ -367,7 +355,6 @@
         opacity: 0;
         transform: translateY(32px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
@@ -377,7 +364,7 @@
     .hero p {
       font-size: 15.5px;
       line-height: 1.85;
-      color: rgba(253, 250, 245, 0.70);
+      color: rgba(255, 255, 255, 0.70);
       margin-bottom: 40px;
       max-width: 530px;
       animation: fadeUp 1s 0.38s ease both;
@@ -421,17 +408,17 @@
     .btn-primary {
       background: linear-gradient(135deg, var(--gold), var(--gold-dark));
       color: var(--dark);
-      box-shadow: 0 6px 26px rgba(201, 150, 58, 0.42);
+      box-shadow: 0 6px 26px rgba(212, 175, 55, 0.42);
     }
 
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 14px 40px rgba(201, 150, 58, 0.58);
+      box-shadow: 0 14px 40px rgba(212, 175, 55, 0.58);
     }
 
     .btn-secondary {
       background: transparent;
-      border: 1.5px solid rgba(253, 250, 245, 0.32);
+      border: 1.5px solid rgba(255, 255, 255, 0.32);
       color: var(--white);
     }
 
@@ -450,7 +437,7 @@
       flex-direction: column;
       align-items: center;
       gap: 6px;
-      color: rgba(253, 250, 245, 0.32);
+      color: rgba(255, 255, 255, 0.32);
       font-size: 9.5px;
       letter-spacing: 2.5px;
       animation: bounce 2.2s infinite;
@@ -463,12 +450,9 @@
     }
 
     @keyframes bounce {
-
-      0%,
-      100% {
+      0%, 100% {
         transform: translateX(-50%) translateY(0);
       }
-
       50% {
         transform: translateX(-50%) translateY(9px);
       }
@@ -514,6 +498,7 @@
       position: relative;
       display: inline-block;
       padding-bottom: 18px;
+      color: var(--white);
     }
 
     .section-title-main::after {
@@ -538,7 +523,7 @@
     }
 
     .title-on-light {
-      color: var(--text-dark);
+      color: var(--white);
     }
 
     .section-header {
@@ -550,7 +535,7 @@
     /* ===== IMPORT SECTION ===== */
     .import-section {
       padding: 110px 0 100px;
-      background: linear-gradient(160deg, #f5f0e8 0%, #ede5d5 50%, #e8dfc8 100%);
+      background: linear-gradient(160deg, #050505 0%, #0a0a0a 50%, #0a0a0a 100%);
       position: relative;
       overflow: hidden;
     }
@@ -562,14 +547,14 @@
       left: 0;
       right: 0;
       height: 80px;
-      background: linear-gradient(180deg, var(--dark) 0%, #f5f0e8 100%);
+      background: linear-gradient(180deg, var(--dark) 0%, #050505 100%);
     }
 
     .import-section::after {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(ellipse 80% 50% at 70% 80%, rgba(201, 150, 58, 0.07) 0%, transparent 60%);
+      background-image: radial-gradient(ellipse 80% 50% at 70% 80%, rgba(212, 175, 55, 0.07) 0%, transparent 60%);
       pointer-events: none;
     }
 
@@ -582,14 +567,14 @@
     }
 
     .import-card {
-      background: #fefcf7;
+      background: #0a0a0a;
       padding: 34px 28px;
       border-radius: var(--radius);
-      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.3);
       position: relative;
       overflow: hidden;
       transition: transform var(--transition), box-shadow var(--transition);
-      border: 1px solid rgba(201, 150, 58, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.15);
     }
 
     .import-card::before {
@@ -607,7 +592,7 @@
 
     .import-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.13);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
     }
 
     .import-card:hover::before {
@@ -617,7 +602,7 @@
     .card-icon {
       width: 50px;
       height: 50px;
-      background: linear-gradient(135deg, rgba(201, 150, 58, 0.14), rgba(201, 150, 58, 0.04));
+      background: rgba(212, 175, 55, 0.1);
       border-radius: 13px;
       display: flex;
       align-items: center;
@@ -630,7 +615,7 @@
 
     .import-card:hover .card-icon {
       background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--white);
+      color: var(--dark);
       transform: scale(1.12) rotate(7deg);
     }
 
@@ -648,7 +633,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 17px;
       font-weight: 700;
-      color: var(--text-dark);
+      color: var(--white);
       line-height: 1.35;
       margin-bottom: 10px;
       position: relative;
@@ -674,14 +659,14 @@
 
     .import-card p {
       font-size: 13.5px;
-      color: var(--text-mid);
+      color: rgba(255, 255, 255, 0.62);
       line-height: 1.75;
       margin-top: 6px;
     }
 
     /* ===== ABOUT SECTION ===== */
     .about-section {
-      background: linear-gradient(160deg, #10100e 0%, #161410 50%, #1a1612 100%);
+      background: linear-gradient(160deg, #000000 0%, #0a0a0a 50%, #0a0a0a 100%);
       padding: 110px 0;
       overflow: hidden;
       position: relative;
@@ -691,7 +676,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(ellipse 60% 60% at 80% 40%, rgba(201, 150, 58, 0.07) 0%, transparent 65%);
+      background-image: radial-gradient(ellipse 60% 60% at 80% 40%, rgba(212, 175, 55, 0.07) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -728,14 +713,14 @@
       right: -20px;
       width: 65%;
       height: 65%;
-      border: 2px solid rgba(201, 150, 58, 0.22);
+      border: 2px solid rgba(212, 175, 55, 0.22);
       border-radius: 24px;
       pointer-events: none;
       transition: border-color 0.5s;
     }
 
     .about-image:hover::after {
-      border-color: rgba(201, 150, 58, 0.45);
+      border-color: rgba(212, 175, 55, 0.45);
     }
 
     .about-content {
@@ -748,6 +733,7 @@
       line-height: 1.2;
       margin-bottom: 28px;
       font-weight: 800;
+      color: var(--white);
     }
 
     .about-title em {
@@ -756,7 +742,7 @@
     }
 
     .about-text {
-      color: rgba(253, 250, 245, 0.70);
+      color: rgba(255, 255, 255, 0.70);
       font-size: 15px;
       line-height: 1.95;
       margin-bottom: 22px;
@@ -774,8 +760,8 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      background: rgba(253, 250, 245, 0.04);
-      border: 1px solid rgba(201, 150, 58, 0.14);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(212, 175, 55, 0.14);
       padding: 15px 17px;
       border-radius: 13px;
       transition: 0.38s;
@@ -783,8 +769,8 @@
 
     .feature-box:hover {
       transform: translateY(-4px);
-      border-color: rgba(201, 150, 58, 0.45);
-      background: rgba(201, 150, 58, 0.08);
+      border-color: rgba(212, 175, 55, 0.45);
+      background: rgba(212, 175, 55, 0.08);
     }
 
     .feature-box i {
@@ -795,11 +781,12 @@
     .feature-box span {
       font-size: 13.5px;
       font-weight: 500;
+      color: rgba(255, 255, 255, 0.8);
     }
 
     /* ===== CATEGORIES SECTION ===== */
     .categories-section {
-      background: linear-gradient(160deg, #0c0b09 0%, #131109 50%, #1a150a 100%);
+      background: linear-gradient(160deg, #050505 0%, #0a0a0a 50%, #0a0a0a 100%);
       padding: 110px 0 120px;
       position: relative;
       overflow: hidden;
@@ -812,7 +799,7 @@
       left: 0;
       right: 0;
       height: 80px;
-      background: linear-gradient(180deg, #10100e 0%, #0c0b09 100%);
+      background: linear-gradient(180deg, #000000 0%, #050505 100%);
     }
 
     .cat-orb {
@@ -820,7 +807,7 @@
       width: 600px;
       height: 600px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(201, 150, 58, 0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -856,37 +843,17 @@
       transform: none;
     }
 
-    .category-card:nth-child(1) {
-      transition-delay: 0.05s;
-    }
-
-    .category-card:nth-child(2) {
-      transition-delay: 0.14s;
-    }
-
-    .category-card:nth-child(3) {
-      transition-delay: 0.23s;
-    }
-
-    .category-card:nth-child(4) {
-      transition-delay: 0.32s;
-    }
-
-    .category-card:nth-child(5) {
-      transition-delay: 0.41s;
-    }
-
-    .category-card:nth-child(6) {
-      transition-delay: 0.50s;
-    }
-
-    .category-card:nth-child(7) {
-      transition-delay: 0.59s;
-    }
+    .category-card:nth-child(1) { transition-delay: 0.05s; }
+    .category-card:nth-child(2) { transition-delay: 0.14s; }
+    .category-card:nth-child(3) { transition-delay: 0.23s; }
+    .category-card:nth-child(4) { transition-delay: 0.32s; }
+    .category-card:nth-child(5) { transition-delay: 0.41s; }
+    .category-card:nth-child(6) { transition-delay: 0.50s; }
+    .category-card:nth-child(7) { transition-delay: 0.59s; }
 
     .category-card:hover {
       transform: translateY(-10px) scale(1.07);
-      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.48), 0 0 0 2px rgba(201, 150, 58, 0.55);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.48), 0 0 0 2px rgba(212, 175, 55, 0.55);
     }
 
     .category-card:hover .card-bg {
@@ -894,7 +861,7 @@
     }
 
     .category-card:hover .card-overlay {
-      background: linear-gradient(160deg, rgba(201, 150, 58, 0.55) 0%, rgba(154, 111, 30, 0.38) 100%);
+      background: linear-gradient(160deg, rgba(212, 175, 55, 0.55) 0%, rgba(184, 150, 12, 0.38) 100%);
     }
 
     .category-card:hover .card-label {
@@ -913,7 +880,7 @@
     .card-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(160deg, rgba(18, 14, 8, 0.54) 0%, rgba(10, 8, 4, 0.32) 100%);
+      background: linear-gradient(160deg, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0.32) 100%);
       transition: background 0.38s ease;
     }
 
@@ -935,34 +902,17 @@
       transition: letter-spacing 0.3s, transform 0.3s;
     }
 
-    .card-verdure .card-bg {
-      background-image: url('https://images.pexels.com/photos/12072470/pexels-photo-12072470.jpeg');
-    }
+    .card-verdure .card-bg { background-image: url('https://images.pexels.com/photos/12072470/pexels-photo-12072470.jpeg'); }
+    .card-frutta .card-bg { background-image: url('https://images.pexels.com/photos/33565512/pexels-photo-33565512.jpeg'); }
+    .card-surgelati .card-bg { background-image: url('https://images.pexels.com/photos/34476505/pexels-photo-34476505.jpeg'); }
+    .card-legumi .card-bg { background-image: url('https://images.pexels.com/photos/1633973/pexels-photo-1633973.jpeg'); }
+    .card-stagione .card-bg { background-image: url('https://images.pexels.com/photos/35152570/pexels-photo-35152570.jpeg'); }
+    .card-energia .card-bg { background-image: url('https://images.pexels.com/photos/19757403/pexels-photo-19757403.jpeg'); }
 
-    .card-frutta .card-bg {
-      background-image: url('https://images.pexels.com/photos/33565512/pexels-photo-33565512.jpeg');
-    }
-
-    .card-surgelati .card-bg {
-      background-image: url('https://images.pexels.com/photos/34476505/pexels-photo-34476505.jpeg');
-    }
-
-    .card-legumi .card-bg {
-      background-image: url('https://images.pexels.com/photos/1633973/pexels-photo-1633973.jpeg');
-    }
-
-    .card-stagione .card-bg {
-      background-image: url('https://images.pexels.com/photos/35152570/pexels-photo-35152570.jpeg');
-    }
-
-    .card-energia .card-bg {
-      background-image: url('https://images.pexels.com/photos/19757403/pexels-photo-19757403.jpeg');
-    }
-
-    /* ===== TIMELINE SECTION (CORRETTA PER MOBILE) ===== */
+    /* ===== TIMELINE SECTION ===== */
     .timeline-section {
       padding: 100px 20px 110px;
-      background: linear-gradient(160deg, #f5f0e8 0%, #eee7d8 50%, #e6dcc8 100%);
+      background: linear-gradient(160deg, #050505 0%, #0a0a0a 50%, #0a0a0a 100%);
       position: relative;
       overflow: hidden;
     }
@@ -971,7 +921,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201, 150, 58, 0.08) 0%, transparent 60%);
+      background-image: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
       pointer-events: none;
     }
 
@@ -994,7 +944,7 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(24px, 3.5vw, 48px);
       font-weight: 900;
-      color: #1a1714;
+      color: var(--white);
       position: relative;
       display: inline-block;
       padding-bottom: 18px;
@@ -1029,7 +979,7 @@
       top: 0;
       bottom: 0;
       width: 2px;
-      background: #d4cab8;
+      background: rgba(255, 255, 255, 0.15);
       transform: translateX(-50%);
       z-index: 0;
     }
@@ -1055,33 +1005,17 @@
       min-height: 130px;
     }
 
-    .item-left {
-      padding: 0 36px 40px 0;
-      text-align: right;
-    }
-
-    .item-right {
-      padding: 0 0 40px 36px;
-      text-align: left;
-    }
-
-    .item-empty {
-      padding-bottom: 40px;
-    }
-
-    .item-center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 6px;
-    }
+    .item-left { padding: 0 36px 40px 0; text-align: right; }
+    .item-right { padding: 0 0 40px 36px; text-align: left; }
+    .item-empty { padding-bottom: 40px; }
+    .item-center { display: flex; flex-direction: column; align-items: center; padding-top: 6px; }
 
     .item-dot {
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      background: #f5f0e8;
-      border: 2.5px solid #c4b89a;
+      background: #111111;
+      border: 2.5px solid rgba(255, 255, 255, 0.3);
       flex-shrink: 0;
       transition: border-color 0.45s, background 0.45s, transform 0.45s, box-shadow 0.45s;
       z-index: 2;
@@ -1091,7 +1025,7 @@
       border-color: var(--gold);
       background: var(--gold);
       transform: scale(1.22);
-      box-shadow: 0 0 0 6px rgba(201, 150, 58, 0.18);
+      box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.18);
     }
 
     .item-day {
@@ -1099,20 +1033,20 @@
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 1.5px;
-      color: #8a7d68;
+      color: rgba(255, 255, 255, 0.5);
       text-transform: uppercase;
       white-space: nowrap;
     }
 
     .timeline-item.visible .item-day {
-      color: var(--gold-dark);
+      color: var(--gold);
     }
 
     .item-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(14px, 1.8vw, 19px);
       font-weight: 700;
-      color: #1a1714;
+      color: var(--white);
       margin-bottom: 8px;
       padding-bottom: 10px;
       display: inline-block;
@@ -1130,13 +1064,8 @@
       transition: width 0.55s ease 0.25s;
     }
 
-    .item-right .item-title::after {
-      left: 0;
-    }
-
-    .item-left .item-title::after {
-      right: 0;
-    }
+    .item-right .item-title::after { left: 0; }
+    .item-left .item-title::after { right: 0; }
 
     .timeline-item.visible .item-title::after {
       width: 80%;
@@ -1145,15 +1074,12 @@
     .item-desc {
       font-size: 14px;
       line-height: 1.8;
-      color: #4e4640;
+      color: rgba(255, 255, 255, 0.6);
       max-width: 300px;
       margin-top: 8px;
     }
 
-    .item-left .item-desc {
-      margin-left: auto;
-    }
-
+    .item-left .item-desc { margin-left: auto; }
     .item-left::after {
       content: '';
       position: absolute;
@@ -1161,7 +1087,7 @@
       right: 0;
       width: 36px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, #c4b89a);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2));
     }
 
     .item-right::before {
@@ -1171,7 +1097,7 @@
       left: 0;
       width: 36px;
       height: 1px;
-      background: linear-gradient(90deg, #c4b89a, transparent);
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent);
     }
 
     .timeline-item.visible .item-left::after {
@@ -1188,13 +1114,8 @@
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .timeline-item .item-left {
-      transform: translateX(-42px);
-    }
-
-    .timeline-item .item-right {
-      transform: translateX(42px);
-    }
+    .timeline-item .item-left { transform: translateX(-42px); }
+    .timeline-item .item-right { transform: translateX(42px); }
 
     .timeline-item.visible .item-left,
     .timeline-item.visible .item-right {
@@ -1202,112 +1123,28 @@
       transform: none;
     }
 
-    /* RESPONSIVE TIMELINE FIX (versione mobile completamente ristrutturata) */
     @media (max-width: 680px) {
-      .timeline-container {
-        padding: 0;
-        max-width: 100%;
-      }
-      
-      .timeline-line {
-        left: 20px;
-        transform: none;
-      }
-      
-      .timeline-item {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        padding-left: 50px;
-        margin-bottom: 30px;
-        min-height: auto;
-      }
-      
-      .item-center {
-        position: absolute;
-        left: 6px;
-        top: 0;
-        flex-direction: row;
-        gap: 12px;
-        align-items: center;
-        padding-top: 0;
-        width: auto;
-      }
-      
-      .item-dot {
-        width: 12px;
-        height: 12px;
-      }
-      
-      .item-day {
-        margin-top: 0;
-        font-size: 9px;
-        white-space: normal;
-        background: rgba(201, 150, 58, 0.15);
-        padding: 2px 8px;
-        border-radius: 20px;
-        color: var(--gold-dark);
-      }
-      
-      .item-left,
-      .item-right,
-      .item-empty {
-        grid-column: auto;
-        padding: 0;
-        text-align: left;
-        width: 100%;
-      }
-      
-      .item-left {
-        padding-top: 28px;
-        margin: 0;
-      }
-      
-      .item-right {
-        padding-top: 28px;
-        margin: 0;
-      }
-      
-      .item-empty {
-        display: none;
-      }
-      
-      .item-left::after,
-      .item-right::before {
-        display: none;
-      }
-      
-      .item-title {
-        font-size: 16px;
-        display: block;
-      }
-      
-      .item-title::after {
-        left: 0 !important;
-        right: auto !important;
-        width: 40px !important;
-      }
-      
-      .timeline-item.visible .item-title::after {
-        width: 60px !important;
-      }
-      
-      .item-desc {
-        max-width: 100%;
-        margin-top: 12px;
-        margin-left: 0 !important;
-        font-size: 13px;
-      }
-      
-      .timeline-item .item-left,
-      .timeline-item .item-right {
-        transform: translateX(0);
-      }
+      .timeline-container { padding: 0; max-width: 100%; }
+      .timeline-line { left: 20px; transform: none; }
+      .timeline-item { display: flex; flex-direction: column; position: relative; padding-left: 50px; margin-bottom: 30px; min-height: auto; }
+      .item-center { position: absolute; left: 6px; top: 0; flex-direction: row; gap: 12px; align-items: center; padding-top: 0; width: auto; }
+      .item-dot { width: 12px; height: 12px; }
+      .item-day { margin-top: 0; font-size: 9px; white-space: normal; background: rgba(212, 175, 55, 0.15); padding: 2px 8px; border-radius: 20px; color: var(--gold); }
+      .item-left, .item-right, .item-empty { grid-column: auto; padding: 0; text-align: left; width: 100%; }
+      .item-left { padding-top: 28px; margin: 0; }
+      .item-right { padding-top: 28px; margin: 0; }
+      .item-empty { display: none; }
+      .item-left::after, .item-right::before { display: none; }
+      .item-title { font-size: 16px; display: block; }
+      .item-title::after { left: 0 !important; right: auto !important; width: 40px !important; }
+      .timeline-item.visible .item-title::after { width: 60px !important; }
+      .item-desc { max-width: 100%; margin-top: 12px; margin-left: 0 !important; font-size: 13px; }
+      .timeline-item .item-left, .timeline-item .item-right { transform: translateX(0); }
     }
 
     /* ===== SHIPPING SECTION ===== */
     .shipping-section {
-      background: linear-gradient(160deg, #f5f0e8 0%, #ede5d5 50%, #e8dfc8 100%);
+      background: linear-gradient(160deg, #050505 0%, #0a0a0a 50%, #0a0a0a 100%);
       padding: 110px 0;
       position: relative;
       overflow: hidden;
@@ -1317,7 +1154,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(ellipse 70% 50% at 20% 90%, rgba(201, 150, 58, 0.07) 0%, transparent 60%);
+      background-image: radial-gradient(ellipse 70% 50% at 20% 90%, rgba(212, 175, 55, 0.07) 0%, transparent 60%);
       pointer-events: none;
     }
 
@@ -1330,15 +1167,15 @@
     }
 
     .shipping-card {
-      background: #fefcf7;
+      background: #0a0a0a;
       border-radius: 22px;
       padding: 40px 28px;
       text-align: center;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       transition: 0.42s;
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(201, 150, 58, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.1);
     }
 
     .shipping-card::before {
@@ -1359,7 +1196,7 @@
 
     .shipping-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 26px 65px rgba(0, 0, 0, 0.14);
+      box-shadow: 0 26px 65px rgba(0, 0, 0, 0.5);
     }
 
     .shipping-icon {
@@ -1367,7 +1204,7 @@
       height: 68px;
       margin: 0 auto 24px;
       border-radius: 18px;
-      background: rgba(201, 150, 58, 0.12);
+      background: rgba(212, 175, 55, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1378,21 +1215,21 @@
 
     .shipping-card:hover .shipping-icon {
       background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: white;
+      color: var(--dark);
       transform: rotate(8deg) scale(1.1);
     }
 
     .shipping-card h3 {
       font-family: 'Playfair Display', serif;
       font-size: 20px;
-      color: #1a1714;
+      color: var(--white);
       margin-bottom: 14px;
     }
 
     .shipping-card p {
       font-size: 13.5px;
       line-height: 1.8;
-      color: var(--text-mid);
+      color: rgba(255, 255, 255, 0.6);
     }
 
     /* ===== FAQ SECTION ===== */
@@ -1404,17 +1241,19 @@
     }
 
     .faq-wrapper {
-      background: linear-gradient(160deg, #ebe5d8 0%, #e0d8c8 100%);
+      background: #0a0a0a;
       padding: 80px 60px;
       position: relative;
       overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      border-radius: 24px;
     }
 
     .faq-wrapper::before {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(ellipse 50% 60% at 90% 20%, rgba(201, 150, 58, 0.08) 0%, transparent 60%);
+      background-image: radial-gradient(ellipse 50% 60% at 90% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
       pointer-events: none;
     }
 
@@ -1422,7 +1261,7 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(24px, 3vw, 38px);
       font-weight: 900;
-      color: #111111;
+      color: var(--white);
       text-align: center;
       margin-bottom: 50px;
       opacity: 0;
@@ -1443,8 +1282,8 @@
     }
 
     .faq-item {
-      background: #fefcf7;
-      border: 1px solid #d8d0bc;
+      background: #111111;
+      border: 1px solid rgba(212, 175, 55, 0.15);
       border-radius: 8px;
       overflow: hidden;
       cursor: pointer;
@@ -1459,8 +1298,8 @@
     }
 
     .faq-item.open {
-      border-color: rgba(201, 150, 58, 0.42);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border-color: rgba(212, 175, 55, 0.42);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     }
 
     .faq-question {
@@ -1475,7 +1314,7 @@
     .faq-question span {
       font-size: 14.5px;
       font-weight: 600;
-      color: #111;
+      color: var(--white);
       line-height: 1.4;
     }
 
@@ -1487,8 +1326,8 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      border: 1.5px solid #d8d0bc;
-      color: #8a7d68;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.6);
       transition: transform 0.4s, background 0.3s, border-color 0.3s;
     }
 
@@ -1503,7 +1342,7 @@
     .faq-item.open .faq-arrow {
       background: var(--gold);
       border-color: var(--gold);
-      color: #fff;
+      color: var(--dark);
       transform: rotate(180deg);
     }
 
@@ -1519,19 +1358,19 @@
 
     .faq-answer-inner {
       padding: 0 24px 24px;
-      border-top: 1px solid #d8d0bc;
+      border-top: 1px solid rgba(212, 175, 55, 0.15);
     }
 
     .faq-answer-inner p {
       font-size: 14px;
       line-height: 1.8;
-      color: #4e4640;
+      color: rgba(255, 255, 255, 0.6);
       padding-top: 18px;
     }
 
     /* ===== STATS SECTION ===== */
     .stats-section {
-      background: linear-gradient(160deg, #0a0908 0%, #100e0b 50%, #141108 100%);
+      background: linear-gradient(160deg, #000000 0%, #0a0a0a 50%, #0a0a0a 100%);
       padding: 110px 0;
       text-align: center;
       position: relative;
@@ -1541,7 +1380,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(201, 150, 58, 0.07) 0%, transparent 60%);
+      background-image: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(212, 175, 55, 0.07) 0%, transparent 60%);
       pointer-events: none;
     }
 
@@ -1555,9 +1394,9 @@
 
     .stat-box {
       padding: 42px 20px;
-      border: 1px solid rgba(201, 150, 58, 0.18);
+      border: 1px solid rgba(212, 175, 55, 0.18);
       border-radius: 18px;
-      background: rgba(253, 250, 245, 0.03);
+      background: rgba(255, 255, 255, 0.03);
       transition: 0.42s;
       position: relative;
       overflow: hidden;
@@ -1567,7 +1406,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 50% 0%, rgba(201, 150, 58, 0.06) 0%, transparent 60%);
+      background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.06) 0%, transparent 60%);
       opacity: 0;
       transition: opacity 0.4s;
     }
@@ -1578,8 +1417,8 @@
 
     .stat-box:hover {
       transform: translateY(-9px);
-      border-color: rgba(201, 150, 58, 0.5);
-      background: rgba(201, 150, 58, 0.05);
+      border-color: rgba(212, 175, 55, 0.5);
+      background: rgba(212, 175, 55, 0.05);
     }
 
     .stat-box h3 {
@@ -1591,12 +1430,12 @@
 
     .stat-box p {
       font-size: 13.5px;
-      color: rgba(253, 250, 245, 0.65);
+      color: rgba(255, 255, 255, 0.65);
     }
 
     /* ===== CTA SECTION ===== */
     .cta-section {
-      background: linear-gradient(160deg, #111008 0%, #0c0b08 50%, #0a0908 100%);
+      background: linear-gradient(160deg, #050505 0%, #0a0a0a 50%, #000000 100%);
       padding: 120px 0;
       text-align: center;
       position: relative;
@@ -1607,7 +1446,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201, 150, 58, 0.07) 0%, transparent 60%);
+      background-image: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(212, 175, 55, 0.07) 0%, transparent 60%);
       pointer-events: none;
     }
 
@@ -1626,7 +1465,7 @@
 
     .cta-content p {
       font-size: 15px;
-      color: rgba(253, 250, 245, 0.68);
+      color: rgba(255, 255, 255, 0.68);
       max-width: 640px;
       margin: 0 auto 36px;
       line-height: 1.85;
@@ -1641,11 +1480,11 @@
 
     /* ===== FOOTER ===== */
     .footer {
-      background: linear-gradient(180deg, #0a0908 0%, #070706 100%);
+      background: linear-gradient(180deg, #000000 0%, #050505 100%);
       color: #fff;
       padding-top: 75px;
       font-family: 'DM Sans', sans-serif;
-      border-top: 1px solid rgba(201, 150, 58, 0.18);
+      border-top: 1px solid rgba(212, 175, 55, 0.18);
     }
 
     .footer-container {
@@ -1686,7 +1525,7 @@
 
     .footer-box p {
       line-height: 1.85;
-      color: rgba(253, 250, 245, 0.58);
+      color: rgba(255, 255, 255, 0.58);
       font-size: 14px;
       margin-bottom: 10px;
     }
@@ -1700,7 +1539,7 @@
     }
 
     .footer-box ul li a {
-      color: rgba(253, 250, 245, 0.58);
+      color: rgba(255, 255, 255, 0.58);
       text-decoration: none;
       font-size: 14px;
       transition: 0.3s;
@@ -1713,7 +1552,7 @@
     }
 
     .footer-box ul li span {
-      color: rgba(253, 250, 245, 0.58);
+      color: rgba(255, 255, 255, 0.58);
       font-size: 14px;
     }
 
@@ -1726,7 +1565,7 @@
     .social-icons a {
       width: 40px;
       height: 40px;
-      background: rgba(253, 250, 245, 0.06);
+      background: rgba(255, 255, 255, 0.06);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1735,14 +1574,14 @@
       font-size: 16px;
       text-decoration: none;
       transition: 0.3s;
-      border: 1px solid rgba(201, 150, 58, 0.2);
+      border: 1px solid rgba(212, 175, 55, 0.2);
     }
 
     .social-icons a:hover {
       background: var(--gold);
       color: var(--dark);
       transform: translateY(-5px);
-      box-shadow: 0 8px 22px rgba(201, 150, 58, 0.38);
+      box-shadow: 0 8px 22px rgba(212, 175, 55, 0.38);
     }
 
     .footer-box i {
@@ -1751,14 +1590,14 @@
     }
 
     .footer-bottom {
-      border-top: 1px solid rgba(253, 250, 245, 0.08);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       text-align: center;
       padding: 22px 20px;
       margin-top: 10px;
     }
 
     .footer-bottom p {
-      color: rgba(253, 250, 245, 0.28);
+      color: rgba(255, 255, 255, 0.28);
       font-size: 13px;
     }
 
@@ -1779,7 +1618,7 @@
       align-items: center;
       font-size: 26px;
       cursor: pointer;
-      box-shadow: 0 6px 24px rgba(201, 150, 58, 0.48);
+      box-shadow: 0 6px 24px rgba(212, 175, 55, 0.48);
       transition: transform 0.32s, box-shadow 0.32s;
       z-index: 999;
     }
@@ -1790,231 +1629,79 @@
 
     .whatsapp:hover {
       transform: scale(1.13) rotate(8deg);
-      box-shadow: 0 12px 36px rgba(201, 150, 58, 0.68);
+      box-shadow: 0 12px 36px rgba(212, 175, 55, 0.68);
     }
 
     /* Responsive generale */
     @media (max-width: 1100px) {
-      .import-cards {
-        grid-template-columns: repeat(2, 1fr);
-        width: 90%;
-      }
-
-      .stats-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .import-cards { grid-template-columns: repeat(2, 1fr); width: 90%; }
+      .stats-container { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 1000px) {
-      .shipping-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .shipping-container { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 900px) {
-      .menu-toggle {
-        display: block;
-      }
-
+      .menu-toggle { display: block; }
       .nav-links {
         position: fixed;
         top: 76px;
         left: 0;
         width: 100%;
-        background: rgba(10, 9, 8, 0.98);
+        background: rgba(0, 0, 0, 0.98);
         backdrop-filter: blur(14px);
         padding: 26px 0;
-        border-top: 1px solid rgba(201, 150, 58, 0.28);
-        border-bottom: 1px solid rgba(201, 150, 58, 0.28);
+        border-top: 1px solid rgba(212, 175, 55, 0.28);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.28);
         transform: translateY(-120%);
         opacity: 0;
         transition: transform 0.42s ease, opacity 0.42s ease;
         z-index: 999;
         visibility: hidden;
       }
-
-      .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .nav-links ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 22px;
-      }
-
-      .nav-links ul li a {
-        font-size: 15.5px;
-      }
-
-      .hero-content {
-        width: 85%;
-        margin-left: 5%;
-      }
-
-      .about-container {
-        grid-template-columns: 1fr;
-        gap: 50px;
-      }
-
-      .about-image img {
-        height: 420px;
-      }
-
-      .about-image::after {
-        display: none;
-      }
-
-      .nav-social {
-        margin-right: 10px;
-      }
+      .nav-links.active { transform: translateY(0); opacity: 1; visibility: visible; }
+      .nav-links ul { flex-direction: column; align-items: center; gap: 22px; }
+      .nav-links ul li a { font-size: 15.5px; }
+      .hero-content { width: 85%; margin-left: 5%; }
+      .about-container { grid-template-columns: 1fr; gap: 50px; }
+      .about-image img { height: 420px; }
+      .about-image::after { display: none; }
+      .nav-social { margin-right: 10px; }
     }
 
     @media (max-width: 768px) {
-      .faq-wrapper {
-        padding: 60px 30px;
-      }
-
-      .faq-section {
-        padding: 60px 20px 70px;
-      }
-
-      .faq-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stats-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .faq-wrapper { padding: 60px 30px; }
+      .faq-section { padding: 60px 20px 70px; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .stats-container { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 600px) {
-      .stats-container {
-        grid-template-columns: 1fr;
-      }
-
-      .import-cards {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-content {
-        width: 92%;
-        margin-left: 4%;
-        padding-top: 100px;
-      }
-
-      .categories-grid {
-        gap: 12px;
-        padding: 0 16px;
-      }
-
-      .category-card {
-        width: 135px;
-        height: 88px;
-      }
-
-      .hero-buttons {
-        gap: 10px;
-      }
-
-      .btn {
-        padding: 12px 22px;
-        font-size: 13px;
-      }
+      .stats-container { grid-template-columns: 1fr; }
+      .import-cards { grid-template-columns: 1fr; }
+      .hero-content { width: 92%; margin-left: 4%; padding-top: 100px; }
+      .categories-grid { gap: 12px; padding: 0 16px; }
+      .category-card { width: 135px; height: 88px; }
+      .hero-buttons { gap: 10px; }
+      .btn { padding: 12px 22px; font-size: 13px; }
     }
 
     @media (max-width: 580px) {
-      .shipping-container {
-        grid-template-columns: 1fr;
-      }
-
-      .about-features {
-        grid-template-columns: 1fr;
-      }
+      .shipping-container { grid-template-columns: 1fr; }
+      .about-features { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
-      .logo h2 {
-        font-size: 12px;
-      }
-
-      .logo-icon {
-        width: 38px;
-        height: 38px;
-        font-size: 16px;
-      }
-
-      .nav-social {
-        display: none;
-      }
-
-      .whatsapp {
-        width: 52px;
-        height: 52px;
-        font-size: 22px;
-        bottom: 22px;
-        right: 18px;
-      }
-
-      .faq-wrapper {
-        padding: 50px 20px;
-      }
+      .logo-img { width: 70px; height: 45px; }
+      .logo-text strong { font-size: 14px; }
+      .logo-text small { font-size: 8px; }
+      .nav-social { display: none; }
+      .whatsapp { width: 52px; height: 52px; font-size: 22px; bottom: 22px; right: 18px; }
+      .faq-wrapper { padding: 50px 20px; }
     }
 
-    .stat-box h3 {
-      font-size: 30px;
-    }
-    /* ---- اللوجو الجديد ---- */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    text-decoration: none;
-    flex-shrink: 0;
-}
-
-.logo-img {
-    width: 100px;
-    height: 64px;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-.logo-text {
-    line-height: 1.15;
-}
-
-.logo-text strong {
-    display: block;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 17px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--cream);
-}
-
-.logo-text small {
-    display: block;
-    font-size: 9px;
-    font-weight: 400;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--gold);
-}
-@media (max-width: 480px) {
-    .logo-img {
-        width: 70px;
-        height: 45px;
-    }
-    .logo-text strong {
-        font-size: 14px;
-    }
-    .logo-text small {
-        font-size: 8px;
-    }
-}
+    .stat-box h3 { font-size: 30px; }
   </style>
 </head>
 
@@ -2023,12 +1710,12 @@
   <header id="navbar">
     <div class="nav">
       <a class="logo" href="index.html">
-    <img src="imges/logo.jpg" alt="CHOAMX" class="logo-img">
-    <div class="logo-text">
-        <strong>CHOAMX</strong>
-        <small>Egyptian Excellence</small>
-    </div>
-</a>
+        <img src="imges/logo.jpg" alt="CHOAMX" class="logo-img">
+        <div class="logo-text">
+          <strong>CHOAMX</strong>
+          <small>Egyptian Excellence</small>
+        </div>
+      </a>
       <button class="menu-toggle" id="mobileMenuToggle" aria-label="Menu">
         <i class="fas fa-bars"></i>
       </button>
@@ -2036,7 +1723,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="prodotti.html">prodotti</a></li>
-          <li><a href="Chi _siamo.html">Chi siamo</a></li>
+          <li><a href="Chi_siamo.html">Chi siamo</a></li>
           <li><a href="Consulenza.html">Consulenza</a></li>
           <li><a href="contact.html">Contattaci</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -2055,16 +1742,12 @@
     <div class="hero-overlay"></div>
     <div class="hero-particles" id="particles"></div>
     <div class="hero-content">
-      <div class="hero-badge"><i class="fas fa-leaf"></i> CHOAMX — Eccellenza Egiziana,Rigore Gestionale italiano</div>
-      <h1>Il tuo ponte diretto tra <em>le migliori </em><br> produzioni di frutta e verdura fresca, surgelati IQF e Bio
-        Energy dell’Egitto.</h1>
-      <p>Uniamo l'eccellenza produttiva egiziana al rigore del management Italiano, garantendo standard qualitativi
-        elevati, tracciabilità completa e affidabilità costante in ogni spedizione.</p>
+      <div class="hero-badge"><i class="fas fa-leaf"></i> CHOAMX — Eccellenza Egiziana, Rigore Gestionale Italiano</div>
+      <h1>Il tuo ponte diretto tra <em>le migliori</em><br> produzioni di frutta e verdura fresca, surgelati IQF e Bio Energy dell'Egitto.</h1>
+      <p>Uniamo l'eccellenza produttiva egiziana al rigore del management Italiano, garantendo standard qualitativi elevati, tracciabilità completa e affidabilità costante in ogni spedizione.</p>
       <div class="hero-buttons">
         <button class="btn btn-primary">Richiedi un preventivo</button>
-        <a href="contact.html">
-    <button class="btn btn-secondary">Sfoglia i Prodotti</button>
-</a>
+        <a href="contact.html"><button class="btn btn-secondary">Sfoglia i Prodotti</button></a>
       </div>
     </div>
     <div class="scroll-indicator"><i class="fas fa-chevron-down"></i> SCORRI</div>
@@ -2073,40 +1756,29 @@
   <!-- WHY IMPORT -->
   <section class="import-section">
     <div class="section-header">
-      <div class="section-eyebrow reveal">PERCHÉ SCEGLIERCI </div>
-      <h2 class="section-title-main title-on-light reveal stagger-1">PERCHÉ AFFIDARSI A CHOAMX? </h2>
+      <div class="section-eyebrow reveal">PERCHÉ SCEGLIERCI</div>
+      <h2 class="section-title-main title-on-light reveal stagger-1">PERCHÉ AFFIDARSI A CHOAMX?</h2>
     </div>
     <div class="import-cards">
       <div class="import-card reveal stagger-1">
-        <div class="card-icon"><i class="fas fa-medal"></i></div><span class="card-label-tag">QUALITA</span>
+        <div class="card-icon"><i class="fas fa-medal"></i></div><span class="card-label-tag">QUALITÀ</span>
         <h3 class="card-title">Oltre la selezione, il controllo live.</h3>
-        <p> Non ci fidiamo delle promesse: applichiamo rigidi protocolli di selezione italiani. Prima della partenza,
-          riceverai report video e foto del tuo carico. Verifichiamo calibro e freschezza insieme a te, eliminando ogni
-          sorpresa all'arrivo.</p>
+        <p>Non ci fidiamo delle promesse: applichiamo rigidi protocolli di selezione italiani. Prima della partenza, riceverai report video e foto del tuo carico. Verifichiamo calibro e freschezza insieme a te, eliminando ogni sorpresa all'arrivo.</p>
       </div>
       <div class="import-card reveal stagger-2">
-        <div class="card-icon"><i class="fas fa-file-contract"></i></div><span class="card-label-tag">COMPLIANCE E
-          TRACCIABILITÀ </span>
-        <h3 class="card-title">Sicurezza doganale e dazio zero (EUR.1). </h3>
-        <p>Sicurezza burocratica e vantaggi fiscali: ci occupiamo noi di ogni dettaglio. Con l'emissione del certificato
-          EUR.1, permettiamo ai nostri partner europei di importare a dazio zero, ottimizzando i margini e velocizzando
-          le operazioni doganali. La qualità CHOAMX è garantita da rigorosi controlli di laboratorio e certificazioni
-          che attestano la piena conformità agli standard UE.</p>
+        <div class="card-icon"><i class="fas fa-file-contract"></i></div><span class="card-label-tag">COMPLIANCE E TRACCIABILITÀ</span>
+        <h3 class="card-title">Sicurezza doganale e dazio zero (EUR.1).</h3>
+        <p>Sicurezza burocratica e vantaggi fiscali: ci occupiamo noi di ogni dettaglio. Con l'emissione del certificato EUR.1, permettiamo ai nostri partner europei di importare a dazio zero, ottimizzando i margini e velocizzando le operazioni doganali.</p>
       </div>
       <div class="import-card reveal stagger-3">
         <div class="card-icon"><i class="fas fa-handshake"></i></div><span class="card-label-tag">FIDUCIA</span>
-        <h3 class="card-title">Un ponte diretto Italia Egitto senza barriere. </h3>
-        <p>A differenza dei broker locali, ChoamX è un’azienda a proprietà e gestione italiana con sede in Egitto.
-          Questo significa contratti chiari, nessuna barriera linguistica e la sicurezza di un partner che opera secondo
-          il tuo stesso codice etico e professionale. </p>
+        <h3 class="card-title">Un ponte diretto Italia Egitto senza barriere.</h3>
+        <p>A differenza dei broker locali, ChoamX è un'azienda a proprietà e gestione italiana con sede in Egitto. Questo significa contratti chiari, nessuna barriera linguistica e la sicurezza di un partner che opera secondo il tuo stesso codice etico e professionale.</p>
       </div>
       <div class="import-card reveal stagger-4">
-        <div class="card-icon"><i class="fas fa-shipping-fast"></i></div><span class="card-label-tag">LOGISTICA
-          INTEGRATA</span>
-        <h3 class="card-title">Flussi rapidi e ottimizzati per il mercato globale. </h3>
-        <p>Colleghiamo le migliori produzioni egiziane ai mercati Europei, Medio Oriente e i principali mercati
-          internazionali. Grazie alla nostra gestione diretta e alla presenza costante sui siti di carico, garantiamo
-          flussi rapidi, monitoraggio totale della merce e la massima puntualità in ogni spedizione.</p>
+        <div class="card-icon"><i class="fas fa-shipping-fast"></i></div><span class="card-label-tag">LOGISTICA INTEGRATA</span>
+        <h3 class="card-title">Flussi rapidi e ottimizzati per il mercato globale.</h3>
+        <p>Colleghiamo le migliori produzioni egiziane ai mercati Europei, Medio Oriente e i principali mercati internazionali. Grazie alla nostra gestione diretta e alla presenza costante sui siti di carico, garantiamo flussi rapidi e monitoraggio totale della merce.</p>
       </div>
     </div>
   </section>
@@ -2114,26 +1786,15 @@
   <!-- ABOUT -->
   <section class="about-section" id="about">
     <div class="about-container">
-      <div class="about-image reveal from-left"><img
-          src="https://images.pexels.com/photos/3848793/pexels-photo-3848793.jpeg" alt="CHOAMX Export" loading="lazy">
-      </div>
+      <div class="about-image reveal from-left"><img src="https://images.pexels.com/photos/3848793/pexels-photo-3848793.jpeg" alt="CHOAMX Export" loading="lazy"></div>
       <div class="about-content reveal from-right"><span class="section-eyebrow">About CHOAMX</span>
-        <h2 class="about-title"> Un Ponte Italiano nel Cuore dell'Egitto </h2>
-        <p class="about-text">ChoamX nasce dall'unione tra la profonda conoscenza del territorio egiziano e
-          l'affidabilità della gestione italiana. Siamo una società internazionale a proprietà e management italiano con
-          sede operativa in Egitto: una scelta strategica che ci permette di essere presenti dove tutto ha inizio,
-          facilitando l'incontro tra le migliori produzioni locali e le esigenze dei mercati globali. Il nostro nome
-          racchiude i pilastri su cui abbiamo costruito la nostra realtà: Connection, Honesty, Opportunity, Assurance,
-          Management e X-Innovation. Operiamo attraverso tre divisioni specializzate per rispondere con precisione a
-          ogni richiesta della nostra clientela:</p>
+        <h2 class="about-title">Un Ponte Italiano nel Cuore dell'Egitto</h2>
+        <p class="about-text">ChoamX nasce dall'unione tra la profonda conoscenza del territorio egiziano e l'affidabilità della gestione italiana. Siamo una società internazionale a proprietà e management italiano con sede operativa in Egitto: una scelta strategica che ci permette di essere presenti dove tutto ha inizio, facilitando l'incontro tra le migliori produzioni locali e le esigenze dei mercati globali.</p>
         <div class="about-features">
-          <div class="feature-box"><i class="fas fa-check-circle"></i><span>FRESH DIVISION. Selezioniamo e distribuiamo una vasta gamma di frutta e verdura fresca, dagli agrumi agli ortaggi, garantendo forniture costanti con i più rigorosi controlli.
-               </span></div>
-          <div class="feature-box"><i class="fas fa-check-circle"></i><span>FROZEN DIVISION. Una selezione completa di prodotti surgelati che mantengono intatte le proprietà organolettiche, pronti per essere distribuiti nei canali della ristorazione e della grande distribuzione.
-              </span></div>
-          <div class="feature-box"><i class="fas fa-check-circle"></i><span>BIO ENERGY DIVISION. Non solo alimentare: esportiamo pellet e carbone naturale di alta qualità, offrendo soluzioni concrete per il settore dell'energia rinnovabile e del riscaldamento.
-               </span></div>
-        </div><button class="btn btn-primary">Scopri di più </button>
+          <div class="feature-box"><i class="fas fa-check-circle"></i><span>FRESH DIVISION. Selezioniamo e distribuiamo una vasta gamma di frutta e verdura fresca.</span></div>
+          <div class="feature-box"><i class="fas fa-check-circle"></i><span>FROZEN DIVISION. Prodotti surgelati che mantengono intatte le proprietà organolettiche.</span></div>
+          <div class="feature-box"><i class="fas fa-check-circle"></i><span>BIO ENERGY DIVISION. Esportiamo pellet e carbone naturale di alta qualità.</span></div>
+        </div><button class="btn btn-primary">Scopri di più</button>
       </div>
     </div>
   </section>
@@ -2146,266 +1807,82 @@
       <h2 class="section-title-main title-on-dark reveal stagger-1">Le Nostre Categorie</h2>
     </div>
     <div class="categories-grid">
-      <div class="category-card card-verdure">
-        <div class="card-bg"></div>
-        <div class="card-overlay"></div>
-        <div class="card-label">AGRUMI</div>
-      </div>
-      <div class="category-card card-surgelati">
-        <div class="card-bg"></div>
-        <div class="card-overlay"></div>
-        <div class="card-label">FRUTTA</div>
-      </div>
-      <div class="category-card card-frutta">
-        <div class="card-bg"></div>
-        <div class="card-overlay"></div>
-        <div class="card-label">ORTAGGI</div>
-      </div>
-      <div class="category-card card-legumi">
-        <div class="card-bg"></div>
-        <div class="card-overlay"></div>
-        <div class="card-label">LEGUMI</div>
-      </div>
-      <div class="category-card card-stagione">
-        <div class="card-bg"></div>
-        <div class="card-overlay"></div>
-        <div class="card-label">SALAMOIATI</div>
-      </div>
-      <div class="category-card card-energia">
-        <div class="card-bg"></div>
-        <div class="card-overlay"></div>
-        <div class="card-label">PRODOTTI SURGELATI </div>
-      </div>
-      <div class="category-card card-energia">
-        <div class="card-bg"></div>
-        <div class="card-overlay"></div>
-        <div class="card-label">PELLET E CARBONE</div>
-      </div>
+      <div class="category-card card-verdure"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">AGRUMI</div></div>
+      <div class="category-card card-surgelati"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">FRUTTA</div></div>
+      <div class="category-card card-frutta"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">ORTAGGI</div></div>
+      <div class="category-card card-legumi"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">LEGUMI</div></div>
+      <div class="category-card card-stagione"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">SALAMOIATI</div></div>
+      <div class="category-card card-energia"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">PRODOTTI SURGELATI</div></div>
+      <div class="category-card card-energia"><div class="card-bg"></div><div class="card-overlay"></div><div class="card-label">PELLET E CARBONE</div></div>
     </div>
   </section>
 
-  <!-- TIMELINE SECTION (CORRETTA) -->
+  <!-- TIMELINE SECTION -->
   <section class="timeline-section">
     <div class="timeline-header" id="tl-header">
-      <div class="section-eyebrow" style="color:var(--gold-dark)">Il Nostro Processo</div>
+      <div class="section-eyebrow" style="color:var(--gold)">Il Nostro Processo</div>
       <h2>Cronologia dell'ordine con CHOAMX</h2>
     </div>
     <div class="timeline-container">
-      <div class="timeline-line" id="tl-line">
-        <div class="timeline-line-fill" id="tl-fill"></div>
-      </div>
+      <div class="timeline-line" id="tl-line"><div class="timeline-line-fill" id="tl-fill"></div></div>
       
-      <div class="timeline-item">
-        <div class="item-center">
-          <div class="item-dot"></div>
-          <div class="item-day">Day 0</div>
-        </div>
-        <div class="item-left">
-          <div class="item-title">Definizione delle specifiche</div>
-          <p class="item-desc">Analizziamo insieme ogni dettaglio: prodotto, calibro, imballaggio, quantità, Incoterm e destinazione. Nessuna ambiguità, zero margini di errore.</p>
-        </div>
-        <div class="item-empty"></div>
-      </div>
+      <div class="timeline-item"><div class="item-center"><div class="item-dot"></div><div class="item-day">Day 0</div></div><div class="item-left"><div class="item-title">Definizione delle specifiche</div><p class="item-desc">Analizziamo insieme ogni dettaglio: prodotto, calibro, imballaggio, quantità, Incoterm e destinazione. Nessuna ambiguità, zero margini di errore.</p></div><div class="item-empty"></div></div>
       
-      <div class="timeline-item">
-        <div class="item-center">
-          <div class="item-dot"></div>
-          <div class="item-day">± 24 hours</div>
-        </div>
-        <div class="item-empty"></div>
-        <div class="item-right">
-          <div class="item-title">Offerta dettagliata</div>
-          <p class="item-desc">Ricevi un preventivo completo con tempistiche di partenza, stime di arrivo, opzioni logistiche e condizioni chiare.</p>
-        </div>
-      </div>
+      <div class="timeline-item"><div class="item-center"><div class="item-dot"></div><div class="item-day">± 24 hours</div></div><div class="item-empty"></div><div class="item-right"><div class="item-title">Offerta dettagliata</div><p class="item-desc">Ricevi un preventivo completo con tempistiche di partenza, stime di arrivo, opzioni logistiche e condizioni chiare.</p></div></div>
       
-      <div class="timeline-item">
-        <div class="item-center">
-          <div class="item-dot"></div>
-          <div class="item-day">Day 1–2</div>
-        </div>
-        <div class="item-left">
-          <div class="item-title">Conferma e pianificazione</div>
-          <p class="item-desc">Emettiamo la Proforma Invoice e definiamo un calendario operativo di precisione. Ogni fase è programmata per garantire fluidità e puntualità.</p>
-        </div>
-        <div class="item-empty"></div>
-      </div>
+      <div class="timeline-item"><div class="item-center"><div class="item-dot"></div><div class="item-day">Day 1–2</div></div><div class="item-left"><div class="item-title">Conferma e pianificazione</div><p class="item-desc">Emettiamo la Proforma Invoice e definiamo un calendario operativo di precisione. Ogni fase è programmata per garantire fluidità e puntualità.</p></div><div class="item-empty"></div></div>
       
-      <div class="timeline-item">
-        <div class="item-center">
-          <div class="item-dot"></div>
-          <div class="item-day">Day 1-3</div>
-        </div>
-        <div class="item-empty"></div>
-        <div class="item-right">
-          <div class="item-title">Controllo qualità e preparazione</div>
-          <p class="item-desc">Supervisioniamo selezione, lavorazione e imballaggio direttamente sul campo. Prima della partenza, ricevi report video e foto del carico.</p>
-        </div>
-      </div>
+      <div class="timeline-item"><div class="item-center"><div class="item-dot"></div><div class="item-day">Day 1-3</div></div><div class="item-empty"></div><div class="item-right"><div class="item-title">Controllo qualità e preparazione</div><p class="item-desc">Supervisioniamo selezione, lavorazione e imballaggio direttamente sul campo. Prima della partenza, ricevi report video e foto del carico.</p></div></div>
       
-      <div class="timeline-item">
-        <div class="item-center">
-          <div class="item-dot"></div>
-          <div class="item-day">In partenza</div>
-        </div>
-        <div class="item-left">
-          <div class="item-title">Spedizione e monitoraggio</div>
-          <p class="item-desc">Gestiamo l'intera logistica. Seguiamo la merce lungo tutto il tragitto con aggiornamenti costanti e tutta la documentazione necessaria.</p>
-        </div>
-        <div class="item-empty"></div>
-      </div>
+      <div class="timeline-item"><div class="item-center"><div class="item-dot"></div><div class="item-day">In partenza</div></div><div class="item-left"><div class="item-title">Spedizione e monitoraggio</div><p class="item-desc">Gestiamo l'intera logistica. Seguiamo la merce lungo tutto il tragitto con aggiornamenti costanti e tutta la documentazione necessaria.</p></div><div class="item-empty"></div></div>
       
-      <div class="timeline-item">
-        <div class="item-center">
-          <div class="item-dot"></div>
-          <div class="item-day">In corso</div>
-        </div>
-        <div class="item-empty"></div>
-        <div class="item-right">
-          <div class="item-title">Supporto post-consegna</div>
-          <p class="item-desc">Restiamo al tuo fianco anche dopo l'arrivo della merce, garantendo assistenza operativa continua e stabilità per la tua programmazione futura.</p>
-        </div>
-      </div>
+      <div class="timeline-item"><div class="item-center"><div class="item-dot"></div><div class="item-day">In corso</div></div><div class="item-empty"></div><div class="item-right"><div class="item-title">Supporto post-consegna</div><p class="item-desc">Restiamo al tuo fianco anche dopo l'arrivo della merce, garantendo assistenza operativa continua e stabilità per la tua programmazione futura.</p></div></div>
     </div>
   </section>
 
   <!-- SHIPPING -->
   <section class="shipping-section" id="shipping">
     <div class="section-header">
-      <div class="section-eyebrow reveal">LOGISTICA </div>
-      <h2 class="section-title-main title-on-light reveal stagger-1">CHOAMX - Logistica Internazionale e Spedizioni
-        Sicure </h2>
+      <div class="section-eyebrow reveal">LOGISTICA</div>
+      <h2 class="section-title-main title-on-light reveal stagger-1">CHOAMX - Logistica Internazionale e Spedizioni Sicure</h2>
     </div>
     <div class="shipping-container">
-      <div class="shipping-card reveal stagger-1">
-        <div class="shipping-icon"><i class="fas fa-anchor"></i></div>
-        <h3>Porti Strategici e Copertura Globale </h3>
-        <p>Operiamo dai principali porti egiziani (Alessandria, Damietta, Port Said e Sokhna). Questa capillarità ci
-          permette di scegliere sempre la rotta più rapida ed efficiente per l'Europa, il Medio Oriente e i mercati
-          globali.</p>
-      </div>
-      <div class="shipping-card reveal stagger-2">
-        <div class="shipping-icon"><i class="fas fa-box"></i></div>
-        <h3>Catena del Freddo Garantita (Container Reefer)</h3>
-        <p>Per i nostri prodotti Fresh e Frozen, utilizziamo esclusivamente Container Reefer da 40 piedi di ultima
-          generazione. Il monitoraggio costante della temperatura assicura che la merce arrivi a destinazione con la
-          stessa freschezza con cui è partita. </p>
-      </div>
-      <div class="shipping-card reveal stagger-3">
-        <div class="shipping-icon"><i class="fas fa-globe"></i></div>
-        <h3>Flessibilità Contrattuale (Incoterms 2020) </h3>
-        <p>Ci adattiamo alle vostre esigenze logistiche. Offriamo soluzioni FOB, CFR, CIF, DAP e DPU, gestendo con
-          precisione tutta la documentazione necessaria per un export senza intoppi. </p>
-      </div>
-      <div class="shipping-card reveal stagger-4">
-        <div class="shipping-icon"><i class="fas fa-shield-alt"></i></div>
-        <h3>Sicurezza e Burocrazia </h3>
-        <p>Oltre al monitoraggio costante, ci occupiamo delle pratiche doganali e offriamo opzioni di assicurazione sul
-          carico, garantendo una gestione documentale trasparente e sicura. Inoltre con il certificato EUR.1,
-          permettiamo  ai nostri partner dell'Unione Europea di beneficiare dell'importazione a Dazio Zero.</p>
-      </div>
+      <div class="shipping-card reveal stagger-1"><div class="shipping-icon"><i class="fas fa-anchor"></i></div><h3>Porti Strategici e Copertura Globale</h3><p>Operiamo dai principali porti egiziani (Alessandria, Damietta, Port Said e Sokhna). Questa capillarità ci permette di scegliere sempre la rotta più rapida ed efficiente.</p></div>
+      <div class="shipping-card reveal stagger-2"><div class="shipping-icon"><i class="fas fa-box"></i></div><h3>Catena del Freddo Garantita</h3><p>Per i nostri prodotti Fresh e Frozen, utilizziamo esclusivamente Container Reefer da 40 piedi di ultima generazione. Il monitoraggio costante della temperatura assicura la massima freschezza.</p></div>
+      <div class="shipping-card reveal stagger-3"><div class="shipping-icon"><i class="fas fa-globe"></i></div><h3>Flessibilità Contrattuale</h3><p>Ci adattiamo alle vostre esigenze logistiche. Offriamo soluzioni FOB, CFR, CIF, DAP e DPU, gestendo con precisione tutta la documentazione necessaria per un export senza intoppi.</p></div>
+      <div class="shipping-card reveal stagger-4"><div class="shipping-icon"><i class="fas fa-shield-alt"></i></div><h3>Sicurezza e Burocrazia</h3><p>Oltre al monitoraggio costante, ci occupiamo delle pratiche doganali e offriamo opzioni di assicurazione sul carico. Con il certificato EUR.1, permettiamo l'importazione a Dazio Zero.</p></div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <div style="background: linear-gradient(160deg,#ebe5d8 0%,#e0d8c8 100%); padding: 1px 0;">
+  <div style="background: #000000; padding: 1px 0;">
     <div class="faq-section" id="faq">
       <div class="faq-wrapper">
-        <h2 class="faq-title" id="faq-title">LE VOSTRE DOMANDE PIÙ RICORRENTI </h2>
+        <h2 class="faq-title" id="faq-title">LE VOSTRE DOMANDE PIÙ RICORRENTI</h2>
         <div class="faq-grid">
           <div class="faq-item open" onclick="toggleFaq(this)">
-            <div class="faq-question"><span>DI COSA SI OCCUPA CHOAMX? </span>
-              <div class="faq-arrow"><svg viewBox="0 0 24 24">
-                  <polyline points="18 15 12 9 6 15" />
-                </svg></div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-                <p>Siamo un partner internazionale specializzato nell’esportazione di prodotti egiziani, con gestione e controllo 
-diretto italiano, la nostra struttura è organizzata in tre divisioni: Fresh Division: frutta e verdura fresca, 
-Frozen Division: prodotti surgelati IQF, Bio Energy Division: pellet e carbone naturale. Operiamo applicando 
-standard gestionali italiani e un controllo diretto lungo tutta la filiera. </p>
-              </div>
-            </div>
+            <div class="faq-question"><span>DI COSA SI OCCUPA CHOAMX?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div>
+            <div class="faq-answer"><div class="faq-answer-inner"><p>Siamo un partner internazionale specializzato nell'esportazione di prodotti egiziani, con gestione e controllo diretto italiano. La nostra struttura è organizzata in tre divisioni: Fresh Division, Frozen Division, Bio Energy Division.</p></div></div>
           </div>
           <div class="faq-item open" onclick="toggleFaq(this)">
-            <div class="faq-question"><span>COME VENGONO FORMULATI I PREZZI E QUANTO SONO VALIDI I PREVENTIVI?</span>
-              <div class="faq-arrow"><svg viewBox="0 0 24 24">
-                  <polyline points="18 15 12 9 6 15" />
-                </svg></div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-                <p> Offriamo flessibilità e sicurezza con le principali condizioni di pagamento internazionali: LC a vista (Lettera di 
-Credito), DP (Documenti contro Pagamento), TT (Bonifico Bancario). Siamo disponibili a valutare soluzioni di 
-pagamento personalizzate in base alle esigenze del cliente e al volume dell’ordine. Su richiesta offriamo 
-inoltre: Ispezioni di terze parti (SGS o Bureau Veritas) e soluzioni Escrow per maggiore tutela.  </p>
-              </div>
-            </div>
+            <div class="faq-question"><span>COME VENGONO FORMULATI I PREZZI E QUANTO SONO VALIDI I PREVENTIVI?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div>
+            <div class="faq-answer"><div class="faq-answer-inner"><p>Offriamo flessibilità e sicurezza con le principali condizioni di pagamento internazionali: LC a vista, DP, TT. Siamo disponibili a valutare soluzioni di pagamento personalizzate in base alle esigenze del cliente.</p></div></div>
           </div>
           <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-question"><span>QUALI CONDIZIONI DI PAGAMENTO ACCETTATE?</span>
-              <div class="faq-arrow"><svg viewBox="0 0 24 24">
-                  <polyline points="18 15 12 9 6 15" />
-                </svg></div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-                <p>Offriamo flessibilità e sicurezza con le principali condizioni di pagamento internazionali: LC a
-                  vista (Lettera di Credito), DP (Documenti contro Pagamento), TT (Bonifico Bancario). Siamo disponibili
-                  a valutare soluzioni di pagamento personalizzate in base alle esigenze del cliente e al volume
-                  dell’ordine. Su richiesta offriamo inoltre: Ispezioni di terze parti (SGS o Bureau Veritas), Soluzioni
-                  Escrow per maggiore tutela.</p>
-              </div>
-            </div>
+            <div class="faq-question"><span>QUALI CONDIZIONI DI PAGAMENTO ACCETTATE?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div>
+            <div class="faq-answer"><div class="faq-answer-inner"><p>Offriamo flessibilità e sicurezza con le principali condizioni di pagamento internazionali: LC a vista, DP, TT. Su richiesta offriamo ispezioni di terze parti e soluzioni Escrow per maggiore tutela.</p></div></div>
           </div>
           <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-question"><span>QUAL È IL QUANTITATIVO MINIMO D’ORDINE?</span>
-              <div class="faq-arrow"><svg viewBox="0 0 24 24">
-                  <polyline points="18 15 12 9 6 15" />
-                </svg></div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-                <p>Accettiamo ordini a partire da un container completo (FCL) di 20’ o 40’. È possibile combinare più
-                  referenze (diverse varietà di frutta, verdura o prodotti) all’interno dello stesso container, purché
-                  rispettino le stesse esigenze di temperatura e stivaggio.</p>
-              </div>
-            </div>
+            <div class="faq-question"><span>QUAL È IL QUANTITATIVO MINIMO D'ORDINE?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div>
+            <div class="faq-answer"><div class="faq-answer-inner"><p>Accettiamo ordini a partire da un container completo (FCL) di 20' o 40'. È possibile combinare più referenze all'interno dello stesso container, purché rispettino le stesse esigenze di temperatura e stivaggio.</p></div></div>
           </div>
           <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-question"><span>QUALI SONO I TEMPI DI PREPARAZIONE E SPEDIZIONE?</span>
-              <div class="faq-arrow"><svg viewBox="0 0 24 24">
-                  <polyline points="18 15 12 9 6 15" />
-                </svg></div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-                <p> I tempi medi tra la conferma dell’ordine e la partenza della merce sono generalmente di 3–7 giorni
-                  lavorativi. Questo periodo include selezione del prodotto, imballaggio, controlli qualità e
-                  caricamento. Per frutta e verdura fresca: 3–7 giorni, per surgelati IQF: via rapida di 3–5 giorni, per
-                  i prodotti Bio Energy (pellet e carbone naturale): generalmente 2–5 giorni, grazie alla disponibilità
-                  costante e alla semplicità di preparazione. </p>
-              </div>
-            </div>
+            <div class="faq-question"><span>QUALI SONO I TEMPI DI PREPARAZIONE E SPEDIZIONE?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div>
+            <div class="faq-answer"><div class="faq-answer-inner"><p>I tempi medi tra la conferma dell'ordine e la partenza della merce sono generalmente di 3-7 giorni lavorativi. Questo periodo include selezione del prodotto, imballaggio, controlli qualità e caricamento.</p></div></div>
           </div>
           <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-question"><span>COME GARANTITE LA QUALITÀ? </span>
-              <div class="faq-arrow"><svg viewBox="0 0 24 24">
-                  <polyline points="18 15 12 9 6 15" />
-                </svg></div>
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-inner">
-                <p>Garantiamo la qualità attraverso un rigoroso sistema di controlli multi-livello: Selezione accurata
-                  delle aziende agricole e dei fornitori più affidabili, Grading e controllo qualità pre-spedizione
-                  effettuato direttamente dal nostro team, Report fotografici e video in tempo reale inviati al cliente
-                  prima del caricamento, Monitoraggio completo del container reefer (PTI, VGM, impostazioni di
-                  temperatura e umidità), Ispezioni indipendenti opzionali tramite SGS o Bureau Veritas. Tutto il
-                  processo è supervisionato dal nostro management italiano, garantendo standard elevati e massima
-                  trasparenza in ogni fase.</p>
-              </div>
-            </div>
+            <div class="faq-question"><span>COME GARANTITE LA QUALITÀ?</span><div class="faq-arrow"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div></div>
+            <div class="faq-answer"><div class="faq-answer-inner"><p>Garantiamo la qualità attraverso un rigoroso sistema di controlli multi-livello: selezione accurata dei fornitori, controllo qualità pre-spedizione, report fotografici e video in tempo reale, monitoraggio completo del container, ispezioni indipendenti opzionali.</p></div></div>
           </div>
         </div>
       </div>
@@ -2415,30 +1892,14 @@ inoltre: Ispezioni di terze parti (SGS o Bureau Veritas) e soluzioni Escrow per 
   <!-- STATS -->
   <section class="stats-section" id="stats">
     <div class="section-header">
-      <div class="section-eyebrow reveal">I NOSTRI PILASTRI </div>
-      <h2 class="section-title-main title-on-dark reveal stagger-1">CHOAMX - I Nostri Punti di Forza </h2>
+      <div class="section-eyebrow reveal">I NOSTRI PILASTRI</div>
+      <h2 class="section-title-main title-on-dark reveal stagger-1">CHOAMX - I Nostri Punti di Forza</h2>
     </div>
     <div class="stats-container">
-      <div class="stat-box reveal stagger-1">
-        <h3>100% MANAGEMENT italiano</h3>
-        <p>Una gestione che condivide la vostra cultura aziendale, i vostri standard di qualità e parla la vostra
-          lingua. Eliminiamo ogni barriera comunicativa e professionale.</p>
-      </div>
-      <div class="stat-box reveal stagger-2">
-        <h3>100% Sede Operativa in Egitto</h3>
-        <p>Non siamo semplici intermediari. La nostra presenza fisica sul territorio ci permette di selezionare le
-          migliori opportunità direttamente alla fonte e monitorare i flussi logistici in tempo reale.</p>
-      </div>
-      <div class="stat-box reveal stagger-3">
-        <h3>100% Divisioni Multsettoriali </h3>
-        <p>Un unico partner per tre mercati strategici: Fresh, Frozen e Bio Energy. Diversifichiamo l'offerta per
-          rispondere con precisione alle diverse esigenze del mercato globale.</p>
-      </div>
-      <div class="stat-box reveal stagger-4">
-        <h3>100% Approccio Personalizzato </h3>
-        <p>Essendo una realtà dinamica, ogni cliente è per noi prioritario. Garantiamo un’assistenza diretta e una cura
-          del dettaglio che solo un partner dedicato può offrire.</p>
-      </div>
+      <div class="stat-box reveal stagger-1"><h3>100%</h3><p>MANAGEMENT italiano - Una gestione che condivide la vostra cultura aziendale</p></div>
+      <div class="stat-box reveal stagger-2"><h3>100%</h3><p>Sede Operativa in Egitto - Presenza fisica sul territorio</p></div>
+      <div class="stat-box reveal stagger-3"><h3>100%</h3><p>Divisioni Multisettoriali - Fresh, Frozen e Bio Energy</p></div>
+      <div class="stat-box reveal stagger-4"><h3>100%</h3><p>Approccio Personalizzato - Assistenza diretta e cura del dettaglio</p></div>
     </div>
   </section>
 
@@ -2446,11 +1907,9 @@ inoltre: Ispezioni di terze parti (SGS o Bureau Veritas) e soluzioni Escrow per 
   <section class="cta-section" id="cta">
     <div class="cta-container">
       <div class="cta-content reveal">
-        <h2>Sei pronto a importare il meglio dei prodotti dell’egitto con la sicurezza italiana?</h2>
-        <p>Contatta CHOAMX oggi stesso. Riceverai una consulenza dedicata e un preventivo personalizzato per le tue
-          esigenze di fornitura, con la garanzia di un partner che parla la tua lingua. </p>
-        <div class="cta-buttons"><button class="btn btn-primary">Richiedi un Preventivo </button><button
-            class="btn btn-secondary" onclick="openWhatsApp()">Contattaci su WhatsApp</button></div>
+        <h2>Sei pronto a importare il meglio dei prodotti dell'Egitto con la sicurezza italiana?</h2>
+        <p>Contatta CHOAMX oggi stesso. Riceverai una consulenza dedicata e un preventivo personalizzato per le tue esigenze di fornitura, con la garanzia di un partner che parla la tua lingua.</p>
+        <div class="cta-buttons"><button class="btn btn-primary">Richiedi un Preventivo</button><button class="btn btn-secondary" onclick="openWhatsApp()">Contattaci su WhatsApp</button></div>
       </div>
     </div>
   </section>
@@ -2459,28 +1918,14 @@ inoltre: Ispezioni di terze parti (SGS o Bureau Veritas) e soluzioni Escrow per 
   <footer class="footer" id="contact-footer">
     <div class="footer-container">
       <div class="footer-box"><span class="footer-logo">CHOAMX</span>
-        <p>Partner internazionale specializzato nell’esportazione di prodotti egiziani, con gestione e controllo diretto
-          italiano. Uniamo le migliori filiere locali ai mercati globali garantendo tracciabilità, standard UE e
-          supervisione costante sul campo.</p>
-        <div class="social-icons"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i
-              class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-linkedin-in"></i></a><a href="#"
-            onclick="openWhatsApp()"><i class="fa-brands fa-whatsapp"></i></a></div>
+        <p>Partner internazionale specializzato nell'esportazione di prodotti egiziani, con gestione e controllo diretto italiano. Uniamo le migliori filiere locali ai mercati globali garantendo tracciabilità, standard UE e supervisione costante sul campo.</p>
+        <div class="social-icons"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-linkedin-in"></i></a><a href="#" onclick="openWhatsApp()"><i class="fa-brands fa-whatsapp"></i></a></div>
       </div>
       <div class="footer-box">
         <h3>LINK RAPIDI</h3>
-        <ul>
-          <li><a href="prodotti.html">PRODOTTI</a></li>
-          <li><a href="chi-siamo.html">CHI SIAMO</a></li>
-          <li><a href="consulenza.html">CONSULENZA</a></li>
-          <li><a href="#contact-footer">CONTATTACI</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul><br>
+        <ul><li><a href="prodotti.html">PRODOTTI</a></li><li><a href="chi-siamo.html">CHI SIAMO</a></li><li><a href="consulenza.html">CONSULENZA</a></li><li><a href="#contact-footer">CONTATTACI</a></li><li><a href="#faq">FAQ</a></li></ul><br>
         <h3>LE NOSTRE DIVISIONI</h3>
-        <ul>
-          <li><span>FRESH DEVISION</span></li>
-          <li><span>FROZEN DEVISION</span></li>
-          <li><span>BIO ENERGY DEVISION</span></li>
-        </ul>
+        <ul><li><span>FRESH DIVISION</span></li><li><span>FROZEN DIVISION</span></li><li><span>BIO ENERGY DIVISION</span></li></ul>
       </div>
       <div class="footer-box">
         <h3>STANDARD OPERATIVI</h3>
@@ -2505,14 +1950,12 @@ inoltre: Ispezioni di terze parti (SGS o Bureau Veritas) e soluzioni Escrow per 
         <h3>CONTATTI</h3>
         <p><i class="fa-solid fa-phone"></i> CEO e responsabile Export +39 3913049947</p>
         <p><i class="fa-solid fa-phone"></i> CEO Export area manager +39 3392084078</p>
-        <p><i class="fa-solid fa-envelope"></i> Email: ------</p>
-        <p><i class="fa-solid fa-location-dot"></i> Sede amministrativa: ------</p>
+        <p><i class="fa-solid fa-envelope"></i> Email: info@choamx.com</p>
+        <p><i class="fa-solid fa-location-dot"></i> Sede amministrativa: Il Cairo, Egitto</p>
         <p>CHOAMX – Registered in Egypt | Tax ID: 123-456-789 | Commercial Registry: 98765</p>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 <span>CHOAMX</span> — Eccellenza Egiziana. Tutti i diritti riservati.</p>
-    </div>
+    <div class="footer-bottom"><p>© 2026 <span>CHOAMX</span> — Eccellenza Egiziana. Tutti i diritti riservati.</p></div>
   </footer>
 
   <div class="whatsapp" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i></div>
