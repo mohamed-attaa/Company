@@ -96,26 +96,16 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
             text-decoration: none;
             flex-shrink: 0;
         }
 
-        .logo-mark {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dk));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            box-shadow: 0 4px 18px var(--gold-glow);
-            transition: transform .3s;
-        }
-
-        .logo:hover .logo-mark {
-            transform: rotate(8deg) scale(1.06);
+        .logo-img {
+            width: 100px;
+            height: 64px;
+            object-fit: contain;
+            flex-shrink: 0;
         }
 
         .logo-text {
@@ -1122,7 +1112,7 @@
     <header id="hdr">
         <div class="nav">
             <a class="logo" href="index.html">
-                <div class="logo-mark">🌿</div>
+                <img src="imges/logo.jpg" alt="CHOAMX" class="logo-img">
                 <div class="logo-text">
                     <strong>CHOAMX</strong>
                     <small>Egyptian Excellence</small>
@@ -1212,7 +1202,7 @@
                     <h1 class="detail-title">Aglio IQF<br><em>"Aroma intenso e praticità surgelata"</em></h1>
                     <div class="badge-season"><i class="fas fa-calendar-alt"></i> Stagione: Maggio · Giugno</div>
                     <p class="detail-desc">
-                        Il nostro aglio IQF (Individual Quick Freezing) viene surgelato singolarmente poche ore dopo la raccolta, preservando intatte le proprietà organolettiche, l’aroma intenso e la consistenza. Disponibile in tre preparazioni: bulbi interi, spicchi e tritato. La soluzione ideale per l’industria alimentare, la ristorazione e il retail.
+                        Il nostro aglio IQF (Individual Quick Freezing) viene surgelato singolarmente poche ore dopo la raccolta, preservando intatte le proprietà organolettiche, l'aroma intenso e la consistenza. Disponibile in tre preparazioni: bulbi interi, spicchi e tritato. La soluzione ideale per l'industria alimentare, la ristorazione e il retail.
                     </p>
                     <ul class="feat-list">
                         <li><div class="feat-icon"><i class="fas fa-snowflake"></i></div><div class="feat-text"><strong>Tecnologia IQF</strong><span>Congelamento rapido singolo, nessuna aggregazione</span></div></li>
@@ -1243,14 +1233,22 @@
                 <div style="padding: 0 8px;">
                     <table class="specs-table">
                         <tbody>
-                            <tr><th>Preparazione</th><td>Bulbi · Spicchi · Tritato</td></tr>
-                            <tr><th>Confezionamento (Bulk)</th><td>1 x 10 kg (sfuso per industria)</td></tr>
-                            <tr><th>Confezionamento (Catering)</th><td>4 x 2,5 kg (formato pratico per ristorazione)</td></tr>
-                            <tr><th>Confezionamento (Retail)</th><td>400 g / 800 g / 1 kg (sacchetti con chiusura richiudibile)</td></tr>
-                            <tr><th>Etichetta Privata</th><td>Disponibile su richiesta per tutte le linee</td></tr>
-                            <tr><th>Stagione di raccolta</th><td>Maggio – Giugno</td></tr>
-                            <tr><th>Tecnologia di surgelazione</th><td>IQF (Individual Quick Freezing) a -35°C</td></tr>
-                            <tr><th>Catena del freddo</th><td>Mantenimento costante a -18°C dalla produzione alla consegna</td></tr>
+                            <tr><th>Preparazione</th><td>Bulbi · Spicchi · Tritato</td>
+                            <tr>
+                            <tr><th>Confezionamento (Bulk)</th><td>1 x 10 kg (sfuso per industria)</td>
+                            </tr>
+                            <tr><th>Confezionamento (Catering)</th><td>4 x 2,5 kg (formato pratico per ristorazione)</td>
+                            </tr>
+                            <tr><th>Confezionamento (Retail)</th><td>400 g / 800 g / 1 kg (sacchetti con chiusura richiudibile)</td>
+                            </tr>
+                            <tr><th>Etichetta Privata</th><td>Disponibile su richiesta per tutte le linee</td>
+                            </tr>
+                            <tr><th>Stagione di raccolta</th><td>Maggio – Giugno</td>
+                            </tr>
+                            <tr><th>Tecnologia di surgelazione</th><td>IQF (Individual Quick Freezing) a -35°C</td>
+                            </tr>
+                            <tr><th>Catena del freddo</th><td>Mantenimento costante a -18°C dalla produzione alla consegna</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

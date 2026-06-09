@@ -1114,6 +1114,22 @@
             .specs-table th, .specs-table td { padding: 12px 16px; font-size: 13px; }
             .fab-wa { bottom: 20px; right: 20px; width: 48px; height: 48px; font-size: 20px; }
         }
+        .logo{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.logo-img{
+    width:100px;
+    height: 64px;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.logo-text{
+    line-height:1.15;
+}
     </style>
 </head>
 
@@ -1122,13 +1138,14 @@
     <!-- NAVBAR -->
     <header id="hdr">
         <div class="nav">
-            <a class="logo" href="index.html">
-                <div class="logo-mark">🌿</div>
-                <div class="logo-text">
-                    <strong>CHOAMX</strong>
-                    <small>Egyptian Excellence</small>
-                </div>
-            </a>
+         <a class="logo" href="index.html">
+    <img src="imges/logo.jpg" alt="CHOAMX" class="logo-img">
+
+    <div class="logo-text">
+        <strong>CHOAMX</strong>
+        <small>Egyptian Excellence</small>
+    </div>
+</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="prodotti.html">Prodotti</a></li>

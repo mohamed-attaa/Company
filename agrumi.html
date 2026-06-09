@@ -173,13 +173,56 @@
       .product-title { font-size: 18px; }
       .btn-leggi { width: 100%; justify-content: center; }
     }
+    /* ---- اللوجو الجديد ---- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo-img {
+    width: 100px;
+    height: 64px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.logo-text {
+    line-height: 1.15;
+}
+
+.logo-text strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--cream);
+}
+
+.logo-text small {
+    display: block;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+}
   </style>
 </head>
 <body>
 
 <header id="navbar">
   <div class="nav">
-    <a class="logo" href="#"><div class="logo-icon">🌿</div><h2>CHOAMX<span>Egyptian Excellence</span></h2></a>
+    <a class="logo" href="index.html">
+    <img src="imges/logo.jpg" alt="CHOAMX" class="logo-img">
+    <div class="logo-text">
+        <strong>CHOAMX</strong>
+        <small>Egyptian Excellence</small>
+    </div>
+</a>
     <button class="menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
     <nav class="nav-links" id="navLinks">
       <ul><li><a href="index.html">Home</a></li><li><a href="prodotti.html">Prodotti</a></li><li><a href="Chi_siamo.html">Chi siamo</a></li><li><a href="Consulenza.html">Consulenza</a></li><li><a href="#contact-footer">Contattaci</a></li><li><a href="#faq">FAQ</a></li></ul>

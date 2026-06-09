@@ -254,7 +254,7 @@
       scroll-margin-top: 110px;
     }
 
-    /* ===== HERO, SECTIONS (tutto invariato) ===== */
+    /* ===== HERO, SECTIONS ===== */
     .hero {
       min-height: 100vh;
       background: url('https://images.pexels.com/photos/32119533/pexels-photo-32119533.jpeg') no-repeat center/cover;
@@ -474,7 +474,7 @@
       }
     }
 
-    /* ===== SECTION SHARED (invar.) ===== */
+    /* ===== SECTION SHARED ===== */
     .section-eyebrow {
       display: inline-block;
       font-size: 10.5px;
@@ -547,7 +547,7 @@
       padding: 0 20px;
     }
 
-    /* ===== IMPORT SECTION (invariato) ===== */
+    /* ===== IMPORT SECTION ===== */
     .import-section {
       padding: 110px 0 100px;
       background: linear-gradient(160deg, #f5f0e8 0%, #ede5d5 50%, #e8dfc8 100%);
@@ -679,7 +679,7 @@
       margin-top: 6px;
     }
 
-    /* ABOUT, CATEGORIES, TIMELINE, SHIPPING, FAQ, STATS, CTA, FOOTER rimangono identici */
+    /* ===== ABOUT SECTION ===== */
     .about-section {
       background: linear-gradient(160deg, #10100e 0%, #161410 50%, #1a1612 100%);
       padding: 110px 0;
@@ -797,6 +797,7 @@
       font-weight: 500;
     }
 
+    /* ===== CATEGORIES SECTION ===== */
     .categories-section {
       background: linear-gradient(160deg, #0c0b09 0%, #131109 50%, #1a150a 100%);
       padding: 110px 0 120px;
@@ -958,6 +959,7 @@
       background-image: url('https://images.pexels.com/photos/19757403/pexels-photo-19757403.jpeg');
     }
 
+    /* ===== TIMELINE SECTION (CORRETTA PER MOBILE) ===== */
     .timeline-section {
       padding: 100px 20px 110px;
       background: linear-gradient(160deg, #f5f0e8 0%, #eee7d8 50%, #e6dcc8 100%);
@@ -1200,6 +1202,110 @@
       transform: none;
     }
 
+    /* RESPONSIVE TIMELINE FIX (versione mobile completamente ristrutturata) */
+    @media (max-width: 680px) {
+      .timeline-container {
+        padding: 0;
+        max-width: 100%;
+      }
+      
+      .timeline-line {
+        left: 20px;
+        transform: none;
+      }
+      
+      .timeline-item {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding-left: 50px;
+        margin-bottom: 30px;
+        min-height: auto;
+      }
+      
+      .item-center {
+        position: absolute;
+        left: 6px;
+        top: 0;
+        flex-direction: row;
+        gap: 12px;
+        align-items: center;
+        padding-top: 0;
+        width: auto;
+      }
+      
+      .item-dot {
+        width: 12px;
+        height: 12px;
+      }
+      
+      .item-day {
+        margin-top: 0;
+        font-size: 9px;
+        white-space: normal;
+        background: rgba(201, 150, 58, 0.15);
+        padding: 2px 8px;
+        border-radius: 20px;
+        color: var(--gold-dark);
+      }
+      
+      .item-left,
+      .item-right,
+      .item-empty {
+        grid-column: auto;
+        padding: 0;
+        text-align: left;
+        width: 100%;
+      }
+      
+      .item-left {
+        padding-top: 28px;
+        margin: 0;
+      }
+      
+      .item-right {
+        padding-top: 28px;
+        margin: 0;
+      }
+      
+      .item-empty {
+        display: none;
+      }
+      
+      .item-left::after,
+      .item-right::before {
+        display: none;
+      }
+      
+      .item-title {
+        font-size: 16px;
+        display: block;
+      }
+      
+      .item-title::after {
+        left: 0 !important;
+        right: auto !important;
+        width: 40px !important;
+      }
+      
+      .timeline-item.visible .item-title::after {
+        width: 60px !important;
+      }
+      
+      .item-desc {
+        max-width: 100%;
+        margin-top: 12px;
+        margin-left: 0 !important;
+        font-size: 13px;
+      }
+      
+      .timeline-item .item-left,
+      .timeline-item .item-right {
+        transform: translateX(0);
+      }
+    }
+
+    /* ===== SHIPPING SECTION ===== */
     .shipping-section {
       background: linear-gradient(160deg, #f5f0e8 0%, #ede5d5 50%, #e8dfc8 100%);
       padding: 110px 0;
@@ -1289,6 +1395,7 @@
       color: var(--text-mid);
     }
 
+    /* ===== FAQ SECTION ===== */
     .faq-section {
       padding: 90px 40px 100px;
       max-width: 1300px;
@@ -1422,6 +1529,7 @@
       padding-top: 18px;
     }
 
+    /* ===== STATS SECTION ===== */
     .stats-section {
       background: linear-gradient(160deg, #0a0908 0%, #100e0b 50%, #141108 100%);
       padding: 110px 0;
@@ -1486,6 +1594,7 @@
       color: rgba(253, 250, 245, 0.65);
     }
 
+    /* ===== CTA SECTION ===== */
     .cta-section {
       background: linear-gradient(160deg, #111008 0%, #0c0b08 50%, #0a0908 100%);
       padding: 120px 0;
@@ -1530,6 +1639,7 @@
       flex-wrap: wrap;
     }
 
+    /* ===== FOOTER ===== */
     .footer {
       background: linear-gradient(180deg, #0a0908 0%, #070706 100%);
       color: #fff;
@@ -1683,7 +1793,7 @@
       box-shadow: 0 12px 36px rgba(201, 150, 58, 0.68);
     }
 
-    /* Responsive invariato */
+    /* Responsive generale */
     @media (max-width: 1100px) {
       .import-cards {
         grid-template-columns: repeat(2, 1fr);
@@ -1777,45 +1887,6 @@
 
       .stats-container {
         grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 680px) {
-      .timeline-container {
-        padding: 0 10px;
-      }
-
-      .timeline-item {
-        grid-template-columns: 28px 1fr;
-      }
-
-      .timeline-line {
-        left: 14px;
-      }
-
-      .item-left,
-      .item-right {
-        grid-column: 2;
-        text-align: left;
-        padding: 0 0 32px 20px;
-      }
-
-      .item-left::after,
-      .item-right::before {
-        display: none;
-      }
-
-      .item-center {
-        grid-column: 1;
-      }
-
-      .item-empty {
-        display: none;
-      }
-
-      .category-card {
-        width: 145px;
-        height: 95px;
       }
     }
 
@@ -1927,7 +1998,7 @@
     </div>
   </header>
 
-  <!-- ===== HERO etc (Nessuna eliminazione) ===== -->
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-particles" id="particles"></div>
@@ -1947,7 +2018,7 @@
     <div class="scroll-indicator"><i class="fas fa-chevron-down"></i> SCORRI</div>
   </section>
 
-  <!-- WHY IMPORT, ABOUT, CATEGORIES, TIMELINE, SHIPPING, FAQ, STATS, CTA, FOOTER TUTTO IDENTICO -->
+  <!-- WHY IMPORT -->
   <section class="import-section">
     <div class="section-header">
       <div class="section-eyebrow reveal">PERCHÉ SCEGLIERCI </div>
@@ -1988,6 +2059,7 @@
     </div>
   </section>
 
+  <!-- ABOUT -->
   <section class="about-section" id="about">
     <div class="about-container">
       <div class="about-image reveal from-left"><img
@@ -2014,6 +2086,7 @@
     </div>
   </section>
 
+  <!-- CATEGORIES -->
   <section class="categories-section">
     <div class="cat-orb"></div>
     <div class="section-header">
@@ -2059,6 +2132,7 @@
     </div>
   </section>
 
+  <!-- TIMELINE SECTION (CORRETTA) -->
   <section class="timeline-section">
     <div class="timeline-header" id="tl-header">
       <div class="section-eyebrow" style="color:var(--gold-dark)">Il Nostro Processo</div>
@@ -2068,81 +2142,82 @@
       <div class="timeline-line" id="tl-line">
         <div class="timeline-line-fill" id="tl-fill"></div>
       </div>
+      
       <div class="timeline-item">
-        <div class="item-left">
-          <div class="item-title">Definizione delle specifiche</div>
-          <p class="item-desc">Analizziamo insieme ogni dettaglio: prodotto, calibro, imballaggio, quantità, Incoterm e
-            destinazione. Nessuna ambiguità, zero margini di errore.</p>
-        </div>
         <div class="item-center">
           <div class="item-dot"></div>
           <div class="item-day">Day 0</div>
         </div>
+        <div class="item-left">
+          <div class="item-title">Definizione delle specifiche</div>
+          <p class="item-desc">Analizziamo insieme ogni dettaglio: prodotto, calibro, imballaggio, quantità, Incoterm e destinazione. Nessuna ambiguità, zero margini di errore.</p>
+        </div>
         <div class="item-empty"></div>
       </div>
+      
       <div class="timeline-item">
-        <div class="item-empty"></div>
         <div class="item-center">
           <div class="item-dot"></div>
           <div class="item-day">± 24 hours</div>
         </div>
+        <div class="item-empty"></div>
         <div class="item-right">
           <div class="item-title">Offerta dettagliata</div>
-          <p class="item-desc">Ricevi un preventivo completo con tempistiche di partenza, stime di arrivo, opzioni
-            logistiche e condizioni chiare.</p>
+          <p class="item-desc">Ricevi un preventivo completo con tempistiche di partenza, stime di arrivo, opzioni logistiche e condizioni chiare.</p>
         </div>
       </div>
+      
       <div class="timeline-item">
-        <div class="item-left">
-          <div class="item-title">Conferma e pianificazione</div>
-          <p class="item-desc">Emettiamo la Proforma Invoice e definiamo un calendario operativo di precisione. Ogni
-            fase è programmata per garantire fluidità e puntualità.</p>
-        </div>
         <div class="item-center">
           <div class="item-dot"></div>
           <div class="item-day">Day 1–2</div>
         </div>
+        <div class="item-left">
+          <div class="item-title">Conferma e pianificazione</div>
+          <p class="item-desc">Emettiamo la Proforma Invoice e definiamo un calendario operativo di precisione. Ogni fase è programmata per garantire fluidità e puntualità.</p>
+        </div>
         <div class="item-empty"></div>
       </div>
+      
       <div class="timeline-item">
-        <div class="item-empty"></div>
         <div class="item-center">
           <div class="item-dot"></div>
           <div class="item-day">Day 1-3</div>
         </div>
+        <div class="item-empty"></div>
         <div class="item-right">
           <div class="item-title">Controllo qualità e preparazione</div>
-          <p class="item-desc">Supervisioniamo selezione, lavorazione e imballaggio direttamente sul campo. Prima della
-            partenza, ricevi report video e foto del carico.</p>
+          <p class="item-desc">Supervisioniamo selezione, lavorazione e imballaggio direttamente sul campo. Prima della partenza, ricevi report video e foto del carico.</p>
         </div>
       </div>
+      
       <div class="timeline-item">
-        <div class="item-left">
-          <div class="item-title">Spedizione e monitoraggio</div>
-          <p class="item-desc">Gestiamo l'intera logistica. Seguiamo la merce lungo tutto il tragitto con aggiornamenti
-            costanti e tutta la documentazione necessaria.</p>
-        </div>
         <div class="item-center">
           <div class="item-dot"></div>
           <div class="item-day">In partenza</div>
         </div>
+        <div class="item-left">
+          <div class="item-title">Spedizione e monitoraggio</div>
+          <p class="item-desc">Gestiamo l'intera logistica. Seguiamo la merce lungo tutto il tragitto con aggiornamenti costanti e tutta la documentazione necessaria.</p>
+        </div>
         <div class="item-empty"></div>
       </div>
+      
       <div class="timeline-item">
-        <div class="item-empty"></div>
         <div class="item-center">
           <div class="item-dot"></div>
           <div class="item-day">In corso</div>
         </div>
+        <div class="item-empty"></div>
         <div class="item-right">
           <div class="item-title">Supporto post-consegna</div>
-          <p class="item-desc">Restiamo al tuo fianco anche dopo l'arrivo della merce, garantendo assistenza operativa
-            continua e stabilità per la tua programmazione futura.</p>
+          <p class="item-desc">Restiamo al tuo fianco anche dopo l'arrivo della merce, garantendo assistenza operativa continua e stabilità per la tua programmazione futura.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- SHIPPING -->
   <section class="shipping-section" id="shipping">
     <div class="section-header">
       <div class="section-eyebrow reveal">LOGISTICA </div>
@@ -2180,6 +2255,7 @@
     </div>
   </section>
 
+  <!-- FAQ -->
   <div style="background: linear-gradient(160deg,#ebe5d8 0%,#e0d8c8 100%); padding: 1px 0;">
     <div class="faq-section" id="faq">
       <div class="faq-wrapper">
@@ -2284,6 +2360,7 @@ inoltre: Ispezioni di terze parti (SGS o Bureau Veritas) e soluzioni Escrow per 
     </div>
   </div>
 
+  <!-- STATS -->
   <section class="stats-section" id="stats">
     <div class="section-header">
       <div class="section-eyebrow reveal">I NOSTRI PILASTRI </div>
@@ -2313,6 +2390,7 @@ inoltre: Ispezioni di terze parti (SGS o Bureau Veritas) e soluzioni Escrow per 
     </div>
   </section>
 
+  <!-- CTA -->
   <section class="cta-section" id="cta">
     <div class="cta-container">
       <div class="cta-content reveal">
@@ -2325,6 +2403,7 @@ inoltre: Ispezioni di terze parti (SGS o Bureau Veritas) e soluzioni Escrow per 
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="footer" id="contact-footer">
     <div class="footer-container">
       <div class="footer-box"><span class="footer-logo">CHOAMX</span>
